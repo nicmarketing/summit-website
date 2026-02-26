@@ -1,0 +1,11 @@
+# Temp/working files
+.tmp/
+
+# Environment & credentials
+.env
+token.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
