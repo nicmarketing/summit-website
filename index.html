@@ -509,6 +509,7 @@
       position: relative;
       overflow: hidden;
       transition: border-color .25s, transform .25s, box-shadow .25s;
+      cursor: pointer;
     }
     .svc-card:hover {
       border-color: rgba(0,174,239,.4);
@@ -869,6 +870,211 @@
     @media (max-width: 600px) {
       .services-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── PACKAGE DETAIL MODAL ─────────────────────────────────────── */
+    .pkg-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(2,12,31,.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 9000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .pkg-overlay.active { display: flex; }
+    .pkg-modal {
+      background: #050f28;
+      border: 1px solid rgba(0,174,239,.25);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 860px;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      position: relative;
+      animation: pkgIn .32s cubic-bezier(.22,.68,0,1.08);
+    }
+    @keyframes pkgIn {
+      from { opacity: 0; transform: translateY(22px) scale(.96); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .pkg-left {
+      background: linear-gradient(160deg, #0d2660 0%, #071940 55%, #020c1f 100%);
+      border-radius: 20px 0 0 20px;
+      padding: 44px 32px;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid rgba(0,174,239,.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .pkg-left::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,174,239,.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .pkg-tier-label {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .pkg-badge-pill {
+      display: inline-block;
+      background: var(--grad);
+      color: var(--bg);
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+      align-self: flex-start;
+    }
+    .pkg-name {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      line-height: 1;
+      margin-bottom: 16px;
+      background: linear-gradient(120deg, #fff 0%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .pkg-tagline {
+      font-size: .84rem;
+      color: rgba(255,255,255,.65);
+      line-height: 1.55;
+      margin-bottom: 28px;
+    }
+    .pkg-bestfor-label {
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .pkg-bestfor-text {
+      font-size: .82rem;
+      color: rgba(255,255,255,.5);
+      line-height: 1.5;
+    }
+    .pkg-mountain-icon {
+      margin-top: auto;
+      padding-top: 32px;
+      opacity: .16;
+    }
+    .pkg-mountain-icon svg { width: 72px; height: 44px; display: block; }
+    .pkg-right {
+      padding: 44px 40px;
+      display: flex;
+      flex-direction: column;
+    }
+    .pkg-right-heading {
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .pkg-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      flex: 1;
+      margin-bottom: 32px;
+    }
+    .pkg-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: .875rem;
+      color: rgba(255,255,255,.82);
+      line-height: 1.45;
+    }
+    .pkg-check {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: rgba(0,174,239,.1);
+      border: 1px solid rgba(0,174,239,.3);
+      flex-shrink: 0;
+      margin-top: 1px;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8.5l3 3 6-6' stroke='%2300AEEF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: 65%;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: inline-block;
+    }
+    .pkg-cta-btn {
+      display: block;
+      width: 100%;
+      background: var(--grad);
+      color: var(--bg);
+      border: none;
+      padding: 15px 24px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      cursor: pointer;
+      transition: opacity .2s, transform .2s, box-shadow .2s;
+      text-align: center;
+    }
+    .pkg-cta-btn:hover {
+      opacity: .9;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 32px rgba(0,174,239,.4);
+    }
+    .pkg-disclaimer {
+      margin-top: 10px;
+      font-size: .74rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    .pkg-close-btn {
+      position: absolute;
+      top: 14px; right: 14px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.55);
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.15rem;
+      line-height: 1;
+      transition: background .2s, color .2s;
+      z-index: 10;
+    }
+    .pkg-close-btn:hover { background: rgba(255,255,255,.14); color: var(--white); }
+    @media (max-width: 680px) {
+      .pkg-modal { grid-template-columns: 1fr; }
+      .pkg-left {
+        border-radius: 20px 20px 0 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(0,174,239,.15);
+        padding: 36px 28px 28px;
+      }
+      .pkg-right { padding: 28px 28px 36px; }
+      .pkg-mountain-icon { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -1136,7 +1342,7 @@
     <div class="services-grid">
 
       <!-- BASECAMP -->
-      <div class="svc-card">
+      <div class="svc-card" data-pkg="basecamp">
         <div class="svc-tier">Tier 01</div>
         <div class="svc-name">Basecamp</div>
         <div class="svc-tagline">Build the foundation for growth. Perfect for businesses ready to establish their digital presence.</div>
@@ -1153,7 +1359,7 @@
       </div>
 
       <!-- ELEVATE -->
-      <div class="svc-card">
+      <div class="svc-card" data-pkg="elevate">
         <div class="svc-tier">Tier 02</div>
         <div class="svc-name">Elevate</div>
         <div class="svc-tagline">Everything in Basecamp, plus brand-building and conversion tools that accelerate growth.</div>
@@ -1171,7 +1377,7 @@
       </div>
 
       <!-- ASCENT — FEATURED -->
-      <div class="svc-card featured">
+      <div class="svc-card featured" data-pkg="ascent">
         <div class="svc-badge">Most Popular</div>
         <div class="svc-tier">Tier 03</div>
         <div class="svc-name">Ascent</div>
@@ -1191,7 +1397,7 @@
       </div>
 
       <!-- PEAK -->
-      <div class="svc-card">
+      <div class="svc-card" data-pkg="peak">
         <div class="svc-tier">Tier 04</div>
         <div class="svc-name">Peak</div>
         <div class="svc-tagline">Enterprise-grade, fully custom strategy. For organizations ready to dominate their market.</div>
@@ -1358,6 +1564,40 @@
     </div>
   </footer>
 
+  <!-- ── PACKAGE DETAIL MODAL ─────────────────────────────────────────── -->
+  <div class="pkg-overlay" id="pkg-overlay">
+    <div class="pkg-modal" id="pkg-modal">
+      <button class="pkg-close-btn" id="pkg-close-btn" aria-label="Close">&times;</button>
+      <!-- LEFT: Identity panel -->
+      <div class="pkg-left">
+        <div class="pkg-tier-label" id="pkg-tier-label"></div>
+        <div class="pkg-badge-pill" id="pkg-badge-pill">Most Popular</div>
+        <div class="pkg-name" id="pkg-name"></div>
+        <div class="pkg-tagline" id="pkg-tagline"></div>
+        <div class="pkg-bestfor-label">Best for</div>
+        <div class="pkg-bestfor-text" id="pkg-bestfor-text"></div>
+        <div class="pkg-mountain-icon">
+          <svg viewBox="0 0 72 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 44 L18 18 L28 28 L44 6 L56 22 L64 14 L72 44Z" fill="url(#mtnG)"/>
+            <defs>
+              <linearGradient id="mtnG" x1="0" y1="0" x2="72" y2="44" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00AEEF"/>
+                <stop offset="100%" stop-color="#41D9F2"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+      <!-- RIGHT: Features + CTA -->
+      <div class="pkg-right">
+        <div class="pkg-right-heading">What's included</div>
+        <ul class="pkg-features-list" id="pkg-features-list"></ul>
+        <button class="pkg-cta-btn" id="pkg-cta-btn"></button>
+        <div class="pkg-disclaimer">No long-term contracts &mdash; cancel anytime.</div>
+      </div>
+    </div>
+  </div>
+
   <!-- ── THANK YOU MODAL ──────────────────────────────────────────────── -->
   <div class="ty-overlay" id="ty-overlay">
     <div class="ty-modal">
@@ -1401,6 +1641,151 @@
           if (e.target === overlay) overlay.classList.remove('active');
         });
       }
+    })();
+
+    /* ── PACKAGE MODALS ─────────────────────────────────────────────── */
+    (function () {
+      var PACKAGES = {
+        basecamp: {
+          tier: 'Tier 01 · Foundation',
+          name: 'Basecamp',
+          tagline: 'Build the foundation for sustainable, long-term digital growth.',
+          bestFor: 'Businesses establishing their digital presence and looking to capture organic traffic from day one.',
+          featured: false,
+          features: [
+            'SEO Audit & Strategy',
+            'On-Page SEO Optimization',
+            'Monthly Content — 2 articles/mo',
+            'Email Newsletter Setup & Management',
+            'Monthly Analytics Report',
+            'Google Business Profile Optimization'
+          ],
+          cta: 'Get Started with Basecamp',
+          formValue: 'Basecamp'
+        },
+        elevate: {
+          tier: 'Tier 02 · Growth',
+          name: 'Elevate',
+          tagline: 'Accelerate growth with brand authority and conversion-optimized marketing.',
+          bestFor: 'Growing businesses with a foundation in place, ready to scale traffic, brand presence, and conversions.',
+          featured: false,
+          features: [
+            'Everything in Basecamp',
+            'Brand Strategy & Positioning',
+            'Monthly Content — 4 articles/mo',
+            'Social Media Management',
+            'Email Nurture Sequences',
+            'Conversion Rate Optimization',
+            'Bi-weekly Strategy Calls'
+          ],
+          cta: 'Get Started with Elevate',
+          formValue: 'Elevate'
+        },
+        ascent: {
+          tier: 'Tier 03 · Scale',
+          name: 'Ascent',
+          tagline: 'The complete growth engine — full-funnel marketing built for ambitious businesses.',
+          bestFor: 'Companies ready to dominate their market with a comprehensive, data-driven full-funnel approach.',
+          featured: true,
+          features: [
+            'Everything in Elevate',
+            'Full-Funnel Marketing Strategy',
+            'Landing Page & Funnel Design',
+            'Marketing Automation Builds',
+            'Dedicated Account Manager',
+            'Weekly Performance Reviews',
+            'Competitor Gap Analysis',
+            'Monthly Content — 8 articles/mo'
+          ],
+          cta: 'Get Started with Ascent',
+          formValue: 'Ascent'
+        },
+        peak: {
+          tier: 'Tier 04 · Enterprise',
+          name: 'Peak',
+          tagline: 'Enterprise-grade, fully custom strategy built around your market and goals.',
+          bestFor: 'Established organizations with complex needs, multiple channels, and a mandate to lead their category.',
+          featured: false,
+          features: [
+            'Everything in Ascent',
+            'Custom Growth Roadmap',
+            'Multi-Channel Orchestration',
+            'Executive Quarterly Reviews',
+            'Priority Support & SLAs',
+            'PR & Authority Building',
+            'Custom Integrations',
+            'Unlimited Content Production'
+          ],
+          cta: "Let's Talk About Peak",
+          formValue: 'Peak'
+        }
+      };
+
+      var overlay  = document.getElementById('pkg-overlay');
+      var closeBtn = document.getElementById('pkg-close-btn');
+      var ctaBtn   = document.getElementById('pkg-cta-btn');
+
+      function openPkg(pkgKey) {
+        var pkg = PACKAGES[pkgKey];
+        if (!pkg) return;
+        document.getElementById('pkg-tier-label').textContent   = pkg.tier;
+        document.getElementById('pkg-name').textContent         = pkg.name;
+        document.getElementById('pkg-tagline').textContent      = pkg.tagline;
+        document.getElementById('pkg-bestfor-text').textContent = pkg.bestFor;
+        var badge = document.getElementById('pkg-badge-pill');
+        badge.style.display = pkg.featured ? '' : 'none';
+        var list = document.getElementById('pkg-features-list');
+        list.innerHTML = '';
+        pkg.features.forEach(function (feat) {
+          var li = document.createElement('li');
+          li.innerHTML = '<span class="pkg-check"></span>' + feat;
+          list.appendChild(li);
+        });
+        ctaBtn.textContent = pkg.cta;
+        ctaBtn.setAttribute('data-form-value', pkg.formValue);
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closePkg() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      // Open modal on card click
+      document.querySelectorAll('.svc-card').forEach(function (card) {
+        card.addEventListener('click', function () {
+          openPkg(card.getAttribute('data-pkg'));
+        });
+      });
+
+      // Prevent card CTAs from scrolling — modal handles the flow
+      document.querySelectorAll('.svc-cta').forEach(function (cta) {
+        cta.addEventListener('click', function (e) { e.preventDefault(); });
+      });
+
+      // Close button
+      if (closeBtn) closeBtn.addEventListener('click', closePkg);
+
+      // Backdrop click
+      if (overlay) overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closePkg();
+      });
+
+      // Escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) closePkg();
+      });
+
+      // CTA → pre-select service + scroll to form
+      if (ctaBtn) ctaBtn.addEventListener('click', function () {
+        var val    = this.getAttribute('data-form-value');
+        var select = document.getElementById('smf-service');
+        closePkg();
+        if (select && val) select.value = val;
+        var contact = document.getElementById('contact');
+        if (contact) setTimeout(function () { contact.scrollIntoView({ behavior: 'smooth' }); }, 120);
+      });
     })();
   </script>
 
