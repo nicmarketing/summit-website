@@ -399,11 +399,17 @@
       border-radius: 14px;
       padding: 22px 18px;
       text-align: center;
+      transition: border-color .25s, background .25s, transform .25s;
+    }
+    .sc-box:hover {
+      border-color: rgba(0,174,239,.38);
+      background: rgba(0,174,239,.07);
+      transform: translateY(-3px);
     }
     .sc-box-icon { font-size: 1.7rem; margin-bottom: 10px; }
     .sc-box-val {
-      font-size: 1.6rem; font-weight: 800;
-      letter-spacing: -.03em;
+      font-size: 1.25rem; font-weight: 800;
+      letter-spacing: -.02em;
       background: var(--grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -411,14 +417,33 @@
       margin-bottom: 4px;
     }
     .sc-box-label { font-size: .7rem; color: rgba(255,255,255,.4); font-weight: 500; }
+    .sc-box-reveal {
+      font-size: .72rem;
+      color: rgba(255,255,255,.45);
+      line-height: 1.45;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height .3s ease, opacity .3s ease, margin-top .3s ease;
+      margin-top: 0;
+    }
+    .sc-box:hover .sc-box-reveal {
+      max-height: 80px;
+      opacity: 1;
+      margin-top: 8px;
+    }
     .sc-box.wide {
       grid-column: span 2;
       background: rgba(0,174,239,.08);
       border-color: rgba(0,174,239,.22);
       padding: 24px;
     }
+    .sc-box.wide:hover {
+      background: rgba(0,174,239,.13);
+      border-color: rgba(0,174,239,.45);
+    }
     .sc-box.wide .sc-box-val {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 6px;
     }
     .sc-box.wide .sc-box-label {
@@ -1284,24 +1309,26 @@
       <div class="showcase-visual">
         <div class="sc-box">
           <div class="sc-box-icon">📈</div>
-          <div class="sc-box-val">+127%</div>
-          <div class="sc-box-label">Avg. Revenue Growth</div>
+          <div class="sc-box-val">Organic Growth</div>
+          <div class="sc-box-label">SEO &amp; content that compound</div>
+          <div class="sc-box-reveal">Traffic that builds on itself — month over month, channel by channel.</div>
         </div>
         <div class="sc-box">
           <div class="sc-box-icon">🎯</div>
-          <div class="sc-box-val">94%</div>
-          <div class="sc-box-label">Keyword Win Rate</div>
+          <div class="sc-box-val">Precision Strategy</div>
+          <div class="sc-box-label">Tied directly to your goals</div>
+          <div class="sc-box-reveal">No fluff, no vanity metrics — only what actually moves the needle for your business.</div>
         </div>
         <div class="sc-box wide">
           <div class="sc-box-icon">🚀</div>
-          <div class="sc-box-val">90-Day Growth Sprint</div>
-          <div class="sc-box-label">From strategy to measurable results in 12 weeks — guaranteed</div>
+          <div class="sc-box-val">Full-Funnel Execution</div>
+          <div class="sc-box-label">From first impression to loyal client — we own the entire journey</div>
         </div>
       </div>
       <div class="showcase-content">
-        <h2>Sustainable growth, <em>predictable</em> results</h2>
-        <p>We don't just run campaigns — we build growth engines. Every strategy is built around your margins, your market, and your definition of success. No vanity metrics. Just revenue.</p>
-        <a href="#results" class="btn-primary">See Case Studies &rarr;</a>
+        <h2>Marketing built to <em>move the needle</em></h2>
+        <p>We don't just run campaigns — we build growth systems. Every strategy is rooted in your goals, your market, and what actually drives revenue for your business. No guesswork, no vanity.</p>
+        <a href="#services" class="btn-primary">Start Your Ascent &rarr;</a>
       </div>
     </div>
   </section>
