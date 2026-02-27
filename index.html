@@ -766,6 +766,58 @@
       .sm-title { font-size: 22px; }
     }
 
+    /* ── THANK YOU MODAL ───────────────────────────────────────────────── */
+    .ty-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(2,12,31,.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    .ty-overlay.active { display: flex; }
+    .ty-modal {
+      background: linear-gradient(160deg, #0b2255 0%, #071940 55%, #020c1f 100%);
+      border: 1px solid rgba(0,174,239,.35);
+      border-radius: 24px;
+      padding: 56px 48px;
+      max-width: 460px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 80px rgba(0,174,239,.2), 0 40px 80px rgba(0,0,0,.5);
+      animation: tyIn .35s ease-out;
+    }
+    @keyframes tyIn {
+      from { opacity: 0; transform: translateY(20px) scale(.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .ty-icon {
+      width: 68px; height: 68px;
+      background: rgba(0,174,239,.1);
+      border: 1px solid rgba(0,174,239,.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .ty-icon svg { width: 30px; height: 30px; stroke: var(--cyan); fill: none; stroke-width: 2.5; }
+    .ty-title { font-size: 1.75rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.2; margin-bottom: 14px; }
+    .ty-title em { font-style: normal; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .ty-sub { font-size: .95rem; color: rgba(255,255,255,.6); line-height: 1.72; margin-bottom: 32px; }
+    .ty-close {
+      background: var(--grad);
+      color: var(--bg);
+      border: none; border-radius: 10px;
+      padding: 14px 36px;
+      font-size: .9rem; font-weight: 700;
+      font-family: 'Inter', Arial, sans-serif;
+      cursor: pointer; transition: opacity .2s;
+    }
+    .ty-close:hover { opacity: .85; }
+
     /* ── FOOTER ───────────────────────────────────────────────────────── */
     footer { border-top: 1px solid var(--border); padding: 40px 52px; }
     .footer-inner {
@@ -1223,6 +1275,7 @@
         <p class="sm-sub">Tell us about your business and goals. We'll review your current marketing and show you exactly what's possible.</p>
         <div class="sm-divider"></div>
         <form
+          id="summit-form"
           method="POST"
           action="https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ"
           enctype="application/x-www-form-urlencoded"
@@ -1304,6 +1357,52 @@
       </div>
     </div>
   </footer>
+
+  <!-- ── THANK YOU MODAL ──────────────────────────────────────────────── -->
+  <div class="ty-overlay" id="ty-overlay">
+    <div class="ty-modal">
+      <div class="ty-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h2 class="ty-title">You're on your way to <em>new heights!</em></h2>
+      <p class="ty-sub">Thanks for reaching out. We've received your information and a member of the Summit team will be in touch with you very soon.</p>
+      <button class="ty-close" id="ty-close-btn">Back to Site</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var form = document.getElementById('summit-form');
+      var overlay = document.getElementById('ty-overlay');
+      var closeBtn = document.getElementById('ty-close-btn');
+
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var data = new URLSearchParams(new FormData(form)).toString();
+          fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+          }).catch(function () {});
+          form.reset();
+          overlay.classList.add('active');
+        });
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          overlay.classList.remove('active');
+        });
+      }
+
+      if (overlay) {
+        overlay.addEventListener('click', function (e) {
+          if (e.target === overlay) overlay.classList.remove('active');
+        });
+      }
+    })();
+  </script>
 
 </body>
 </html>
