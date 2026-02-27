@@ -1100,6 +1100,186 @@
       .pkg-right { padding: 28px 28px 36px; }
       .pkg-mountain-icon { display: none; }
     }
+
+    /* ── ABOUT ────────────────────────────────────────────────────────── */
+    .about { padding: 100px 52px; max-width: 1200px; margin: 0 auto; }
+    .about-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 72px;
+    }
+    .about-eyebrow {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 16px;
+    }
+    .about-header h2 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -.04em;
+      line-height: 1.12;
+      margin-bottom: 18px;
+    }
+    .about-header h2 em {
+      font-style: normal;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .about-header p { font-size: .92rem; color: var(--muted); line-height: 1.72; }
+
+    /* Mission Pillars */
+    .about-mission {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 80px;
+    }
+    .mission-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px 26px;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+    }
+    .mission-card:hover {
+      border-color: rgba(0,174,239,.42);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,174,239,.1);
+    }
+    .mission-icon { font-size: 2rem; margin-bottom: 16px; }
+    .mission-title { font-size: .95rem; font-weight: 700; letter-spacing: -.01em; margin-bottom: 8px; }
+    .mission-text { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+    .mission-reveal {
+      font-size: .78rem;
+      color: rgba(0,174,239,.8);
+      line-height: 1.5;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height .3s ease, opacity .3s ease, margin-top .3s ease;
+      margin-top: 0;
+    }
+    .mission-card:hover .mission-reveal { max-height: 80px; opacity: 1; margin-top: 12px; }
+
+    /* Who We Help */
+    .about-helps { margin-bottom: 80px; text-align: center; }
+    .about-sub-label {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 24px;
+    }
+    .help-pills { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .help-pill {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 100px;
+      padding: 10px 22px;
+      font-size: .84rem;
+      font-weight: 500;
+      color: rgba(255,255,255,.6);
+      transition: background .2s, border-color .2s, color .2s, transform .2s;
+    }
+    .help-pill:hover {
+      background: rgba(0,174,239,.1);
+      border-color: rgba(0,174,239,.45);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* 3-Step Approach */
+    .about-approach { margin-bottom: 80px; }
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .approach-step {
+      background: var(--bg-card);
+      padding: 36px 28px;
+      cursor: pointer;
+      transition: background .25s;
+      position: relative;
+    }
+    .approach-step:last-child { border-radius: 0 18px 18px 0; }
+    .approach-step:first-child { border-radius: 18px 0 0 18px; }
+    .approach-step.active { background: linear-gradient(160deg, #0d2660 0%, #071940 100%); }
+    .step-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      position: absolute;
+      top: 18px; right: 18px;
+      transition: background .25s, box-shadow .25s;
+    }
+    .approach-step.active .step-dot {
+      background: var(--blue);
+      box-shadow: 0 0 10px rgba(0,174,239,.6);
+    }
+    .step-num {
+      font-size: 2.6rem;
+      font-weight: 900;
+      letter-spacing: -.05em;
+      line-height: 1;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 14px;
+    }
+    .step-title { font-size: .95rem; font-weight: 700; margin-bottom: 0; }
+    .step-desc {
+      font-size: .81rem;
+      color: var(--muted);
+      line-height: 1.62;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height .35s ease, opacity .3s ease, margin-top .3s ease;
+      margin-top: 0;
+    }
+    .approach-step.active .step-desc { max-height: 120px; opacity: 1; margin-top: 12px; }
+
+    /* What Sets Us Apart */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .diff-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px 24px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: border-color .25s, transform .2s;
+    }
+    .diff-card:hover { border-color: rgba(0,174,239,.38); transform: translateX(5px); }
+    .diff-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .diff-title { font-size: .9rem; font-weight: 700; margin-bottom: 6px; }
+    .diff-text { font-size: .8rem; color: var(--muted); line-height: 1.58; }
+
+    @media (max-width: 900px) {
+      .about { padding: 80px 28px; }
+      .about-mission { grid-template-columns: 1fr; }
+      .approach-grid { grid-template-columns: 1fr; gap: 1px; }
+      .approach-step:first-child { border-radius: 18px 18px 0 0; }
+      .approach-step:last-child { border-radius: 0 0 18px 18px; }
+      .diff-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -1269,7 +1449,7 @@
   </section>
 
   <!-- ── FEATURES ─────────────────────────────────────────────────────── -->
-  <section class="features" id="about">
+  <section class="features">
     <div class="features-grid">
       <div class="feat">
         <div class="feat-icon">
@@ -1355,6 +1535,114 @@
         <div class="stat-desc">Our results speak for themselves — 80% of clients continue working with us year after year.</div>
       </div>
     </div>
+  </section>
+
+  <div class="glow-line"></div>
+
+  <!-- ── ABOUT ─────────────────────────────────────────────────────────── -->
+  <section class="about" id="about">
+
+    <!-- Header -->
+    <div class="about-header">
+      <div class="about-eyebrow">About Summit</div>
+      <h2>The agency built for <em>the climb</em></h2>
+      <p>We're a performance-driven marketing agency that turns strategy into systems — and systems into sustainable, compounding growth for businesses ready to scale.</p>
+    </div>
+
+    <!-- Mission Pillars -->
+    <div class="about-mission">
+      <div class="mission-card">
+        <div class="mission-icon">🎯</div>
+        <div class="mission-title">Generate consistent, quality leads</div>
+        <div class="mission-text">Build the pipeline that keeps your business growing — reliably, month after month.</div>
+        <div class="mission-reveal">We engineer content and conversion systems that attract buyers, not just browsers.</div>
+      </div>
+      <div class="mission-card">
+        <div class="mission-icon">📊</div>
+        <div class="mission-title">Replace guesswork with strategy</div>
+        <div class="mission-text">Data-backed decisions at every stage — from positioning to the bottom of your funnel.</div>
+        <div class="mission-reveal">Clear, repeatable processes built around what's actually driving revenue for your business.</div>
+      </div>
+      <div class="mission-card">
+        <div class="mission-icon">🔄</div>
+        <div class="mission-title">Build systems that compound</div>
+        <div class="mission-text">Marketing infrastructure that delivers more value — automatically — every single month.</div>
+        <div class="mission-reveal">From automation workflows to content engines, we build the foundation that scales with you.</div>
+      </div>
+    </div>
+
+    <!-- Who We Help -->
+    <div class="about-helps">
+      <div class="about-sub-label">Who we work with</div>
+      <div class="help-pills">
+        <div class="help-pill">Service-Based Businesses</div>
+        <div class="help-pill">Local &amp; Regional Companies</div>
+        <div class="help-pill">Growth-Stage Startups</div>
+        <div class="help-pill">E-Commerce Brands</div>
+        <div class="help-pill">Brands Ready to Scale</div>
+      </div>
+    </div>
+
+    <!-- 3-Step Approach -->
+    <div class="about-approach">
+      <div class="about-sub-label" style="text-align:center; margin-bottom:28px;">Our approach</div>
+      <div class="approach-grid">
+        <div class="approach-step active" data-step="0">
+          <div class="step-dot"></div>
+          <div class="step-num">01</div>
+          <div class="step-title">Audit &amp; Strategy</div>
+          <div class="step-desc">We start with a deep dive — your marketing, positioning, goals, and the gaps between where you are and where you need to be.</div>
+        </div>
+        <div class="approach-step" data-step="1">
+          <div class="step-dot"></div>
+          <div class="step-num">02</div>
+          <div class="step-title">Build &amp; Launch</div>
+          <div class="step-desc">We deploy the full system — SEO foundations, content strategy, email sequences, landing pages, and automation — everything needed to generate results.</div>
+        </div>
+        <div class="approach-step" data-step="2">
+          <div class="step-dot"></div>
+          <div class="step-num">03</div>
+          <div class="step-title">Optimize &amp; Scale</div>
+          <div class="step-desc">Data leads every decision. We analyze what converts, double down on what works, and continuously refine to compound your returns over time.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What Sets Us Apart -->
+    <div>
+      <div class="about-sub-label" style="text-align:center; margin-bottom:28px;">What sets us apart</div>
+      <div class="diff-grid">
+        <div class="diff-card">
+          <div class="diff-icon">📈</div>
+          <div>
+            <div class="diff-title">ROI-focused, not vanity-focused</div>
+            <div class="diff-text">We measure success in pipeline and revenue — not impressions, followers, or metrics that look good but don't grow your business.</div>
+          </div>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">🔧</div>
+          <div>
+            <div class="diff-title">Systems-driven execution</div>
+            <div class="diff-text">We build marketing infrastructure, not one-off campaigns. Everything compounds and performs well beyond the initial launch.</div>
+          </div>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">📋</div>
+          <div>
+            <div class="diff-title">Fully transparent reporting</div>
+            <div class="diff-text">You always see exactly where your investment is going and what it's producing. No black boxes, no surprise invoices.</div>
+          </div>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">🤝</div>
+          <div>
+            <div class="diff-title">Long-term partners, not vendors</div>
+            <div class="diff-text">We're invested in your growth trajectory, not just your next invoice. We build relationships built on results.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <div class="glow-line"></div>
@@ -1668,6 +1956,17 @@
           if (e.target === overlay) overlay.classList.remove('active');
         });
       }
+    })();
+
+    /* ── APPROACH STEPS ─────────────────────────────────────────────── */
+    (function () {
+      var steps = document.querySelectorAll('.approach-step');
+      steps.forEach(function (step) {
+        step.addEventListener('click', function () {
+          steps.forEach(function (s) { s.classList.remove('active'); });
+          step.classList.add('active');
+        });
+      });
     })();
 
     /* ── PACKAGE MODALS ─────────────────────────────────────────────── */
