@@ -1,0 +1,388 @@
+<!--
+  ============================================================
+  SUMMIT MARKETING — GoHighLevel Custom HTML Form
+  ============================================================
+  HOW TO USE:
+  1. In GoHighLevel → Sites → Forms → Add New Form
+  2. Click "Add Element" → choose "HTML / Custom Code"
+  3. Paste this entire snippet into the HTML block
+  4. Save and publish your form
+  ============================================================
+-->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+  .sm-form-wrap * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sm-form-wrap {
+    font-family: 'Inter', Arial, sans-serif;
+    background: linear-gradient(160deg, #0b2255 0%, #071940 50%, #020c1f 100%);
+    border: 1px solid rgba(0,174,239,.3);
+    border-radius: 20px;
+    padding: 48px 44px;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 0 80px rgba(0,174,239,.12), 0 40px 80px rgba(0,0,0,.4);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Glow accent top-right */
+  .sm-form-wrap::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,174,239,.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .sm-form-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #00AEEF;
+    margin-bottom: 10px;
+  }
+
+  .sm-form-title {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+
+  .sm-form-title span {
+    background: linear-gradient(135deg, #00AEEF, #41D9F2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .sm-form-subtitle {
+    font-size: 14px;
+    color: rgba(255,255,255,.5);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .sm-form-divider {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0,174,239,.4), rgba(65,217,242,.2), transparent);
+    margin-bottom: 28px;
+  }
+
+  .sm-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .sm-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .sm-form-group.full { grid-column: span 2; }
+
+  .sm-form-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,.6);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  .sm-form-input,
+  .sm-form-select,
+  .sm-form-textarea {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 10px;
+    padding: 13px 16px;
+    font-size: 14px;
+    font-family: 'Inter', Arial, sans-serif;
+    color: #ffffff;
+    width: 100%;
+    outline: none;
+    transition: border-color .2s, background .2s, box-shadow .2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .sm-form-input::placeholder,
+  .sm-form-textarea::placeholder {
+    color: rgba(255,255,255,.25);
+  }
+
+  .sm-form-input:focus,
+  .sm-form-select:focus,
+  .sm-form-textarea:focus {
+    border-color: rgba(0,174,239,.6);
+    background: rgba(0,174,239,.06);
+    box-shadow: 0 0 0 3px rgba(0,174,239,.12);
+  }
+
+  .sm-form-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 18px;
+    padding-right: 40px;
+  }
+
+  .sm-form-select option {
+    background: #071940;
+    color: #ffffff;
+  }
+
+  .sm-form-textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.6;
+  }
+
+  .sm-form-submit {
+    width: 100%;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #00AEEF, #41D9F2);
+    color: #020c1f;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Inter', Arial, sans-serif;
+    letter-spacing: -.01em;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: opacity .2s, transform .2s, box-shadow .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .sm-form-submit:hover {
+    opacity: .88;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(0,174,239,.4);
+  }
+
+  .sm-form-submit:active {
+    transform: translateY(0);
+  }
+
+  .sm-form-submit svg {
+    width: 16px; height: 16px;
+    fill: none; stroke: #020c1f; stroke-width: 2.5;
+  }
+
+  .sm-form-disclaimer {
+    font-size: 11px;
+    color: rgba(255,255,255,.25);
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.6;
+  }
+
+  .sm-form-disclaimer a {
+    color: rgba(0,174,239,.6);
+    text-decoration: none;
+  }
+
+  /* Success state */
+  .sm-form-success {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .sm-form-success-icon {
+    width: 56px; height: 56px;
+    background: rgba(0,174,239,.12);
+    border: 1px solid rgba(0,174,239,.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+  }
+
+  .sm-form-success-icon svg {
+    width: 24px; height: 24px;
+    stroke: #41D9F2; fill: none; stroke-width: 2.5;
+  }
+
+  .sm-form-success h3 {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+
+  .sm-form-success p {
+    font-size: 14px;
+    color: rgba(255,255,255,.5);
+    line-height: 1.6;
+  }
+
+  /* Responsive */
+  @media (max-width: 540px) {
+    .sm-form-wrap { padding: 32px 24px; }
+    .sm-form-row { grid-template-columns: 1fr; }
+    .sm-form-title { font-size: 22px; }
+  }
+</style>
+
+<div class="sm-form-wrap">
+
+  <div class="sm-form-eyebrow">Free Strategy Call</div>
+  <h2 class="sm-form-title">Let's reach <span>new heights</span> together</h2>
+  <p class="sm-form-subtitle">Tell us about your business and goals. We'll review your current marketing and show you exactly what's possible.</p>
+  <div class="sm-form-divider"></div>
+
+  <form id="sm-contact-form" novalidate>
+
+    <div class="sm-form-row">
+      <div class="sm-form-group">
+        <label class="sm-form-label" for="sm-fname">First Name *</label>
+        <input class="sm-form-input" type="text" id="sm-fname" name="first_name" placeholder="John" required />
+      </div>
+      <div class="sm-form-group">
+        <label class="sm-form-label" for="sm-lname">Last Name *</label>
+        <input class="sm-form-input" type="text" id="sm-lname" name="last_name" placeholder="Smith" required />
+      </div>
+    </div>
+
+    <div class="sm-form-row">
+      <div class="sm-form-group">
+        <label class="sm-form-label" for="sm-email">Email Address *</label>
+        <input class="sm-form-input" type="email" id="sm-email" name="email" placeholder="john@company.com" required />
+      </div>
+      <div class="sm-form-group">
+        <label class="sm-form-label" for="sm-phone">Phone Number</label>
+        <input class="sm-form-input" type="tel" id="sm-phone" name="phone" placeholder="+1 (555) 000-0000" />
+      </div>
+    </div>
+
+    <div class="sm-form-group">
+      <label class="sm-form-label" for="sm-business">Business Name</label>
+      <input class="sm-form-input" type="text" id="sm-business" name="company_name" placeholder="Your Company LLC" />
+    </div>
+
+    <div class="sm-form-group">
+      <label class="sm-form-label" for="sm-service">Service Interest *</label>
+      <select class="sm-form-select" id="sm-service" name="service_interest" required>
+        <option value="" disabled selected>Select a package...</option>
+        <option value="Basecamp">Basecamp — Foundation &amp; SEO</option>
+        <option value="Elevate">Elevate — Growth &amp; Brand</option>
+        <option value="Ascent">Ascent — Full-Funnel Scale (Most Popular)</option>
+        <option value="Peak">Peak — Enterprise Custom</option>
+        <option value="Not Sure">Not sure yet — help me choose</option>
+      </select>
+    </div>
+
+    <div class="sm-form-group">
+      <label class="sm-form-label" for="sm-message">Tell Us About Your Goals</label>
+      <textarea class="sm-form-textarea" id="sm-message" name="message" placeholder="What are you looking to achieve? What's your biggest marketing challenge right now?"></textarea>
+    </div>
+
+    <button type="submit" class="sm-form-submit">
+      Book My Free Strategy Call
+      <svg viewBox="0 0 24 24"><polyline points="5 12 19 12"/><polyline points="13 6 19 12 13 18"/></svg>
+    </button>
+
+    <p class="sm-form-disclaimer">
+      By submitting this form you agree to our
+      <a href="https://summitmarketingms.com/privacy.html" target="_blank">Privacy Policy</a>
+      and
+      <a href="https://summitmarketingms.com/terms.html" target="_blank">Terms of Service</a>.
+      We will never sell your information.
+    </p>
+
+  </form>
+
+  <!-- Success message shown after submit -->
+  <div class="sm-form-success" id="sm-success">
+    <div class="sm-form-success-icon">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h3>You're on the way up!</h3>
+    <p>Thanks for reaching out. A member of the Summit team will contact you within 1 business day to schedule your free strategy call.</p>
+  </div>
+
+</div>
+
+<script>
+  document.getElementById('sm-contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var form = this;
+    var btn  = form.querySelector('.sm-form-submit');
+
+    // Basic validation
+    var required = form.querySelectorAll('[required]');
+    var valid = true;
+    required.forEach(function(field) {
+      field.style.borderColor = '';
+      if (!field.value.trim()) {
+        field.style.borderColor = 'rgba(255,80,80,.6)';
+        valid = false;
+      }
+    });
+    if (!valid) return;
+
+    // Loading state
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    // Build payload — GHL webhook expects JSON
+    var payload = {
+      firstName:       document.getElementById('sm-fname').value.trim(),
+      lastName:        document.getElementById('sm-lname').value.trim(),
+      email:           document.getElementById('sm-email').value.trim(),
+      phone:           document.getElementById('sm-phone').value.trim(),
+      companyName:     document.getElementById('sm-business').value.trim(),
+      serviceInterest: document.getElementById('sm-service').value,
+      message:         document.getElementById('sm-message').value.trim(),
+      source:          'Summit Marketing Website Form'
+    };
+
+    // ── PASTE YOUR GHL WEBHOOK URL BELOW ──────────────────────────────
+    var GHL_WEBHOOK_URL = 'PASTE_YOUR_GHL_WEBHOOK_URL_HERE';
+    // ──────────────────────────────────────────────────────────────────
+
+    fetch(GHL_WEBHOOK_URL, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload)
+    })
+    .then(function(res) {
+      if (res.ok || res.status === 200) {
+        form.style.display = 'none';
+        document.getElementById('sm-success').style.display = 'block';
+      } else {
+        throw new Error('Server error');
+      }
+    })
+    .catch(function() {
+      btn.textContent = 'Something went wrong — please try again';
+      btn.disabled = false;
+      btn.style.background = 'rgba(255,80,80,.8)';
+      btn.style.color = '#fff';
+    });
+  });
+</script>

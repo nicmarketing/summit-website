@@ -708,7 +708,13 @@
       font-size: .82rem; transition: color .2s;
     }
     .footer-links a:hover { color: var(--blue); }
-    .footer-copy { font-size: .78rem; color: rgba(255,255,255,.2); }
+    .footer-copy { font-size: .78rem; color: rgba(255,255,255,.2); margin-bottom: 6px; }
+    .footer-legal { display: flex; gap: 16px; margin-top: 6px; }
+    .footer-legal a {
+      font-size: .75rem; color: rgba(255,255,255,.25);
+      text-decoration: none; transition: color .2s;
+    }
+    .footer-legal a:hover { color: var(--blue); }
     .footer-tagline {
       font-size: .75rem; color: rgba(0,174,239,.5);
       font-style: italic; letter-spacing: .02em;
@@ -1158,6 +1164,10 @@
       </ul>
       <div>
         <div class="footer-copy">&copy; 2026 Summit Marketing. All rights reserved.</div>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
         <div class="footer-tagline">Reaching New Heights Together</div>
       </div>
     </div>
