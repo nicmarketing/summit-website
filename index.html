@@ -692,6 +692,80 @@
     .cta-inner p { font-size: 1rem; color: var(--muted); margin-bottom: 44px; line-height: 1.72; }
     .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
+    /* ── CONTACT FORM ─────────────────────────────────────────────────── */
+    .sm-wrap * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+    .sm-wrap {
+      font-family: 'Inter', Arial, sans-serif;
+      background: linear-gradient(160deg, #0b2255 0%, #071940 55%, #020c1f 100%);
+      border: 1px solid rgba(0,174,239,.3);
+      border-radius: 20px;
+      padding: 48px 44px;
+      max-width: 600px;
+      width: 100%;
+      margin: 32px auto 0;
+      box-shadow: 0 0 80px rgba(0,174,239,.12), 0 40px 80px rgba(0,0,0,.4);
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+    }
+    .sm-wrap::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(0,174,239,.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .sm-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #00AEEF; margin-bottom: 10px; }
+    .sm-title { font-size: 26px; font-weight: 800; letter-spacing: -.03em; line-height: 1.15; color: #ffffff; margin-bottom: 8px; }
+    .sm-title span { background: linear-gradient(135deg, #00AEEF, #41D9F2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sm-sub { font-size: 14px; color: rgba(255,255,255,.5); line-height: 1.6; margin-bottom: 28px; }
+    .sm-divider { height: 1px; background: linear-gradient(90deg, rgba(0,174,239,.4), rgba(65,217,242,.2), transparent); margin-bottom: 24px; }
+    .sm-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .sm-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .sm-label { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.55); letter-spacing: .06em; text-transform: uppercase; }
+    .sm-input, .sm-select, .sm-textarea {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px;
+      padding: 13px 16px;
+      font-size: 14px;
+      font-family: 'Inter', Arial, sans-serif;
+      color: #ffffff;
+      width: 100%;
+      outline: none;
+      transition: border-color .2s, background .2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .sm-input::placeholder, .sm-textarea::placeholder { color: rgba(255,255,255,.22); }
+    .sm-input:focus, .sm-select:focus, .sm-textarea:focus { border-color: rgba(0,174,239,.65); background: rgba(0,174,239,.07); }
+    .sm-select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 18px;
+      padding-right: 40px;
+    }
+    .sm-select option { background: #071940; color: #ffffff; }
+    .sm-textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+    .sm-submit {
+      width: 100%; padding: 16px 24px;
+      background: linear-gradient(135deg, #00AEEF, #41D9F2);
+      color: #020c1f; border: none; border-radius: 10px;
+      font-size: 15px; font-weight: 800; font-family: 'Inter', Arial, sans-serif;
+      letter-spacing: -.01em; cursor: pointer; margin-top: 6px;
+      display: block; text-align: center; transition: opacity .2s;
+    }
+    .sm-submit:hover { opacity: .85; }
+    .sm-disclaimer { font-size: 11px; color: rgba(255,255,255,.22); text-align: center; margin-top: 14px; line-height: 1.65; }
+    .sm-disclaimer a { color: rgba(0,174,239,.55); text-decoration: none; }
+    @media (max-width: 520px) {
+      .sm-wrap { padding: 32px 22px; }
+      .sm-row { grid-template-columns: 1fr; }
+      .sm-title { font-size: 22px; }
+    }
+
     /* ── FOOTER ───────────────────────────────────────────────────────── */
     footer { border-top: 1px solid var(--border); padding: 40px 52px; }
     .footer-inner {
@@ -1143,9 +1217,67 @@
       </div>
       <h2>Ready to reach <em>new heights</em> together?</h2>
       <p>Book a free strategy call. We'll audit your current marketing, identify your biggest growth opportunities, and show you exactly how Summit can help.</p>
-      <div class="cta-actions">
-        <a href="#" class="btn-primary">Book Your Free Call &rarr;</a>
-        <a href="#services" class="btn-secondary">View Packages</a>
+      <div class="sm-wrap">
+        <div class="sm-eyebrow">Free Strategy Call</div>
+        <h2 class="sm-title">Let's reach <span>new heights</span> together</h2>
+        <p class="sm-sub">Tell us about your business and goals. We'll review your current marketing and show you exactly what's possible.</p>
+        <div class="sm-divider"></div>
+        <form
+          method="POST"
+          action="https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ"
+          enctype="application/x-www-form-urlencoded"
+          accept-charset="UTF-8"
+        >
+          <div class="sm-row">
+            <div class="sm-group">
+              <label class="sm-label" for="smf-first">First Name *</label>
+              <input class="sm-input" type="text" id="smf-first" name="first_name" placeholder="John" required />
+            </div>
+            <div class="sm-group">
+              <label class="sm-label" for="smf-last">Last Name *</label>
+              <input class="sm-input" type="text" id="smf-last" name="last_name" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="sm-row">
+            <div class="sm-group">
+              <label class="sm-label" for="smf-email">Email *</label>
+              <input class="sm-input" type="email" id="smf-email" name="email" placeholder="john@company.com" required />
+            </div>
+            <div class="sm-group">
+              <label class="sm-label" for="smf-phone">Phone</label>
+              <input class="sm-input" type="tel" id="smf-phone" name="phone" placeholder="+1 (555) 000-0000" />
+            </div>
+          </div>
+          <div class="sm-group">
+            <label class="sm-label" for="smf-company">Business Name</label>
+            <input class="sm-input" type="text" id="smf-company" name="company_name" placeholder="Your Company LLC" />
+          </div>
+          <div class="sm-group">
+            <label class="sm-label" for="smf-service">Service Interest *</label>
+            <select class="sm-select" id="smf-service" name="service_interest" required>
+              <option value="" disabled selected>Select a package...</option>
+              <option value="Basecamp">Basecamp — Foundation &amp; SEO</option>
+              <option value="Elevate">Elevate — Growth &amp; Brand</option>
+              <option value="Ascent">Ascent — Full-Funnel Scale (Most Popular)</option>
+              <option value="Peak">Peak — Enterprise Custom</option>
+              <option value="Not Sure">Not sure yet — help me choose</option>
+            </select>
+          </div>
+          <div class="sm-group">
+            <label class="sm-label" for="smf-message">Tell Us About Your Goals</label>
+            <textarea class="sm-textarea" id="smf-message" name="message" placeholder="What are you looking to achieve? What's your biggest marketing challenge right now?"></textarea>
+          </div>
+          <input type="hidden" name="source" value="Summit Marketing Website" />
+          <input type="hidden" name="lead_source" value="Website Contact Form" />
+          <button type="submit" class="sm-submit">Book My Free Strategy Call &rarr;</button>
+          <p class="sm-disclaimer">
+            By submitting you agree to our
+            <a href="privacy.html">Privacy Policy</a>
+            &amp;
+            <a href="terms.html">Terms of Service</a>.
+            We never sell your information.
+          </p>
+        </form>
       </div>
     </div>
   </section>
