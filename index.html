@@ -1431,7 +1431,7 @@
         </p>
         <div class="hero-actions">
           <a href="#services" class="btn-primary">View Our Services &rarr;</a>
-          <a href="#results" class="btn-secondary">See Results</a>
+          <a href="#contact" class="btn-secondary" id="hero-book-btn">Book a Free Call</a>
         </div>
       </div>
 
@@ -2093,7 +2093,8 @@
     (function () {
       var overlay  = document.getElementById('book-overlay');
       var closeBtn = document.getElementById('book-close-btn');
-      var navBtn   = document.getElementById('nav-book-btn');
+      var navBtn  = document.getElementById('nav-book-btn');
+      var heroBtn = document.getElementById('hero-book-btn');
 
       function openBook() {
         overlay.classList.add('active');
@@ -2104,12 +2105,12 @@
         document.body.style.overflow = '';
       }
 
-      if (navBtn) {
-        navBtn.addEventListener('click', function (e) {
+      [navBtn, heroBtn].forEach(function (btn) {
+        if (btn) btn.addEventListener('click', function (e) {
           e.preventDefault();
           openBook();
         });
-      }
+      });
       if (closeBtn) closeBtn.addEventListener('click', closeBook);
       if (overlay) {
         overlay.addEventListener('click', function (e) {
