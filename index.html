@@ -2297,14 +2297,21 @@
         if (e.key === 'Escape' && overlay.classList.contains('active')) closePkg();
       });
 
-      // CTA → pre-select service + scroll to form
+      // CTA → close pkg modal, pre-select service, open booking modal
       if (ctaBtn) ctaBtn.addEventListener('click', function () {
-        var val    = this.getAttribute('data-form-value');
-        var select = document.getElementById('smf-service');
+        var val = this.getAttribute('data-form-value');
         closePkg();
-        if (select && val) select.value = val;
-        var contact = document.getElementById('contact');
-        if (contact) setTimeout(function () { contact.scrollIntoView({ behavior: 'smooth' }); }, 120);
+        // Pre-select the package in both forms
+        var pageSelect  = document.getElementById('smf-service');
+        var modalSelect = document.getElementById('bm-service');
+        if (pageSelect  && val) pageSelect.value  = val;
+        if (modalSelect && val) modalSelect.value = val;
+        // Open the booking modal
+        var bookOverlay = document.getElementById('book-overlay');
+        if (bookOverlay) {
+          bookOverlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
       });
     })();
   </script>
