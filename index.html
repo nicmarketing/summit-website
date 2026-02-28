@@ -1290,6 +1290,52 @@
       .approach-step:last-child { border-radius: 0 0 18px 18px; }
       .diff-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── BOOKING MODAL ────────────────────────────────────────────── */
+    .book-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(2,12,31,.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 9500;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-y: auto;
+    }
+    .book-overlay.active { display: flex; }
+    .book-modal {
+      background: linear-gradient(160deg, #0d2660 0%, #071940 55%, #020c1f 100%);
+      border: 1px solid rgba(0,174,239,.3);
+      border-radius: 24px;
+      padding: 48px 44px;
+      width: 100%;
+      max-width: 560px;
+      position: relative;
+      animation: pkgIn .32s cubic-bezier(.22,.68,0,1.08);
+    }
+    .book-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.55);
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      line-height: 1;
+      transition: background .2s, color .2s;
+    }
+    .book-close:hover { background: rgba(255,255,255,.15); color: var(--white); }
+    @media (max-width: 600px) {
+      .book-modal { padding: 40px 24px; }
+    }
   </style>
 </head>
 <body>
@@ -1305,7 +1351,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">Book a Call</a>
+    <a href="#contact" class="nav-cta" id="nav-book-btn">Book a Call</a>
   </nav>
 
   <!-- ── HERO ─────────────────────────────────────────────────────────── -->
@@ -1889,6 +1935,74 @@
     </div>
   </footer>
 
+  <!-- ── BOOKING MODAL ────────────────────────────────────────────────── -->
+  <div class="book-overlay" id="book-overlay">
+    <div class="book-modal">
+      <button class="book-close" id="book-close-btn" aria-label="Close">&times;</button>
+      <div class="sm-eyebrow">Free Strategy Call</div>
+      <h2 class="sm-title">Let's reach <span>new heights</span> together</h2>
+      <p class="sm-sub">Tell us about your business and goals. We'll review your current marketing and show you exactly what's possible.</p>
+      <div class="sm-divider"></div>
+      <form
+        id="book-modal-form"
+        method="POST"
+        action="https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ"
+        enctype="application/x-www-form-urlencoded"
+        accept-charset="UTF-8"
+      >
+        <div class="sm-row">
+          <div class="sm-group">
+            <label class="sm-label" for="bm-first">First Name *</label>
+            <input class="sm-input" type="text" id="bm-first" name="first_name" placeholder="John" required />
+          </div>
+          <div class="sm-group">
+            <label class="sm-label" for="bm-last">Last Name *</label>
+            <input class="sm-input" type="text" id="bm-last" name="last_name" placeholder="Smith" required />
+          </div>
+        </div>
+        <div class="sm-row">
+          <div class="sm-group">
+            <label class="sm-label" for="bm-email">Email *</label>
+            <input class="sm-input" type="email" id="bm-email" name="email" placeholder="john@company.com" required />
+          </div>
+          <div class="sm-group">
+            <label class="sm-label" for="bm-phone">Phone</label>
+            <input class="sm-input" type="tel" id="bm-phone" name="phone" placeholder="+1 (555) 000-0000" />
+          </div>
+        </div>
+        <div class="sm-group">
+          <label class="sm-label" for="bm-company">Business Name</label>
+          <input class="sm-input" type="text" id="bm-company" name="company_name" placeholder="Your Company LLC" />
+        </div>
+        <div class="sm-group">
+          <label class="sm-label" for="bm-service">Service Interest *</label>
+          <select class="sm-select" id="bm-service" name="service_interest" required>
+            <option value="" disabled selected>Select a package...</option>
+            <option value="Basecamp">Basecamp — Foundation &amp; SEO</option>
+            <option value="Elevate">Elevate — Growth &amp; Brand</option>
+            <option value="Ascent">Ascent — Full-Funnel Scale (Most Popular)</option>
+            <option value="Peak">Peak — Enterprise Custom</option>
+            <option value="Not Sure">Not sure yet — help me choose</option>
+          </select>
+        </div>
+        <div class="sm-group">
+          <label class="sm-label" for="bm-message">Tell Us About Your Goals</label>
+          <textarea class="sm-textarea" id="bm-message" name="message" placeholder="What are you looking to achieve? What's your biggest marketing challenge right now?"></textarea>
+        </div>
+        <input type="hidden" name="source" value="Summit Marketing Website" />
+        <input type="hidden" name="lead_source" value="Nav Book a Call" />
+        <button type="submit" class="sm-submit">Book My Free Strategy Call &rarr;</button>
+        <p class="sm-disclaimer">
+          By submitting you agree to our
+          <a href="privacy.html">Privacy Policy</a>
+          &amp;
+          <a href="terms.html">Terms of Service</a>.
+          We never sell your information.
+        </p>
+      </form>
+    </div>
+  </div>
+
   <!-- ── PACKAGE DETAIL MODAL ─────────────────────────────────────────── -->
   <div class="pkg-overlay" id="pkg-overlay">
     <div class="pkg-modal" id="pkg-modal">
@@ -1937,11 +2051,12 @@
 
   <script>
     (function () {
-      var form = document.getElementById('summit-form');
-      var overlay = document.getElementById('ty-overlay');
-      var closeBtn = document.getElementById('ty-close-btn');
+      var tyOverlay = document.getElementById('ty-overlay');
+      var closeBtn  = document.getElementById('ty-close-btn');
 
-      if (form) {
+      // Shared GHL submit handler — works for any form passed in
+      function attachGHLSubmit(form) {
+        if (!form) return;
         form.addEventListener('submit', function (e) {
           e.preventDefault();
           var data = new URLSearchParams(new FormData(form)).toString();
@@ -1950,22 +2065,60 @@
             body: data,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
           }).catch(function () {});
+          // Close booking modal if it was open
+          var bookOverlay = document.getElementById('book-overlay');
+          if (bookOverlay) bookOverlay.classList.remove('active');
+          document.body.style.overflow = '';
           form.reset();
-          overlay.classList.add('active');
+          tyOverlay.classList.add('active');
         });
       }
+
+      attachGHLSubmit(document.getElementById('summit-form'));
+      attachGHLSubmit(document.getElementById('book-modal-form'));
 
       if (closeBtn) {
         closeBtn.addEventListener('click', function () {
-          overlay.classList.remove('active');
+          tyOverlay.classList.remove('active');
         });
+      }
+      if (tyOverlay) {
+        tyOverlay.addEventListener('click', function (e) {
+          if (e.target === tyOverlay) tyOverlay.classList.remove('active');
+        });
+      }
+    })();
+
+    /* ── BOOKING MODAL ───────────────────────────────────────────────── */
+    (function () {
+      var overlay  = document.getElementById('book-overlay');
+      var closeBtn = document.getElementById('book-close-btn');
+      var navBtn   = document.getElementById('nav-book-btn');
+
+      function openBook() {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeBook() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
       }
 
-      if (overlay) {
-        overlay.addEventListener('click', function (e) {
-          if (e.target === overlay) overlay.classList.remove('active');
+      if (navBtn) {
+        navBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          openBook();
         });
       }
+      if (closeBtn) closeBtn.addEventListener('click', closeBook);
+      if (overlay) {
+        overlay.addEventListener('click', function (e) {
+          if (e.target === overlay) closeBook();
+        });
+      }
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) closeBook();
+      });
     })();
 
     /* ── APPROACH STEPS ─────────────────────────────────────────────── */
