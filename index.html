@@ -1366,6 +1366,107 @@
       .book-modal .sm-sub { font-size: 13px; }
       .book-close { top: 12px; right: 12px; width: 30px; height: 30px; font-size: 1rem; }
     }
+
+    /* ── CALENDAR MODAL ───────────────────────────────── */
+    .cal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(2,12,31,.97);
+      z-index: 9600;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .cal-overlay.active { display: flex; }
+    .cal-modal {
+      background: #020c1f;
+      border: 1px solid rgba(0,174,239,.3);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 960px;
+      height: min(720px, 88vh);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: pkgIn .32s cubic-bezier(.22,.68,0,1.08);
+      position: relative;
+    }
+    .cal-head {
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(0,174,239,.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      background: linear-gradient(90deg, #0d2660 0%, #071940 100%);
+    }
+    .cal-head-title {
+      font-size: .85rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.85);
+      letter-spacing: -.01em;
+    }
+    .cal-head-title span {
+      background: linear-gradient(135deg,#00AEEF,#41D9F2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cal-close-btn {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.5);
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      line-height: 1;
+      transition: background .2s, color .2s;
+      flex-shrink: 0;
+    }
+    .cal-close-btn:hover { background: rgba(255,255,255,.15); color: #fff; }
+    .cal-loader {
+      position: absolute;
+      inset: 52px 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      color: rgba(255,255,255,.4);
+      font-size: .85rem;
+      pointer-events: none;
+      background: #020c1f;
+    }
+    .cal-spinner {
+      width: 34px; height: 34px;
+      border: 2px solid rgba(0,174,239,.2);
+      border-top-color: #00AEEF;
+      border-radius: 50%;
+      animation: spin .75s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .cal-iframe {
+      flex: 1;
+      border: none;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+    @media (max-width: 600px) {
+      .cal-overlay { padding: 0; align-items: flex-end; }
+      .cal-modal {
+        border-radius: 20px 20px 0 0;
+        max-width: 100%;
+        height: 95vh;
+        height: 95dvh;
+      }
+      .cal-head-title { font-size: .78rem; }
+    }
   </style>
 </head>
 <body>
@@ -2067,6 +2168,28 @@
     </div>
   </div>
 
+  <!-- ── CALENDAR MODAL ───────────────────────────────────────────────── -->
+  <div class="cal-overlay" id="cal-overlay">
+    <div class="cal-modal">
+      <div class="cal-head">
+        <span class="cal-head-title">📅 Pick a time for your <span>free strategy call</span></span>
+        <button class="cal-close-btn" id="cal-close-btn" aria-label="Close">&times;</button>
+      </div>
+      <div class="cal-loader" id="cal-loader">
+        <div class="cal-spinner"></div>
+        <span>Loading calendar…</span>
+      </div>
+      <iframe
+        id="cal-iframe"
+        class="cal-iframe"
+        src=""
+        frameborder="0"
+        scrolling="yes"
+        allow="payment"
+      ></iframe>
+    </div>
+  </div>
+
   <!-- ── THANK YOU MODAL ──────────────────────────────────────────────── -->
   <div class="ty-overlay" id="ty-overlay">
     <div class="ty-modal">
@@ -2081,10 +2204,46 @@
 
   <script>
     (function () {
-      var tyOverlay = document.getElementById('ty-overlay');
-      var closeBtn  = document.getElementById('ty-close-btn');
+      var CAL_URL    = 'https://links.summitmarketingms.com/widget/bookings/joe-boyd-personal-calendar-hufa6qk-e';
+      var tyOverlay  = document.getElementById('ty-overlay');
+      var tyCloseBtn = document.getElementById('ty-close-btn');
+      var calOverlay = document.getElementById('cal-overlay');
+      var calIframe  = document.getElementById('cal-iframe');
+      var calLoader  = document.getElementById('cal-loader');
+      var calCloseBtn = document.getElementById('cal-close-btn');
+      var tyShown = false;
 
-      // Shared GHL submit handler — works for any form passed in
+      function showTy() {
+        if (tyShown) return;
+        tyShown = true;
+        document.body.style.overflow = '';
+        if (tyOverlay) tyOverlay.classList.add('active');
+      }
+
+      function openCal() {
+        tyShown = false;
+        if (calLoader) calLoader.style.display = '';
+        if (calIframe) {
+          calIframe.src = '';
+          calIframe.src = CAL_URL;
+          calIframe.onload = function () {
+            if (calLoader) calLoader.style.display = 'none';
+          };
+        }
+        if (calOverlay) {
+          calOverlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeCal(andShowTy) {
+        if (calOverlay) calOverlay.classList.remove('active');
+        if (calIframe)  calIframe.src = '';
+        if (andShowTy)  showTy();
+        else document.body.style.overflow = '';
+      }
+
+      // Shared GHL submit handler — send data then open calendar
       function attachGHLSubmit(form) {
         if (!form) return;
         form.addEventListener('submit', function (e) {
@@ -2095,28 +2254,49 @@
             body: data,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
           }).catch(function () {});
-          // Close booking modal if it was open
           var bookOverlay = document.getElementById('book-overlay');
           if (bookOverlay) bookOverlay.classList.remove('active');
-          document.body.style.overflow = '';
           form.reset();
-          tyOverlay.classList.add('active');
+          openCal();
         });
       }
 
       attachGHLSubmit(document.getElementById('summit-form'));
       attachGHLSubmit(document.getElementById('book-modal-form'));
 
-      if (closeBtn) {
-        closeBtn.addEventListener('click', function () {
-          tyOverlay.classList.remove('active');
-        });
-      }
-      if (tyOverlay) {
-        tyOverlay.addEventListener('click', function (e) {
-          if (e.target === tyOverlay) tyOverlay.classList.remove('active');
-        });
-      }
+      // Calendar close button / backdrop / escape → show thank you
+      if (calCloseBtn) calCloseBtn.addEventListener('click', function () { closeCal(true); });
+      if (calOverlay) calOverlay.addEventListener('click', function (e) {
+        if (e.target === calOverlay) closeCal(true);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && calOverlay && calOverlay.classList.contains('active')) closeCal(true);
+      });
+
+      // Detect GHL booking confirmation via postMessage
+      window.addEventListener('message', function (e) {
+        if (!e.data) return;
+        var msg = typeof e.data === 'string' ? e.data : JSON.stringify(e.data);
+        if (
+          msg.indexOf('booked') !== -1 ||
+          msg.indexOf('Booked') !== -1 ||
+          msg.indexOf('booking_confirmed') !== -1 ||
+          msg.indexOf('booking-confirmed') !== -1 ||
+          msg.indexOf('confirmed') !== -1
+        ) {
+          closeCal(false);
+          showTy();
+        }
+      });
+
+      // Thank you overlay close
+      if (tyCloseBtn) tyCloseBtn.addEventListener('click', function () {
+        tyOverlay.classList.remove('active');
+        tyShown = false;
+      });
+      if (tyOverlay) tyOverlay.addEventListener('click', function (e) {
+        if (e.target === tyOverlay) { tyOverlay.classList.remove('active'); tyShown = false; }
+      });
     })();
 
     /* ── BOOKING MODAL ───────────────────────────────────────────────── */
