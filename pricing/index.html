@@ -6,7 +6,7 @@
   <title>Pricing & Plans | Summit Marketing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -218,7 +218,7 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Inter', Arial, sans-serif;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
@@ -561,6 +561,96 @@
       footer { padding: 32px 20px; }
       .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
     }
+
+    /* ── PLAN CARD CLICKABLE ── */
+    .plan-card { cursor: pointer; }
+    .plan-card:hover { transform: translateY(-6px); border-color: rgba(0,174,239,.4); box-shadow: 0 20px 60px rgba(0,174,239,.1); }
+
+    /* ── FORM STYLES ── */
+    .sm-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #00AEEF; margin-bottom: 10px; }
+    .sm-title { font-size: 26px; font-weight: 800; letter-spacing: -.03em; line-height: 1.15; color: #ffffff; margin-bottom: 8px; }
+    .sm-title span { background: linear-gradient(135deg, #00AEEF, #41D9F2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sm-sub { font-size: 14px; color: rgba(255,255,255,.5); line-height: 1.6; margin-bottom: 28px; }
+    .sm-divider { height: 1px; background: linear-gradient(90deg, rgba(0,174,239,.4), rgba(65,217,242,.2), transparent); margin-bottom: 24px; }
+    .sm-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .sm-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .sm-label { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.55); letter-spacing: .06em; text-transform: uppercase; }
+    .sm-input, .sm-select, .sm-textarea { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 10px; padding: 13px 16px; font-size: 14px; font-family: 'Montserrat', sans-serif; color: #ffffff; width: 100%; outline: none; transition: border-color .2s, background .2s; -webkit-appearance: none; appearance: none; }
+    .sm-input::placeholder, .sm-textarea::placeholder { color: rgba(255,255,255,.22); }
+    .sm-input:focus, .sm-select:focus, .sm-textarea:focus { border-color: rgba(0,174,239,.65); background: rgba(0,174,239,.07); }
+    .sm-select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 18px; padding-right: 40px; }
+    .sm-select option { background: #071940; color: #ffffff; }
+    .sm-textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+    .sm-submit { width: 100%; padding: 16px 24px; background: linear-gradient(135deg, #00AEEF, #41D9F2); color: #020c1f; border: none; border-radius: 10px; font-size: 15px; font-weight: 800; font-family: 'Montserrat', sans-serif; letter-spacing: -.01em; cursor: pointer; margin-top: 6px; display: block; text-align: center; transition: opacity .2s; }
+    .sm-submit:hover { opacity: .85; }
+    .sm-disclaimer { font-size: 11px; color: rgba(255,255,255,.22); text-align: center; margin-top: 14px; line-height: 1.65; }
+    .sm-disclaimer a { color: rgba(0,174,239,.55); text-decoration: none; }
+    @media (max-width: 520px) { .sm-row { grid-template-columns: 1fr; } }
+
+    /* ── THANK YOU MODAL ── */
+    .ty-overlay { display: none; position: fixed; inset: 0; background: rgba(2,12,31,.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 9999; align-items: center; justify-content: center; }
+    .ty-overlay.active { display: flex; }
+    .ty-modal { background: linear-gradient(160deg, #0b2255 0%, #071940 55%, #020c1f 100%); border: 1px solid rgba(0,174,239,.35); border-radius: 24px; padding: 56px 48px; max-width: 460px; width: 90%; text-align: center; position: relative; box-shadow: 0 0 80px rgba(0,174,239,.2), 0 40px 80px rgba(0,0,0,.5); animation: tyIn .35s ease-out; }
+    @keyframes tyIn { from { opacity: 0; transform: translateY(20px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .ty-icon { width: 68px; height: 68px; background: rgba(0,174,239,.1); border: 1px solid rgba(0,174,239,.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; }
+    .ty-icon svg { width: 30px; height: 30px; stroke: var(--cyan); fill: none; stroke-width: 2.5; }
+    .ty-title { font-size: 1.75rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.2; margin-bottom: 14px; }
+    .ty-title em { font-style: normal; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .ty-sub { font-size: .95rem; color: rgba(255,255,255,.6); line-height: 1.72; margin-bottom: 32px; }
+    .ty-close { background: var(--grad); color: var(--bg); border: none; border-radius: 10px; padding: 14px 36px; font-size: .9rem; font-weight: 700; font-family: 'Montserrat', sans-serif; cursor: pointer; transition: opacity .2s; }
+    .ty-close:hover { opacity: .85; }
+
+    /* ── PACKAGE MODAL ── */
+    .pkg-overlay { display: none; position: fixed; inset: 0; background: rgba(2,12,31,.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); z-index: 9000; align-items: center; justify-content: center; padding: 24px; }
+    .pkg-overlay.active { display: flex; }
+    .pkg-modal { background: #050f28; border: 1px solid rgba(0,174,239,.25); border-radius: 20px; width: 100%; max-width: 860px; max-height: 90vh; overflow-y: auto; display: grid; grid-template-columns: 300px 1fr; position: relative; animation: pkgIn .32s cubic-bezier(.22,.68,0,1.08); }
+    @keyframes pkgIn { from { opacity: 0; transform: translateY(22px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .pkg-left { background: linear-gradient(160deg, #0d2660 0%, #071940 55%, #020c1f 100%); border-radius: 20px 0 0 20px; padding: 44px 32px; display: flex; flex-direction: column; border-right: 1px solid rgba(0,174,239,.15); position: relative; overflow: hidden; }
+    .pkg-left::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(0,174,239,.1) 0%, transparent 70%); pointer-events: none; }
+    .pkg-tier-label { font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+    .pkg-badge-pill { display: inline-block; background: var(--grad); color: var(--bg); font-size: .6rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; margin-bottom: 14px; align-self: flex-start; }
+    .pkg-name { font-size: 2.6rem; font-weight: 800; letter-spacing: -.04em; line-height: 1; margin-bottom: 16px; background: linear-gradient(120deg, #fff 0%, var(--cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .pkg-tagline { font-size: .84rem; color: rgba(255,255,255,.65); line-height: 1.55; margin-bottom: 28px; }
+    .pkg-bestfor-label { font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+    .pkg-bestfor-text { font-size: .82rem; color: rgba(255,255,255,.5); line-height: 1.5; }
+    .pkg-mountain-icon { margin-top: auto; padding-top: 32px; opacity: .16; }
+    .pkg-mountain-icon svg { width: 72px; height: 44px; display: block; }
+    .pkg-right { padding: 44px 40px; display: flex; flex-direction: column; }
+    .pkg-right-heading { font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+    .pkg-features-list { list-style: none; display: flex; flex-direction: column; gap: 13px; flex: 1; margin-bottom: 32px; }
+    .pkg-features-list li { display: flex; align-items: flex-start; gap: 12px; font-size: .875rem; color: rgba(255,255,255,.82); line-height: 1.45; }
+    .pkg-check { width: 18px; height: 18px; border-radius: 50%; background: rgba(0,174,239,.1); border: 1px solid rgba(0,174,239,.3); flex-shrink: 0; margin-top: 1px; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8.5l3 3 6-6' stroke='%2300AEEF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-size: 65%; background-repeat: no-repeat; background-position: center; display: inline-block; }
+    .pkg-cta-btn { display: block; width: 100%; background: var(--grad); color: var(--bg); border: none; padding: 15px 24px; border-radius: 10px; font-size: 1rem; font-weight: 700; letter-spacing: -.01em; cursor: pointer; transition: opacity .2s, transform .2s, box-shadow .2s; text-align: center; }
+    .pkg-cta-btn:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 8px 32px rgba(0,174,239,.4); }
+    .pkg-disclaimer { margin-top: 10px; font-size: .74rem; color: var(--muted); text-align: center; }
+    .pkg-close-btn { position: absolute; top: 14px; right: 14px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.55); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.15rem; line-height: 1; transition: background .2s, color .2s; z-index: 10; }
+    .pkg-close-btn:hover { background: rgba(255,255,255,.14); color: var(--white); }
+    @media (max-width: 680px) { .pkg-modal { grid-template-columns: 1fr; } .pkg-left { border-radius: 20px 20px 0 0; border-right: none; border-bottom: 1px solid rgba(0,174,239,.15); padding: 36px 28px 28px; } .pkg-right { padding: 28px 28px 36px; } .pkg-mountain-icon { display: none; } }
+
+    /* ── BOOKING MODAL ── */
+    .book-overlay { display: none; position: fixed; inset: 0; background: rgba(2,12,31,.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); z-index: 9500; align-items: center; justify-content: center; padding: 24px; overflow-y: auto; }
+    .book-overlay.active { display: flex; }
+    .book-modal { background: linear-gradient(160deg, #0d2660 0%, #071940 55%, #020c1f 100%); border: 1px solid rgba(0,174,239,.3); border-radius: 24px; padding: 48px 44px; width: 100%; max-width: 560px; position: relative; flex-shrink: 0; animation: pkgIn .32s cubic-bezier(.22,.68,0,1.08); }
+    .book-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.55); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; line-height: 1; transition: background .2s, color .2s; }
+    .book-close:hover { background: rgba(255,255,255,.15); color: var(--white); }
+    @media (max-width: 700px) { .book-overlay { padding: 16px; align-items: flex-start; } .book-modal { padding: 40px 28px; } .book-modal .sm-row { grid-template-columns: 1fr; } }
+    @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @media (max-width: 520px) { .book-overlay { align-items: flex-end; padding: 0; overflow-y: hidden; } .book-modal { border-radius: 20px 20px 0 0; padding: 28px 20px 36px; max-width: 100%; max-height: 92vh; overflow-y: auto; animation: slideUp .32s cubic-bezier(.22,.68,0,1.08); } }
+
+    /* ── CALENDAR MODAL ── */
+    .cal-overlay { display: none; position: fixed; inset: 0; background: rgba(2,12,31,.97); z-index: 9600; align-items: center; justify-content: center; padding: 20px; }
+    .cal-overlay.active { display: flex; }
+    .cal-modal { background: #020c1f; border: 1px solid rgba(0,174,239,.3); border-radius: 20px; width: 100%; max-width: 960px; height: min(720px, 88vh); display: flex; flex-direction: column; overflow: hidden; animation: pkgIn .32s cubic-bezier(.22,.68,0,1.08); position: relative; }
+    .cal-head { padding: 14px 20px; border-bottom: 1px solid rgba(0,174,239,.15); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; background: linear-gradient(90deg, #0d2660 0%, #071940 100%); }
+    .cal-head-title { font-size: .85rem; font-weight: 700; color: rgba(255,255,255,.85); letter-spacing: -.01em; }
+    .cal-head-title span { background: linear-gradient(135deg,#00AEEF,#41D9F2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .cal-close-btn { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.5); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.1rem; line-height: 1; transition: background .2s, color .2s; flex-shrink: 0; }
+    .cal-close-btn:hover { background: rgba(255,255,255,.15); color: #fff; }
+    .cal-loader { position: absolute; inset: 52px 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; color: rgba(255,255,255,.4); font-size: .85rem; pointer-events: none; background: #020c1f; }
+    .cal-spinner { width: 34px; height: 34px; border: 2px solid rgba(0,174,239,.2); border-top-color: #00AEEF; border-radius: 50%; animation: spin .75s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .cal-iframe { flex: 1; border: none; width: 100%; height: 100%; background: transparent; }
+    @media (max-width: 600px) { .cal-overlay { padding: 0; align-items: flex-end; } .cal-modal { border-radius: 20px 20px 0 0; height: 88vh; } }
   </style>
 </head>
 <body>
@@ -577,7 +667,7 @@
     <li><a href="/#about">About</a></li>
     <li><a href="/#contact">Contact</a></li>
   </ul>
-  <a href="/#contact" class="nav-cta">Book a Call</a>
+  <a href="#" id="nav-book-btn" class="nav-cta">Book a Call</a>
 </nav>
 
 <!-- HERO -->
@@ -598,7 +688,7 @@
   <div class="plans-grid">
 
     <!-- BASECAMP -->
-    <div class="plan-card">
+    <div class="plan-card" data-pkg="basecamp">
       <div class="plan-tier">Tier 1</div>
       <div class="plan-name">Basecamp</div>
       <div class="plan-tagline">Get found online. Build your foundation with SEO and content that drives organic traffic.</div>
@@ -622,7 +712,7 @@
     </div>
 
     <!-- ELEVATE -->
-    <div class="plan-card">
+    <div class="plan-card" data-pkg="elevate">
       <div class="plan-tier">Tier 2</div>
       <div class="plan-name">Elevate</div>
       <div class="plan-tagline">Amplify your brand. Add social, nurture sequences, and conversion optimization.</div>
@@ -647,7 +737,7 @@
     </div>
 
     <!-- ASCENT (POPULAR) -->
-    <div class="plan-card popular">
+    <div class="plan-card popular" data-pkg="ascent">
       <div class="popular-badge">Most Popular</div>
       <div class="plan-tier">Tier 3</div>
       <div class="plan-name">Ascent</div>
@@ -674,7 +764,7 @@
     </div>
 
     <!-- PEAK -->
-    <div class="plan-card">
+    <div class="plan-card" data-pkg="peak">
       <div class="plan-tier">Tier 4</div>
       <div class="plan-name">Peak</div>
       <div class="plan-tagline">Enterprise-grade. Custom roadmap, multi-channel dominance, and PR authority building.</div>
@@ -1015,7 +1105,7 @@
 
       <div class="calc-footer">
         <p>Estimates only. Actual usage billed monthly based on GHL consumption reports.</p>
-        <a href="#">Book a Strategy Call</a>
+        <a href="#" id="calc-book-btn">Book a Strategy Call</a>
       </div>
     </div>
   </div>
@@ -1068,6 +1158,142 @@
     </div>
   </div>
 </footer>
+
+  <!-- ── BOOKING MODAL ─────────────────────────────────────────────────── -->
+  <div class="book-overlay" id="book-overlay">
+    <div class="book-modal">
+      <button class="book-close" id="book-close-btn" aria-label="Close">&times;</button>
+      <div class="sm-eyebrow">Free Strategy Call</div>
+      <h3 class="sm-title">Let's reach <span>new heights</span> together</h3>
+      <p class="sm-sub">Tell us about your business and goals. We'll review your current marketing and show you exactly what's possible.</p>
+      <div class="sm-divider"></div>
+      <form
+        id="book-modal-form"
+        method="POST"
+        action="https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ"
+        enctype="application/x-www-form-urlencoded"
+        accept-charset="UTF-8"
+      >
+        <div class="sm-row">
+          <div class="sm-group">
+            <label class="sm-label" for="bm-first">First Name *</label>
+            <input class="sm-input" type="text" id="bm-first" name="first_name" placeholder="John" required />
+          </div>
+          <div class="sm-group">
+            <label class="sm-label" for="bm-last">Last Name *</label>
+            <input class="sm-input" type="text" id="bm-last" name="last_name" placeholder="Smith" required />
+          </div>
+        </div>
+        <div class="sm-row">
+          <div class="sm-group">
+            <label class="sm-label" for="bm-email">Email *</label>
+            <input class="sm-input" type="email" id="bm-email" name="email" placeholder="john@company.com" required />
+          </div>
+          <div class="sm-group">
+            <label class="sm-label" for="bm-phone">Phone</label>
+            <input class="sm-input" type="tel" id="bm-phone" name="phone" placeholder="+1 (555) 000-0000" />
+          </div>
+        </div>
+        <div class="sm-group">
+          <label class="sm-label" for="bm-company">Business Name</label>
+          <input class="sm-input" type="text" id="bm-company" name="company_name" placeholder="Your Company LLC" />
+        </div>
+        <div class="sm-group">
+          <label class="sm-label" for="bm-service">Service Interest *</label>
+          <select class="sm-select" id="bm-service" name="service_interest" required>
+            <option value="" disabled selected>Select a package...</option>
+            <option value="Basecamp">Basecamp — Foundation &amp; SEO</option>
+            <option value="Elevate">Elevate — Growth &amp; Brand</option>
+            <option value="Ascent">Ascent — Full-Funnel Scale (Most Popular)</option>
+            <option value="Peak">Peak — Enterprise Custom</option>
+            <option value="Not Sure">Not sure yet — help me choose</option>
+          </select>
+        </div>
+        <div class="sm-group">
+          <label class="sm-label" for="bm-message">Tell Us About Your Goals</label>
+          <textarea class="sm-textarea" id="bm-message" name="message" placeholder="What are you looking to achieve? What's your biggest marketing challenge right now?"></textarea>
+        </div>
+        <input type="hidden" name="source" value="Summit Marketing Website" />
+        <input type="hidden" name="lead_source" value="Pricing Page" />
+        <button type="submit" class="sm-submit">Book My Free Strategy Call &rarr;</button>
+        <p class="sm-disclaimer">
+          By submitting you agree to our
+          <a href="/privacy.html">Privacy Policy</a>
+          &amp;
+          <a href="/terms.html">Terms of Service</a>.
+          We never sell your information.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── PACKAGE DETAIL MODAL ─────────────────────────────────────────── -->
+  <div class="pkg-overlay" id="pkg-overlay">
+    <div class="pkg-modal" id="pkg-modal">
+      <button class="pkg-close-btn" id="pkg-close-btn" aria-label="Close">&times;</button>
+      <!-- LEFT: Identity panel -->
+      <div class="pkg-left">
+        <div class="pkg-tier-label" id="pkg-tier-label"></div>
+        <div class="pkg-badge-pill" id="pkg-badge-pill">Most Popular</div>
+        <div class="pkg-name" id="pkg-name"></div>
+        <div class="pkg-tagline" id="pkg-tagline"></div>
+        <div class="pkg-bestfor-label">Best for</div>
+        <div class="pkg-bestfor-text" id="pkg-bestfor-text"></div>
+        <div class="pkg-mountain-icon">
+          <svg viewBox="0 0 72 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 44 L18 18 L28 28 L44 6 L56 22 L64 14 L72 44Z" fill="url(#mtnG)"/>
+            <defs>
+              <linearGradient id="mtnG" x1="0" y1="0" x2="72" y2="44" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00AEEF"/>
+                <stop offset="100%" stop-color="#41D9F2"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+      <!-- RIGHT: Features + CTA -->
+      <div class="pkg-right">
+        <div class="pkg-right-heading">What's included</div>
+        <ul class="pkg-features-list" id="pkg-features-list"></ul>
+        <button class="pkg-cta-btn" id="pkg-cta-btn"></button>
+        <div class="pkg-disclaimer">No long-term contracts &mdash; cancel anytime.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CALENDAR MODAL ───────────────────────────────────────────────── -->
+  <div class="cal-overlay" id="cal-overlay">
+    <div class="cal-modal">
+      <div class="cal-head">
+        <span class="cal-head-title">📅 Pick a time for your <span>free strategy call</span></span>
+        <button class="cal-close-btn" id="cal-close-btn" aria-label="Close">&times;</button>
+      </div>
+      <div class="cal-loader" id="cal-loader">
+        <div class="cal-spinner"></div>
+        <span>Loading calendar…</span>
+      </div>
+      <iframe
+        id="cal-iframe"
+        class="cal-iframe"
+        src=""
+        frameborder="0"
+        scrolling="yes"
+        allow="payment"
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- ── THANK YOU MODAL ──────────────────────────────────────────────── -->
+  <div class="ty-overlay" id="ty-overlay">
+    <div class="ty-modal">
+      <div class="ty-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h2 class="ty-title">You're on your way to <em>new heights!</em></h2>
+      <p class="ty-sub">Thanks for reaching out. We've received your information and a member of the Summit team will be in touch with you very soon.</p>
+      <button class="ty-close" id="ty-close-btn">Back to Site</button>
+    </div>
+  </div>
 
 <script>
   // ── BILLING TOGGLE ──
@@ -1169,6 +1395,261 @@
 
   // Init
   calcUpdate();
+</script>
+
+<script>
+  /* ── MODAL LOGIC ──────────────────────────────────────────────────── */
+  (function () {
+    var CAL_URL    = 'https://links.summitmarketingms.com/widget/bookings/joe-boyd-personal-calendar-hufa6qk-e';
+    var tyOverlay  = document.getElementById('ty-overlay');
+    var tyCloseBtn = document.getElementById('ty-close-btn');
+    var calOverlay = document.getElementById('cal-overlay');
+    var calIframe  = document.getElementById('cal-iframe');
+    var calLoader  = document.getElementById('cal-loader');
+    var calCloseBtn = document.getElementById('cal-close-btn');
+    var tyShown = false;
+
+    function showTy() {
+      if (tyShown) return;
+      tyShown = true;
+      document.body.style.overflow = '';
+      if (tyOverlay) tyOverlay.classList.add('active');
+    }
+
+    function openCal() {
+      tyShown = false;
+      if (calLoader) calLoader.style.display = '';
+      if (calIframe) {
+        calIframe.src = '';
+        calIframe.src = CAL_URL;
+        calIframe.onload = function () {
+          if (calLoader) calLoader.style.display = 'none';
+        };
+      }
+      if (calOverlay) {
+        calOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeCal(andShowTy) {
+      if (calOverlay) calOverlay.classList.remove('active');
+      if (calIframe)  calIframe.src = '';
+      if (andShowTy)  showTy();
+      else document.body.style.overflow = '';
+    }
+
+    function attachGHLSubmit(form) {
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var data = new URLSearchParams(new FormData(form)).toString();
+        fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }).catch(function () {});
+        var bookOverlay = document.getElementById('book-overlay');
+        if (bookOverlay) bookOverlay.classList.remove('active');
+        form.reset();
+        openCal();
+      });
+    }
+
+    attachGHLSubmit(document.getElementById('book-modal-form'));
+
+    if (calCloseBtn) calCloseBtn.addEventListener('click', function () { closeCal(true); });
+    if (calOverlay) calOverlay.addEventListener('click', function (e) {
+      if (e.target === calOverlay) closeCal(true);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && calOverlay && calOverlay.classList.contains('active')) closeCal(true);
+    });
+
+    window.addEventListener('message', function (e) {
+      if (!e.data) return;
+      var msg = typeof e.data === 'string' ? e.data : JSON.stringify(e.data);
+      if (
+        msg.indexOf('booked') !== -1 ||
+        msg.indexOf('Booked') !== -1 ||
+        msg.indexOf('booking_confirmed') !== -1 ||
+        msg.indexOf('booking-confirmed') !== -1 ||
+        msg.indexOf('confirmed') !== -1
+      ) {
+        closeCal(false);
+        showTy();
+      }
+    });
+
+    if (tyCloseBtn) tyCloseBtn.addEventListener('click', function () {
+      tyOverlay.classList.remove('active');
+      tyShown = false;
+    });
+    if (tyOverlay) tyOverlay.addEventListener('click', function (e) {
+      if (e.target === tyOverlay) { tyOverlay.classList.remove('active'); tyShown = false; }
+    });
+
+    /* ── BOOKING MODAL ────────────────────────────────────────────── */
+    var bookOverlay = document.getElementById('book-overlay');
+    var bookCloseBtn = document.getElementById('book-close-btn');
+    var navBtn  = document.getElementById('nav-book-btn');
+    var calcBtn = document.getElementById('calc-book-btn');
+
+    function openBook() {
+      bookOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeBook() {
+      bookOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    [navBtn, calcBtn].forEach(function (btn) {
+      if (btn) btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openBook();
+      });
+    });
+    if (bookCloseBtn) bookCloseBtn.addEventListener('click', closeBook);
+    if (bookOverlay) {
+      bookOverlay.addEventListener('click', function (e) {
+        if (e.target === bookOverlay) closeBook();
+      });
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && bookOverlay && bookOverlay.classList.contains('active')) closeBook();
+    });
+
+    /* ── PACKAGE MODALS ───────────────────────────────────────────── */
+    var PACKAGES = {
+      basecamp: {
+        tier: 'Tier 01 · Foundation',
+        name: 'Basecamp',
+        tagline: 'Build the foundation for sustainable, long-term digital growth.',
+        bestFor: 'Businesses establishing their digital presence and looking to capture organic traffic from day one.',
+        featured: false,
+        features: [
+          'SEO Audit & Strategy',
+          'On-Page SEO Optimization',
+          'Monthly Content — 2 articles/mo',
+          'Email Newsletter Setup & Management',
+          'Monthly Analytics Report',
+          'Google Business Profile Optimization'
+        ],
+        cta: 'Get Started with Basecamp',
+        formValue: 'Basecamp'
+      },
+      elevate: {
+        tier: 'Tier 02 · Growth',
+        name: 'Elevate',
+        tagline: 'Accelerate growth with brand authority and conversion-optimized marketing.',
+        bestFor: 'Growing businesses with a foundation in place, ready to scale traffic, brand presence, and conversions.',
+        featured: false,
+        features: [
+          'Everything in Basecamp',
+          'Brand Strategy & Positioning',
+          'Monthly Content — 4 articles/mo',
+          'Social Media Management',
+          'Email Nurture Sequences',
+          'Conversion Rate Optimization',
+          'Bi-weekly Strategy Calls'
+        ],
+        cta: 'Get Started with Elevate',
+        formValue: 'Elevate'
+      },
+      ascent: {
+        tier: 'Tier 03 · Scale',
+        name: 'Ascent',
+        tagline: 'The complete growth engine — full-funnel marketing built for ambitious businesses.',
+        bestFor: 'Companies ready to dominate their market with a comprehensive, data-driven full-funnel approach.',
+        featured: true,
+        features: [
+          'Everything in Elevate',
+          'Full-Funnel Marketing Strategy',
+          'Landing Page & Funnel Design',
+          'Marketing Automation Builds',
+          'Dedicated Account Manager',
+          'Weekly Performance Reviews',
+          'Competitor Gap Analysis',
+          'Monthly Content — 8 articles/mo'
+        ],
+        cta: 'Get Started with Ascent',
+        formValue: 'Ascent'
+      },
+      peak: {
+        tier: 'Tier 04 · Enterprise',
+        name: 'Peak',
+        tagline: 'Enterprise-grade, fully custom strategy built around your market and goals.',
+        bestFor: 'Established organizations with complex needs, multiple channels, and a mandate to lead their category.',
+        featured: false,
+        features: [
+          'Everything in Ascent',
+          'Custom Growth Roadmap',
+          'Multi-Channel Orchestration',
+          'Executive Quarterly Reviews',
+          'Priority Support & SLAs',
+          'PR & Authority Building',
+          'Custom Integrations',
+          'Unlimited Content Production'
+        ],
+        cta: "Let's Talk About Peak",
+        formValue: 'Peak'
+      }
+    };
+
+    var pkgOverlay = document.getElementById('pkg-overlay');
+    var pkgCloseBtn = document.getElementById('pkg-close-btn');
+    var ctaBtn = document.getElementById('pkg-cta-btn');
+
+    function openPkg(pkgKey) {
+      var pkg = PACKAGES[pkgKey];
+      if (!pkg) return;
+      document.getElementById('pkg-tier-label').textContent   = pkg.tier;
+      document.getElementById('pkg-name').textContent         = pkg.name;
+      document.getElementById('pkg-tagline').textContent      = pkg.tagline;
+      document.getElementById('pkg-bestfor-text').textContent = pkg.bestFor;
+      var badge = document.getElementById('pkg-badge-pill');
+      badge.style.display = pkg.featured ? '' : 'none';
+      var list = document.getElementById('pkg-features-list');
+      list.innerHTML = '';
+      pkg.features.forEach(function (feat) {
+        var li = document.createElement('li');
+        li.innerHTML = '<span class="pkg-check"></span>' + feat;
+        list.appendChild(li);
+      });
+      ctaBtn.textContent = pkg.cta;
+      ctaBtn.setAttribute('data-form-value', pkg.formValue);
+      pkgOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePkg() {
+      pkgOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.plan-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        openPkg(card.getAttribute('data-pkg'));
+      });
+    });
+
+    if (pkgCloseBtn) pkgCloseBtn.addEventListener('click', closePkg);
+    if (pkgOverlay) pkgOverlay.addEventListener('click', function (e) {
+      if (e.target === pkgOverlay) closePkg();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && pkgOverlay && pkgOverlay.classList.contains('active')) closePkg();
+    });
+
+    if (ctaBtn) ctaBtn.addEventListener('click', function () {
+      var val = this.getAttribute('data-form-value');
+      closePkg();
+      var modalSelect = document.getElementById('bm-service');
+      if (modalSelect && val) modalSelect.value = val;
+      openBook();
+    });
+  })();
 </script>
 </body>
 </html>
