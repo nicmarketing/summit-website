@@ -16,7 +16,14 @@
         "@id": "https://summitmarketingms.com/#organization",
         "name": "Summit Marketing",
         "url": "https://summitmarketingms.com/",
-        "logo": "https://summitmarketingms.com/brand-assets/logo.png",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://summitmarketingms.com/#logo",
+          "url": "https://summitmarketingms.com/brand-assets/Summt%20Marketing%20LOGO.png",
+          "contentUrl": "https://summitmarketingms.com/brand-assets/Summt%20Marketing%20LOGO.png",
+          "caption": "Summit Marketing"
+        },
+        "image": { "@id": "https://summitmarketingms.com/#logo" },
         "email": "hello@summitmarketingms.com",
         "description": "Results-driven digital marketing agency offering SEO, content, automation, and AI-powered growth strategies for businesses across Mississippi.",
         "slogan": "Reaching New Heights Together",
@@ -26,6 +33,14 @@
           "https://www.facebook.com/SummitMarketingOfficial",
           "https://www.instagram.com/SummitMarketingOfficial"
         ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://summitmarketingms.com/#website",
+        "url": "https://summitmarketingms.com/",
+        "name": "Summit Marketing",
+        "publisher": { "@id": "https://summitmarketingms.com/#organization" },
+        "inLanguage": "en-US"
       },
       {
         "@type": "WebPage",
