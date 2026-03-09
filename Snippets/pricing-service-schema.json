@@ -1,0 +1,205 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://summitmarketingms.com/#organization",
+      "name": "Summit Marketing",
+      "url": "https://summitmarketingms.com/",
+      "logo": "https://summitmarketingms.com/brand-assets/logo.png",
+      "telephone": "",
+      "email": "hello@summitmarketingms.com",
+      "description": "Results-driven digital marketing agency offering SEO, content, automation, and AI-powered growth strategies for businesses across Mississippi.",
+      "slogan": "Reaching New Heights Together",
+      "foundingDate": "2024",
+      "areaServed": {
+        "@type": "State",
+        "name": "Mississippi"
+      },
+      "sameAs": [
+        "https://www.facebook.com/SummitMarketingOfficial",
+        "https://www.instagram.com/SummitMarketingOfficial"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://summitmarketingms.com/pricing/#webpage",
+      "url": "https://summitmarketingms.com/pricing/",
+      "name": "Marketing Plans & Pricing | Summit Marketing",
+      "description": "Transparent, flat-rate marketing retainers with usage-based AI and communication fees. Choose from Basecamp, Elevate, Ascent, or Peak.",
+      "inLanguage": "en-US",
+      "isPartOf": { "@id": "https://summitmarketingms.com/#website" },
+      "about": { "@id": "https://summitmarketingms.com/#organization" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://summitmarketingms.com/pricing/#basecamp",
+      "name": "Basecamp — Digital Marketing Plan",
+      "alternateName": "Basecamp",
+      "description": "Foundation-level SEO, content marketing, and reputation management. Ideal for local businesses starting their digital presence in Mississippi.",
+      "url": "https://summitmarketingms.com/pricing/",
+      "provider": { "@id": "https://summitmarketingms.com/#organization" },
+      "serviceType": "Digital Marketing",
+      "category": "SEO & Content Marketing",
+      "offers": {
+        "@type": "Offer",
+        "name": "Basecamp Monthly Plan",
+        "price": "997.00",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "997.00",
+          "priceCurrency": "USD",
+          "unitText": "month",
+          "billingIncrement": 1
+        },
+        "eligibleRegion": {
+          "@type": "State",
+          "name": "Mississippi"
+        }
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Basecamp Deliverables",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full SEO Audit & On-Page Optimization" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "2 Blog Posts per Month" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Monthly Email Newsletter" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Business Profile Management" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Monthly Analytics Report" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GHL CRM Access" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Review Request Automation via SMS & Email" } }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://summitmarketingms.com/pricing/#elevate",
+      "name": "Elevate — Digital Marketing Plan",
+      "alternateName": "Elevate",
+      "description": "Brand strategy, social media management, email nurture sequences, and conversion rate optimization for growing Mississippi businesses.",
+      "url": "https://summitmarketingms.com/pricing/",
+      "provider": { "@id": "https://summitmarketingms.com/#organization" },
+      "serviceType": "Digital Marketing",
+      "category": "Brand Strategy & Social Media",
+      "offers": {
+        "@type": "Offer",
+        "name": "Elevate Monthly Plan",
+        "price": "1497.00",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "1497.00",
+          "priceCurrency": "USD",
+          "unitText": "month",
+          "billingIncrement": 1
+        },
+        "eligibleRegion": {
+          "@type": "State",
+          "name": "Mississippi"
+        }
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Elevate Deliverables",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Everything in Basecamp" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Strategy & Messaging Guide" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "4 Blog Posts per Month" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Management (3 platforms, 12 posts/month)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "3-Part Email Nurture Sequence" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Conversion Rate Optimization" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bi-Weekly Strategy Calls" } }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://summitmarketingms.com/pricing/#ascent",
+      "name": "Ascent — Full-Funnel Marketing Plan",
+      "alternateName": "Ascent",
+      "description": "Full-funnel marketing strategy with automation workflows, landing pages, Voice AI, Conversation AI, and a dedicated account manager. Most popular plan.",
+      "url": "https://summitmarketingms.com/pricing/",
+      "provider": { "@id": "https://summitmarketingms.com/#organization" },
+      "serviceType": "Digital Marketing",
+      "category": "Full-Funnel Growth & Automation",
+      "offers": {
+        "@type": "Offer",
+        "name": "Ascent Monthly Plan",
+        "price": "2497.00",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "2497.00",
+          "priceCurrency": "USD",
+          "unitText": "month",
+          "billingIncrement": 1
+        },
+        "eligibleRegion": {
+          "@type": "State",
+          "name": "Mississippi"
+        }
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Ascent Deliverables",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Everything in Elevate" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full-Funnel Strategy & Roadmap" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "3 Custom Landing Pages" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Automation Workflows" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Voice AI & Conversation AI (usage fees apply)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dedicated Account Manager" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Unlimited GHL CRM Users" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Weekly Strategy Calls" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Priority Support (8-hour response)" } }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://summitmarketingms.com/pricing/#peak",
+      "name": "Peak — Enterprise Marketing Plan",
+      "alternateName": "Peak",
+      "description": "Enterprise-grade marketing with a custom growth roadmap, multi-channel paid media strategy, PR and authority building, and unlimited funnels.",
+      "url": "https://summitmarketingms.com/pricing/",
+      "provider": { "@id": "https://summitmarketingms.com/#organization" },
+      "serviceType": "Digital Marketing",
+      "category": "Enterprise & Multi-Channel Marketing",
+      "offers": {
+        "@type": "Offer",
+        "name": "Peak Monthly Plan",
+        "price": "3997.00",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "3997.00",
+          "priceCurrency": "USD",
+          "unitText": "month",
+          "billingIncrement": 1
+        },
+        "eligibleRegion": {
+          "@type": "State",
+          "name": "Mississippi"
+        }
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Peak Deliverables",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Everything in Ascent" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Growth Roadmap" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Multi-Channel Paid Media Strategy" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "PR & Digital Authority Building" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Unlimited Landing Pages & Funnels" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Advanced AI Automations" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Executive Monthly Business Review" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Priority Support (2-hour response)" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dedicated Slack Channel" } }
+        ]
+      }
+    }
+  ]
+}
+</script>
