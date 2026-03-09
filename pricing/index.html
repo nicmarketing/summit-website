@@ -166,11 +166,11 @@
         "offers": {
           "@type": "Offer",
           "name": "Peak Monthly Plan",
-          "price": "3997.00",
+          "price": "5000.00",
           "priceCurrency": "USD",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "3997.00",
+            "price": "5000.00",
             "priceCurrency": "USD",
             "unitText": "month",
             "billingIncrement": 1
@@ -225,35 +225,46 @@
 
     /* ── NAV ── */
     nav {
-      position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 60px;
-      background: rgba(2,12,31,.92);
-      backdrop-filter: blur(12px);
+      padding: 14px 52px;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(2,12,31,.9);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.3rem; font-weight: 700; letter-spacing: .08em;
-      background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      text-decoration: none;
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img {
+      height: 52px; width: auto; display: block;
+      filter: brightness(2.8) drop-shadow(0 0 6px rgba(0,174,239,.25));
     }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: .85rem; font-weight: 500; letter-spacing: .04em; transition: color .2s; }
-    .nav-links a:hover { color: var(--blue); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .875rem; font-weight: 500; letter-spacing: .01em; transition: color .2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active { color: var(--blue); }
     .nav-cta {
-      background: var(--grad); color: #000; border: none;
-      padding: 10px 24px; border-radius: 6px;
-      font-family: 'Montserrat', sans-serif; font-size: .85rem; font-weight: 700;
-      cursor: pointer; text-decoration: none; letter-spacing: .04em;
-      transition: opacity .2s, transform .15s;
+      background: var(--grad); color: var(--bg);
+      padding: 10px 24px; border-radius: 8px;
+      font-size: .875rem; font-weight: 700; text-decoration: none;
+      letter-spacing: -.01em; transition: opacity .2s, transform .2s, box-shadow .2s;
     }
-    .nav-cta:hover { opacity: .88; transform: translateY(-1px); }
+    .nav-cta:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 6px 28px rgba(0,174,239,.4); }
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 40px 52px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo img { height: 40px; width: auto; filter: brightness(2.8) drop-shadow(0 0 4px rgba(0,174,239,.2)); }
+    .footer-links { display: flex; gap: 28px; list-style: none; }
+    .footer-links a { color: rgba(255,255,255,.35); text-decoration: none; font-size: .82rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--blue); }
+    .footer-copy { font-size: .78rem; color: rgba(255,255,255,.2); margin-bottom: 6px; }
+    .footer-legal { display: flex; gap: 16px; margin-top: 6px; }
+    .footer-legal a { font-size: .75rem; color: rgba(255,255,255,.25); text-decoration: none; transition: color .2s; }
+    .footer-legal a:hover { color: var(--blue); }
+    .footer-tagline { font-size: .75rem; color: rgba(0,174,239,.5); font-style: italic; letter-spacing: .02em; margin-top: 4px; }
 
     /* ── HERO ── */
     .hero {
       text-align: center;
-      padding: 96px 24px 64px;
+      padding: 140px 24px 64px;
       background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,174,239,.12) 0%, transparent 70%);
     }
     .hero-label {
@@ -541,13 +552,14 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      nav { padding: 16px 20px; }
+      nav { padding: 14px 20px; }
       .nav-links { display: none; }
       .calc-grid { grid-template-columns: 1fr; }
       .calc-body { padding: 24px 20px; }
       .calc-header { padding: 20px; }
       .calc-footer { padding: 16px 20px; }
-      footer { padding: 24px 20px; }
+      footer { padding: 32px 20px; }
+      .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
     }
   </style>
 </head>
@@ -555,13 +567,17 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">SUMMIT MARKETING</a>
+  <a href="/" class="nav-logo">
+    <img src="/brand-assets/Summt Marketing LOGO.png" alt="Summit Marketing" />
+  </a>
   <ul class="nav-links">
-    <li><a href="#plans">Plans</a></li>
-    <li><a href="#usage">Usage Fees</a></li>
-    <li><a href="#calculator">Estimator</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#results">Results</a></li>
+    <li><a href="/pricing/" class="active">Pricing</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#contact">Contact</a></li>
   </ul>
-  <a href="#calculator" class="nav-cta">Estimate My Cost</a>
+  <a href="/#contact" class="nav-cta">Book a Call</a>
 </nav>
 
 <!-- HERO -->
@@ -664,9 +680,9 @@
       <div class="plan-tagline">Enterprise-grade. Custom roadmap, multi-channel dominance, and PR authority building.</div>
       <div class="plan-price">
         <div class="price-amount">
-          <span class="dollar">$</span><span class="price-num" data-monthly="3997" data-annual="3397">3,997</span><span class="period">/mo</span>
+          <span class="dollar">$</span><span class="price-num" data-monthly="5000" data-annual="4250">5,000</span><span style="font-family:'Oswald',sans-serif;font-size:2.6rem;font-weight:700;color:#fff;">+</span><span class="period">/mo</span>
         </div>
-        <div class="price-annual-note annual-note" style="display:none;">Billed $40,764/yr — save $7,200</div>
+        <div class="price-annual-note annual-note" style="display:none;">Billed $51,000+/yr — save 15%</div>
       </div>
       <a href="#" class="plan-cta plan-cta-outline">Contact Us</a>
       <hr class="plan-divider" />
@@ -887,7 +903,7 @@
           <option value="997">Basecamp — $997/mo</option>
           <option value="1497">Elevate — $1,497/mo</option>
           <option value="2497" selected>Ascent — $2,497/mo</option>
-          <option value="3997">Peak — $3,997/mo</option>
+          <option value="5000">Peak — $5,000+/mo</option>
         </select>
       </div>
 
@@ -1031,8 +1047,26 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Summit Marketing. All rights reserved.</p>
-  <a href="mailto:hello@summitmarketingms.com">hello@summitmarketingms.com</a>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="/brand-assets/Summt Marketing LOGO.png" alt="Summit Marketing" />
+    </div>
+    <ul class="footer-links">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#results">Results</a></li>
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <div>
+      <div class="footer-copy">&copy; 2026 Summit Marketing. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+      </div>
+      <div class="footer-tagline">Reaching New Heights Together</div>
+    </div>
+  </div>
 </footer>
 
 <script>
