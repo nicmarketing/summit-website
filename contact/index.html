@@ -786,18 +786,18 @@
 
 <!-- CONTACT INFO BAR -->
 <div class="contact-info-bar">
-  <a href="mailto:hello@summitmarketingms.com" class="info-card">
+  <a href="mailto:nic@summitmarketingms.com" class="info-card">
     <div class="info-icon">✉️</div>
     <div class="info-text">
       <div class="info-label">Email Us</div>
-      <div class="info-value">hello@summitmarketingms.com</div>
+      <div class="info-value">nic@summitmarketingms.com</div>
     </div>
   </a>
-  <a href="https://www.facebook.com/SummitMarketingOfficial" target="_blank" rel="noopener" class="info-card">
+  <a href="https://www.facebook.com/SummitMarketingMS" target="_blank" rel="noopener" class="info-card">
     <div class="info-icon">📱</div>
     <div class="info-text">
       <div class="info-label">Find Us On Social</div>
-      <div class="info-value">@SummitMarketingOfficial</div>
+      <div class="info-value">@SummitMarketingMS</div>
     </div>
   </a>
   <div class="info-card" style="cursor:default;">
@@ -1055,6 +1055,11 @@
     setTimeout(function() {
       form.style.display = 'none';
       if (success) success.classList.add('visible');
+      // Auto-scroll to the embedded calendar
+      setTimeout(function() {
+        var cal = document.getElementById('calendar');
+        if (cal) cal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 400);
     }, 600);
   });
 })();
