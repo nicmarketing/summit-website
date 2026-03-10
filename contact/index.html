@@ -495,6 +495,7 @@
 
     .cal-loader-wrap {
       position: relative;
+      height: 680px;
     }
     .cal-loader {
       position: absolute;
@@ -507,8 +508,9 @@
       background: rgba(2,12,31,.95);
       z-index: 2;
       transition: opacity .4s;
+      pointer-events: none;
     }
-    .cal-loader.hidden { opacity: 0; pointer-events: none; }
+    .cal-loader.hidden { opacity: 0; }
     .cal-spinner {
       width: 36px; height: 36px;
       border: 2.5px solid rgba(0,174,239,.2);
@@ -520,8 +522,10 @@
     .cal-loader-text { font-size: .82rem; color: rgba(255,255,255,.4); }
     .cal-iframe {
       display: block;
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: 640px;
+      height: 100%;
       border: none;
       background: transparent;
     }
@@ -934,8 +938,9 @@
           id="cal-iframe"
           class="cal-iframe"
           src="https://links.summitmarketingms.com/widget/bookings/joe-boyd-personal-calendar-hufa6qk-e"
-          loading="lazy"
-          allow="camera; microphone; fullscreen; payment"
+          frameborder="0"
+          scrolling="yes"
+          allow="payment"
           title="Book a strategy call with Summit Marketing"
         ></iframe>
       </div>
@@ -1027,11 +1032,12 @@
   var iframe = document.getElementById('cal-iframe');
   var loader = document.getElementById('cal-loader');
   if (!iframe || !loader) return;
+  // Hide loader once iframe content fires load event
   iframe.addEventListener('load', function() {
-    loader.classList.add('hidden');
+    setTimeout(function() { loader.classList.add('hidden'); }, 300);
   });
-  // Fallback: hide loader after 12s even if no load event fires
-  setTimeout(function() { loader.classList.add('hidden'); }, 12000);
+  // Fallback: hide after 8s regardless
+  setTimeout(function() { loader.classList.add('hidden'); }, 8000);
 })();
 
 // ── Contact form AJAX submit ────────────────────────────────────────────────
