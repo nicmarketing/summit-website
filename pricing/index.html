@@ -565,6 +565,115 @@
     footer p { font-size: .8rem; color: var(--muted); }
     footer a { color: var(--blue); text-decoration: none; font-size: .8rem; }
 
+    /* ── WEB DESIGN SECTION ── */
+    .web-section { padding: 0 24px 80px; }
+    .web-inner { max-width: 1200px; margin: 0 auto; }
+
+    /* Differentiator strip */
+    .web-diff-strip {
+      background: linear-gradient(135deg, rgba(0,174,239,.08), rgba(65,217,242,.04));
+      border: 1px solid rgba(0,174,239,.2);
+      border-radius: 16px;
+      padding: 28px 36px;
+      margin-bottom: 36px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+    .diff-item { display: flex; align-items: flex-start; gap: 12px; }
+    .diff-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(0,174,239,.12);
+      border: 1px solid rgba(0,174,239,.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: .9rem;
+    }
+    .diff-text h4 { font-size: .82rem; font-weight: 700; color: var(--white); margin-bottom: 2px; }
+    .diff-text p  { font-size: .74rem; color: var(--muted); line-height: 1.45; }
+
+    /* Horizontal project cards */
+    .web-cards { display: flex; flex-direction: column; gap: 18px; }
+    .web-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px 36px;
+      display: grid;
+      grid-template-columns: 220px 1fr auto;
+      gap: 36px;
+      align-items: center;
+      transition: border-color .25s, box-shadow .25s, transform .25s;
+    }
+    .web-card:hover {
+      border-color: rgba(0,174,239,.35);
+      box-shadow: 0 8px 40px rgba(0,174,239,.08);
+      transform: translateY(-2px);
+    }
+    .web-card.featured-web {
+      border-color: rgba(0,174,239,.45);
+      background: linear-gradient(135deg, #04152e 0%, #071e3d 100%);
+      box-shadow: 0 0 50px rgba(0,174,239,.1);
+    }
+    .wc-popular-badge {
+      display: inline-block;
+      background: var(--grad); color: #000;
+      font-size: .6rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 100px; margin-bottom: 8px;
+    }
+    .wc-label { font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); margin-bottom: 5px; }
+    .wc-name { font-size: 1.55rem; font-weight: 800; letter-spacing: -.03em; color: var(--white); margin-bottom: 6px; }
+    .wc-price { font-size: 1.15rem; font-weight: 700; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 5px; }
+    .wc-timeline { font-size: .74rem; color: var(--muted); }
+    .wc-tagline { font-size: .875rem; color: rgba(255,255,255,.75); margin-bottom: 14px; line-height: 1.5; }
+    .wc-features { display: flex; flex-wrap: wrap; gap: 7px; }
+    .wc-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(0,174,239,.07); border: 1px solid rgba(0,174,239,.15);
+      border-radius: 6px; padding: 4px 10px;
+      font-size: .73rem; color: rgba(255,255,255,.72);
+    }
+    .wc-tag::before { content: '✓'; color: var(--blue); font-size: .65rem; }
+    .wc-right { text-align: center; min-width: 130px; }
+    .wc-cta {
+      display: block; padding: 12px 22px; border-radius: 8px;
+      font-family: 'Inter', Arial, sans-serif; font-size: .85rem; font-weight: 700; letter-spacing: -.01em;
+      text-decoration: none; margin-bottom: 8px; transition: all .2s; white-space: nowrap;
+    }
+    .wc-cta-primary { background: var(--grad); color: #000; border: none; }
+    .wc-cta-primary:hover { opacity: .85; transform: translateY(-1px); }
+    .wc-cta-outline { border: 1.5px solid var(--border); color: var(--text); background: transparent; }
+    .wc-cta-outline:hover { border-color: var(--blue); color: var(--blue); }
+    .wc-note { font-size: .72rem; color: var(--muted); line-height: 1.4; }
+
+    /* All-inclusive footer strip */
+    .web-all-includes {
+      margin-top: 32px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 32px;
+    }
+    .web-all-includes-title {
+      font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 14px;
+    }
+    .web-all-includes-list { display: flex; flex-wrap: wrap; gap: 10px 28px; list-style: none; }
+    .web-all-includes-list li {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .8rem; color: rgba(255,255,255,.68);
+    }
+    .web-all-includes-list li::before { content: '✦'; color: var(--cyan); font-size: .55rem; }
+
+    @media (max-width: 900px) {
+      .web-card { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+      .wc-right { text-align: left; }
+      .wc-cta { display: inline-block; width: auto; }
+    }
+    @media (max-width: 600px) {
+      .web-diff-strip { grid-template-columns: 1fr 1fr; padding: 20px; }
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
@@ -680,7 +789,7 @@
     <li><a href="/#results">Results</a></li>
     <li><a href="/pricing/" class="active">Pricing</a></li>
     <li><a href="/#about">About</a></li>
-    <li><a href="/#contact">Contact</a></li>
+    <li><a href="/contact/">Contact</a></li>
   </ul>
   <a href="#" id="nav-book-btn" class="nav-cta">Book a Call</a>
 </nav>
@@ -1126,6 +1235,150 @@
   </div>
 </section>
 
+<!-- WEB DESIGN & DEVELOPMENT -->
+<section id="web-design">
+  <div class="section-header">
+    <div class="section-label">One-Time Projects</div>
+    <h2>Web Design &amp; <span>Development</span></h2>
+    <p>Marketing without a great website is like climbing without gear. We build high-performance sites that make every campaign work harder — not just look good.</p>
+  </div>
+  <div class="web-section">
+    <div class="web-inner">
+
+      <!-- What makes Summit sites different -->
+      <div class="web-diff-strip">
+        <div class="diff-item">
+          <div class="diff-icon">🎯</div>
+          <div class="diff-text">
+            <h4>Conversion-First Design</h4>
+            <p>Every layout decision is made to turn visitors into leads — not just look good in a portfolio.</p>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon">🔍</div>
+          <div class="diff-text">
+            <h4>SEO Baked In From Day One</h4>
+            <p>Architecture, meta, speed &amp; schema — all optimized before we write a single line of content.</p>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon">⚡</div>
+          <div class="diff-text">
+            <h4>Core Web Vitals Optimized</h4>
+            <p>Fast load times, mobile-first, accessibility compliant — rank higher and retain more visitors.</p>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon">🔗</div>
+          <div class="diff-text">
+            <h4>Marketing Stack Ready</h4>
+            <p>CRM, analytics, email &amp; automation — integrated on launch day, not as an afterthought.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project tier cards -->
+      <div class="web-cards">
+
+        <!-- TRAILHEAD -->
+        <div class="web-card">
+          <div class="wc-left">
+            <div class="wc-label">Project Tier 1</div>
+            <div class="wc-name">Trailhead</div>
+            <div class="wc-price">$300 – $2,000</div>
+            <div class="wc-timeline">⏱ Delivered in 1–2 weeks</div>
+          </div>
+          <div class="wc-middle">
+            <div class="wc-tagline">Get online fast with a professional, template-based site customized to your brand — SEO-ready and built to generate leads from day one.</div>
+            <div class="wc-features">
+              <div class="wc-tag">5–10 Pages</div>
+              <div class="wc-tag">Template + Custom Branding</div>
+              <div class="wc-tag">Mobile-First</div>
+              <div class="wc-tag">Contact Form + CRM</div>
+              <div class="wc-tag">Google Analytics Setup</div>
+              <div class="wc-tag">30-Day Support</div>
+            </div>
+          </div>
+          <div class="wc-right">
+            <a href="/contact/?service=Web+Design+-+Trailhead" class="wc-cta wc-cta-outline">Get a Quote</a>
+            <div class="wc-note">Great for startups<br>&amp; local businesses</div>
+          </div>
+        </div>
+
+        <!-- PINNACLE (featured) -->
+        <div class="web-card featured-web">
+          <div class="wc-left">
+            <div class="wc-popular-badge">Most Popular</div>
+            <div class="wc-label">Project Tier 2</div>
+            <div class="wc-name">Pinnacle</div>
+            <div class="wc-price">$2,000 – $5,000</div>
+            <div class="wc-timeline">⏱ Delivered in 2–4 weeks</div>
+          </div>
+          <div class="wc-middle">
+            <div class="wc-tagline">A fully custom-designed business site built around your brand, audience &amp; goals — with conversion-optimized layouts and integrated lead capture.</div>
+            <div class="wc-features">
+              <div class="wc-tag">10–20 Pages</div>
+              <div class="wc-tag">100% Custom Design</div>
+              <div class="wc-tag">Advanced On-Page SEO</div>
+              <div class="wc-tag">Lead Capture + CRM</div>
+              <div class="wc-tag">Speed Optimized</div>
+              <div class="wc-tag">3 Revision Rounds</div>
+              <div class="wc-tag">60-Day Support</div>
+            </div>
+          </div>
+          <div class="wc-right">
+            <a href="/contact/?service=Web+Design+-+Pinnacle" class="wc-cta wc-cta-primary">Get a Quote</a>
+            <div class="wc-note">Ideal for growing<br>businesses</div>
+          </div>
+        </div>
+
+        <!-- APEX -->
+        <div class="web-card">
+          <div class="wc-left">
+            <div class="wc-label">Project Tier 3</div>
+            <div class="wc-name">Apex</div>
+            <div class="wc-price">$5,000 – $20,000+</div>
+            <div class="wc-timeline">⏱ Delivered in 4–12 weeks</div>
+          </div>
+          <div class="wc-middle">
+            <div class="wc-tagline">Enterprise-grade custom development for e-commerce stores, membership platforms, and complex business systems with advanced integrations.</div>
+            <div class="wc-features">
+              <div class="wc-tag">E-commerce / Memberships</div>
+              <div class="wc-tag">Custom Functionality</div>
+              <div class="wc-tag">API Integrations</div>
+              <div class="wc-tag">Advanced Performance</div>
+              <div class="wc-tag">Full Marketing Stack</div>
+              <div class="wc-tag">Dedicated PM</div>
+              <div class="wc-tag">90-Day Support</div>
+            </div>
+          </div>
+          <div class="wc-right">
+            <a href="/contact/?service=Web+Design+-+Apex" class="wc-cta wc-cta-outline">Get a Quote</a>
+            <div class="wc-note">For e-commerce<br>&amp; enterprise</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- What's included in every Summit site -->
+      <div class="web-all-includes">
+        <div class="web-all-includes-title">Included in Every Summit Site</div>
+        <ul class="web-all-includes-list">
+          <li>SEO-ready architecture</li>
+          <li>Core Web Vitals optimization</li>
+          <li>Analytics &amp; tracking configured on launch day</li>
+          <li>Mobile-first responsive design</li>
+          <li>WCAG accessibility standards</li>
+          <li>Marketing-stack integration ready</li>
+          <li>SSL + security hardened</li>
+          <li>Google Business Profile sync</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- TRUST STRIP -->
 <div class="trust-strip">
   <div class="trust-item">
@@ -1161,7 +1414,7 @@
       <li><a href="/#results">Results</a></li>
       <li><a href="/pricing/">Pricing</a></li>
       <li><a href="/#about">About</a></li>
-      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/contact/">Contact</a></li>
     </ul>
     <div>
       <div class="footer-copy">&copy; 2026 Summit Marketing. All rights reserved.</div>
@@ -1216,11 +1469,18 @@
         <div class="sm-group">
           <label class="sm-label" for="bm-service">Service Interest *</label>
           <select class="sm-select" id="bm-service" name="service_interest" required>
-            <option value="" disabled selected>Select a package...</option>
-            <option value="Basecamp">Basecamp — Foundation &amp; SEO</option>
-            <option value="Elevate">Elevate — Growth &amp; Brand</option>
-            <option value="Ascent">Ascent — Full-Funnel Scale (Most Popular)</option>
-            <option value="Peak">Peak — Enterprise Custom</option>
+            <option value="" disabled selected>Select a service...</option>
+            <optgroup label="── Marketing Retainers ──">
+              <option value="Basecamp">Basecamp — Foundation &amp; SEO</option>
+              <option value="Elevate">Elevate — Growth &amp; Brand</option>
+              <option value="Ascent">Ascent — Full-Funnel Scale (Most Popular)</option>
+              <option value="Peak">Peak — Enterprise Custom</option>
+            </optgroup>
+            <optgroup label="── Web Design &amp; Development ──">
+              <option value="Web Design - Trailhead">Web Design · Trailhead ($300–$2K)</option>
+              <option value="Web Design - Pinnacle">Web Design · Pinnacle ($2K–$5K)</option>
+              <option value="Web Design - Apex">Web Design · Apex ($5K–$20K+)</option>
+            </optgroup>
             <option value="Not Sure">Not sure yet — help me choose</option>
           </select>
         </div>
