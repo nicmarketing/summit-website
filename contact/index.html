@@ -458,139 +458,37 @@
       border-radius: 50%;
     }
 
-    /* ── BOOKING CARD ── */
-    .booking-card {
+    /* ── CALENDAR EMBED WRAPPER ── */
+    .cal-embed-wrap {
       background: linear-gradient(160deg, #060f2a 0%, #040d22 100%);
       border: 1px solid rgba(0,174,239,.25);
       border-radius: 20px;
       overflow: hidden;
       animation: borderGlow 5s ease 1.5s infinite;
     }
-    .bc-header {
+    .cal-embed-head {
       background: linear-gradient(90deg, #0d2660, #071940);
-      padding: 20px 28px;
+      padding: 14px 20px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 8px;
       border-bottom: 1px solid rgba(0,174,239,.15);
-      flex-wrap: wrap;
-      gap: 12px;
     }
-    .bc-host { display: flex; align-items: center; gap: 14px; }
-    .bc-avatar {
-      width: 46px; height: 46px;
-      border-radius: 50%;
-      background: var(--grad);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: #020c1f;
-      flex-shrink: 0;
-      letter-spacing: -.02em;
+    .c-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .c-dot-1 { background: rgba(0,174,239,.7); }
+    .c-dot-2 { background: rgba(65,217,242,.45); }
+    .c-dot-3 { background: rgba(255,255,255,.15); }
+    .cal-embed-label {
+      font-size: .8rem; font-weight: 700;
+      color: rgba(255,255,255,.7); margin-left: 6px;
     }
-    .bc-host-name { font-size: .95rem; font-weight: 700; color: var(--white); }
-    .bc-host-role { font-size: .75rem; color: var(--muted); margin-top: 2px; }
-    .bc-badge {
-      background: rgba(0,174,239,.12);
-      border: 1px solid rgba(0,174,239,.3);
-      color: var(--cyan);
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 100px;
-    }
-
-    .bc-body { padding: 28px; }
-    .bc-meeting-title {
-      font-size: 1.2rem;
-      font-weight: 800;
-      letter-spacing: -.03em;
-      margin-bottom: 20px;
-    }
-    .bc-meeting-title span {
+    .cal-embed-label span {
       background: var(--grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .bc-meta { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
-    .bc-meta-item {
-      display: flex; align-items: center; gap: 12px;
-      font-size: .85rem; color: rgba(255,255,255,.75);
-    }
-    .bc-meta-icon {
-      width: 32px; height: 32px;
-      border-radius: 8px;
-      background: rgba(0,174,239,.1);
-      border: 1px solid rgba(0,174,239,.18);
-      display: flex; align-items: center; justify-content: center;
-      font-size: .85rem; flex-shrink: 0;
-    }
-
-    .bc-divider {
-      height: 1px;
-      background: linear-gradient(90deg, rgba(0,174,239,.3), rgba(65,217,242,.15), transparent);
-      margin-bottom: 22px;
-    }
-
-    .bc-agenda-label {
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 12px;
-    }
-    .bc-agenda { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; }
-    .bc-agenda li {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: .85rem; color: rgba(255,255,255,.72); line-height: 1.45;
-    }
-    .bc-check {
-      width: 18px; height: 18px;
-      border-radius: 50%;
-      background: rgba(0,174,239,.1);
-      border: 1px solid rgba(0,174,239,.3);
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8.5l3 3 6-6' stroke='%2300AEEF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-size: 65%; background-repeat: no-repeat; background-position: center;
-      flex-shrink: 0; margin-top: 2px;
-    }
-
-    .bc-cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 17px 24px;
-      background: var(--grad);
-      color: #020c1f;
-      border: none;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: 800;
-      font-family: 'Inter', Arial, sans-serif;
-      letter-spacing: -.01em;
-      text-decoration: none;
-      cursor: pointer;
-      transition: opacity .2s, transform .2s, box-shadow .2s;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 12px;
-    }
-    .bc-cta::after {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 60%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
-      animation: shimmer 3s ease 2s infinite;
-    }
-    .bc-cta:hover { opacity: .88; transform: translateY(-2px); box-shadow: 0 10px 40px rgba(0,174,239,.45); }
-    .bc-cta-icon { font-size: 1.1rem; }
-    .bc-note { text-align: center; font-size: .75rem; color: rgba(255,255,255,.3); }
+    .cal-embed-body { padding: 4px 0; background: #fff; }
 
     /* ── TRUST BAR ── */
     .trust-bar {
@@ -984,56 +882,18 @@
         30 minutes · Available 7 days a week
       </div>
     </div>
-    <div class="booking-card">
-      <!-- Header: host info -->
-      <div class="bc-header">
-        <div class="bc-host">
-          <div class="bc-avatar">JB</div>
-          <div>
-            <div class="bc-host-name">Joe Boyd</div>
-            <div class="bc-host-role">Summit Marketing Strategist</div>
-          </div>
-        </div>
-        <div class="bc-badge">Free · 30 Min</div>
+    <div class="cal-embed-wrap">
+      <div class="cal-embed-head">
+        <div class="c-dot c-dot-1"></div>
+        <div class="c-dot c-dot-2"></div>
+        <div class="c-dot c-dot-3"></div>
+        <div class="cal-embed-label">Schedule with <span>Summit Marketing</span></div>
       </div>
-      <!-- Body -->
-      <div class="bc-body">
-        <div class="bc-meeting-title">Free <span>Strategy Call</span></div>
-        <div class="bc-meta">
-          <div class="bc-meta-item">
-            <div class="bc-meta-icon">⏱</div>
-            30-minute video or phone call
-          </div>
-          <div class="bc-meta-item">
-            <div class="bc-meta-icon">📅</div>
-            Available 7 days a week — pick what works for you
-          </div>
-          <div class="bc-meta-item">
-            <div class="bc-meta-icon">🔓</div>
-            No commitment, no pressure, no pitch
-          </div>
-        </div>
-        <div class="bc-divider"></div>
-        <div class="bc-agenda-label">What we'll cover on the call</div>
-        <ul class="bc-agenda">
-          <li><div class="bc-check"></div>Live audit of your current marketing setup</li>
-          <li><div class="bc-check"></div>Identify your biggest growth opportunities</li>
-          <li><div class="bc-check"></div>Show you exactly what's possible with Summit</li>
-          <li><div class="bc-check"></div>Answer any questions — no agenda, just clarity</li>
-        </ul>
-        <a
-          href="https://links.summitmarketingms.com/widget/bookings/joe-boyd-personal-calendar-hufa6qk-e"
-          target="_blank"
-          rel="noopener"
-          class="bc-cta"
-          id="cal-book-btn"
-        >
-          <span class="bc-cta-icon">📅</span>
-          View Available Times &rarr;
-        </a>
-        <div class="bc-note">Opens in a new tab &middot; No credit card required</div>
+      <div class="cal-embed-body">
+        <iframe src="https://go.summitmarketingms.com/widget/booking/9uN0xxvKq70WxgIo62bG" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="EdMnjQbhpa9ZmnpiYIUh_1773111089943"></iframe>
       </div>
     </div>
+    <script src="https://go.summitmarketingms.com/js/form_embed.js" type="text/javascript"></script>
   </div>
 
 </section>
