@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/api/audit", "destination": "/api/audit" },
+    { "source": "/(.*)", "destination": "/$1" }
+  ],
+  "functions": {
+    "api/audit.js": {
+      "maxDuration": 30
+    }
+  }
+}
