@@ -18,158 +18,152 @@
     gtag('config', 'G-7R81TMRFN4');
   </script>
 
-  <!-- FAQ Schema Markup -->
+  <!-- Organization Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
+    "@type": "Organization",
+    "@id": "https://summitmarketingms.com/#organization",
+    "name": "Summit Marketing",
+    "url": "https://summitmarketingms.com/",
+    "logo": "https://summitmarketingms.com/brand-assets/Summt%20Marketing%20LOGO.png",
+    "email": "nic@summitmarketingms.com",
+    "slogan": "Reaching New Heights Together",
+    "sameAs": [
+      "https://www.facebook.com/SummitMarketingMS"
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://summitmarketingms.com/" },
+      { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://summitmarketingms.com/faq/" }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
       {
-        "@type": "Organization",
-        "@id": "https://summitmarketingms.com/#organization",
-        "name": "Summit Marketing",
-        "url": "https://summitmarketingms.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://summitmarketingms.com/brand-assets/Summt%20Marketing%20LOGO.png"
-        },
-        "email": "nic@summitmarketingms.com",
-        "slogan": "Reaching New Heights Together"
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://summitmarketingms.com/faq/#webpage",
-        "url": "https://summitmarketingms.com/faq/",
-        "name": "FAQ | Summit Marketing",
-        "description": "Frequently asked questions about Summit Marketing's services, pricing, contracts, onboarding, and results.",
-        "inLanguage": "en-US",
-        "isPartOf": { "@id": "https://summitmarketingms.com/#website" },
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://summitmarketingms.com/" },
-            { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://summitmarketingms.com/faq/" }
-          ]
+        "@type": "Question",
+        "name": "What does Summit Marketing actually do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Summit Marketing is a full-service digital marketing agency based in Mississippi. We help businesses grow online through SEO, content marketing, brand strategy, social media management, email automation, and conversion rate optimization. We also build and optimize websites built to convert. Every strategy we build is tied directly to measurable outcomes - leads, revenue, and growth."
         }
       },
       {
-        "@type": "FAQPage",
-        "@id": "https://summitmarketingms.com/faq/#faqpage",
-        "url": "https://summitmarketingms.com/faq/",
-        "name": "Summit Marketing — Frequently Asked Questions",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What does Summit Marketing actually do?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Summit Marketing is a full-service digital marketing agency based in Mississippi. We help businesses grow online through SEO, content marketing, brand strategy, social media management, email automation, and conversion rate optimization. We also build and optimize websites built to convert. Every strategy we build is tied directly to measurable outcomes — leads, revenue, and growth."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How much does Summit Marketing cost?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Our marketing retainers start at $997/month for the Basecamp plan and scale up to custom enterprise pricing for the Peak plan ($5,000+/month). Web design projects range from $300–$2,000 for simple sites (Trailhead), $2,000–$5,000 for professional custom sites (Pinnacle), and $5,000–$20,000+ for e-commerce and complex builds (Apex). Every engagement starts with a free strategy call so we can recommend the right fit for your goals and budget."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Are there long-term contracts?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No long-term lock-ins. Our retainers are month-to-month — you can cancel with 30 days' notice at any time. We believe if we're doing our job, you won't want to leave. Our results do the talking, not our contract terms."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How soon will I see results?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "It depends on the service. SEO results typically begin showing traction in 60–90 days and compound significantly over 6–12 months. Content marketing, email campaigns, and social media can generate engagement and leads within the first 30 days. We set realistic expectations from day one and give you full transparency into what we're doing and why."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the onboarding process like?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Onboarding takes 1–2 weeks. It starts with a deep-dive strategy session where we learn your business, your audience, and your goals. From there we complete a full audit of your current marketing, build out your custom strategy roadmap, and start executing. You'll receive a welcome packet, access to your reporting dashboard, and a dedicated point of contact on our team."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do I need to sign a contract?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, we use a simple service agreement that outlines the scope of work, deliverables, pricing, and terms. It's straightforward, plain-English, and protects both parties. There are no lengthy lock-in clauses — just a professional agreement that keeps everyone on the same page."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What makes Summit Marketing different from other agencies?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Most agencies sell deliverables — posts, reports, and hours. We sell outcomes. Every plan at Summit Marketing is built around measurable growth: more traffic, more leads, more revenue. We use AI-powered tools and automation to move faster without sacrificing quality. You get a dedicated strategist who knows your business, not an account manager cycling through a spreadsheet. And unlike most agencies, we're not afraid to tell you when something isn't working and change course."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you run paid ads (Google, Facebook, etc.)?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Our current retainer plans focus on organic growth strategies — SEO, content, email, and social media. We deliberately built our packages this way because organic channels build compounding, long-term value that paid ads can't replicate. That said, if paid advertising is a strong fit for your goals, we can discuss it as part of a custom Peak-tier engagement."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What industries do you work with?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We work with businesses across a wide range of industries including local service businesses, professional services (law, finance, healthcare), e-commerce brands, restaurants, real estate, and B2B companies. Our strategies are tailored to your specific market and customer — we don't use cookie-cutter templates."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can you build or redesign my website?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Web design and development is a standalone service we offer at Summit Marketing. Our three tiers — Trailhead ($300–$2K), Pinnacle ($2K–$5K), and Apex ($5K–$20K+) — cover everything from clean, professional brochure sites to fully custom e-commerce builds. Every site we build is conversion-focused, SEO-ready, and optimized for Core Web Vitals from day one."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What does 'full-funnel' marketing mean?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Full-funnel marketing means we cover every stage of your customer's journey — from the moment they first hear about you (awareness) to when they become a paying customer (conversion) and beyond (retention). Most agencies only focus on one or two stages. With our Ascent and Peak plans, we build a connected system that moves people from strangers to loyal customers."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I know what I'm getting each month?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Transparency is one of our core principles. Every client gets access to a live reporting dashboard, a monthly performance report, and a monthly strategy check-in with your account manager. You'll always know exactly what was done, what the results were, and what's planned next. No black-box reporting — just clarity."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you serve businesses outside of Mississippi?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. While we're headquartered in Mississippi and love supporting local businesses, we work with clients across the United States. Digital marketing is borderless — if you're looking to grow online, we can help regardless of location."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I get started?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The easiest way to get started is to book a free strategy call at summitmarketingms.com/contact. In 30–60 minutes, we'll audit your current marketing, identify your biggest opportunities, and walk you through the plan that makes the most sense for your business. There's no pressure and no commitment — just a real conversation about your growth."
-            }
-          }
-        ]
+        "@type": "Question",
+        "name": "How much does Summit Marketing cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our marketing retainers start at $997/month for the Basecamp plan and scale up to custom enterprise pricing for the Peak plan ($5,000+/month). Web design projects range from $300-$2,000 for simple sites (Trailhead), $2,000-$5,000 for professional custom sites (Pinnacle), and $5,000-$20,000+ for e-commerce and complex builds (Apex). Every engagement starts with a free strategy call so we can recommend the right fit for your goals and budget."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are there long-term contracts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No long-term lock-ins. Our retainers are month-to-month - you can cancel with 30 days notice at any time. We believe if we are doing our job, you won't want to leave. Our results do the talking, not our contract terms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How soon will I see results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the service. SEO results typically begin showing traction in 60-90 days and compound significantly over 6-12 months. Content marketing, email campaigns, and social media can generate engagement and leads within the first 30 days. We set realistic expectations from day one and give you full transparency into what we're doing and why."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the onboarding process like?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Onboarding takes 1-2 weeks. It starts with a deep-dive strategy session where we learn your business, your audience, and your goals. From there we complete a full audit of your current marketing, build out your custom strategy roadmap, and start executing. You'll receive a welcome packet, access to your reporting dashboard, and a dedicated point of contact on our team."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to sign a contract?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we use a simple service agreement that outlines the scope of work, deliverables, pricing, and terms. It's straightforward, plain-English, and protects both parties. There are no lengthy lock-in clauses - just a professional agreement that keeps everyone on the same page."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes Summit Marketing different from other agencies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most agencies sell deliverables - posts, reports, and hours. We sell outcomes. Every plan at Summit Marketing is built around measurable growth: more traffic, more leads, more revenue. We use AI-powered tools and automation to move faster without sacrificing quality. You get a dedicated strategist who knows your business, not an account manager cycling through a spreadsheet. And unlike most agencies, we're not afraid to tell you when something isn't working and change course."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you run paid ads (Google, Facebook, etc.)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our current retainer plans focus on organic growth strategies - SEO, content, email, and social media. We deliberately built our packages this way because organic channels build compounding, long-term value that paid ads cannot replicate on their own. If paid advertising is a strong fit for your goals, we can discuss it as part of a custom Peak-tier engagement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What industries do you work with?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We work with businesses across a wide range of industries including local service businesses, professional services (law, finance, healthcare), e-commerce brands, restaurants, real estate, and B2B companies. Our strategies are tailored to your specific market and customer - we do not use cookie-cutter templates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you build or redesign my website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Web design and development is a standalone service we offer at Summit Marketing. Our three tiers cover everything from clean, professional brochure sites to fully custom e-commerce builds. Trailhead ($300-$2K), Pinnacle ($2K-$5K), and Apex ($5K-$20K+). Every site we build is conversion-focused, SEO-ready, and optimized for Core Web Vitals from day one."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does full-funnel marketing mean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Full-funnel marketing means we cover every stage of your customer's journey - from the moment they first hear about you (awareness) to when they become a paying customer (conversion) and beyond (retention). Most agencies only focus on one or two stages. With our Ascent and Peak plans, we build a connected system that moves people from strangers to loyal customers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I know what I am getting each month?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Transparency is one of our core principles. Every client gets access to a live reporting dashboard, a monthly performance report, and a monthly strategy check-in with your account manager. You'll always know exactly what was done, what the results were, and what's planned next. No black-box reporting - just clarity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you serve businesses outside of Mississippi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. While we're headquartered in Mississippi and love supporting local businesses, we work with clients across the United States. Digital marketing is borderless - if you're looking to grow online, we can help regardless of where you are located."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get started?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The easiest way to get started is to book a free strategy call at summitmarketingms.com/contact. In up to one hour, we'll audit your current marketing, identify your biggest opportunities, and walk you through the plan that makes the most sense for your business. There's no pressure, no commitment, and no pitch - just a real conversation about your growth."
+        }
       }
     ]
   }
