@@ -263,6 +263,11 @@
       letter-spacing: -.01em; transition: opacity .2s, transform .2s, box-shadow .2s;
     }
     .nav-cta:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 6px 28px rgba(0,174,239,.4); }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 201; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: transform .3s, opacity .3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     /* ── FOOTER ── */
     footer { border-top: 1px solid var(--border); padding: 40px 52px; }
     .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
@@ -677,7 +682,12 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
-      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: rgba(2,12,31,.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 8px 0 20px; border-bottom: 1px solid var(--border); gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-bottom: 1px solid rgba(255,255,255,.06); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: .95rem; }
       .calc-grid { grid-template-columns: 1fr; }
       .calc-body { padding: 24px 20px; }
       .calc-header { padding: 20px; }
@@ -794,6 +804,9 @@
     <li><a href="/audit/" style="color:var(--cyan);font-weight:700">Free Audit</a></li>
   </ul>
   <a href="#" id="nav-book-btn" class="nav-cta">Book a Call</a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -1928,6 +1941,16 @@
       openBook();
     });
   })();
+</script>
+<script>
+(function() {
+  var btn = document.getElementById('hamburger');
+  var links = document.querySelector('.nav-links');
+  if (!btn || !links) return;
+  btn.addEventListener('click', function(e) { e.stopPropagation(); btn.classList.toggle('open'); links.classList.toggle('open'); });
+  links.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { btn.classList.remove('open'); links.classList.remove('open'); }); });
+  document.addEventListener('click', function(e) { if (!e.target.closest('nav')) { btn.classList.remove('open'); links.classList.remove('open'); } });
+})();
 </script>
 <script
   src="https://widgets.leadconnectorhq.com/loader.js"

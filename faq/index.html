@@ -244,6 +244,11 @@
       transition: opacity .2s, transform .2s, box-shadow .2s;
     }
     .nav-cta:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 6px 28px rgba(0,174,239,.4); }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 201; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: transform .3s, opacity .3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* ── HERO ── */
     .faq-hero {
@@ -690,7 +695,12 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
       nav { padding: 14px 24px; }
-      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: rgba(2,12,31,.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 8px 0 20px; border-bottom: 1px solid var(--border); gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-bottom: 1px solid rgba(255,255,255,.06); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: .95rem; }
       .faq-hero { padding: 110px 24px 60px; }
       .faq-stats { grid-template-columns: repeat(2, 1fr); padding: 0 24px 48px; }
       .faq-categories { padding: 0 24px 36px; }
@@ -716,11 +726,15 @@
     <li><a href="/#services">Services</a></li>
     <li><a href="/#results">Results</a></li>
     <li><a href="/pricing/">Pricing</a></li>
+    <li><a href="/#about">About</a></li>
     <li><a href="/faq/" class="active">FAQ</a></li>
     <li><a href="/contact/">Contact</a></li>
     <li><a href="/audit/" style="color:var(--cyan);font-weight:700">Free Audit</a></li>
   </ul>
   <a href="/contact/" class="nav-cta">Book a Call</a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -1300,6 +1314,16 @@ function filterFAQ(cat, query) {
   btn.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+})();
+</script>
+<script>
+(function() {
+  var btn = document.getElementById('hamburger');
+  var links = document.querySelector('.nav-links');
+  if (!btn || !links) return;
+  btn.addEventListener('click', function(e) { e.stopPropagation(); btn.classList.toggle('open'); links.classList.toggle('open'); });
+  links.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { btn.classList.remove('open'); links.classList.remove('open'); }); });
+  document.addEventListener('click', function(e) { if (!e.target.closest('nav')) { btn.classList.remove('open'); links.classList.remove('open'); } });
 })();
 </script>
 
