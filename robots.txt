@@ -1,0 +1,42 @@
+# robots.txt — Summit Marketing (summitmarketingms.com)
+
+# Allow all crawlers (Google, Bing, etc.)
+User-agent: *
+Allow: /
+
+# Allow all AI crawlers explicitly
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://summitmarketingms.com/sitemap.xml
