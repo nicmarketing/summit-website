@@ -39,4 +39,4 @@ User-agent: CCBot
 Allow: /
 
 # Sitemap location
-Sitemap: https://summitmarketingms.com/sitemap.xml
+Sitemap: https://www.summitmarketingms.com/sitemap.xml
