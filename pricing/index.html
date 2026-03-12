@@ -75,7 +75,16 @@
         "description": "Transparent, flat-rate marketing retainers with usage-based AI and communication fees. Choose from Basecamp, Elevate, Ascent, or Peak.",
         "inLanguage": "en-US",
         "isPartOf": { "@id": "https://www.summitmarketingms.com/#website" },
-        "about": { "@id": "https://www.summitmarketingms.com/#organization" }
+        "about": { "@id": "https://www.summitmarketingms.com/#organization" },
+        "breadcrumb": { "@id": "https://www.summitmarketingms.com/pricing/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.summitmarketingms.com/pricing/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.summitmarketingms.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://www.summitmarketingms.com/pricing/" }
+        ]
       },
       {
         "@type": "Service",
@@ -232,6 +241,39 @@
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dedicated Slack Channel" } }
           ]
         }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are there any long-term contracts?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. All Summit Marketing retainer plans are month-to-month with no long-term contracts required. You can upgrade, downgrade, or cancel at any time." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is included in the Basecamp plan?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The Basecamp plan ($997/month) includes an SEO audit, ongoing on-page SEO optimization, 2 content pieces per month, a monthly email newsletter, and analytics reporting. It's designed for businesses starting their digital marketing journey." }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes the Ascent plan the most popular?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The Ascent plan ($2,997/month) is our most popular because it delivers a full-funnel marketing strategy — custom landing pages, automation workflows, Voice AI and Conversation AI integration, and a dedicated account manager who knows your business inside and out." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer web design as a standalone service?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Summit Marketing offers web design projects starting at $300 (Trailhead template builds), $2,000–$5,000 (Pinnacle custom design), and $5,000–$20,000+ (Apex for e-commerce and complex sites). Every site includes conversion-focused design, built-in SEO, and marketing stack integration." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I upgrade my plan as my business grows?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. You can upgrade or adjust your plan at any time. Many clients start with Basecamp and move to Elevate or Ascent as they see results and want to scale their marketing." }
       }
     ]
   }
