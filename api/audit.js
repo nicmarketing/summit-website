@@ -270,7 +270,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') { res.status(204).end(); return; }
   if (req.method !== 'POST') { res.status(405).json({ error: 'Method not allowed' }); return; }
 
-  const { url: rawUrl } = req.body || {};
+  const { url: rawUrl, name = '', company = '', email = '' } = req.body || {};
   if (!rawUrl) { res.status(400).json({ error: 'URL is required' }); return; }
 
   let url = rawUrl.trim();
@@ -330,6 +330,61 @@ export default async function handler(req, res) {
     else                  { grade = 'F'; gradeLabel = 'Critical Issues'; gradeColor = '#e53e3e'; }
 
     res.status(200).json({ score, grade, gradeLabel, gradeColor, url: pageData.finalUrl, catScores, results });
+
+    // ── EMAIL NOTIFICATION ──────────────────────────────────────────────
+    if (process.env.RESEND_API_KEY) {
+      const fails  = results.filter(r => r.status === 'fail').map(r => `<li>❌ <b>${r.label}</b> — ${r.description}</li>`).join('');
+      const passes = results.filter(r => r.status === 'pass').map(r => `<li>✅ <b>${r.label}</b></li>`).join('');
+      const catRows = Object.entries(catScores).map(([cat, s]) =>
+        `<tr><td style="padding:6px 12px;border-bottom:1px solid #eee">${cat}</td><td style="padding:6px 12px;border-bottom:1px solid #eee;text-align:right"><b>${s.pct}%</b> (${s.earned}/${s.max})</td></tr>`
+      ).join('');
+
+      const html = `
+<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#1a1a2e">
+  <div style="background:#002060;padding:28px 32px;border-radius:12px 12px 0 0">
+    <h1 style="color:#fff;margin:0;font-size:22px">🔍 New Audit Submission</h1>
+    <p style="color:#41D9F2;margin:8px 0 0;font-size:14px">Summit Marketing Audit Tool</p>
+  </div>
+  <div style="background:#f8f9ff;padding:28px 32px;border:1px solid #e0e4f0">
+    <h2 style="margin:0 0 16px;font-size:16px;color:#002060">Lead Info</h2>
+    <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;border:1px solid #e0e4f0">
+      <tr><td style="padding:8px 14px;border-bottom:1px solid #eee;color:#666;width:140px">Name</td><td style="padding:8px 14px;border-bottom:1px solid #eee"><b>${name}</b></td></tr>
+      <tr><td style="padding:8px 14px;border-bottom:1px solid #eee;color:#666">Email</td><td style="padding:8px 14px;border-bottom:1px solid #eee"><a href="mailto:${email}">${email}</a></td></tr>
+      <tr><td style="padding:8px 14px;border-bottom:1px solid #eee;color:#666">Company</td><td style="padding:8px 14px;border-bottom:1px solid #eee"><b>${company}</b></td></tr>
+      <tr><td style="padding:8px 14px;color:#666">Website</td><td style="padding:8px 14px"><a href="${pageData.finalUrl}">${pageData.finalUrl}</a></td></tr>
+    </table>
+
+    <h2 style="margin:24px 0 16px;font-size:16px;color:#002060">Audit Results</h2>
+    <div style="background:#fff;border-radius:8px;border:1px solid #e0e4f0;padding:20px 24px;text-align:center;margin-bottom:16px">
+      <div style="font-size:56px;font-weight:900;color:${gradeColor};line-height:1">${grade}</div>
+      <div style="font-size:28px;font-weight:700;color:#1a1a2e;margin:4px 0">${score}/100</div>
+      <div style="color:#666;font-size:14px">${gradeLabel} — ${pageData.finalUrl}</div>
+    </div>
+
+    <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;border:1px solid #e0e4f0;margin-bottom:24px">
+      ${catRows}
+    </table>
+
+    ${fails ? `<h3 style="color:#e53e3e;margin:0 0 10px;font-size:14px">Issues Found</h3><ul style="margin:0 0 20px;padding-left:20px;line-height:1.8">${fails}</ul>` : ''}
+    ${passes ? `<h3 style="color:#00c875;margin:0 0 10px;font-size:14px">Passing Checks</h3><ul style="margin:0;padding-left:20px;line-height:1.8">${passes}</ul>` : ''}
+  </div>
+  <div style="background:#002060;padding:16px 32px;border-radius:0 0 12px 12px;text-align:center">
+    <p style="color:rgba(255,255,255,.6);font-size:12px;margin:0">Summit Marketing Audit Tool · summitmarketingms.com</p>
+  </div>
+</div>`;
+
+      fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: 'Summit Audit <audit@summitmarketingms.com>',
+          to: 'nic@summitmarketingms.com',
+          subject: `🔍 Audit: ${company || email} — Score ${score}/100 (${grade}) — ${pageData.finalUrl}`,
+          html,
+        }),
+      }).catch(() => {});
+    }
+
   } catch (err) {
     res.status(200).json({ error: `Could not reach that site: ${err.message}. Please check the URL and try again.` });
   }

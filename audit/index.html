@@ -651,7 +651,10 @@
     formData.append('email', email);
     formData.append('company_name', company);
     formData.append('website', url);
-    formData.append('source', 'SEO Audit Tool');
+    formData.append('phone', 'Audit Tool Lead');
+    formData.append('service_interest', 'Free SEO & AI Audit');
+    formData.append('message', 'Audit requested for: ' + url);
+    formData.append('source', 'Free SEO Audit Tool');
     fetch(GHL_WEBHOOK, { method: 'POST', body: formData, mode: 'no-cors' }).catch(() => {});
 
     // Run the real audit
