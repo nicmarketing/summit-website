@@ -77,12 +77,14 @@
         "inLanguage": "en-US",
         "isPartOf": { "@id": "https://www.summitmarketingms.com/#website" },
         "about": { "@id": "https://www.summitmarketingms.com/#organization" },
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.summitmarketingms.com/" }
-          ]
-        }
+        "breadcrumb": { "@id": "https://www.summitmarketingms.com/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.summitmarketingms.com/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.summitmarketingms.com/" }
+        ]
       },
       {
         "@type": "ProfessionalService",
@@ -109,6 +111,54 @@
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ascent — Full-Funnel Scale", "url": "https://www.summitmarketingms.com/pricing/#ascent" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Peak — Enterprise Custom", "url": "https://www.summitmarketingms.com/pricing/#peak" } }
           ]
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What services does Summit Marketing offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Summit Marketing offers SEO, content marketing, brand strategy, social media management, email marketing, marketing automation, conversion rate optimization, and custom web design. We serve businesses across Mississippi with four retainer tiers: Basecamp, Elevate, Ascent, and Peak."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Summit Marketing cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Summit Marketing's retainer plans start at $997/month (Basecamp) and range up to $2,997/month (Ascent) and custom enterprise pricing (Peak). Web design projects range from $300 to $20,000+ depending on scope. All plans are flat-rate with no hidden fees."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is Summit Marketing located and who do they serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Summit Marketing is based in Mississippi and serves businesses statewide — including Jackson, Gulfport, Biloxi, Hattiesburg, Meridian, Tupelo, and Southaven — as well as clients across the Southeast United States."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Summit Marketing offer web design services?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Summit Marketing builds conversion-focused websites with three tiers: Trailhead ($300–$2,000 for template-based sites), Pinnacle ($2,000–$5,000 for custom design), and Apex ($5,000–$20,000+ for e-commerce and complex builds). Every site includes SEO, Core Web Vitals optimization, and full marketing stack integration."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get started with Summit Marketing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can book a free strategy call at summitmarketingms.com/contact/ or get a free SEO and AI visibility audit instantly at summitmarketingms.com/audit/. A Summit Marketing strategist will review your current marketing and show you exactly what to improve."
         }
       }
     ]
