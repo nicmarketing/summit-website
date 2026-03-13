@@ -282,6 +282,37 @@ export default async function handler(req, res) {
     res.status(400).json({ error: 'Only HTTP and HTTPS URLs are supported.' }); return;
   }
 
+  // Instant lead notification — fires before audit runs
+  if (process.env.RESEND_API_KEY) {
+    const now = new Date().toLocaleString('en-US', { timeZone: 'America/Chicago', dateStyle: 'full', timeStyle: 'short' });
+    fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        from: 'Summit Audit <audit@summitmarketingms.com>',
+        to: 'nic@summitmarketingms.com',
+        subject: `🚨 Audit Form Submitted — ${company || email}`,
+        html: `
+<div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;color:#1a1a2e">
+  <div style="background:#002060;padding:24px 32px;border-radius:12px 12px 0 0">
+    <h1 style="color:#fff;margin:0;font-size:20px">🚨 New Audit Form Submission</h1>
+    <p style="color:#41D9F2;margin:6px 0 0;font-size:13px">Summit Marketing Audit Tool</p>
+  </div>
+  <div style="background:#f8f9ff;padding:28px 32px;border:1px solid #e0e4f0;border-radius:0 0 12px 12px">
+    <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;border:1px solid #e0e4f0">
+      <tr><td style="padding:10px 16px;border-bottom:1px solid #eee;color:#666;width:130px">Name</td><td style="padding:10px 16px;border-bottom:1px solid #eee"><b>${name || '—'}</b></td></tr>
+      <tr><td style="padding:10px 16px;border-bottom:1px solid #eee;color:#666">Email</td><td style="padding:10px 16px;border-bottom:1px solid #eee"><a href="mailto:${email}" style="color:#00AEEF">${email || '—'}</a></td></tr>
+      <tr><td style="padding:10px 16px;border-bottom:1px solid #eee;color:#666">Company</td><td style="padding:10px 16px;border-bottom:1px solid #eee"><b>${company || '—'}</b></td></tr>
+      <tr><td style="padding:10px 16px;border-bottom:1px solid #eee;color:#666">Website</td><td style="padding:10px 16px;border-bottom:1px solid #eee"><a href="${url}" style="color:#00AEEF">${url}</a></td></tr>
+      <tr><td style="padding:10px 16px;color:#666">Submitted</td><td style="padding:10px 16px">${now} CST</td></tr>
+    </table>
+    <p style="margin:20px 0 0;color:#666;font-size:13px">Full audit results will follow in a second email once the scan completes.</p>
+  </div>
+</div>`,
+      }),
+    }).catch(() => {});
+  }
+
   try {
     const pageData = await fetchPage(url);
     const { results, rawScore } = runChecks(pageData.html, pageData);
