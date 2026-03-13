@@ -715,6 +715,23 @@
       }
       auditData = data;
       renderResults(data);
+
+      // Send score back to GHL so automation can trigger lead follow-up email
+      try {
+        const fails = (data.results || []).filter(r => r.status === 'fail').map(r => r.label).slice(0, 5).join(', ');
+        const scoreData = new URLSearchParams();
+        scoreData.append('email', email);
+        scoreData.append('first_name', name.split(' ')[0]);
+        scoreData.append('last_name', name.split(' ').slice(1).join(' ') || '');
+        scoreData.append('company_name', company);
+        scoreData.append('website', url);
+        scoreData.append('audit_score', data.score);
+        scoreData.append('audit_grade', data.grade);
+        scoreData.append('audit_label', data.gradeLabel || '');
+        scoreData.append('audit_issues', fails || 'None found');
+        scoreData.append('source', 'Free SEO Audit Tool');
+        fetch(GHL_WEBHOOK, { method: 'POST', body: scoreData, mode: 'no-cors' }).catch(() => {});
+      } catch(e) {}
     } catch (err) {
       showState('form');
       showError('Something went wrong. Please check the URL and try again.');
