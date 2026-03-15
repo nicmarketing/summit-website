@@ -7,8 +7,5 @@
     "api/audit.js": {
       "maxDuration": 30
     }
-  },
-  "errors": [
-    { "statusCode": 404, "destination": "/404.html" }
-  ]
+  }
 }
