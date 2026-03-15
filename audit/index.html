@@ -687,19 +687,6 @@
     document.getElementById('scan-url-display').textContent = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
     animateScanSteps();
 
-    // Submit lead to GHL (fire and forget)
-    const formData = new URLSearchParams();
-    formData.append('first_name', name.split(' ')[0]);
-    formData.append('last_name', name.split(' ').slice(1).join(' ') || '');
-    formData.append('email', email);
-    formData.append('company_name', company);
-    formData.append('website', url);
-    formData.append('phone', 'Audit Tool Lead');
-    formData.append('service_interest', 'Free SEO & AI Audit');
-    formData.append('message', 'Audit requested for: ' + url);
-    formData.append('source', 'Free SEO Audit Tool');
-    fetch(GHL_WEBHOOK, { method: 'POST', body: formData, mode: 'no-cors' }).catch(() => {});
-
     // Run the real audit
     try {
       const res = await fetch('/api/audit', {
