@@ -907,5 +907,35 @@
   })();
 </script>
 
+<!-- ── SUMMIT GROWTH LAYER ──────────────────────────────────────────── -->
+<style>
+#smkt-cookie{display:none;position:fixed;bottom:0;left:0;right:0;z-index:99998;background:rgba(2,12,31,.97);border-top:1px solid rgba(0,174,239,.25);backdrop-filter:blur(16px);padding:16px 24px;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Montserrat',sans-serif}
+#smkt-cookie.show{display:flex}
+#smkt-cookie p{color:rgba(255,255,255,.7);font-size:.82rem;margin:0;line-height:1.5;flex:1;min-width:200px}
+#smkt-cookie p a{color:#00AEEF;text-decoration:none}
+.smkt-cookie-btns{display:flex;gap:10px;flex-shrink:0}
+#smkt-cookie-decline{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:600;padding:8px 18px;border-radius:6px;cursor:pointer}
+#smkt-cookie-accept{background:linear-gradient(135deg,#00AEEF,#41D9F2);border:none;color:#fff;font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:700;padding:8px 18px;border-radius:6px;cursor:pointer}
+</style>
+
+<div id="smkt-cookie" role="dialog" aria-label="Cookie consent">
+  <p>We use cookies to improve your experience and analyze traffic. <a href="/privacy.html">Privacy Policy</a></p>
+  <div class="smkt-cookie-btns">
+    <button id="smkt-cookie-decline">Decline</button>
+    <button id="smkt-cookie-accept">Accept</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var CONSENT_KEY='smkt_cookie_consent';
+  var cookieBanner=document.getElementById('smkt-cookie');
+  if(!localStorage.getItem(CONSENT_KEY))setTimeout(function(){cookieBanner.classList.add('show');},1500);
+  function hideCookie(){cookieBanner.classList.remove('show');}
+  document.getElementById('smkt-cookie-accept').addEventListener('click',function(){localStorage.setItem(CONSENT_KEY,'accepted');hideCookie();});
+  document.getElementById('smkt-cookie-decline').addEventListener('click',function(){localStorage.setItem(CONSENT_KEY,'declined');hideCookie();});
+})();
+</script>
+
 </body>
 </html>

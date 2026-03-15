@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Summit Marketing</title>
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://www.summitmarketingms.com/404" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #00AEEF;
+      --navy: #002060;
+      --cyan: #41D9F2;
+      --bg: #020c1f;
+      --white: #fff;
+      --muted: rgba(255,255,255,.5);
+    }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      overflow: hidden;
+    }
+
+    /* Background glow */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(0,174,239,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Mountain SVG */
+    .mountain-wrap {
+      width: 260px;
+      margin: 0 auto 32px;
+      opacity: .18;
+    }
+
+    .error-code {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(6rem, 20vw, 10rem);
+      font-weight: 700;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 420px;
+      margin: 0 auto 36px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: .9rem;
+      letter-spacing: .04em;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      transition: opacity .2s, transform .2s;
+    }
+    .btn-primary:hover { opacity: .88; transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,.18);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: .9rem;
+      letter-spacing: .04em;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      transition: border-color .2s, transform .2s;
+    }
+    .btn-secondary:hover { border-color: var(--blue); transform: translateY(-2px); }
+
+    .nav-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo {
+      height: 36px;
+      filter: brightness(2.8) drop-shadow(0 0 8px rgba(0,174,239,.3));
+    }
+
+    @media (max-width: 480px) {
+      .mountain-wrap { width: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav-bar">
+    <a href="/"><img src="/brand-assets/Summt Marketing LOGO.png" alt="Summit Marketing" class="nav-logo" /></a>
+  </nav>
+
+  <div class="mountain-wrap">
+    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="200,20 320,180 80,180" fill="url(#g1)" opacity=".9"/>
+      <polygon points="310,60 400,180 220,180" fill="url(#g2)" opacity=".6"/>
+      <polygon points="100,80 180,180 20,180" fill="url(#g2)" opacity=".5"/>
+      <defs>
+        <linearGradient id="g1" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#00AEEF"/>
+          <stop offset="100%" stop-color="#002060"/>
+        </linearGradient>
+        <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#41D9F2"/>
+          <stop offset="100%" stop-color="#002060"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="error-code">404</div>
+  <h1>Lost on the Mountain</h1>
+  <p>Looks like this page doesn't exist. It may have moved or the URL might be off. Let's get you back on the right trail.</p>
+
+  <div class="btn-group">
+    <a href="/" class="btn-primary">Back to Home</a>
+    <a href="/contact/" class="btn-secondary">Contact Us</a>
+  </div>
+
+</body>
+</html>

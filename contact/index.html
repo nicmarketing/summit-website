@@ -1117,5 +1117,87 @@
   data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
   data-widget-id="69ab22b6d72daa7a88db42e8">
 </script>
+
+<!-- ── SUMMIT GROWTH LAYER ──────────────────────────────────────────── -->
+<style>
+#smkt-cookie{display:none;position:fixed;bottom:0;left:0;right:0;z-index:99998;background:rgba(2,12,31,.97);border-top:1px solid rgba(0,174,239,.25);backdrop-filter:blur(16px);padding:16px 24px;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Montserrat',sans-serif}
+#smkt-cookie.show{display:flex}
+#smkt-cookie p{color:rgba(255,255,255,.7);font-size:.82rem;margin:0;line-height:1.5;flex:1;min-width:200px}
+#smkt-cookie p a{color:#00AEEF;text-decoration:none}
+.smkt-cookie-btns{display:flex;gap:10px;flex-shrink:0}
+#smkt-cookie-decline{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:600;padding:8px 18px;border-radius:6px;cursor:pointer}
+#smkt-cookie-accept{background:linear-gradient(135deg,#00AEEF,#41D9F2);border:none;color:#fff;font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:700;padding:8px 18px;border-radius:6px;cursor:pointer}
+#smkt-exit-overlay{display:none;position:fixed;inset:0;z-index:99999;background:rgba(2,12,31,.85);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:24px}
+#smkt-exit-overlay.show{display:flex}
+#smkt-exit-modal{background:#0a1628;border:1px solid rgba(0,174,239,.2);border-radius:16px;padding:44px 40px 40px;max-width:460px;width:100%;text-align:center;position:relative;font-family:'Montserrat',sans-serif;box-shadow:0 32px 80px rgba(0,0,0,.6)}
+#smkt-exit-close{position:absolute;top:16px;right:18px;background:none;border:none;color:rgba(255,255,255,.4);font-size:1.2rem;cursor:pointer}
+.smkt-exit-mountain{width:80px;margin:0 auto 20px;opacity:.6}
+.smkt-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#41D9F2;margin-bottom:12px}
+#smkt-exit-modal h2{font-family:'Oswald',sans-serif;font-size:1.7rem;font-weight:700;color:#fff;letter-spacing:.03em;margin-bottom:12px}
+#smkt-exit-modal p{color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.6;margin-bottom:28px}
+.smkt-exit-cta{display:block;width:100%;background:linear-gradient(135deg,#00AEEF,#41D9F2);color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;letter-spacing:.04em;padding:15px 24px;border-radius:8px;transition:opacity .2s,transform .2s;margin-bottom:14px}
+#smkt-exit-dismiss{background:none;border:none;color:rgba(255,255,255,.35);font-family:'Montserrat',sans-serif;font-size:.78rem;cursor:pointer;text-decoration:underline}
+#smkt-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:99997;padding:12px 20px;background:rgba(2,12,31,.97);border-top:1px solid rgba(0,174,239,.2);backdrop-filter:blur(16px)}
+#smkt-sticky a{display:block;width:100%;background:linear-gradient(135deg,#00AEEF,#41D9F2);color:#fff;text-decoration:none;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.04em;text-align:center;padding:14px 20px;border-radius:8px}
+@media(max-width:900px){#smkt-sticky{display:block}}
+</style>
+
+<div id="smkt-cookie" role="dialog" aria-label="Cookie consent">
+  <p>We use cookies to improve your experience and analyze traffic. <a href="/privacy.html">Privacy Policy</a></p>
+  <div class="smkt-cookie-btns">
+    <button id="smkt-cookie-decline">Decline</button>
+    <button id="smkt-cookie-accept">Accept</button>
+  </div>
+</div>
+
+<div id="smkt-exit-overlay" role="dialog" aria-modal="true">
+  <div id="smkt-exit-modal">
+    <button id="smkt-exit-close" aria-label="Close">✕</button>
+    <div class="smkt-exit-mountain">
+      <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="eg1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#00AEEF"/><stop offset="100%" stop-color="#002060"/></linearGradient></defs>
+        <polygon points="100,5 170,95 30,95" fill="url(#eg1)"/>
+        <polygon points="155,30 200,95 110,95" fill="url(#eg1)" opacity=".5"/>
+        <polygon points="50,45 90,95 10,95" fill="url(#eg1)" opacity=".4"/>
+      </svg>
+    </div>
+    <div class="smkt-eyebrow">Free — No Commitment</div>
+    <h2>Before You Go...</h2>
+    <p>See exactly how your website ranks for SEO and AI visibility — free audit in under 60 seconds. No credit card required.</p>
+    <a href="/audit/" class="smkt-exit-cta">Get My Free Audit →</a>
+    <button id="smkt-exit-dismiss">No thanks, I'll figure it out myself</button>
+  </div>
+</div>
+
+<div id="smkt-sticky">
+  <a href="/audit/">Get Your Free SEO Audit →</a>
+</div>
+
+<script>
+(function(){
+  var CONSENT_KEY='smkt_cookie_consent',EXIT_KEY='smkt_exit_shown';
+  var path=window.location.pathname;
+  var isAudit=path.indexOf('/audit')!==-1,isContact=path.indexOf('/contact')!==-1;
+  var cookieBanner=document.getElementById('smkt-cookie');
+  var stickyCTA=document.getElementById('smkt-sticky');
+  var consentGiven=localStorage.getItem(CONSENT_KEY);
+  function hideCookie(){cookieBanner.classList.remove('show');if(!isAudit&&!isContact)stickyCTA.style.display='';}
+  if(!consentGiven){setTimeout(function(){cookieBanner.classList.add('show');},1500);if(!isAudit&&!isContact)stickyCTA.style.display='none';}
+  document.getElementById('smkt-cookie-accept').addEventListener('click',function(){localStorage.setItem(CONSENT_KEY,'accepted');hideCookie();});
+  document.getElementById('smkt-cookie-decline').addEventListener('click',function(){localStorage.setItem(CONSENT_KEY,'declined');hideCookie();});
+  if(isAudit||isContact)stickyCTA.style.display='none';
+  if(isAudit)return;
+  var overlay=document.getElementById('smkt-exit-overlay'),shown=sessionStorage.getItem(EXIT_KEY);
+  function showExit(){if(shown||sessionStorage.getItem(EXIT_KEY))return;shown=true;sessionStorage.setItem(EXIT_KEY,'1');overlay.classList.add('show');document.body.style.overflow='hidden';}
+  function closeExit(){overlay.classList.remove('show');document.body.style.overflow='';}
+  document.getElementById('smkt-exit-close').addEventListener('click',closeExit);
+  document.getElementById('smkt-exit-dismiss').addEventListener('click',closeExit);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)closeExit();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeExit();});
+  setTimeout(function(){document.addEventListener('mouseleave',function(e){if(e.clientY<10)showExit();});},4000);
+  if(window.innerWidth<=900){var t=setTimeout(showExit,45000);['touchstart','scroll'].forEach(function(ev){document.addEventListener(ev,function(){clearTimeout(t);t=setTimeout(showExit,45000);},{passive:true});});}
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')showExit();});
+})();
+</script>
 </body>
 </html>
