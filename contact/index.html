@@ -864,80 +864,23 @@
     <p class="form-sub">Share what you're working on and your biggest marketing challenge. We'll come back with real ideas — not a sales pitch.</p>
     <div class="form-divider"></div>
 
-    <form
-      id="contact-form"
-      method="POST"
-      action="https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ"
-      enctype="application/x-www-form-urlencoded"
-      accept-charset="UTF-8"
-    >
-      <div class="sm-row">
-        <div class="sm-group">
-          <label class="sm-label" for="cf-first">First Name *</label>
-          <input class="sm-input" type="text" id="cf-first" name="first_name" placeholder="John" required />
-        </div>
-        <div class="sm-group">
-          <label class="sm-label" for="cf-last">Last Name *</label>
-          <input class="sm-input" type="text" id="cf-last" name="last_name" placeholder="Smith" required />
-        </div>
-      </div>
-      <div class="sm-row">
-        <div class="sm-group">
-          <label class="sm-label" for="cf-email">Email *</label>
-          <input class="sm-input" type="email" id="cf-email" name="email" placeholder="john@company.com" required />
-        </div>
-        <div class="sm-group">
-          <label class="sm-label" for="cf-phone">Phone</label>
-          <input class="sm-input" type="tel" id="cf-phone" name="phone" placeholder="+1 (555) 000-0000" />
-        </div>
-      </div>
-      <div class="sm-group">
-        <label class="sm-label" for="cf-company">Business Name</label>
-        <input class="sm-input" type="text" id="cf-company" name="company_name" placeholder="Your Company LLC" />
-      </div>
-      <div class="sm-group">
-        <label class="sm-label" for="cf-service">Service Interest *</label>
-        <select class="sm-select" id="cf-service" name="service_interest" required>
-          <option value="" disabled selected>Select a service...</option>
-          <optgroup label="── Marketing Retainers ──">
-            <option value="Basecamp">Basecamp — Foundation &amp; SEO ($997/mo)</option>
-            <option value="Elevate">Elevate — Growth &amp; Brand ($1,497/mo)</option>
-            <option value="Ascent">Ascent — Full-Funnel Scale ($2,497/mo) ★ Popular</option>
-            <option value="Peak">Peak — Enterprise Custom ($5,000+/mo)</option>
-          </optgroup>
-          <optgroup label="── Web Design &amp; Development ──">
-            <option value="Web Design - Trailhead">Web Design · Trailhead ($300–$2K)</option>
-            <option value="Web Design - Pinnacle">Web Design · Pinnacle ($2K–$5K)</option>
-            <option value="Web Design - Apex">Web Design · Apex ($5K–$20K+)</option>
-          </optgroup>
-          <option value="Not Sure">Not sure yet — help me choose</option>
-        </select>
-      </div>
-      <div class="sm-group">
-        <label class="sm-label" for="cf-message">Tell Us About Your Goals</label>
-        <textarea class="sm-textarea" id="cf-message" name="message" placeholder="What are you trying to achieve? What's your biggest marketing challenge right now?"></textarea>
-      </div>
-      <input type="hidden" name="source" value="Summit Marketing Website" />
-      <input type="hidden" name="lead_source" value="Contact Page Form" />
-      <div class="sms-consent">
-        <label class="sms-consent-label">
-          <input type="checkbox" id="sms-consent" name="sms_consent" value="yes" />
-          <span>I agree to receive SMS text messages from <strong style="color:rgba(255,255,255,.5)">Summit Marketing</strong> at the number provided. Message frequency varies. Msg &amp; data rates may apply. Reply <strong style="color:rgba(255,255,255,.5)">STOP</strong> to opt out or <strong style="color:rgba(255,255,255,.5)">HELP</strong> for help. SMS consent is not required to receive services. View our <a href="/privacy.html">Privacy Policy</a> &amp; <a href="/terms.html">Terms of Service</a>.</span>
-        </label>
-      </div>
-      <button type="submit" class="sm-submit" id="cf-submit">Send My Message &rarr;</button>
-      <p class="sm-disclaimer">We never sell your information.</p>
-    </form>
-
-    <!-- Success state -->
-    <div class="form-success" id="form-success">
-      <div class="success-icon">
-        <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-      </div>
-      <h3 class="success-title">Message <em>Received!</em></h3>
-      <p class="success-sub">We'll be in touch within 1 business day. Want to lock in your call right now? Pick a time in the calendar.</p>
-      <a href="#calendar" class="success-arrow">Pick a Time &darr;</a>
-    </div>
+    <iframe
+      src="https://go.summitmarketingms.com/widget/form/MJTRLtD3XMg6oENJswpM"
+      style="width:100%;border:none;border-radius:4px"
+      id="inline-MJTRLtD3XMg6oENJswpM"
+      data-layout="{'id':'INLINE'}"
+      data-trigger-type="alwaysShow"
+      data-trigger-value=""
+      data-activation-type="alwaysActivated"
+      data-activation-value=""
+      data-deactivation-type="neverDeactivate"
+      data-deactivation-value=""
+      data-form-name="Summit Formfill"
+      data-height="1162"
+      data-layout-iframe-id="inline-MJTRLtD3XMg6oENJswpM"
+      data-form-id="MJTRLtD3XMg6oENJswpM"
+      title="Summit Formfill"
+    ></iframe>
   </div>
 
   <!-- CALENDAR COLUMN -->
@@ -1058,35 +1001,6 @@
   }
 })();
 
-// ── Contact form AJAX submit ────────────────────────────────────────────────
-(function() {
-  var form    = document.getElementById('contact-form');
-  var success = document.getElementById('form-success');
-  if (!form) return;
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    var btn = document.getElementById('cf-submit');
-    if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
-
-    var data = new URLSearchParams(new FormData(form));
-    fetch(form.action, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: data.toString()
-    }).catch(function(){});
-
-    setTimeout(function() {
-      form.style.display = 'none';
-      if (success) success.classList.add('visible');
-      // Auto-scroll to the embedded calendar
-      setTimeout(function() {
-        var cal = document.getElementById('calendar');
-        if (cal) cal.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 400);
-    }, 600);
-  });
-})();
 
 // ── Smooth scroll reveal on scroll ─────────────────────────────────────────
 (function() {
