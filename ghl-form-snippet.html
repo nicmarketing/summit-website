@@ -1,16 +1,14 @@
 <!--
   ============================================================
-  SUMMIT MARKETING — GoHighLevel Custom HTML Form
+  SUMMIT MARKETING — GoHighLevel Custom HTML Form Wrapper
   ============================================================
   HOW TO USE IN GHL:
-  1. GoHighLevel → Sites → Forms → New Form
+  1. GoHighLevel → Sites → Forms → open Summit Formfill
   2. Add Element → "Custom HTML" block
-  3. Paste everything between the two ==== lines below
-  4. Find the line: action="PASTE_YOUR_GHL_WEBHOOK_URL_HERE"
-     and replace with your actual GHL Workflow Webhook URL
+  3. Paste everything between the ==== lines below
+  4. In GHL's form builder, HIDE or REMOVE the default form
+     header (title/subtitle) so it doesn't duplicate ours
   5. Save and publish
-
-  NO JAVASCRIPT — pure HTML form POST, fully GHL-compatible.
   ============================================================
 -->
 
@@ -18,19 +16,14 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-  .sm-wrap * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
-  }
+  .sm-wrap * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
 
   .sm-wrap {
     font-family: 'Inter', Arial, sans-serif;
     background: linear-gradient(160deg, #0b2255 0%, #071940 55%, #020c1f 100%);
     border: 1px solid rgba(0,174,239,.3);
     border-radius: 20px;
-    padding: 48px 44px;
+    padding: 48px 44px 32px;
     max-width: 600px;
     width: 100%;
     margin: 0 auto;
@@ -83,252 +76,51 @@
   .sm-divider {
     height: 1px;
     background: linear-gradient(90deg, rgba(0,174,239,.4), rgba(65,217,242,.2), transparent);
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
 
-  .sm-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
+  .sm-iframe-wrap {
+    margin: 0 -44px;
   }
 
-  .sm-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 14px;
-  }
-
-  .sm-label {
-    font-size: 11px;
-    font-weight: 700;
-    color: rgba(255,255,255,.55);
-    letter-spacing: .06em;
-    text-transform: uppercase;
-  }
-
-  .sm-input,
-  .sm-select,
-  .sm-textarea {
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 10px;
-    padding: 13px 16px;
-    font-size: 14px;
-    font-family: 'Inter', Arial, sans-serif;
-    color: #ffffff;
+  .sm-iframe-wrap iframe {
     width: 100%;
-    outline: none;
-    transition: border-color .2s, background .2s;
-    -webkit-appearance: none;
-    appearance: none;
-  }
-
-  .sm-input::placeholder,
-  .sm-textarea::placeholder {
-    color: rgba(255,255,255,.22);
-  }
-
-  .sm-input:focus,
-  .sm-select:focus,
-  .sm-textarea:focus {
-    border-color: rgba(0,174,239,.65);
-    background: rgba(0,174,239,.07);
-  }
-
-  .sm-select {
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    background-size: 18px;
-    padding-right: 40px;
-  }
-
-  .sm-select option {
-    background: #071940;
-    color: #ffffff;
-  }
-
-  .sm-textarea {
-    resize: vertical;
-    min-height: 110px;
-    line-height: 1.6;
-  }
-
-  .sm-submit {
-    width: 100%;
-    padding: 16px 24px;
-    background: linear-gradient(135deg, #00AEEF, #41D9F2);
-    color: #020c1f;
     border: none;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 800;
-    font-family: 'Inter', Arial, sans-serif;
-    letter-spacing: -.01em;
-    cursor: pointer;
-    margin-top: 6px;
     display: block;
-    text-align: center;
-    transition: opacity .2s;
   }
-
-  .sm-submit:hover {
-    opacity: .85;
-  }
-
-  .sm-disclaimer {
-    font-size: 11px;
-    color: rgba(255,255,255,.22);
-    text-align: center;
-    margin-top: 10px;
-    line-height: 1.65;
-  }
-
-  .sm-disclaimer a {
-    color: rgba(0,174,239,.55);
-    text-decoration: none;
-  }
-
-  .sm-consent {
-    margin: 18px 0 4px;
-    padding: 14px 16px;
-    background: rgba(0,174,239,.05);
-    border: 1px solid rgba(0,174,239,.15);
-    border-radius: 10px;
-  }
-
-  .sm-consent-label {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    cursor: pointer;
-  }
-
-  .sm-consent-check {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    accent-color: #00AEEF;
-    cursor: pointer;
-  }
-
-  .sm-consent-text {
-    font-size: 11.5px;
-    color: rgba(255,255,255,.38);
-    line-height: 1.65;
-    font-family: 'Inter', Arial, sans-serif;
-  }
-
-  .sm-consent-text strong {
-    color: rgba(255,255,255,.55);
-    font-weight: 600;
-  }
-
-  .sm-consent-text a {
-    color: rgba(0,174,239,.7);
-    text-decoration: none;
-  }
-
-  .sm-consent-text a:hover { text-decoration: underline; }
 
   @media (max-width: 520px) {
-    .sm-wrap  { padding: 32px 22px; }
-    .sm-row   { grid-template-columns: 1fr; }
+    .sm-wrap  { padding: 32px 22px 20px; }
     .sm-title { font-size: 22px; }
-    .sm-consent-check { width: 20px; height: 20px; }
-    .sm-consent-text  { font-size: 12px; }
+    .sm-iframe-wrap { margin: 0 -22px; }
   }
 </style>
 
 <div class="sm-wrap">
-
   <div class="sm-eyebrow">Free Strategy Call</div>
   <h2 class="sm-title">Let's reach <span>new heights</span> together</h2>
   <p class="sm-sub">Tell us about your business and goals. We'll review your current marketing and show you exactly what's possible.</p>
   <div class="sm-divider"></div>
 
-  <!--
-    Replace PASTE_YOUR_GHL_WEBHOOK_URL_HERE with your GHL Workflow Webhook URL
-    To get it: GHL → Automation → Workflows → New Workflow → Trigger: Webhook → copy the URL
-  -->
-  <form
-    method="POST"
-    action="https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ"
-    enctype="application/x-www-form-urlencoded"
-    accept-charset="UTF-8"
-  >
-
-    <div class="sm-row">
-      <div class="sm-group">
-        <label class="sm-label" for="smf-first">First Name *</label>
-        <input class="sm-input" type="text" id="smf-first" name="first_name" placeholder="John" required />
-      </div>
-      <div class="sm-group">
-        <label class="sm-label" for="smf-last">Last Name *</label>
-        <input class="sm-input" type="text" id="smf-last" name="last_name" placeholder="Smith" required />
-      </div>
-    </div>
-
-    <div class="sm-row">
-      <div class="sm-group">
-        <label class="sm-label" for="smf-email">Email *</label>
-        <input class="sm-input" type="email" id="smf-email" name="email" placeholder="john@company.com" required />
-      </div>
-      <div class="sm-group">
-        <label class="sm-label" for="smf-phone">Phone</label>
-        <input class="sm-input" type="tel" id="smf-phone" name="phone" placeholder="+1 (555) 000-0000" />
-      </div>
-    </div>
-
-    <div class="sm-group">
-      <label class="sm-label" for="smf-company">Business Name</label>
-      <input class="sm-input" type="text" id="smf-company" name="company_name" placeholder="Your Company LLC" />
-    </div>
-
-    <div class="sm-group">
-      <label class="sm-label" for="smf-service">Service Interest *</label>
-      <select class="sm-select" id="smf-service" name="service_interest" required>
-        <option value="" disabled selected>Select a package...</option>
-        <option value="Basecamp">Basecamp — Foundation &amp; SEO</option>
-        <option value="Elevate">Elevate — Growth &amp; Brand</option>
-        <option value="Ascent">Ascent — Full-Funnel Scale (Most Popular)</option>
-        <option value="Peak">Peak — Enterprise Custom</option>
-        <option value="Not Sure">Not sure yet — help me choose</option>
-      </select>
-    </div>
-
-    <div class="sm-group">
-      <label class="sm-label" for="smf-message">Tell Us About Your Goals</label>
-      <textarea class="sm-textarea" id="smf-message" name="message" placeholder="What are you looking to achieve? What's your biggest marketing challenge right now?"></textarea>
-    </div>
-
-    <!-- Hidden source tracking field -->
-    <input type="hidden" name="source" value="Summit Marketing Website" />
-    <input type="hidden" name="lead_source" value="Website Contact Form" />
-
-    <button type="submit" class="sm-submit">
-      Book My Free Strategy Call &rarr;
-    </button>
-
-    <div class="sm-consent">
-      <label class="sm-consent-label">
-        <input class="sm-consent-check" type="checkbox" name="sms_consent" value="yes" />
-        <span class="sm-consent-text">
-          I agree to receive SMS text messages from <strong>Summit Marketing</strong> at the number provided.
-          Message frequency varies. Msg &amp; data rates may apply.
-          Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for help.
-          Consent is not required to receive services.
-          View our <a href="https://www.summitmarketingms.com/privacy.html" target="_blank">Privacy Policy</a>
-          &amp; <a href="https://www.summitmarketingms.com/terms.html" target="_blank">Terms of Service</a>.
-        </span>
-      </label>
-    </div>
-    <p class="sm-disclaimer">We never sell your information.</p>
-
-  </form>
-
+  <div class="sm-iframe-wrap">
+    <iframe
+      src="https://go.summitmarketingms.com/widget/form/MJTRLtD3XMg6oENJswpM"
+      style="width:100%;height:100%;border:none;border-radius:4px"
+      id="inline-MJTRLtD3XMg6oENJswpM"
+      data-layout="{'id':'INLINE'}"
+      data-trigger-type="alwaysShow"
+      data-trigger-value=""
+      data-activation-type="alwaysActivated"
+      data-activation-value=""
+      data-deactivation-type="neverDeactivate"
+      data-deactivation-value=""
+      data-form-name="Summit Formfill"
+      data-height="1162"
+      data-layout-iframe-id="inline-MJTRLtD3XMg6oENJswpM"
+      data-form-id="MJTRLtD3XMg6oENJswpM"
+      title="Summit Formfill"
+    ></iframe>
+  </div>
 </div>
+<script src="https://go.summitmarketingms.com/js/form_embed.js"></script>
 <!-- ==================== COPY TO HERE ==================== -->
