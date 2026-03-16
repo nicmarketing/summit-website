@@ -182,7 +182,7 @@
     font-size: 11px;
     color: rgba(255,255,255,.22);
     text-align: center;
-    margin-top: 14px;
+    margin-top: 10px;
     line-height: 1.65;
   }
 
@@ -191,10 +191,55 @@
     text-decoration: none;
   }
 
+  .sm-consent {
+    margin: 18px 0 4px;
+    padding: 14px 16px;
+    background: rgba(0,174,239,.05);
+    border: 1px solid rgba(0,174,239,.15);
+    border-radius: 10px;
+  }
+
+  .sm-consent-label {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    cursor: pointer;
+  }
+
+  .sm-consent-check {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: #00AEEF;
+    cursor: pointer;
+  }
+
+  .sm-consent-text {
+    font-size: 11.5px;
+    color: rgba(255,255,255,.38);
+    line-height: 1.65;
+    font-family: 'Inter', Arial, sans-serif;
+  }
+
+  .sm-consent-text strong {
+    color: rgba(255,255,255,.55);
+    font-weight: 600;
+  }
+
+  .sm-consent-text a {
+    color: rgba(0,174,239,.7);
+    text-decoration: none;
+  }
+
+  .sm-consent-text a:hover { text-decoration: underline; }
+
   @media (max-width: 520px) {
     .sm-wrap  { padding: 32px 22px; }
     .sm-row   { grid-template-columns: 1fr; }
     .sm-title { font-size: 22px; }
+    .sm-consent-check { width: 20px; height: 20px; }
+    .sm-consent-text  { font-size: 12px; }
   }
 </style>
 
@@ -268,13 +313,20 @@
       Book My Free Strategy Call &rarr;
     </button>
 
-    <p class="sm-disclaimer">
-      By submitting you agree to our
-      <a href="https://summitmarketingms.com/privacy.html" target="_blank">Privacy Policy</a>
-      &amp;
-      <a href="https://summitmarketingms.com/terms.html" target="_blank">Terms of Service</a>.
-      We never sell your information.
-    </p>
+    <div class="sm-consent">
+      <label class="sm-consent-label">
+        <input class="sm-consent-check" type="checkbox" name="sms_consent" value="yes" />
+        <span class="sm-consent-text">
+          I agree to receive SMS text messages from <strong>Summit Marketing</strong> at the number provided.
+          Message frequency varies. Msg &amp; data rates may apply.
+          Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for help.
+          Consent is not required to receive services.
+          View our <a href="https://www.summitmarketingms.com/privacy.html" target="_blank">Privacy Policy</a>
+          &amp; <a href="https://www.summitmarketingms.com/terms.html" target="_blank">Terms of Service</a>.
+        </span>
+      </label>
+    </div>
+    <p class="sm-disclaimer">We never sell your information.</p>
 
   </form>
 
