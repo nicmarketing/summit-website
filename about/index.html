@@ -284,6 +284,76 @@
     .diff-title { font-size: .97rem; font-weight: 700; color: var(--white); margin-bottom: 10px; letter-spacing: -.02em; }
     .diff-text { font-size: .82rem; color: var(--muted); line-height: 1.65; }
 
+    /* ── SPEED TO LEAD ── */
+    .stl-wrap {
+      background: linear-gradient(135deg, rgba(0,174,239,.07) 0%, rgba(65,217,242,.04) 100%);
+      border-top: 1px solid rgba(0,174,239,.18);
+      border-bottom: 1px solid rgba(0,174,239,.18);
+      padding: 96px 52px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stl-wrap::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(0,174,239,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .stl-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .stl-h-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
+    .stl-h-title { font-size: clamp(1.8rem, 2.8vw, 2.6rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.1; margin-bottom: 18px; }
+    .stl-h-title em { font-style: normal; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stl-h-sub { font-size: .95rem; color: var(--muted); line-height: 1.78; margin-bottom: 32px; }
+    .stl-h-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-bottom: 12px; }
+    .stl-h-stat { background: rgba(0,174,239,.06); border: 1px solid rgba(0,174,239,.15); border-radius: 14px; padding: 20px; text-align: center; }
+    .stl-h-stat-val { font-size: 2rem; font-weight: 900; letter-spacing: -.04em; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 6px; }
+    .stl-h-stat-label { font-size: .74rem; font-weight: 500; color: var(--muted); line-height: 1.4; }
+    .stl-h-source { font-size: .7rem; color: rgba(255,255,255,.22); font-style: italic; }
+    .stl-card {
+      background: linear-gradient(160deg, #0b2255 0%, #071940 55%, #020c1f 100%);
+      border: 1px solid var(--border-b);
+      border-radius: 20px;
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stl-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(0,174,239,.13) 0%, transparent 70%); pointer-events: none; }
+    .stl-card-label { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); margin-bottom: 24px; }
+    .stl-steps { display: flex; flex-direction: column; gap: 0; }
+    .stl-step { display: flex; gap: 16px; align-items: flex-start; padding-bottom: 22px; position: relative; }
+    .stl-step:last-child { padding-bottom: 0; }
+    .stl-step::before { content: ''; position: absolute; left: 19px; top: 40px; bottom: 0; width: 2px; background: linear-gradient(180deg, rgba(0,174,239,.4) 0%, rgba(0,174,239,.05) 100%); }
+    .stl-step:last-child::before { display: none; }
+    .stl-dot { width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .95rem; position: relative; z-index: 1; }
+    .stl-dot-0 { background: rgba(0,174,239,.15); border: 1px solid rgba(0,174,239,.35); }
+    .stl-dot-1 { background: rgba(65,217,242,.15); border: 1px solid rgba(65,217,242,.35); }
+    .stl-dot-2 { background: rgba(0,174,239,.12); border: 1px solid rgba(0,174,239,.3); }
+    .stl-dot-3 { background: rgba(40,200,100,.12); border: 1px solid rgba(40,200,100,.35); }
+    .stl-step-content { padding-top: 8px; }
+    .stl-step-time { font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); margin-bottom: 3px; }
+    .stl-step-title { font-size: .9rem; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+    .stl-step-desc { font-size: .78rem; color: var(--muted); line-height: 1.5; }
+    .stl-alert { margin-top: 20px; padding: 12px 16px; background: rgba(40,200,100,.08); border: 1px solid rgba(40,200,100,.2); border-radius: 10px; font-size: .8rem; color: rgba(255,255,255,.65); display: flex; align-items: center; gap: 10px; }
+    .stl-alert strong { color: #4ade80; }
+
+    @media (max-width: 900px) {
+      .stl-wrap { padding: 72px 24px; }
+      .stl-grid { grid-template-columns: 1fr; gap: 44px; }
+      .stl-h-stats { grid-template-columns: repeat(3,1fr); gap: 12px; }
+    }
+
     /* ── CTA ── */
     .cta-section {
       text-align: center;
@@ -771,6 +841,76 @@
         <div class="diff-title">Mississippi-Rooted</div>
         <div class="diff-text">We know the Mississippi market, the culture, and the businesses here. Local insight paired with enterprise-level strategy — that's our edge.</div>
       </div>
+    </div>
+  </div>
+
+  <!-- ── SPEED TO LEAD ── -->
+  <div class="stl-wrap">
+    <div class="stl-grid">
+
+      <div>
+        <div class="stl-h-eyebrow">Speed to Lead</div>
+        <h2 class="stl-h-title">The first to respond<br><em>wins the deal</em></h2>
+        <p class="stl-h-sub">One of the most overlooked growth levers in any business is how fast you respond to new leads. The research is definitive — and the gap between you and your competitors is probably measured in hours, not minutes.</p>
+        <div class="stl-h-stats">
+          <div class="stl-h-stat">
+            <div class="stl-h-stat-val">78%</div>
+            <div class="stl-h-stat-label">of buyers go with the first company that responds</div>
+          </div>
+          <div class="stl-h-stat">
+            <div class="stl-h-stat-val">100×</div>
+            <div class="stl-h-stat-label">higher conversion when contacted in under 5 min</div>
+          </div>
+          <div class="stl-h-stat">
+            <div class="stl-h-stat-val">47hr</div>
+            <div class="stl-h-stat-label">average response time from most businesses</div>
+          </div>
+        </div>
+        <p class="stl-h-source">Sources: Harvard Business Review · InsideSales.com</p>
+      </div>
+
+      <div class="stl-card reveal">
+        <div class="stl-card-label">What happens when a lead comes in</div>
+        <div class="stl-steps">
+          <div class="stl-step">
+            <div class="stl-dot stl-dot-0">📥</div>
+            <div class="stl-step-content">
+              <div class="stl-step-time">T + 0 seconds</div>
+              <div class="stl-step-title">Lead submits form</div>
+              <div class="stl-step-desc">Contact is created in your CRM instantly — zero manual entry.</div>
+            </div>
+          </div>
+          <div class="stl-step">
+            <div class="stl-dot stl-dot-1">⚡</div>
+            <div class="stl-step-content">
+              <div class="stl-step-time">T + 30 seconds</div>
+              <div class="stl-step-title">Automated text fires</div>
+              <div class="stl-step-desc">A personalized SMS goes out while they're still on your site.</div>
+            </div>
+          </div>
+          <div class="stl-step">
+            <div class="stl-dot stl-dot-2">📧</div>
+            <div class="stl-step-content">
+              <div class="stl-step-time">T + 2 minutes</div>
+              <div class="stl-step-title">Follow-up email delivered</div>
+              <div class="stl-step-desc">Branded confirmation with next steps hits their inbox.</div>
+            </div>
+          </div>
+          <div class="stl-step">
+            <div class="stl-dot stl-dot-3">📞</div>
+            <div class="stl-step-content">
+              <div class="stl-step-time">T + 5 minutes</div>
+              <div class="stl-step-title">Your team gets the alert</div>
+              <div class="stl-step-desc">Internal notification fires so you can call while the lead is still hot.</div>
+            </div>
+          </div>
+        </div>
+        <div class="stl-alert">
+          <span>✅</span>
+          <span>We build this for every client. <strong>Your competitors take 47 hours. You respond in 5 minutes.</strong></span>
+        </div>
+      </div>
+
     </div>
   </div>
 
