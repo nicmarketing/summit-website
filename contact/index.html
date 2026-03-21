@@ -1100,6 +1100,25 @@
 })();
 
 
+// ── Pre-select service from sessionStorage (set by pricing page CTAs) ──────
+(function() {
+  var svc = sessionStorage.getItem('smService');
+  if (!svc) {
+    // Also support legacy ?service= query param then clean the URL
+    var p = new URLSearchParams(window.location.search);
+    svc = p.get('service');
+    if (svc) history.replaceState(null, '', '/contact/');
+  } else {
+    sessionStorage.removeItem('smService');
+  }
+  if (!svc) return;
+  var sel = document.getElementById('cf-service');
+  if (!sel) return;
+  for (var i = 0; i < sel.options.length; i++) {
+    if (sel.options[i].value === svc) { sel.selectedIndex = i; break; }
+  }
+})();
+
 // ── Smooth scroll reveal on scroll ─────────────────────────────────────────
 (function() {
   if (!('IntersectionObserver' in window)) return;
