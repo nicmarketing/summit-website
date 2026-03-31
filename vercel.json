@@ -24,6 +24,7 @@
     }
   ],
   "redirects": [
+    { "source": "https://summitmarketingms.com/(.*)", "destination": "https://www.summitmarketingms.com/$1", "permanent": true },
     { "source": "/privacy.html", "destination": "/privacy-policy", "permanent": true },
     { "source": "/privacy-policy.html", "destination": "/privacy-policy", "permanent": true },
     { "source": "/terms.html", "destination": "/terms-of-service", "permanent": true },
