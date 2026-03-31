@@ -1,8 +1,33 @@
 {
   "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/privacy-policy",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "all" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/terms-of-service",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "all" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/compliance",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "all" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    }
+  ],
   "redirects": [
     { "source": "/privacy.html", "destination": "/privacy-policy", "permanent": true },
-    { "source": "/terms.html", "destination": "/terms-of-service", "permanent": true }
+    { "source": "/privacy-policy.html", "destination": "/privacy-policy", "permanent": true },
+    { "source": "/terms.html", "destination": "/terms-of-service", "permanent": true },
+    { "source": "/terms-of-service.html", "destination": "/terms-of-service", "permanent": true }
   ],
   "rewrites": [
     { "source": "/api/audit", "destination": "/api/audit" },
