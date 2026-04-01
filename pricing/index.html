@@ -790,13 +790,6 @@
     .sm-disclaimer { font-size: 11px; color: rgba(255,255,255,.22); text-align: center; margin-top: 14px; line-height: 1.65; }
     .sm-disclaimer a { color: rgba(0,174,239,.55); text-decoration: none; }
     @media (max-width: 520px) { .sm-row { grid-template-columns: 1fr; } }
-    .sm-consent-block { margin: 16px 0 6px; padding: 14px 16px; background: rgba(0,174,239,.05); border: 1px solid rgba(0,174,239,.15); border-radius: 10px; }
-    .sm-consent-block label { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
-    .sm-consent-block input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: #00AEEF; cursor: pointer; }
-    .sm-consent-block span { font-size: 11.5px; color: rgba(255,255,255,.38); line-height: 1.65; font-family: 'Inter', Arial, sans-serif; }
-    .sm-consent-block span strong { color: rgba(255,255,255,.6); font-weight: 600; }
-    .sm-consent-block span a { color: rgba(0,174,239,.7); text-decoration: none; }
-    .sm-consent-block span a:hover { text-decoration: underline; }
 
     /* ── THANK YOU MODAL ── */
     .ty-overlay { display: none; position: fixed; inset: 0; background: rgba(2,12,31,.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 9999; align-items: center; justify-content: center; }
@@ -1586,16 +1579,8 @@
         </div>
         <input type="hidden" name="source" value="Summit Marketing Website" />
         <input type="hidden" name="lead_source" value="Pricing Page" />
-        <div class="sm-consent-block">
-          <label>
-            <input type="checkbox" name="sms_consent" value="yes" />
-            <span>
-              I agree to receive recurring marketing and promotional SMS text messages from <strong>Summit Marketing</strong> at the number provided, including appointment confirmations, strategy call reminders, scheduling notifications, follow-up messages, and promotional offers. Message frequency varies — up to 4–6 messages per month. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for help. Consent is not required to receive services. View our <a href="/privacy-policy" target="_blank">Privacy Policy</a> &amp; <a href="/terms-of-service" target="_blank">Terms of Service</a>.
-            </span>
-          </label>
-        </div>
         <button type="submit" class="sm-submit">Book My Free Strategy Call &rarr;</button>
-        <p class="sm-disclaimer">We never sell your information.</p>
+        <p class="sm-disclaimer">By submitting, you agree to our <a href="/privacy-policy">Privacy Policy</a> &amp; <a href="/terms-of-service">Terms of Service</a>. We never sell your information.</p>
       </form>
     </div>
   </div>
@@ -2048,7 +2033,7 @@
 <script
   src="https://widgets.leadconnectorhq.com/loader.js"
   data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-  data-widget-id="69ab42010eb199320a51facc">
+  data-widget-id="69cd7cd334c04405a03f5182">
 </script>
 
 <!-- ── SUMMIT GROWTH LAYER ──────────────────────────────────────────── -->
