@@ -1354,72 +1354,23 @@ function filterFAQ(cat, query) {
   <div style="background:linear-gradient(160deg,#0d2660 0%,#071940 55%,#020c1f 100%);border:1px solid rgba(0,174,239,.3);border-radius:24px;padding:48px 44px;width:100%;max-width:560px;position:relative;flex-shrink:0;">
     <button onclick="closeBookModal()" style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.55);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.2rem;line-height:1;display:flex;align-items:center;justify-content:center;">&times;</button>
 
-    <div id="bmFormState">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00AEEF;margin-bottom:10px;">Free Strategy Call</div>
-      <h3 style="font-size:22px;font-weight:800;letter-spacing:-.02em;color:#fff;margin-bottom:8px;">Let's reach <span style="background:linear-gradient(135deg,#00AEEF,#41D9F2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">new heights</span> together</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,.5);margin-bottom:20px;line-height:1.65;">Tell us about your business and goals. We'll review your current marketing and show you exactly what's possible.</p>
-      <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(0,174,239,.35),transparent);margin-bottom:24px;"></div>
-      <form id="bmForm" style="display:flex;flex-direction:column;gap:14px;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <label style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);">First Name *</label>
-            <input type="text" name="first_name" placeholder="John" required style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:11px 14px;color:#fff;font-size:14px;outline:none;width:100%;" />
-          </div>
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <label style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);">Last Name *</label>
-            <input type="text" name="last_name" placeholder="Smith" required style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:11px 14px;color:#fff;font-size:14px;outline:none;width:100%;" />
-          </div>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <label style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);">Email *</label>
-            <input type="email" name="email" placeholder="john@company.com" required style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:11px 14px;color:#fff;font-size:14px;outline:none;width:100%;" />
-          </div>
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <label style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);">Phone</label>
-            <input type="tel" name="phone" placeholder="+1 (555) 000-0000" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:11px 14px;color:#fff;font-size:14px;outline:none;width:100%;" />
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:6px;">
-          <label style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);">Business Name</label>
-          <input type="text" name="company_name" placeholder="Your Company LLC" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:11px 14px;color:#fff;font-size:14px;outline:none;width:100%;" />
-        </div>
-        <div style="display:flex;flex-direction:column;gap:6px;">
-          <label style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);">Service Interest *</label>
-          <select name="service_interest" required style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:11px 14px;color:#fff;font-size:14px;outline:none;width:100%;appearance:none;">
-            <option value="" disabled selected style="background:#071940;">Select a service...</option>
-            <optgroup label="── Marketing Retainers ──" style="background:#071940;">
-              <option value="Basecamp" style="background:#071940;">Basecamp — Foundation &amp; SEO</option>
-              <option value="Elevate" style="background:#071940;">Elevate — Growth &amp; Brand</option>
-              <option value="Ascent" style="background:#071940;">Ascent — Full-Funnel Scale (Most Popular)</option>
-              <option value="Peak" style="background:#071940;">Peak — Enterprise Custom</option>
-            </optgroup>
-            <optgroup label="── Web Design &amp; Development ──" style="background:#071940;">
-              <option value="Web Design - Trailhead" style="background:#071940;">Web Design · Trailhead ($300–$2K)</option>
-              <option value="Web Design - Pinnacle" style="background:#071940;">Web Design · Pinnacle ($2K–$5K)</option>
-              <option value="Web Design - Apex" style="background:#071940;">Web Design · Apex ($5K–$20K+)</option>
-            </optgroup>
-            <option value="Not Sure" style="background:#071940;">Not sure yet — help me choose</option>
-          </select>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:6px;">
-          <label style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);">Tell Us About Your Goals</label>
-          <textarea name="message" placeholder="What are you looking to achieve? What's your biggest marketing challenge right now?" rows="3" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:11px 14px;color:#fff;font-size:14px;outline:none;width:100%;resize:vertical;"></textarea>
-        </div>
-        <input type="hidden" name="source" value="Summit Marketing Website" />
-        <input type="hidden" name="lead_source" value="FAQ Page" />
-        <button type="submit" style="background:linear-gradient(135deg,#00AEEF,#41D9F2);border:none;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:700;color:#020c1f;cursor:pointer;letter-spacing:.02em;transition:opacity .2s,transform .2s;">Book My Free Strategy Call &rarr;</button>
-        <p style="font-size:11px;color:rgba(255,255,255,.25);text-align:center;margin-top:2px;">By submitting, you agree to our <a href="/privacy-policy" style="color:rgba(0,174,239,.7);text-decoration:none;">Privacy Policy</a> &amp; <a href="/terms-of-service" style="color:rgba(0,174,239,.7);text-decoration:none;">Terms of Service</a>. We never sell your information.</p>
-      </form>
-    </div>
-
-    <div id="bmSuccessState" style="display:none;text-align:center;padding:20px 0;">
-      <div style="width:64px;height:64px;background:linear-gradient(135deg,#00AEEF,#41D9F2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;color:#020c1f;">✓</div>
-      <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00AEEF;margin-bottom:8px;">Request Received</div>
-      <h3 style="font-size:22px;font-weight:800;color:#fff;margin-bottom:12px;">Now book your <span style="background:linear-gradient(135deg,#00AEEF,#41D9F2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">strategy call</span></h3>
-      <p style="font-size:14px;color:rgba(255,255,255,.5);margin-bottom:24px;line-height:1.65;">We've received your info. Pick a time below and we'll come prepared with insights specific to your business.</p>
-      <iframe src="https://links.summitmarketingms.com/widget/bookings/joe-boyd-personal-calendar-hufa6qk-e" style="width:100%;height:600px;border:none;border-radius:12px;" scrolling="yes"></iframe>
-    </div>
+    <iframe
+        src="https://go.summitmarketingms.com/widget/form/MJTRLtD3XMg6oENJswpM"
+        style="width:100%;height:1029px;border:none;border-radius:4px"
+        id="inline-MJTRLtD3XMg6oENJswpM"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Summit Formfill"
+        data-height="1029"
+        data-layout-iframe-id="inline-MJTRLtD3XMg6oENJswpM"
+        data-form-id="MJTRLtD3XMg6oENJswpM"
+        title="Summit Formfill">
+    </iframe>
   </div>
 </div>
 
@@ -1437,21 +1388,6 @@ function filterFAQ(cat, query) {
   overlay.addEventListener('click', function(e) { if(e.target===overlay) closeBookModal(); });
   document.addEventListener('keydown', function(e) { if(e.key==='Escape') closeBookModal(); });
 
-  var form = document.getElementById('bmForm');
-  if (form) {
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      var btn = form.querySelector('[type=submit]');
-      if(btn) { btn.disabled=true; btn.textContent='Sending…'; }
-      try {
-        await fetch('https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ', {
-          method:'POST', body: new URLSearchParams(new FormData(form))
-        });
-      } catch(_) {}
-      document.getElementById('bmFormState').style.display = 'none';
-      document.getElementById('bmSuccessState').style.display = 'block';
-    });
-  }
 })();
 </script>
 
@@ -1547,5 +1483,6 @@ function filterFAQ(cat, query) {
   document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')showExit();});
 })();
 </script>
+<script src="https://go.summitmarketingms.com/js/form_embed.js"></script>
 </body>
 </html>
