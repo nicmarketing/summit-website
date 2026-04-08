@@ -1196,22 +1196,27 @@
   document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')showExit();});
 })();
 </script>
-<style>
-  input[type="submit"], button[type="submit"] { display:none!important; }
-  .hl_form-field-row--submit, div[class*="submit"], div[class*="hl_form"] { background:transparent!important; padding:0!important; margin:0!important; }
-</style>
 <script>
 (function(){
-  function scrubGHLSubmit(){
-    document.querySelectorAll('input[type="submit"], button[type="submit"]').forEach(function(el){
+  function killSubmit(node){
+    if(!node || !node.querySelectorAll) return;
+    node.querySelectorAll('input[type="submit"], button[type="submit"]').forEach(function(el){
       var p = el.parentElement;
-      el.remove();
-      if(p && p.children.length === 0) p.remove();
+      if(p){ p.style.cssText='display:none!important;height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;'; }
+      el.style.cssText='display:none!important;';
     });
   }
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', scrubGHLSubmit);
-  else scrubGHLSubmit();
-  setTimeout(scrubGHLSubmit, 1500);
+  var obs = new MutationObserver(function(muts){
+    muts.forEach(function(m){
+      m.addedNodes.forEach(function(n){ killSubmit(n); });
+    });
+    killSubmit(document.body);
+  });
+  function start(){
+    killSubmit(document.body);
+    obs.observe(document.body,{childList:true,subtree:true});
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start); else start();
 })();
 </script>
 <script src="https://go.summitmarketingms.com/js/form_embed.js"></script>
