@@ -1483,7 +1483,24 @@ function filterFAQ(cat, query) {
   document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')showExit();});
 })();
 </script>
-<style>input[type="submit"]{display:none!important;height:0!important;margin:0!important;padding:0!important;}</style>
+<style>
+  input[type="submit"], button[type="submit"] { display:none!important; }
+  .hl_form-field-row--submit, div[class*="submit"], div[class*="hl_form"] { background:transparent!important; padding:0!important; margin:0!important; }
+</style>
+<script>
+(function(){
+  function scrubGHLSubmit(){
+    document.querySelectorAll('input[type="submit"], button[type="submit"]').forEach(function(el){
+      var p = el.parentElement;
+      el.remove();
+      if(p && p.children.length === 0) p.remove();
+    });
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', scrubGHLSubmit);
+  else scrubGHLSubmit();
+  setTimeout(scrubGHLSubmit, 1500);
+})();
+</script>
 <script src="https://go.summitmarketingms.com/js/form_embed.js"></script>
 </body>
 </html>
