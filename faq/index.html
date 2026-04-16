@@ -1351,7 +1351,7 @@ function filterFAQ(cat, query) {
 
 <!-- ── BOOKING MODAL ── -->
 <div id="bookOverlay" style="display:none;position:fixed;inset:0;background:rgba(2,12,31,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);z-index:9500;align-items:center;justify-content:center;padding:24px;overflow-y:auto;">
-  <div style="background:linear-gradient(160deg,#0d2660 0%,#071940 55%,#020c1f 100%);border:1px solid rgba(0,174,239,.3);border-radius:24px;padding:48px 44px;width:100%;max-width:560px;position:relative;flex-shrink:0;">
+  <div style="background:transparent;padding:44px 0 0;width:100%;max-width:600px;position:relative;flex-shrink:0;">
     <button onclick="closeBookModal()" style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.55);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.2rem;line-height:1;display:flex;align-items:center;justify-content:center;">&times;</button>
 
     <iframe
@@ -1485,23 +1485,27 @@ function filterFAQ(cat, query) {
 </script>
 <script>
 (function(){
-  function killSubmit(node){
-    if(!node || !node.querySelectorAll) return;
-    node.querySelectorAll('input[type="submit"], button[type="submit"]').forEach(function(el){
-      var p = el.parentElement;
-      if(p){ p.style.cssText='display:none!important;height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;'; }
-      el.style.cssText='display:none!important;';
+  function cleanGHL(){
+    document.querySelectorAll('input[type="submit"], button[type="submit"]').forEach(function(el){
+      if(el.parentNode) el.parentNode.removeChild(el);
+    });
+    document.querySelectorAll('iframe[data-form-id="MJTRLtD3XMg6oENJswpM"]').forEach(function(iframe){
+      var p=iframe.parentElement;
+      if(p&&p.tagName==='DIV'&&!p.classList.contains('sm-wrap')&&!p.classList.contains('book-modal')&&!p.classList.contains('contact-form-col')){
+        p.style.setProperty('background','transparent','important');
+        p.style.setProperty('background-color','transparent','important');
+        p.style.setProperty('padding','0','important');
+        p.style.setProperty('margin','0','important');
+        p.style.setProperty('border','none','important');
+        p.style.setProperty('box-shadow','none','important');
+      }
     });
   }
-  var obs = new MutationObserver(function(muts){
-    muts.forEach(function(m){
-      m.addedNodes.forEach(function(n){ killSubmit(n); });
-    });
-    killSubmit(document.body);
-  });
+  var obs=new MutationObserver(cleanGHL);
   function start(){
-    killSubmit(document.body);
+    cleanGHL();
     obs.observe(document.body,{childList:true,subtree:true});
+    [500,1500,3000].forEach(function(t){setTimeout(cleanGHL,t);});
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start); else start();
 })();

@@ -834,14 +834,14 @@
     /* ── BOOKING MODAL ── */
     .book-overlay { display: none; position: fixed; inset: 0; background: rgba(2,12,31,.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); z-index: 9500; align-items: center; justify-content: center; padding: 24px; overflow-y: auto; }
     .book-overlay.active { display: flex; }
-    .book-modal { background: linear-gradient(160deg, #0d2660 0%, #071940 55%, #020c1f 100%); border: 1px solid rgba(0,174,239,.3); border-radius: 24px; padding: 48px 44px; width: 100%; max-width: 560px; position: relative; flex-shrink: 0; animation: pkgIn .32s cubic-bezier(.22,.68,0,1.08); }
+    .book-modal { padding: 44px 0 0; width: 100%; max-width: 600px; position: relative; flex-shrink: 0; animation: pkgIn .32s cubic-bezier(.22,.68,0,1.08); }
     .book-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.55); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; line-height: 1; transition: background .2s, color .2s; }
     .book-close:hover { background: rgba(255,255,255,.15); color: var(--white); }
     .sm-iframe-wrap { margin: 0 -44px; }
     .sm-iframe-wrap iframe { width: 100%; border: none; display: block; }
-    @media (max-width: 700px) { .book-overlay { padding: 16px; align-items: flex-start; } .book-modal { padding: 40px 28px; } .book-modal .sm-row { grid-template-columns: 1fr; } .sm-iframe-wrap { margin: 0 -28px; } }
+    @media (max-width: 700px) { .book-overlay { padding: 16px; align-items: flex-start; } .book-modal .sm-row { grid-template-columns: 1fr; } .sm-iframe-wrap { margin: 0 -28px; } }
     @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    @media (max-width: 520px) { .book-overlay { align-items: flex-end; padding: 0; overflow-y: hidden; } .book-modal { border-radius: 20px 20px 0 0; padding: 28px 20px 36px; max-width: 100%; max-height: 92vh; overflow-y: auto; animation: slideUp .32s cubic-bezier(.22,.68,0,1.08); } .sm-iframe-wrap { margin: 0 -20px; } }
+    @media (max-width: 520px) { .book-overlay { align-items: flex-end; padding: 0; overflow-y: hidden; } .book-modal { max-width: 100%; max-height: 92vh; overflow-y: auto; animation: slideUp .32s cubic-bezier(.22,.68,0,1.08); } .sm-iframe-wrap { margin: 0 -20px; } }
 
     /* ── CALENDAR MODAL ── */
     .cal-overlay { display: none; position: fixed; inset: 0; background: rgba(2,12,31,.97); z-index: 9600; align-items: center; justify-content: center; padding: 20px; }
@@ -1520,10 +1520,6 @@
   <div class="book-overlay" id="book-overlay">
     <div class="book-modal">
       <button class="book-close" id="book-close-btn" aria-label="Close">&times;</button>
-      <div class="sm-eyebrow">Free Strategy Call</div>
-      <h3 class="sm-title">Let's reach <span>new heights</span> together</h3>
-      <p class="sm-sub">Tell us about your business and goals. We'll review your current marketing and show you exactly what's possible.</p>
-      <div class="sm-divider"></div>
       <iframe
           src="https://go.summitmarketingms.com/widget/form/MJTRLtD3XMg6oENJswpM"
           style="width:100%;height:1029px;border:none;border-radius:4px"
@@ -2081,23 +2077,27 @@
 </script>
 <script>
 (function(){
-  function killSubmit(node){
-    if(!node || !node.querySelectorAll) return;
-    node.querySelectorAll('input[type="submit"], button[type="submit"]').forEach(function(el){
-      var p = el.parentElement;
-      if(p){ p.style.cssText='display:none!important;height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;'; }
-      el.style.cssText='display:none!important;';
+  function cleanGHL(){
+    document.querySelectorAll('input[type="submit"], button[type="submit"]').forEach(function(el){
+      if(el.parentNode) el.parentNode.removeChild(el);
+    });
+    document.querySelectorAll('iframe[data-form-id="MJTRLtD3XMg6oENJswpM"]').forEach(function(iframe){
+      var p=iframe.parentElement;
+      if(p&&p.tagName==='DIV'&&!p.classList.contains('sm-wrap')&&!p.classList.contains('book-modal')&&!p.classList.contains('contact-form-col')){
+        p.style.setProperty('background','transparent','important');
+        p.style.setProperty('background-color','transparent','important');
+        p.style.setProperty('padding','0','important');
+        p.style.setProperty('margin','0','important');
+        p.style.setProperty('border','none','important');
+        p.style.setProperty('box-shadow','none','important');
+      }
     });
   }
-  var obs = new MutationObserver(function(muts){
-    muts.forEach(function(m){
-      m.addedNodes.forEach(function(n){ killSubmit(n); });
-    });
-    killSubmit(document.body);
-  });
+  var obs=new MutationObserver(cleanGHL);
   function start(){
-    killSubmit(document.body);
+    cleanGHL();
     obs.observe(document.body,{childList:true,subtree:true});
+    [500,1500,3000].forEach(function(t){setTimeout(cleanGHL,t);});
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start); else start();
 })();
