@@ -405,6 +405,47 @@
       .cta-section { padding: 72px 24px 80px; }
       footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
     }
+    /* ── CONTACT FORM ── */
+    .sm-wrap * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+    .sm-wrap { font-family: 'Inter', Arial, sans-serif; background: linear-gradient(160deg, #0b2255 0%, #071940 55%, #020c1f 100%); border: 1px solid rgba(0,174,239,.3); border-radius: 20px; padding: 48px 44px; max-width: 600px; width: 100%; margin: 0 auto; box-shadow: 0 0 80px rgba(0,174,239,.12), 0 40px 80px rgba(0,0,0,.4); position: relative; overflow: hidden; text-align: left; }
+    .sm-wrap::before { content: ''; position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(0,174,239,.15) 0%, transparent 70%); pointer-events: none; }
+    .sm-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #00AEEF; margin-bottom: 10px; }
+    .sm-title { font-size: 26px; font-weight: 800; letter-spacing: -.03em; line-height: 1.15; color: #fff; margin-bottom: 8px; }
+    .sm-title span { background: linear-gradient(135deg, #00AEEF, #41D9F2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sm-sub { font-size: 14px; color: rgba(255,255,255,.5); line-height: 1.6; margin-bottom: 28px; }
+    .sm-divider { height: 1px; background: linear-gradient(90deg, rgba(0,174,239,.4), rgba(65,217,242,.2), transparent); margin-bottom: 24px; }
+    .sm-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .sm-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .sm-label { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.55); letter-spacing: .06em; text-transform: uppercase; }
+    .sm-input, .sm-select, .sm-textarea { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 10px; padding: 13px 16px; font-size: 14px; font-family: 'Inter', Arial, sans-serif; color: #fff; width: 100%; outline: none; transition: border-color .2s, background .2s; -webkit-appearance: none; appearance: none; }
+    .sm-input::placeholder, .sm-textarea::placeholder { color: rgba(255,255,255,.22); }
+    .sm-input:focus, .sm-select:focus, .sm-textarea:focus { border-color: rgba(0,174,239,.65); background: rgba(0,174,239,.07); }
+    .sm-select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 18px; padding-right: 40px; }
+    .sm-select option { background: #071940; color: #fff; }
+    .sm-textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+    .sm-submit { width: 100%; padding: 16px 24px; background: linear-gradient(135deg, #00AEEF, #41D9F2); color: #020c1f; border: none; border-radius: 10px; font-size: 15px; font-weight: 800; font-family: 'Inter', Arial, sans-serif; letter-spacing: -.01em; cursor: pointer; margin-top: 6px; display: block; text-align: center; transition: opacity .2s; }
+    .sm-submit:hover { opacity: .85; }
+    .sm-submit:disabled { opacity: .55; cursor: not-allowed; }
+    .sm-disclaimer { font-size: 11px; color: rgba(255,255,255,.22); text-align: center; margin-top: 10px; line-height: 1.65; }
+    .sm-disclaimer a { color: rgba(0,174,239,.55); text-decoration: none; }
+    .sm-success { display: none; flex-direction: column; align-items: center; text-align: center; padding: 20px 0 10px; }
+    .sm-success-icon { width: 72px; height: 72px; background: linear-gradient(135deg, #00AEEF, #41D9F2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 0 40px rgba(0,174,239,.35); }
+    .sm-success-icon svg { width: 36px; height: 36px; }
+    .sm-success-title { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -.03em; margin-bottom: 12px; }
+    .sm-success-title span { background: linear-gradient(135deg, #00AEEF, #41D9F2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sm-success-msg { font-size: 15px; color: rgba(255,255,255,.55); line-height: 1.7; max-width: 420px; margin-bottom: 28px; }
+    .sm-success-divider { height: 1px; width: 100%; background: linear-gradient(90deg, transparent, rgba(0,174,239,.4), transparent); margin-bottom: 28px; }
+    .sm-success-steps { display: flex; flex-direction: column; gap: 14px; width: 100%; text-align: left; margin-bottom: 28px; }
+    .sm-success-step { display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; background: rgba(0,174,239,.06); border: 1px solid rgba(0,174,239,.15); border-radius: 12px; }
+    .sm-success-step-num { width: 28px; height: 28px; flex-shrink: 0; background: linear-gradient(135deg, #00AEEF, #41D9F2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #020c1f; }
+    .sm-success-step-text { font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.55; }
+    .sm-success-step-text strong { color: rgba(255,255,255,.88); display: block; margin-bottom: 2px; font-size: 13.5px; }
+    .sm-success-cta { font-size: 12px; color: rgba(255,255,255,.3); line-height: 1.6; }
+    .sm-success-cta a { color: rgba(0,174,239,.75); text-decoration: none; }
+    /* ── booking modal inner ── */
+    .book-inner { background: transparent; padding: 44px 0 0; width: 100%; max-width: 600px; position: relative; flex-shrink: 0; }
+    .book-inner-close { position: absolute; top: 8px; right: 0; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.55); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; line-height: 1; display: flex; align-items: center; justify-content: center; }
+    @media (max-width: 520px) { .sm-wrap { padding: 32px 22px; } .sm-row { grid-template-columns: 1fr; } .sm-title { font-size: 22px; } .sm-success-title { font-size: 20px; } }
   </style>
 </head>
 <body>
@@ -947,26 +988,56 @@
 
   <!-- ── BOOKING MODAL ── -->
   <div class="book-overlay" id="bookOverlay" style="display:none;position:fixed;inset:0;background:rgba(2,12,31,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);z-index:9500;align-items:center;justify-content:center;padding:24px;overflow-y:auto;">
-    <div style="background:transparent;padding:44px 0 0;width:100%;max-width:600px;position:relative;flex-shrink:0;">
-      <button onclick="closeBookModal()" style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.55);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.2rem;line-height:1;display:flex;align-items:center;justify-content:center;">&times;</button>
-
-      <iframe
-          src="https://go.summitmarketingms.com/widget/form/MJTRLtD3XMg6oENJswpM"
-          style="width:100%;height:1029px;border:none;border-radius:4px"
-          id="inline-MJTRLtD3XMg6oENJswpM"
-          data-layout="{'id':'INLINE'}"
-          data-trigger-type="alwaysShow"
-          data-trigger-value=""
-          data-activation-type="alwaysActivated"
-          data-activation-value=""
-          data-deactivation-type="neverDeactivate"
-          data-deactivation-value=""
-          data-form-name="Summit Formfill"
-          data-height="1029"
-          data-layout-iframe-id="inline-MJTRLtD3XMg6oENJswpM"
-          data-form-id="MJTRLtD3XMg6oENJswpM"
-          title="Summit Formfill">
-      </iframe>
+    <div class="book-inner">
+      <button onclick="closeBookModal()" class="book-inner-close">&times;</button>
+      <div class="sm-wrap">
+        <div class="sm-success" id="smSuccess">
+          <div class="sm-success-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="#020c1f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="sm-eyebrow">You're Booked</div>
+          <h2 class="sm-success-title">Let's reach <span>new heights</span> together</h2>
+          <p class="sm-success-msg">Thanks for reaching out to Summit Marketing MS. We've received your request and will be in touch within 1 business day to confirm your strategy call.</p>
+          <div class="sm-success-divider"></div>
+          <div class="sm-success-steps">
+            <div class="sm-success-step"><div class="sm-success-step-num">1</div><div class="sm-success-step-text"><strong>We'll review your current marketing</strong>Our team will audit your online presence before the call so we come prepared with real insights.</div></div>
+            <div class="sm-success-step"><div class="sm-success-step-num">2</div><div class="sm-success-step-text"><strong>You'll get a personalized growth strategy</strong>We'll walk you through exactly what's possible — no fluff, no pressure.</div></div>
+            <div class="sm-success-step"><div class="sm-success-step-num">3</div><div class="sm-success-step-text"><strong>We start climbing together</strong>If it's a fit, we'll outline next steps and get to work on your goals.</div></div>
+          </div>
+          <p class="sm-success-cta">Questions? Email us at <a href="mailto:info@summitmarketingms.com">info@summitmarketingms.com</a></p>
+        </div>
+        <div id="smForm">
+          <div class="sm-eyebrow">Free Strategy Call</div>
+          <h2 class="sm-title">Let's reach <span>new heights</span> together</h2>
+          <p class="sm-sub">Tell us about your business and goals. We'll review your current marketing and show you exactly what's possible.</p>
+          <div class="sm-divider"></div>
+          <form id="smfMain">
+            <div class="sm-row">
+              <div class="sm-group"><label class="sm-label" for="smf-first">First Name *</label><input class="sm-input" type="text" id="smf-first" name="first_name" placeholder="John" required /></div>
+              <div class="sm-group"><label class="sm-label" for="smf-last">Last Name *</label><input class="sm-input" type="text" id="smf-last" name="last_name" placeholder="Smith" required /></div>
+            </div>
+            <div class="sm-row">
+              <div class="sm-group"><label class="sm-label" for="smf-email">Email *</label><input class="sm-input" type="email" id="smf-email" name="email" placeholder="john@company.com" required /></div>
+              <div class="sm-group"><label class="sm-label" for="smf-phone">Phone</label><input class="sm-input" type="tel" id="smf-phone" name="phone" placeholder="+1 (555) 000-0000" /></div>
+            </div>
+            <div class="sm-group"><label class="sm-label" for="smf-company">Business Name</label><input class="sm-input" type="text" id="smf-company" name="company_name" placeholder="Your Company LLC" /></div>
+            <div class="sm-group">
+              <label class="sm-label" for="smf-service">Service Interest *</label>
+              <select class="sm-select" id="smf-service" name="service_interest" required>
+                <option value="" disabled selected>Select a package...</option>
+                <option value="Basecamp">Basecamp — Foundation &amp; SEO</option>
+                <option value="Elevate">Elevate — Growth &amp; Brand</option>
+                <option value="Ascent">Ascent — Full-Funnel Scale (Most Popular)</option>
+                <option value="Peak">Peak — Enterprise Custom</option>
+                <option value="Not Sure">Not sure yet — help me choose</option>
+              </select>
+            </div>
+            <div class="sm-group"><label class="sm-label" for="smf-message">Tell Us About Your Goals</label><textarea class="sm-textarea" id="smf-message" name="message" placeholder="What are you looking to achieve? What's your biggest marketing challenge right now?"></textarea></div>
+            <input type="hidden" name="source" value="Summit Marketing Website" />
+            <input type="hidden" name="lead_source" value="Website Contact Form" />
+            <button type="submit" class="sm-submit" id="smSubmitBtn">Book My Free Strategy Call &rarr;</button>
+            <p class="sm-disclaimer">By submitting, you agree to our <a href="/privacy-policy" target="_blank">Privacy Policy</a> &amp; <a href="/terms-of-service" target="_blank">Terms of Service</a>. We never sell your information.</p>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1069,31 +1140,14 @@
   </script>
 <script>
 (function(){
-  function cleanGHL(){
-    document.querySelectorAll('input[type="submit"], button[type="submit"]').forEach(function(el){
-      if(el.parentNode) el.parentNode.removeChild(el);
-    });
-    document.querySelectorAll('iframe[data-form-id="MJTRLtD3XMg6oENJswpM"]').forEach(function(iframe){
-      var p=iframe.parentElement;
-      if(p&&p.tagName==='DIV'&&!p.classList.contains('sm-wrap')&&!p.classList.contains('book-modal')&&!p.classList.contains('contact-form-col')){
-        p.style.setProperty('background','transparent','important');
-        p.style.setProperty('background-color','transparent','important');
-        p.style.setProperty('padding','0','important');
-        p.style.setProperty('margin','0','important');
-        p.style.setProperty('border','none','important');
-        p.style.setProperty('box-shadow','none','important');
-      }
-    });
-  }
-  var obs=new MutationObserver(cleanGHL);
-  function start(){
-    cleanGHL();
-    obs.observe(document.body,{childList:true,subtree:true});
-    [500,1500,3000].forEach(function(t){setTimeout(cleanGHL,t);});
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start); else start();
+  var form=document.getElementById('smfMain'),wrap=document.getElementById('smForm'),success=document.getElementById('smSuccess'),btn=document.getElementById('smSubmitBtn');
+  if(!form)return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();btn.disabled=true;btn.textContent='Sending\u2026';
+    fetch('https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ',{method:'POST',body:new URLSearchParams(new FormData(form))}).catch(function(){});
+    wrap.style.display='none';success.style.display='flex';
+  });
 })();
 </script>
-<script src="https://go.summitmarketingms.com/js/form_embed.js"></script>
 </body>
 </html>
