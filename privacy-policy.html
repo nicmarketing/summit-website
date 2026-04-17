@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — Summit Marketing</title>
-  <meta name="description" content="Privacy Policy for Summit Marketing. Learn how we collect, use, and protect your personal information." />
+  <meta name="description" content="Privacy Policy for Summit Marketing. How we collect, use, and protect your information, including SMS opt-in data, cookies, and your rights to unsubscribe or update your information." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -15,7 +15,7 @@
       --blue:   #00AEEF;
       --cyan:   #41D9F2;
       --white:  #ffffff;
-      --muted:  rgba(255,255,255,.55);
+      --muted:  rgba(255,255,255,.80);
       --border: rgba(255,255,255,.08);
       --grad:   linear-gradient(135deg, #00AEEF, #41D9F2);
     }
@@ -29,8 +29,6 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
-
-    /* NAV */
     nav {
       display: flex;
       align-items: center;
@@ -39,124 +37,41 @@
       border-bottom: 1px solid var(--border);
       background: rgba(2,12,31,.95);
     }
-    .nav-logo img {
-      height: 48px; width: auto;
-      filter: brightness(2.8) drop-shadow(0 0 6px rgba(0,174,239,.25));
-    }
+    .nav-logo img { height: 48px; width: auto; filter: brightness(2.8) drop-shadow(0 0 6px rgba(0,174,239,.25)); }
     .nav-back {
-      color: var(--blue);
-      text-decoration: none;
-      font-size: .875rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: opacity .2s;
+      color: var(--blue); text-decoration: none; font-size: .875rem; font-weight: 500;
+      display: flex; align-items: center; gap: 6px; transition: opacity .2s;
     }
     .nav-back:hover { opacity: .75; }
-
-    /* CONTENT */
-    .page-wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 72px 52px 100px;
-    }
-    .page-header {
-      margin-bottom: 48px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid var(--border);
-    }
-    .page-eyebrow {
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 12px;
-    }
-    .page-header h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      letter-spacing: -.04em;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-    .page-header h1 em {
-      font-style: normal;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .page-meta {
-      font-size: .85rem;
-      color: var(--muted);
-    }
-
-    /* SECTIONS */
-    .policy-section {
-      margin-bottom: 48px;
-    }
-    .policy-section h2 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: -.02em;
-      color: var(--white);
-      margin-bottom: 14px;
-      padding-left: 14px;
-      border-left: 3px solid var(--blue);
-    }
-    .policy-section p {
-      font-size: .925rem;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-    .policy-section ul {
-      list-style: none;
-      margin: 12px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .policy-section ul li {
-      font-size: .925rem;
-      color: var(--muted);
-      padding-left: 20px;
-      position: relative;
-    }
-    .policy-section ul li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--blue);
-      font-weight: 700;
-    }
-    .policy-section a {
-      color: var(--blue);
-      text-decoration: none;
-    }
+    .page-wrap { max-width: 860px; margin: 0 auto; padding: 72px 52px 100px; }
+    .page-header { margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+    .page-eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+    .page-header h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.1; margin-bottom: 16px; }
+    .page-header h1 em { font-style: normal; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-meta { font-size: .85rem; color: var(--muted); }
+    .policy-section { margin-bottom: 48px; }
+    .policy-section h2 { font-size: 1.15rem; font-weight: 700; letter-spacing: -.02em; color: var(--white); margin-bottom: 14px; padding-left: 14px; border-left: 3px solid var(--blue); }
+    .policy-section p { font-size: .95rem; color: var(--muted); margin-bottom: 12px; }
+    .policy-section ul { list-style: none; margin: 12px 0; display: flex; flex-direction: column; gap: 8px; }
+    .policy-section ul li { font-size: .95rem; color: var(--muted); padding-left: 20px; position: relative; }
+    .policy-section ul li::before { content: '—'; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
+    .policy-section a { color: var(--blue); text-decoration: none; }
     .policy-section a:hover { text-decoration: underline; }
-
-    .highlight-box {
-      background: rgba(0,174,239,.06);
-      border: 1px solid rgba(0,174,239,.18);
-      border-radius: 12px;
-      padding: 20px 24px;
+    .alert-box {
+      background: rgba(0,174,239,.12);
+      border: 2px solid rgba(0,174,239,.6);
+      border-radius: 10px;
+      padding: 22px 26px;
       margin: 20px 0;
     }
-    .highlight-box p { margin: 0; color: rgba(255,255,255,.7); font-size: .9rem; }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 52px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+    .alert-box p { margin: 0 0 8px; color: #fff; font-size: .95rem; }
+    .alert-box p:last-child { margin: 0; }
+    .alert-box strong { color: var(--blue); }
+    .info-box { background: rgba(0,174,239,.05); border: 1px solid rgba(0,174,239,.18); border-radius: 10px; padding: 18px 22px; margin: 16px 0; }
+    .info-box p { margin: 0; color: rgba(255,255,255,.85); font-size: .9rem; }
+    footer { border-top: 1px solid var(--border); padding: 32px 52px; display: flex; align-items: center; justify-content: space-between; }
     .footer-copy { font-size: .78rem; color: rgba(255,255,255,.2); }
     .footer-tagline { font-size: .75rem; color: rgba(0,174,239,.5); font-style: italic; }
-
     @media (max-width: 768px) {
       nav { padding: 14px 24px; }
       .page-wrap { padding: 48px 24px 80px; }
@@ -166,160 +81,191 @@
 </head>
 <body>
 
-  <nav>
-    <a href="/" class="nav-logo">
-      <img src="/brand-assets/Summt Marketing LOGO.png" alt="Summit Marketing" />
-    </a>
-    <a href="/" class="nav-back">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-      Back to Home
-    </a>
-  </nav>
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/brand-assets/Summt Marketing LOGO.png" alt="Summit Marketing" />
+  </a>
+  <a href="/" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to Home
+  </a>
+</nav>
 
-  <div class="page-wrap">
+<div class="page-wrap">
 
-    <div class="page-header">
-      <div class="page-eyebrow">Legal</div>
-      <h1>Privacy <em>Policy</em></h1>
-      <p class="page-meta">Effective Date: February 27, 2026 &nbsp;·&nbsp; Last Updated: February 27, 2026</p>
-    </div>
-
-    <div class="highlight-box">
-      <p>Your privacy is important to us. This policy explains what information Summit Marketing collects, how we use it, and what rights you have. We do not sell your personal information to third parties.</p>
-    </div>
-
-    <div class="policy-section">
-      <h2>1. Who We Are</h2>
-      <p>Summit Marketing ("Company," "we," "us," or "our") is a digital marketing agency operating at <strong>summitmarketingms.com</strong>. We provide SEO, content strategy, brand strategy, email marketing, conversion rate optimization, and marketing automation services to businesses.</p>
-      <p>For any privacy-related questions, you may contact us at: <a href="mailto:privacy@summitmarketingms.com">privacy@summitmarketingms.com</a></p>
-    </div>
-
-    <div class="policy-section">
-      <h2>2. Information We Collect</h2>
-      <p>We collect information you provide directly to us and information collected automatically when you visit our website.</p>
-      <p><strong>Information you provide:</strong></p>
-      <ul>
-        <li>Full name</li>
-        <li>Email address</li>
-        <li>Phone number</li>
-        <li>Business name and website</li>
-        <li>Service interests and project details</li>
-        <li>Any other information you include in messages or forms</li>
-      </ul>
-      <p><strong>Information collected automatically:</strong></p>
-      <ul>
-        <li>IP address and approximate location</li>
-        <li>Browser type and version</li>
-        <li>Pages visited and time spent on site</li>
-        <li>Referring website or source</li>
-        <li>Device type and operating system</li>
-      </ul>
-    </div>
-
-    <div class="policy-section">
-      <h2>3. How We Use Your Information</h2>
-      <p>We use the information we collect to:</p>
-      <ul>
-        <li>Respond to your inquiries and provide requested services</li>
-        <li>Send you information about our services, updates, and promotional content (you may opt out at any time)</li>
-        <li>Improve our website and services based on usage patterns</li>
-        <li>Comply with legal obligations</li>
-        <li>Prevent fraud and ensure the security of our systems</li>
-        <li>Manage our client relationships and communications</li>
-      </ul>
-    </div>
-
-    <div class="policy-section">
-      <h2>4. SMS Opt-In &amp; Communications</h2>
-      <p>When you check the SMS consent checkbox on our website forms, you agree to receive SMS text messages from Summit Marketing. These messages may include appointment reminders, service updates, follow-ups, and marketing communications related to Summit Marketing's services.</p>
-      <ul>
-        <li><strong>Opt-out:</strong> Reply STOP at any time to cancel. You will receive one final confirmation message.</li>
-        <li><strong>Help:</strong> Reply HELP for assistance or contact us at <a href="mailto:nic@summitmarketingms.com">nic@summitmarketingms.com</a>.</li>
-        <li><strong>Message frequency:</strong> Message frequency varies based on your engagement with Summit Marketing.</li>
-        <li><strong>Data rates:</strong> Message and data rates may apply depending on your mobile carrier and plan.</li>
-        <li><strong>Not required:</strong> SMS consent is not required as a condition of purchasing any goods or services from Summit Marketing.</li>
-      </ul>
-      <div class="highlight-box" style="margin-top:20px">
-        <p><strong style="color:#00AEEF">No Sharing of SMS Data:</strong> Summit Marketing does not share, sell, rent, or trade your SMS opt-in information or phone number with any third parties for their own marketing or promotional purposes. Your SMS consent applies solely to communications from Summit Marketing.</p>
-      </div>
-    </div>
-
-    <div class="policy-section">
-      <h2>5. How We Share Your Information</h2>
-      <p>We do not sell, rent, or trade your personal information. We may share your information only in the following circumstances:</p>
-      <ul>
-        <li><strong>Service providers:</strong> We use GoHighLevel (GHL) as our CRM platform to manage client communications. Your submitted contact information is stored securely within this system.</li>
-        <li><strong>Legal requirements:</strong> We may disclose information if required by law, subpoena, or other legal process.</li>
-        <li><strong>Business transfers:</strong> In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction.</li>
-        <li><strong>With your consent:</strong> We may share information with third parties when you have given us explicit permission to do so.</li>
-      </ul>
-    </div>
-
-    <div class="policy-section">
-      <h2>6. Cookies and Tracking</h2>
-      <p>Our website may use cookies and similar tracking technologies to enhance your browsing experience and analyze site traffic. These may include:</p>
-      <ul>
-        <li><strong>Essential cookies:</strong> Required for basic site functionality</li>
-        <li><strong>Analytics cookies:</strong> Help us understand how visitors use our site</li>
-        <li><strong>Marketing cookies:</strong> Used to deliver relevant content and track campaign performance</li>
-      </ul>
-      <p>You can control cookies through your browser settings. Disabling certain cookies may affect the functionality of our website.</p>
-    </div>
-
-    <div class="policy-section">
-      <h2>7. Data Retention</h2>
-      <p>We retain your personal information for as long as necessary to fulfill the purposes outlined in this policy, provide our services, and comply with legal obligations. If you would like us to delete your information, please contact us at <a href="mailto:privacy@summitmarketingms.com">privacy@summitmarketingms.com</a>.</p>
-    </div>
-
-    <div class="policy-section">
-      <h2>8. Your Rights</h2>
-      <p>Depending on your location, you may have the following rights regarding your personal information:</p>
-      <ul>
-        <li><strong>Access:</strong> Request a copy of the personal information we hold about you</li>
-        <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information</li>
-        <li><strong>Deletion:</strong> Request deletion of your personal information</li>
-        <li><strong>Opt-out:</strong> Unsubscribe from marketing communications at any time</li>
-        <li><strong>Portability:</strong> Request your data in a portable format</li>
-        <li><strong>Objection:</strong> Object to certain types of data processing</li>
-      </ul>
-      <p>To exercise any of these rights, contact us at <a href="mailto:privacy@summitmarketingms.com">privacy@summitmarketingms.com</a>. We will respond within 30 days.</p>
-    </div>
-
-    <div class="policy-section">
-      <h2>9. Data Security</h2>
-      <p>We implement industry-standard security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. These measures include SSL/TLS encryption, secure data storage, and access controls. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
-    </div>
-
-    <div class="policy-section">
-      <h2>10. Third-Party Links</h2>
-      <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of those sites. We encourage you to review the privacy policies of any third-party sites you visit.</p>
-    </div>
-
-    <div class="policy-section">
-      <h2>11. Children's Privacy</h2>
-      <p>Our services are not directed to individuals under the age of 16. We do not knowingly collect personal information from children. If you believe we have inadvertently collected information from a child, please contact us immediately at <a href="mailto:privacy@summitmarketingms.com">privacy@summitmarketingms.com</a>.</p>
-    </div>
-
-    <div class="policy-section">
-      <h2>12. Changes to This Policy</h2>
-      <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last Updated" date at the top of this page. We encourage you to review this policy periodically. Your continued use of our website after any changes constitutes your acceptance of the updated policy.</p>
-    </div>
-
-    <div class="policy-section">
-      <h2>13. Contact Us</h2>
-      <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us:</p>
-      <ul>
-        <li><strong>Email:</strong> <a href="mailto:privacy@summitmarketingms.com">privacy@summitmarketingms.com</a></li>
-        <li><strong>Website:</strong> <a href="https://summitmarketingms.com">summitmarketingms.com</a></li>
-      </ul>
-    </div>
-
+  <div class="page-header">
+    <div class="page-eyebrow">Legal</div>
+    <h1>Privacy <em>Policy</em></h1>
+    <p class="page-meta">Effective Date: March 30, 2026 &nbsp;·&nbsp; Last Updated: March 30, 2026</p>
   </div>
 
-  <footer>
-    <div class="footer-copy">&copy; 2026 Summit Marketing. All rights reserved.</div>
-    <div class="footer-tagline">Reaching New Heights Together</div>
-  </footer>
+  <!-- ── SECTION 1: INFORMATION WE COLLECT ── -->
+  <div class="policy-section">
+    <h2>1. Information We Collect</h2>
+    <p>Summit Marketing collects the following categories of personal information when you visit our website, fill out a contact form, or engage our services:</p>
+    <p><strong>Personal information you provide directly:</strong></p>
+    <ul>
+      <li>Full name</li>
+      <li>Email address</li>
+      <li>Mobile phone number (including when provided for SMS communications)</li>
+      <li>Business name and website URL</li>
+      <li>Service interests, project details, and messages you send us</li>
+      <li>SMS opt-in consent (recorded when you check the SMS consent checkbox on any form)</li>
+    </ul>
+    <p><strong>Information collected automatically when you visit our website:</strong></p>
+    <ul>
+      <li>IP address and approximate geographic location</li>
+      <li>Browser type, version, and device type</li>
+      <li>Pages visited, time spent on each page, and navigation path</li>
+      <li>Referring website or traffic source</li>
+      <li>Cookie identifiers and tracking data (see Section 4)</li>
+    </ul>
+  </div>
+
+  <!-- ── SECTION 2: HOW WE USE YOUR INFORMATION ── -->
+  <div class="policy-section">
+    <h2>2. How We Use Your Information</h2>
+    <p>We use the information we collect for the following purposes:</p>
+    <ul>
+      <li>To respond to inquiries you submit through our website or contact forms</li>
+      <li>To send SMS text messages to mobile numbers that have opted in to receive communications from Summit Marketing</li>
+      <li>To send email communications about our services, updates, and promotions</li>
+      <li>To schedule and confirm appointments or consultations</li>
+      <li>To deliver and improve the services outlined in our client agreements</li>
+      <li>To analyze website traffic and improve user experience</li>
+      <li>To comply with legal obligations and prevent fraudulent activity</li>
+    </ul>
+    <p>We do not use your personal information for any purpose not described in this Privacy Policy without first obtaining your explicit consent.</p>
+  </div>
+
+  <!-- ── SECTION 3: SMS OPT-IN AND MESSAGING ── -->
+  <div class="policy-section">
+    <h2>3. SMS Opt-In and Text Message Communications</h2>
+    <p>By providing your mobile phone number and checking the SMS consent checkbox on any Summit Marketing form, you give express written consent to receive recurring automated SMS text messages from Summit Marketing.</p>
+
+    <p><strong>SMS messages from Summit Marketing may include:</strong></p>
+    <ul>
+      <li>Responses to service inquiries submitted via our website</li>
+      <li>Appointment reminders and booking confirmations</li>
+      <li>Follow-up communications regarding our automation services</li>
+      <li>Promotional and marketing messages about Summit Marketing offerings</li>
+    </ul>
+
+    <div class="alert-box">
+      <p><strong>To opt out / unsubscribe:</strong> Text STOP to any SMS message from Summit Marketing at any time. You will receive one final confirmation message. No further SMS messages will be sent. You can also unsubscribe by contacting us at <a href="mailto:nic@summitmarketingms.com">nic@summitmarketingms.com</a>.</p>
+      <p><strong>To get help:</strong> Text HELP to any SMS message from Summit Marketing, or email <a href="mailto:nic@summitmarketingms.com">nic@summitmarketingms.com</a>.</p>
+      <p><strong>Message frequency:</strong> Message frequency varies based on your engagement. Recurring messages.</p>
+      <p><strong>Message and data rates may apply.</strong> Standard message and data rates may apply depending on your carrier and plan.</p>
+      <p><strong>Carriers are not liable</strong> for delayed or undelivered messages.</p>
+      <p><strong>Age requirement:</strong> You must be 18 years of age or older to opt in to SMS from Summit Marketing.</p>
+      <p><strong>Consent not required for purchase:</strong> SMS consent is not a condition of purchasing any product or service from Summit Marketing.</p>
+    </div>
+
+    <div class="alert-box" style="border-color: rgba(65,217,242,.7); background: rgba(65,217,242,.08);">
+      <p><strong style="color:#41D9F2; font-size: 1.05rem;">No Sharing of SMS Opt-In Data</strong></p>
+      <p>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. SMS opt-in data and consent will not be shared with any third parties. All categories of personal information collected exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties under any circumstances.</p>
+    </div>
+  </div>
+
+  <!-- ── SECTION 4: COOKIES AND TRACKING ── -->
+  <div class="policy-section">
+    <h2>4. Cookies and Tracking Technologies</h2>
+    <p>Our website uses cookies and similar tracking technologies to enhance your experience and analyze site performance. We use the following types of cookies and tracking tools:</p>
+    <ul>
+      <li><strong>Essential cookies:</strong> Required for the website to function. These cannot be disabled without breaking site functionality.</li>
+      <li><strong>Analytics cookies:</strong> Help us understand how visitors navigate our site — including pages visited, time on site, and referral sources. We may use tools such as Google Analytics.</li>
+      <li><strong>Marketing and tracking cookies:</strong> Used to track campaign performance and deliver relevant content based on your browsing behavior.</li>
+      <li><strong>Third-party cookies:</strong> Some cookies are set by third-party services (such as Google, Meta) embedded in our website.</li>
+    </ul>
+    <p>You can control and disable cookies through your browser settings. Note that disabling certain cookies may affect the functionality of our website. You may also opt out of analytics tracking via your browser's privacy settings or through opt-out tools provided by analytics vendors.</p>
+  </div>
+
+  <!-- ── SECTION 5: DATA SECURITY ── -->
+  <div class="policy-section">
+    <h2>5. Data Security Practices</h2>
+    <p>Summit Marketing implements industry-standard data security practices to protect your personal information from unauthorized access, disclosure, alteration, or destruction. Our security practices include:</p>
+    <ul>
+      <li><strong>SSL/TLS encryption</strong> for all data transmitted through our website</li>
+      <li><strong>Secure CRM storage</strong> — contact data is stored within GoHighLevel (GHL), a secure enterprise CRM platform</li>
+      <li><strong>Access controls</strong> — only authorized team members can access personal data</li>
+      <li><strong>Regular security reviews</strong> of our systems and third-party service providers</li>
+      <li><strong>Data minimization</strong> — we only collect information necessary to provide our services</li>
+    </ul>
+    <p>While we use commercially reasonable means to protect your data, no internet transmission or electronic storage method is 100% secure. We cannot guarantee absolute security but are committed to protecting your information.</p>
+  </div>
+
+  <!-- ── SECTION 6: YOUR RIGHTS ── -->
+  <div class="policy-section">
+    <h2>6. Your Rights — Unsubscribe, Access, and Update Your Information</h2>
+    <p>You have the following rights regarding your personal information and communications with Summit Marketing:</p>
+    <ul>
+      <li><strong>Unsubscribe from SMS:</strong> Text STOP to any SMS from Summit Marketing to immediately unsubscribe. No further messages will be sent after opt-out is confirmed.</li>
+      <li><strong>Unsubscribe from email:</strong> Click "Unsubscribe" in any marketing email, or contact us at <a href="mailto:privacy@summitmarketingms.com">privacy@summitmarketingms.com</a> to unsubscribe from email communications.</li>
+      <li><strong>Access your information:</strong> Request a copy of the personal data we hold about you.</li>
+      <li><strong>Update your information:</strong> Request correction of inaccurate or incomplete information we hold about you.</li>
+      <li><strong>Delete your information:</strong> Request deletion of your personal data from our systems.</li>
+      <li><strong>Opt out of marketing:</strong> Opt out of marketing communications at any time without affecting your ability to engage our services.</li>
+      <li><strong>Data portability:</strong> Request your data in a portable, machine-readable format.</li>
+      <li><strong>Object to processing:</strong> Object to certain types of data processing, including direct marketing.</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:privacy@summitmarketingms.com">privacy@summitmarketingms.com</a>. We will respond within 30 days.</p>
+  </div>
+
+  <!-- ── SECTION 7: HOW WE SHARE YOUR INFORMATION ── -->
+  <div class="policy-section">
+    <h2>7. How We Share Your Information</h2>
+    <p>We do not sell, rent, or trade your personal information. We may share information only in the following limited circumstances:</p>
+    <ul>
+      <li><strong>CRM platform (GoHighLevel):</strong> Contact information is stored in our GHL CRM system solely to facilitate communications with you on our behalf.</li>
+      <li><strong>Legal obligations:</strong> We may disclose information if required by law, subpoena, or court order.</li>
+      <li><strong>Business transfers:</strong> In a merger or acquisition, your information may transfer as part of that transaction under the same privacy protections.</li>
+      <li><strong>With your explicit consent:</strong> We share information with third parties only when you have given clear written permission.</li>
+    </ul>
+    <p><strong>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. SMS opt-in data and consent will not be shared with any third parties.</strong></p>
+  </div>
+
+  <!-- ── SECTION 8: DATA RETENTION ── -->
+  <div class="policy-section">
+    <h2>8. Data Retention</h2>
+    <p>We retain personal information for as long as necessary to provide our services and comply with legal obligations. When information is no longer needed, it is securely deleted or anonymized. To request deletion of your data, contact <a href="mailto:privacy@summitmarketingms.com">privacy@summitmarketingms.com</a>.</p>
+  </div>
+
+  <!-- ── SECTION 9: THIRD-PARTY LINKS ── -->
+  <div class="policy-section">
+    <h2>9. Third-Party Links</h2>
+    <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of those sites. We encourage you to review the privacy policies of any third-party sites you visit.</p>
+  </div>
+
+  <!-- ── SECTION 10: CHILDREN'S PRIVACY ── -->
+  <div class="policy-section">
+    <h2>10. Children's Privacy</h2>
+    <p>Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from minors. If you believe we have inadvertently collected information from someone under 18, contact us at <a href="mailto:privacy@summitmarketingms.com">privacy@summitmarketingms.com</a> and we will delete it promptly.</p>
+  </div>
+
+  <!-- ── SECTION 11: CHANGES ── -->
+  <div class="policy-section">
+    <h2>11. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with a revised "Last Updated" date. Continued use of our website after changes are posted constitutes acceptance of the updated policy.</p>
+  </div>
+
+  <!-- ── SECTION 12: CONTACT ── -->
+  <div class="policy-section">
+    <h2>12. Contact Us</h2>
+    <p>For questions, requests, or concerns about this Privacy Policy or your personal information:</p>
+    <ul>
+      <li><strong>Privacy email:</strong> <a href="mailto:privacy@summitmarketingms.com">privacy@summitmarketingms.com</a></li>
+      <li><strong>Support email:</strong> <a href="mailto:nic@summitmarketingms.com">nic@summitmarketingms.com</a></li>
+      <li><strong>Website:</strong> <a href="https://summitmarketingms.com">summitmarketingms.com</a></li>
+    </ul>
+    <p>See also our <a href="/terms-of-service">Terms of Service</a>.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-copy">&copy; 2026 Summit Marketing LLC. All rights reserved.</div>
+  <div class="footer-tagline">Reaching New Heights Together</div>
+</footer>
 
 </body>
 </html>
