@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summit Marketing LLC — Live Demo</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="brand-assets/Summt Marketing LOGO.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #020c1f;
+      --bg-card:   #071428;
+      --bg-card2:  #0a1a35;
+      --blue:      #00AEEF;
+      --cyan:      #41D9F2;
+      --green:     #22c55e;
+      --amber:     #f59e0b;
+      --red:       #ef4444;
+      --white:     #ffffff;
+      --muted:     rgba(255,255,255,.5);
+      --border:    rgba(0,174,239,.18);
+      --grad:      linear-gradient(90deg, #00AEEF 0%, #41D9F2 100%);
+      --grad-v:    linear-gradient(160deg, #00AEEF 0%, #41D9F2 100%);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ──────────────────────────────────────────────────────────── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 52px;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(2,12,31,.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      filter: brightness(2.8) drop-shadow(0 0 6px rgba(0,174,239,.25));
+    }
+    .nav-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .nav-badge span {
+      background: var(--grad);
+      color: var(--bg);
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+    }
+    .nav-cta {
+      background: var(--grad);
+      color: var(--bg);
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: .875rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity .2s, transform .2s;
+    }
+    .nav-cta:hover { opacity: .9; transform: translateY(-1px); }
+
+    /* ── SECTIONS ─────────────────────────────────────────────────────── */
+    section { padding: 100px 52px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ── HERO ─────────────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 52px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -180px; left: -120px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(0,174,239,.15) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(65,217,242,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 820px; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,174,239,.1);
+      border: 1px solid rgba(0,174,239,.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--cyan);
+      border-radius: 50%;
+      animation: blink 1.4s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .hero h1 {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,.7);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .hero-pill {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.75);
+      cursor: pointer;
+      transition: background .2s, border-color .2s;
+      text-decoration: none;
+    }
+    .hero-pill:hover {
+      background: rgba(0,174,239,.15);
+      border-color: rgba(0,174,239,.4);
+      color: var(--white);
+    }
+
+    /* ── SECTION HEADERS ──────────────────────────────────────────────── */
+    .section-eyebrow {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .section-title em {
+      font-style: normal;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-sub {
+      font-size: .95rem;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .section-header { margin-bottom: 56px; }
+
+    /* ── DIVIDER ──────────────────────────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ── SPEED-TO-LEAD DEMO ───────────────────────────────────────────── */
+    .stl-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .stl-form-card {
+      background: linear-gradient(160deg, #0b2255 0%, #071940 55%, #020c1f 100%);
+      border: 1px solid rgba(0,174,239,.3);
+      border-radius: 20px;
+      padding: 40px 36px;
+      box-shadow: 0 0 80px rgba(0,174,239,.1), 0 40px 80px rgba(0,0,0,.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .stl-form-card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(0,174,239,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .stl-eyebrow {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 10px;
+    }
+    .stl-form-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin-bottom: 6px;
+    }
+    .stl-form-sub {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .stl-divider {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(0,174,239,.4), transparent);
+      margin-bottom: 24px;
+    }
+    .stl-row { display: flex; gap: 12px; margin-bottom: 14px; }
+    .stl-field { flex: 1; }
+    .stl-field label {
+      display: block;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 6px;
+    }
+    .stl-field input, .stl-field select {
+      width: 100%;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: var(--white);
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: .9rem;
+      outline: none;
+      transition: border-color .2s, background .2s;
+      appearance: none;
+    }
+    .stl-field input::placeholder { color: rgba(255,255,255,.3); }
+    .stl-field input:focus, .stl-field select:focus {
+      border-color: rgba(0,174,239,.5);
+      background: rgba(0,174,239,.06);
+    }
+    .stl-field select option { background: #071940; color: var(--white); }
+    .stl-submit {
+      width: 100%;
+      background: var(--grad);
+      color: var(--bg);
+      border: none;
+      border-radius: 12px;
+      padding: 16px;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: opacity .2s, transform .2s, box-shadow .2s;
+    }
+    .stl-submit:hover {
+      opacity: .9;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 32px rgba(0,174,239,.4);
+    }
+    .stl-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    /* Pipeline Panel */
+    .stl-pipeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .stl-pipeline-header {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px 16px 0 0;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: none;
+    }
+    .stl-pipeline-title {
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .stl-timer {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--cyan);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -.02em;
+    }
+    .stl-steps {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 1px solid rgba(0,174,239,.08);
+      border-radius: 0 0 16px 16px;
+      overflow: hidden;
+    }
+    .stl-step {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      position: relative;
+      transition: background .3s;
+    }
+    .stl-step:last-child { border-bottom: none; }
+    .stl-step.active { background: rgba(0,174,239,.06); }
+    .stl-step.done { background: rgba(34,197,94,.04); }
+    .stl-step-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      flex-shrink: 0;
+      transition: background .3s, border-color .3s;
+    }
+    .stl-step.active .stl-step-icon {
+      background: rgba(0,174,239,.15);
+      border-color: rgba(0,174,239,.4);
+      animation: iconPulse 1s ease-in-out infinite;
+    }
+    .stl-step.done .stl-step-icon {
+      background: rgba(34,197,94,.15);
+      border-color: rgba(34,197,94,.4);
+    }
+    @keyframes iconPulse { 0%,100%{box-shadow:0 0 0 0 rgba(0,174,239,.4)} 50%{box-shadow:0 0 0 8px rgba(0,174,239,0)} }
+    .stl-step-body { flex: 1; }
+    .stl-step-name {
+      font-size: .9rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .stl-step-desc {
+      font-size: .78rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .stl-step-status {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      white-space: nowrap;
+      transition: background .3s, color .3s;
+    }
+    .stl-step.active .stl-step-status {
+      background: rgba(0,174,239,.15);
+      color: var(--cyan);
+    }
+    .stl-step.done .stl-step-status {
+      background: rgba(34,197,94,.15);
+      color: var(--green);
+    }
+    .stl-step-time {
+      font-size: .7rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .stl-idle-msg {
+      text-align: center;
+      padding: 40px 24px;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.6;
+    }
+    .stl-idle-msg strong { color: var(--white); display: block; font-size: 1rem; margin-bottom: 8px; }
+    /* Completion state */
+    .stl-complete {
+      display: none;
+      text-align: center;
+      padding: 24px;
+      background: rgba(34,197,94,.06);
+      border-top: 1px solid rgba(34,197,94,.15);
+    }
+    .stl-complete.show { display: block; }
+    .stl-complete-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(34,197,94,.15);
+      border: 1px solid rgba(34,197,94,.3);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+    .stl-complete-time {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--green);
+      letter-spacing: -.04em;
+    }
+    .stl-complete-label {
+      font-size: .8rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .stl-reset {
+      margin-top: 14px;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 20px;
+      color: var(--muted);
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: .8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .stl-reset:hover { border-color: rgba(0,174,239,.4); color: var(--white); }
+
+    /* ── ROI CALCULATOR ───────────────────────────────────────────────── */
+    .roi-wrap {
+      background: linear-gradient(160deg, #0b2255 0%, #071940 55%, #020c1f 100%);
+      border: 1px solid rgba(0,174,239,.25);
+      border-radius: 24px;
+      padding: 56px 52px;
+      position: relative;
+      overflow: hidden;
+    }
+    .roi-wrap::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(65,217,242,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .roi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .roi-inputs { position: relative; }
+    .roi-slider-group { margin-bottom: 28px; }
+    .roi-slider-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+    .roi-slider-label span:first-child {
+      font-size: .85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.8);
+    }
+    .roi-slider-label .roi-val {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: rgba(255,255,255,.1);
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--grad);
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(0,174,239,.5);
+      transition: box-shadow .2s;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      box-shadow: 0 0 20px rgba(0,174,239,.8);
+    }
+    .roi-plan-select { margin-bottom: 28px; }
+    .roi-plan-select label {
+      display: block;
+      font-size: .85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.8);
+      margin-bottom: 10px;
+    }
+    .roi-plan-btns {
+      display: flex;
+      gap: 8px;
+    }
+    .roi-plan-btn {
+      flex: 1;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      padding: 10px 8px;
+      color: var(--muted);
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: all .2s;
+    }
+    .roi-plan-btn.active {
+      background: rgba(0,174,239,.15);
+      border-color: rgba(0,174,239,.5);
+      color: var(--white);
+    }
+    .roi-plan-btn:hover:not(.active) {
+      border-color: rgba(0,174,239,.3);
+      color: var(--white);
+    }
+
+    .roi-results { display: flex; flex-direction: column; gap: 16px; }
+    .roi-result-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: border-color .3s;
+    }
+    .roi-result-card.highlight {
+      background: rgba(0,174,239,.08);
+      border-color: rgba(0,174,239,.3);
+    }
+    .roi-result-label {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .roi-result-value {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      color: var(--white);
+    }
+    .roi-result-card.highlight .roi-result-value {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .roi-result-icon {
+      font-size: 2rem;
+      opacity: .6;
+    }
+
+    /* ── SERVICES GRID ────────────────────────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .svc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--grad);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .svc-card:hover {
+      border-color: rgba(0,174,239,.4);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,174,239,.12);
+    }
+    .svc-card:hover::before { opacity: 1; }
+    .svc-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: rgba(0,174,239,.1);
+      border: 1px solid rgba(0,174,239,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .svc-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      margin-bottom: 8px;
+    }
+    .svc-desc {
+      font-size: .84rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .svc-features {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .svc-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .8rem;
+      color: rgba(255,255,255,.7);
+    }
+    .svc-feature::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    /* ── REPUTATION DEMO ──────────────────────────────────────────────── */
+    .rep-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .rep-stats { display: flex; flex-direction: column; gap: 16px; }
+    .rep-stat-big {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      text-align: center;
+    }
+    .rep-score {
+      font-size: 4rem;
+      font-weight: 900;
+      letter-spacing: -.06em;
+      line-height: 1;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 4px;
+    }
+    .rep-stars { font-size: 1.4rem; margin-bottom: 8px; letter-spacing: 2px; }
+    .rep-count { font-size: .82rem; color: var(--muted); }
+    .rep-trend-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .rep-trend-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 20px;
+      text-align: center;
+    }
+    .rep-trend-val {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .rep-trend-label {
+      font-size: .75rem;
+      color: var(--muted);
+    }
+
+    .rep-feed { display: flex; flex-direction: column; gap: 14px; }
+    .rep-feed-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .rep-feed-title {
+      font-size: .9rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.8);
+    }
+    .rep-live-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .rep-live-dot {
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: blink 1.2s ease-in-out infinite;
+    }
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px;
+      padding: 18px 20px;
+      transition: border-color .3s, transform .3s;
+      animation: slideIn .5s cubic-bezier(.22,.68,0,1.08) both;
+    }
+    .review-card.new-review {
+      border-color: rgba(0,174,239,.3);
+      box-shadow: 0 0 24px rgba(0,174,239,.1);
+    }
+    @keyframes slideIn { from{opacity:0;transform:translateY(-12px)} to{opacity:1;transform:translateY(0)} }
+    .review-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .review-author { display: flex; align-items: center; gap: 10px; }
+    .review-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--grad);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      font-weight: 800;
+      color: var(--bg);
+      flex-shrink: 0;
+    }
+    .review-name {
+      font-size: .88rem;
+      font-weight: 700;
+    }
+    .review-source {
+      font-size: .72rem;
+      color: var(--muted);
+    }
+    .review-stars { font-size: .9rem; letter-spacing: 1px; }
+    .review-text {
+      font-size: .82rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.65;
+    }
+    .review-time {
+      font-size: .7rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+    .review-ai-response {
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: rgba(0,174,239,.06);
+      border-left: 2px solid var(--blue);
+      border-radius: 0 8px 8px 0;
+      font-size: .78rem;
+      color: rgba(255,255,255,.6);
+      line-height: 1.6;
+    }
+    .review-ai-response strong {
+      color: var(--cyan);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* ── AUTOMATION TILES ─────────────────────────────────────────────── */
+    .auto-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+    .auto-tile {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 24px;
+      text-align: center;
+      transition: border-color .25s, transform .25s;
+      cursor: default;
+    }
+    .auto-tile:hover {
+      border-color: rgba(0,174,239,.35);
+      transform: translateY(-3px);
+    }
+    .auto-tile-icon { font-size: 2.2rem; margin-bottom: 14px; }
+    .auto-tile-name {
+      font-size: .9rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      margin-bottom: 6px;
+    }
+    .auto-tile-desc {
+      font-size: .78rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .auto-flow {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 36px;
+    }
+    .auto-flow-title {
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .auto-flow-steps {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+      row-gap: 16px;
+    }
+    .auto-flow-step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .auto-flow-node {
+      background: rgba(0,174,239,.1);
+      border: 1px solid rgba(0,174,239,.25);
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-size: .8rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background .3s;
+    }
+    .auto-flow-arrow {
+      font-size: 1rem;
+      color: var(--blue);
+      margin: 0 4px;
+      opacity: .6;
+    }
+
+    /* ── STATS STRIP ──────────────────────────────────────────────────── */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .stat-cell {
+      background: var(--bg-card);
+      padding: 36px 28px;
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 2.6rem;
+      font-weight: 900;
+      letter-spacing: -.06em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: .8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── PRICING CARDS ────────────────────────────────────────────────── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .price-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .25s, transform .25s;
+      position: relative;
+    }
+    .price-card.featured {
+      background: linear-gradient(160deg, #0b2255 0%, #071940 100%);
+      border-color: rgba(0,174,239,.4);
+      box-shadow: 0 0 60px rgba(0,174,239,.12);
+      transform: translateY(-4px);
+    }
+    .price-badge {
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--grad);
+      color: var(--bg);
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .price-tier {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .price-name {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin-bottom: 4px;
+    }
+    .price-tagline {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .price-amount {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -.05em;
+      margin-bottom: 4px;
+    }
+    .price-amount sup {
+      font-size: 1rem;
+      font-weight: 700;
+      vertical-align: super;
+    }
+    .price-period {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .price-features {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 28px;
+      flex: 1;
+    }
+    .price-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: .8rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.4;
+    }
+    .price-feature-check {
+      color: var(--cyan);
+      font-size: .75rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .price-cta {
+      background: rgba(0,174,239,.12);
+      border: 1px solid rgba(0,174,239,.3);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--cyan);
+      text-decoration: none;
+      transition: background .2s;
+      display: block;
+    }
+    .price-card.featured .price-cta {
+      background: var(--grad);
+      border-color: transparent;
+      color: var(--bg);
+    }
+    .price-cta:hover { opacity: .9; }
+
+    /* ── FOOTER ───────────────────────────────────────────────────────── */
+    footer {
+      padding: 40px 52px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+    footer a { color: inherit; text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ───────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      section { padding: 80px 32px; }
+      .hero { padding: 120px 32px 80px; }
+      nav { padding: 14px 32px; }
+      .stl-wrap { grid-template-columns: 1fr; }
+      .roi-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .rep-wrap { grid-template-columns: 1fr; }
+      .auto-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      section { padding: 64px 20px; }
+      .hero { padding: 100px 20px 60px; }
+      nav { padding: 12px 20px; }
+      .nav-badge { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .auto-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .roi-wrap { padding: 32px 24px; }
+      .roi-plan-btns { flex-wrap: wrap; }
+      .stl-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ──────────────────────────────────────────────────────────── -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <img src="brand-assets/Summt Marketing LOGO.png" alt="Summit Marketing LLC" />
+    </a>
+    <div class="nav-badge">
+      <span>LIVE DEMO</span>
+      Confidential — For Prospect Use Only
+    </div>
+    <a href="/contact/" class="nav-cta">Book a Strategy Call</a>
+  </nav>
+
+  <!-- ── HERO ──────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Summit Marketing LLC — Interactive Demo</div>
+      <h1>Everything we build,<br /><em>working live.</em></h1>
+      <p class="hero-sub">
+        This page demos the real tools we deploy for every client — from the moment a lead hits your site to when they're leaving you a 5-star review. Scroll through and interact with each section.
+      </p>
+      <div class="hero-pills">
+        <a href="#speed-to-lead" class="hero-pill">⚡ Speed-to-Lead Automation</a>
+        <a href="#roi" class="hero-pill">📈 ROI Calculator</a>
+        <a href="#services" class="hero-pill">🛠 Services</a>
+        <a href="#reputation" class="hero-pill">⭐ Reputation Management</a>
+        <a href="#automations" class="hero-pill">🤖 Automation Flows</a>
+        <a href="#pricing" class="hero-pill">💰 Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SPEED-TO-LEAD ─────────────────────────────────────────────────── -->
+  <section id="speed-to-lead">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Live Demo · Speed-to-Lead</div>
+        <h2 class="section-title">From lead to <em>live call</em> in under 60 seconds</h2>
+        <p class="section-sub">Submit the form below and watch the automation pipeline fire in real time. This is exactly what your prospects experience.</p>
+      </div>
+      <div class="stl-wrap">
+        <!-- Form -->
+        <div class="stl-form-card">
+          <div class="stl-eyebrow">Free Strategy Call</div>
+          <h3 class="stl-form-title">Let's reach new heights together</h3>
+          <p class="stl-form-sub">Tell us about your business. A strategist will call within 60 seconds during business hours.</p>
+          <div class="stl-divider"></div>
+          <form id="stlForm">
+            <div class="stl-row">
+              <div class="stl-field">
+                <label>First Name</label>
+                <input type="text" name="first_name" placeholder="Jane" required />
+              </div>
+              <div class="stl-field">
+                <label>Last Name</label>
+                <input type="text" name="last_name" placeholder="Smith" required />
+              </div>
+            </div>
+            <div class="stl-row">
+              <div class="stl-field">
+                <label>Phone</label>
+                <input type="tel" name="phone" placeholder="(601) 555-0100" required />
+              </div>
+              <div class="stl-field">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="jane@example.com" required />
+              </div>
+            </div>
+            <div class="stl-row">
+              <div class="stl-field">
+                <label>Business Name</label>
+                <input type="text" name="company_name" placeholder="Acme Roofing Co." required />
+              </div>
+              <div class="stl-field">
+                <label>Service Interest</label>
+                <select name="service_interest">
+                  <option value="">Select a service…</option>
+                  <option>SEO &amp; Content Marketing</option>
+                  <option>Marketing Automation &amp; CRM</option>
+                  <option>Reputation Management</option>
+                  <option>Web Design &amp; Development</option>
+                  <option>Full-Stack Growth Strategy</option>
+                </select>
+              </div>
+            </div>
+            <input type="hidden" name="source" value="Summit Marketing Sales Demo" />
+            <input type="hidden" name="lead_source" value="Sales Demo Page" />
+            <button type="submit" class="stl-submit" id="stlSubmitBtn">
+              Start the Clock — Submit Lead →
+            </button>
+          </form>
+        </div>
+
+        <!-- Pipeline -->
+        <div class="stl-pipeline">
+          <div class="stl-pipeline-header">
+            <div class="stl-pipeline-title">Automation Pipeline</div>
+            <div class="stl-timer" id="stlTimer">00:00.0</div>
+          </div>
+          <div class="stl-steps">
+            <div id="stlIdleMsg" class="stl-idle-msg">
+              <strong>Ready to demo</strong>
+              Submit the form to watch the pipeline fire live. Every step here represents a real automation trigger in your account.
+            </div>
+            <div id="stlStep1" class="stl-step" style="display:none;">
+              <div class="stl-step-icon">📥</div>
+              <div class="stl-step-body">
+                <div class="stl-step-name">Lead Captured</div>
+                <div class="stl-step-desc">Form submission received &amp; logged</div>
+                <div class="stl-step-time" id="stlTime1"></div>
+              </div>
+              <div class="stl-step-status">Pending</div>
+            </div>
+            <div id="stlStep2" class="stl-step" style="display:none;">
+              <div class="stl-step-icon">🗄️</div>
+              <div class="stl-step-body">
+                <div class="stl-step-name">CRM Contact Created</div>
+                <div class="stl-step-desc">Contact record added to GoHighLevel pipeline</div>
+                <div class="stl-step-time" id="stlTime2"></div>
+              </div>
+              <div class="stl-step-status">Pending</div>
+            </div>
+            <div id="stlStep3" class="stl-step" style="display:none;">
+              <div class="stl-step-icon">💬</div>
+              <div class="stl-step-body">
+                <div class="stl-step-name">SMS Sent to Lead</div>
+                <div class="stl-step-desc">"Hey [Name]! We got your info — calling you now…"</div>
+                <div class="stl-step-time" id="stlTime3"></div>
+              </div>
+              <div class="stl-step-status">Pending</div>
+            </div>
+            <div id="stlStep4" class="stl-step" style="display:none;">
+              <div class="stl-step-icon">🔔</div>
+              <div class="stl-step-body">
+                <div class="stl-step-name">Rep Notified</div>
+                <div class="stl-step-desc">Sales rep receives instant push + email alert</div>
+                <div class="stl-step-time" id="stlTime4"></div>
+              </div>
+              <div class="stl-step-status">Pending</div>
+            </div>
+            <div id="stlStep5" class="stl-step" style="display:none;">
+              <div class="stl-step-icon">📞</div>
+              <div class="stl-step-body">
+                <div class="stl-step-name">Automated Call Initiated</div>
+                <div class="stl-step-desc">AI-powered call connects lead to your team instantly</div>
+                <div class="stl-step-time" id="stlTime5"></div>
+              </div>
+              <div class="stl-step-status">Pending</div>
+            </div>
+            <div id="stlStep6" class="stl-step" style="display:none;">
+              <div class="stl-step-icon">📧</div>
+              <div class="stl-step-body">
+                <div class="stl-step-name">Follow-up Email Queued</div>
+                <div class="stl-step-desc">Personalized nurture sequence enrolled automatically</div>
+                <div class="stl-step-time" id="stlTime6"></div>
+              </div>
+              <div class="stl-step-status">Pending</div>
+            </div>
+          </div>
+          <div class="stl-complete" id="stlComplete">
+            <div class="stl-complete-badge">
+              <span>✓</span> Pipeline Complete
+            </div>
+            <div class="stl-complete-time" id="stlFinalTime">—</div>
+            <div class="stl-complete-label">Total automation time — that's your Speed-to-Lead</div>
+            <button class="stl-reset" id="stlResetBtn">↺ Run Demo Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── ROI CALCULATOR ─────────────────────────────────────────────────── -->
+  <section id="roi">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Interactive · ROI Calculator</div>
+        <h2 class="section-title">See your <em>real return</em></h2>
+        <p class="section-sub">Move the sliders to model your business and see what a Summit marketing investment actually looks like on paper.</p>
+      </div>
+      <div class="roi-wrap">
+        <div class="roi-grid">
+          <div class="roi-inputs">
+            <div class="roi-plan-select">
+              <label>Select a Plan</label>
+              <div class="roi-plan-btns">
+                <button class="roi-plan-btn active" data-plan="997" data-plan-name="Basecamp">Basecamp<br /><small>$997/mo</small></button>
+                <button class="roi-plan-btn" data-plan="1497" data-plan-name="Elevate">Elevate<br /><small>$1,497/mo</small></button>
+                <button class="roi-plan-btn" data-plan="2497" data-plan-name="Ascent">Ascent<br /><small>$2,497/mo</small></button>
+                <button class="roi-plan-btn" data-plan="4997" data-plan-name="Peak">Peak<br /><small>Custom</small></button>
+              </div>
+            </div>
+            <div class="roi-slider-group">
+              <div class="roi-slider-label">
+                <span>Monthly Website Visitors</span>
+                <span class="roi-val" id="roi-visitors-val">500</span>
+              </div>
+              <input type="range" id="roi-visitors" min="100" max="10000" step="100" value="500" />
+            </div>
+            <div class="roi-slider-group">
+              <div class="roi-slider-label">
+                <span>Lead Conversion Rate</span>
+                <span class="roi-val" id="roi-cvr-val">2%</span>
+              </div>
+              <input type="range" id="roi-cvr" min="1" max="15" step="0.5" value="2" />
+            </div>
+            <div class="roi-slider-group">
+              <div class="roi-slider-label">
+                <span>Average Customer Value</span>
+                <span class="roi-val" id="roi-acv-val">$1,500</span>
+              </div>
+              <input type="range" id="roi-acv" min="200" max="20000" step="100" value="1500" />
+            </div>
+            <div class="roi-slider-group">
+              <div class="roi-slider-label">
+                <span>Close Rate (Lead → Client)</span>
+                <span class="roi-val" id="roi-close-val">20%</span>
+              </div>
+              <input type="range" id="roi-close" min="5" max="80" step="5" value="20" />
+            </div>
+          </div>
+
+          <div class="roi-results">
+            <div class="roi-result-card">
+              <div>
+                <div class="roi-result-label">Monthly Leads Generated</div>
+                <div class="roi-result-value" id="roi-leads">10</div>
+              </div>
+              <div class="roi-result-icon">🎯</div>
+            </div>
+            <div class="roi-result-card">
+              <div>
+                <div class="roi-result-label">New Clients / Month</div>
+                <div class="roi-result-value" id="roi-clients">2</div>
+              </div>
+              <div class="roi-result-icon">🤝</div>
+            </div>
+            <div class="roi-result-card">
+              <div>
+                <div class="roi-result-label">Monthly Revenue Generated</div>
+                <div class="roi-result-value" id="roi-revenue">$3,000</div>
+              </div>
+              <div class="roi-result-icon">💵</div>
+            </div>
+            <div class="roi-result-card highlight">
+              <div>
+                <div class="roi-result-label">ROI on Summit Investment</div>
+                <div class="roi-result-value" id="roi-roi">+200%</div>
+              </div>
+              <div class="roi-result-icon">📈</div>
+            </div>
+            <div class="roi-result-card">
+              <div>
+                <div class="roi-result-label">12-Month Revenue Impact</div>
+                <div class="roi-result-value" id="roi-annual">$36,000</div>
+              </div>
+              <div class="roi-result-icon">🏔</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── STATS ──────────────────────────────────────────────────────────── -->
+  <section style="padding: 0 52px 80px;">
+    <div class="container">
+      <div class="stats-strip">
+        <div class="stat-cell">
+          <div class="stat-val">4.9★</div>
+          <div class="stat-label">Average client<br />satisfaction score</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">&lt;60s</div>
+          <div class="stat-label">Speed-to-lead<br />response time</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">312%</div>
+          <div class="stat-label">Average ROI for<br />Ascent clients</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">100%</div>
+          <div class="stat-label">Flat-rate pricing —<br />no hidden fees, ever</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SERVICES ───────────────────────────────────────────────────────── -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">What We Do</div>
+        <h2 class="section-title">Six disciplines.<br /><em>One cohesive strategy.</em></h2>
+        <p class="section-sub">Every service is built to work together. No siloed tactics — we build a compounding system for your business.</p>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon">🔍</div>
+          <div class="svc-name">SEO &amp; AI Visibility</div>
+          <p class="svc-desc">Rank on Google AND the AI tools your customers are using — ChatGPT, Perplexity, and Google's AI Overviews. We build authority that compounds.</p>
+          <div class="svc-features">
+            <div class="svc-feature">Local &amp; national SEO strategy</div>
+            <div class="svc-feature">AI search optimization (AEO/GEO)</div>
+            <div class="svc-feature">Monthly keyword &amp; ranking reports</div>
+            <div class="svc-feature">Google Business Profile management</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">⚡</div>
+          <div class="svc-name">Marketing Automation</div>
+          <p class="svc-desc">Your CRM, SMS, email, and call sequences running 24/7 — following up with every lead instantly, qualifying them automatically, and handing them off ready to buy.</p>
+          <div class="svc-features">
+            <div class="svc-feature">GoHighLevel CRM setup &amp; management</div>
+            <div class="svc-feature">Speed-to-lead (sub-60s response)</div>
+            <div class="svc-feature">Multi-step nurture sequences</div>
+            <div class="svc-feature">Pipeline &amp; opportunity tracking</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">⭐</div>
+          <div class="svc-name">Reputation Management</div>
+          <p class="svc-desc">Systematically collect 5-star reviews, monitor every platform, and respond with AI-crafted replies — turning your reputation into a competitive moat.</p>
+          <div class="svc-features">
+            <div class="svc-feature">Automated review request campaigns</div>
+            <div class="svc-feature">Google, Yelp, Facebook monitoring</div>
+            <div class="svc-feature">AI-drafted response suggestions</div>
+            <div class="svc-feature">Reputation dashboard &amp; reporting</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">✍️</div>
+          <div class="svc-name">Content Marketing</div>
+          <p class="svc-desc">SEO-driven blog posts, social content, email newsletters, and video scripts — built around a content calendar that keeps your brand visible and authoritative every month.</p>
+          <div class="svc-features">
+            <div class="svc-feature">Monthly blog &amp; article production</div>
+            <div class="svc-feature">Social media content calendar</div>
+            <div class="svc-feature">Email newsletter campaigns</div>
+            <div class="svc-feature">Video script &amp; creative direction</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🌐</div>
+          <div class="svc-name">Web Design &amp; Development</div>
+          <p class="svc-desc">Conversion-focused websites built for speed, mobile, and SEO from day one. Not just pretty — engineered to turn visitors into leads and leads into clients.</p>
+          <div class="svc-features">
+            <div class="svc-feature">Custom design (Trailhead → Apex tiers)</div>
+            <div class="svc-feature">Core Web Vitals optimized</div>
+            <div class="svc-feature">Full marketing stack integration</div>
+            <div class="svc-feature">Ongoing maintenance &amp; updates</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">💰</div>
+          <div class="svc-name">Paid Advertising</div>
+          <p class="svc-desc">Google Ads and Meta campaigns managed with a direct ROI lens — every dollar tracked, every campaign optimized, no wasted spend on vanity metrics.</p>
+          <div class="svc-features">
+            <div class="svc-feature">Google Search &amp; Display Ads</div>
+            <div class="svc-feature">Facebook &amp; Instagram campaigns</div>
+            <div class="svc-feature">Conversion tracking &amp; attribution</div>
+            <div class="svc-feature">Monthly performance reporting</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── REPUTATION DEMO ────────────────────────────────────────────────── -->
+  <section id="reputation">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Live Demo · Reputation Management</div>
+        <h2 class="section-title">Your reviews,<br /><em>on autopilot.</em></h2>
+        <p class="section-sub">We monitor every platform in real time and respond with AI-crafted replies — so your reputation keeps growing even while you sleep.</p>
+      </div>
+      <div class="rep-wrap">
+        <div class="rep-stats">
+          <div class="rep-stat-big">
+            <div class="rep-score" id="repScore">4.9</div>
+            <div class="rep-stars">★★★★★</div>
+            <div class="rep-count" id="repCount">Based on 127 reviews across all platforms</div>
+          </div>
+          <div class="rep-trend-row">
+            <div class="rep-trend-card">
+              <div class="rep-trend-val">+34</div>
+              <div class="rep-trend-label">New reviews<br />this month</div>
+            </div>
+            <div class="rep-trend-card">
+              <div class="rep-trend-val">98%</div>
+              <div class="rep-trend-label">Response<br />rate</div>
+            </div>
+            <div class="rep-trend-card">
+              <div class="rep-trend-val">2.1h</div>
+              <div class="rep-trend-label">Avg response<br />time</div>
+            </div>
+            <div class="rep-trend-card">
+              <div class="rep-trend-val">+0.4★</div>
+              <div class="rep-trend-label">Rating lift<br />in 90 days</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="rep-feed-header">
+            <div class="rep-feed-title">Live Review Feed</div>
+            <div class="rep-live-badge"><span class="rep-live-dot"></span> Live Updates</div>
+          </div>
+          <div class="rep-feed" id="repFeed"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── AUTOMATIONS ────────────────────────────────────────────────────── -->
+  <section id="automations">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Under the Hood · Automation</div>
+        <h2 class="section-title">Built-in automations<br /><em>that never clock out.</em></h2>
+        <p class="section-sub">Every Summit plan includes a core set of automations wired up in your GoHighLevel account — running without lifting a finger.</p>
+      </div>
+      <div class="auto-grid">
+        <div class="auto-tile">
+          <div class="auto-tile-icon">⚡</div>
+          <div class="auto-tile-name">Speed-to-Lead</div>
+          <div class="auto-tile-desc">New lead → call attempt &amp; SMS in under 60 seconds, 24/7</div>
+        </div>
+        <div class="auto-tile">
+          <div class="auto-tile-icon">🔄</div>
+          <div class="auto-tile-name">Lead Nurture</div>
+          <div class="auto-tile-desc">Multi-step email + SMS sequence over 30 days to warm cold leads</div>
+        </div>
+        <div class="auto-tile">
+          <div class="auto-tile-icon">⭐</div>
+          <div class="auto-tile-name">Review Requests</div>
+          <div class="auto-tile-desc">Post-service SMS/email requesting a Google review automatically</div>
+        </div>
+        <div class="auto-tile">
+          <div class="auto-tile-icon">📅</div>
+          <div class="auto-tile-name">Appointment Reminders</div>
+          <div class="auto-tile-desc">Automated confirmations &amp; reminders that cut no-shows by 60%</div>
+        </div>
+        <div class="auto-tile">
+          <div class="auto-tile-icon">🛒</div>
+          <div class="auto-tile-name">Abandoned Pipeline</div>
+          <div class="auto-tile-desc">Re-engage stalled deals with timed follow-up sequences</div>
+        </div>
+        <div class="auto-tile">
+          <div class="auto-tile-icon">🎉</div>
+          <div class="auto-tile-name">Win Celebration</div>
+          <div class="auto-tile-desc">Automated onboarding sequence fires the moment a deal closes</div>
+        </div>
+        <div class="auto-tile">
+          <div class="auto-tile-icon">📊</div>
+          <div class="auto-tile-name">Monthly Reports</div>
+          <div class="auto-tile-desc">Automated performance dashboards delivered to your inbox</div>
+        </div>
+        <div class="auto-tile">
+          <div class="auto-tile-icon">🤖</div>
+          <div class="auto-tile-name">AI Chat &amp; SMS Bot</div>
+          <div class="auto-tile-desc">Qualifies leads 24/7, books appointments, answers FAQs — zero human required</div>
+        </div>
+      </div>
+      <div class="auto-flow">
+        <div class="auto-flow-title">Example: New Lead Workflow</div>
+        <div class="auto-flow-steps">
+          <div class="auto-flow-step">
+            <div class="auto-flow-node">Form Submit</div>
+            <div class="auto-flow-arrow">→</div>
+          </div>
+          <div class="auto-flow-step">
+            <div class="auto-flow-node">CRM Contact Created</div>
+            <div class="auto-flow-arrow">→</div>
+          </div>
+          <div class="auto-flow-step">
+            <div class="auto-flow-node">SMS: "We got you!"</div>
+            <div class="auto-flow-arrow">→</div>
+          </div>
+          <div class="auto-flow-step">
+            <div class="auto-flow-node">Rep Notified</div>
+            <div class="auto-flow-arrow">→</div>
+          </div>
+          <div class="auto-flow-step">
+            <div class="auto-flow-node">Auto-Dial Attempt</div>
+            <div class="auto-flow-arrow">→</div>
+          </div>
+          <div class="auto-flow-step">
+            <div class="auto-flow-node">30-Day Email Nurture</div>
+            <div class="auto-flow-arrow">→</div>
+          </div>
+          <div class="auto-flow-step">
+            <div class="auto-flow-node">Pipeline Stage Updated</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── PRICING ────────────────────────────────────────────────────────── -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Plans &amp; Pricing</div>
+        <h2 class="section-title">Flat-rate retainers.<br /><em>Zero hidden fees.</em></h2>
+        <p class="section-sub">Every plan includes onboarding, a dedicated strategist, and month-to-month flexibility. No contracts, no surprises.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-tier">Tier 1</div>
+          <div class="price-name">Basecamp</div>
+          <div class="price-tagline">Foundation &amp; SEO</div>
+          <div class="price-amount"><sup>$</sup>997<small style="font-size:1rem">/mo</small></div>
+          <div class="price-period">+ one-time setup</div>
+          <div class="price-features">
+            <div class="price-feature"><span class="price-feature-check">✓</span>Local SEO &amp; GBP management</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>4 blog posts / month</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>GHL CRM setup + lead pipelines</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Speed-to-lead automation</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Monthly performance report</div>
+          </div>
+          <a href="/contact/" class="price-cta">Get Started</a>
+        </div>
+        <div class="price-card featured">
+          <div class="price-badge">Most Popular</div>
+          <div class="price-tier">Tier 2</div>
+          <div class="price-name">Elevate</div>
+          <div class="price-tagline">Growth &amp; Brand Strategy</div>
+          <div class="price-amount"><sup>$</sup>1,497<small style="font-size:1rem">/mo</small></div>
+          <div class="price-period">+ one-time setup</div>
+          <div class="price-features">
+            <div class="price-feature"><span class="price-feature-check">✓</span>Everything in Basecamp</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>8 content pieces / month</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Social media management (2 platforms)</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Reputation management suite</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Email newsletter (2×/mo)</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Advanced lead nurture automation</div>
+          </div>
+          <a href="/contact/" class="price-cta">Get Started</a>
+        </div>
+        <div class="price-card">
+          <div class="price-tier">Tier 3</div>
+          <div class="price-name">Ascent</div>
+          <div class="price-tagline">Full-Funnel Scale</div>
+          <div class="price-amount"><sup>$</sup>2,497<small style="font-size:1rem">/mo</small></div>
+          <div class="price-period">+ one-time setup</div>
+          <div class="price-features">
+            <div class="price-feature"><span class="price-feature-check">✓</span>Everything in Elevate</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Paid ads management (Google + Meta)</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Weekly strategy calls</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>AI chat &amp; SMS bot deployment</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Custom landing pages</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Full automation audit &amp; buildout</div>
+          </div>
+          <a href="/contact/" class="price-cta">Get Started</a>
+        </div>
+        <div class="price-card">
+          <div class="price-tier">Tier 4</div>
+          <div class="price-name">Peak</div>
+          <div class="price-tagline">Enterprise Custom</div>
+          <div class="price-amount" style="font-size:1.6rem;letter-spacing:-.03em;">Custom</div>
+          <div class="price-period">White-glove, full-build</div>
+          <div class="price-features">
+            <div class="price-feature"><span class="price-feature-check">✓</span>Everything in Ascent</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Custom web development (Apex tier)</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Dedicated account team</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Enterprise automation architecture</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Quarterly strategic reviews</div>
+            <div class="price-feature"><span class="price-feature-check">✓</span>Priority support &amp; SLA</div>
+          </div>
+          <a href="/contact/" class="price-cta">Request Pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── FINAL CTA ──────────────────────────────────────────────────────── -->
+  <section style="text-align:center; padding: 100px 52px;">
+    <div class="container">
+      <div class="section-eyebrow" style="text-align:center; display:block; margin-bottom:16px;">Ready to Climb?</div>
+      <h2 class="section-title" style="text-align:center; max-width:600px; margin: 0 auto 16px;">Let's build this for <em>your</em> business.</h2>
+      <p class="section-sub" style="text-align:center; margin: 0 auto 36px;">Everything you saw on this page — we deploy it all, end-to-end, for our clients. Book a free strategy call and let's map out your custom growth plan.</p>
+      <a href="/contact/" style="display:inline-block; background: var(--grad); color: var(--bg); padding: 18px 40px; border-radius: 12px; font-size: 1.05rem; font-weight: 800; text-decoration: none; letter-spacing: -.01em; box-shadow: 0 8px 40px rgba(0,174,239,.35); transition: opacity .2s, transform .2s;" onmouseover="this.style.opacity='.9';this.style.transform='translateY(-2px)'" onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'">Book My Free Strategy Call →</a>
+      <p style="margin-top:16px; font-size:.82rem; color:var(--muted);">No commitment. No pitch deck. Just strategy.</p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+  <footer>
+    <p>&copy; 2026 Summit Marketing LLC. All rights reserved. &middot; <a href="tel:+16016079714">(601) 607-9714</a> &middot; Serving Pearl, Brandon, Jackson &amp; surrounding Mississippi areas</p>
+    <p style="margin-top:8px; font-size:.72rem;">This page is confidential and not publicly indexed. For authorized demo use only.</p>
+  </footer>
+
+  <!-- ── CHAT WIDGET ────────────────────────────────────────────────────── -->
+  <script src="https://widgets.leadconnectorhq.com/loader.js"
+    data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+    data-widget-id="69ab22b6d72daa7a88db42e8">
+  </script>
+
+  <!-- ── SPEED-TO-LEAD JS ───────────────────────────────────────────────── -->
+  <script>
+  (function(){
+    var form = document.getElementById('stlForm');
+    var submitBtn = document.getElementById('stlSubmitBtn');
+    var timer = document.getElementById('stlTimer');
+    var idleMsg = document.getElementById('stlIdleMsg');
+    var complete = document.getElementById('stlComplete');
+    var finalTime = document.getElementById('stlFinalTime');
+    var resetBtn = document.getElementById('stlResetBtn');
+
+    var steps = [
+      { id: 'stlStep1', timeId: 'stlTime1', delay: 0,    name: 'Lead Captured',           status: 'Received' },
+      { id: 'stlStep2', timeId: 'stlTime2', delay: 1800, name: 'CRM Contact Created',      status: 'Created' },
+      { id: 'stlStep3', timeId: 'stlTime3', delay: 4200, name: 'SMS Sent to Lead',          status: 'Sent' },
+      { id: 'stlStep4', timeId: 'stlTime4', delay: 6500, name: 'Rep Notified',             status: 'Notified' },
+      { id: 'stlStep5', timeId: 'stlTime5', delay: 9000, name: 'Automated Call Initiated', status: 'Dialing' },
+      { id: 'stlStep6', timeId: 'stlTime6', delay: 13000,'name': 'Follow-up Email Queued', status: 'Queued' }
+    ];
+
+    var startTs = null;
+    var timerInterval = null;
+    var stepTimeouts = [];
+
+    function formatMs(ms) {
+      var s = Math.floor(ms / 1000);
+      var m = Math.floor(s / 60);
+      s = s % 60;
+      var tenth = Math.floor((ms % 1000) / 100);
+      return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s + '.' + tenth;
+    }
+
+    function startTimer() {
+      startTs = Date.now();
+      timerInterval = setInterval(function(){
+        timer.textContent = formatMs(Date.now() - startTs);
+      }, 100);
+    }
+
+    function stopTimer() {
+      clearInterval(timerInterval);
+    }
+
+    function fireStep(stepIdx) {
+      var s = steps[stepIdx];
+      var el = document.getElementById(s.id);
+      var timeEl = document.getElementById(s.timeId);
+      var statusEl = el.querySelector('.stl-step-status');
+
+      el.style.display = 'flex';
+      el.classList.add('active');
+      statusEl.textContent = 'Processing…';
+
+      var elapsed = Date.now() - startTs;
+      timeEl.textContent = 'at ' + formatMs(elapsed);
+
+      setTimeout(function(){
+        el.classList.remove('active');
+        el.classList.add('done');
+        statusEl.textContent = s.status;
+
+        if (stepIdx === steps.length - 1) {
+          stopTimer();
+          var total = Date.now() - startTs;
+          finalTime.textContent = formatMs(total);
+          complete.classList.add('show');
+        }
+      }, 1200);
+    }
+
+    function runPipeline() {
+      idleMsg.style.display = 'none';
+      startTimer();
+      steps.forEach(function(s, i){
+        var t = setTimeout(function(){ fireStep(i); }, s.delay);
+        stepTimeouts.push(t);
+      });
+    }
+
+    function resetDemo() {
+      stopTimer();
+      stepTimeouts.forEach(clearTimeout);
+      stepTimeouts = [];
+      timer.textContent = '00:00.0';
+      complete.classList.remove('show');
+      idleMsg.style.display = 'block';
+      steps.forEach(function(s){
+        var el = document.getElementById(s.id);
+        el.style.display = 'none';
+        el.className = 'stl-step';
+        el.querySelector('.stl-step-status').textContent = 'Pending';
+        document.getElementById(s.timeId).textContent = '';
+      });
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Start the Clock — Submit Lead →';
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Lead Submitted — Watch the Pipeline…';
+
+      fetch('https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ', {
+        method: 'POST',
+        body: new URLSearchParams(new FormData(form))
+      }).catch(function(){});
+
+      runPipeline();
+    });
+
+    resetBtn.addEventListener('click', resetDemo);
+  })();
+  </script>
+
+  <!-- ── ROI CALCULATOR JS ──────────────────────────────────────────────── -->
+  <script>
+  (function(){
+    var planCost = 997;
+
+    function fmt(n) {
+      if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+      if (n >= 1000) return '$' + Math.round(n/1000) + 'k';
+      return '$' + n.toLocaleString();
+    }
+
+    function calc() {
+      var visitors = parseInt(document.getElementById('roi-visitors').value);
+      var cvr = parseFloat(document.getElementById('roi-cvr').value) / 100;
+      var acv = parseInt(document.getElementById('roi-acv').value);
+      var close = parseInt(document.getElementById('roi-close').value) / 100;
+
+      var leads = Math.round(visitors * cvr);
+      var clients = Math.round(leads * close);
+      var revenue = clients * acv;
+      var roi = planCost > 0 ? Math.round(((revenue - planCost) / planCost) * 100) : 0;
+      var annual = revenue * 12;
+
+      document.getElementById('roi-leads').textContent = leads;
+      document.getElementById('roi-clients').textContent = clients;
+      document.getElementById('roi-revenue').textContent = fmt(revenue);
+      document.getElementById('roi-roi').textContent = (roi >= 0 ? '+' : '') + roi + '%';
+      document.getElementById('roi-annual').textContent = fmt(annual);
+    }
+
+    function bindSlider(id, displayId, prefix, suffix, isFloat) {
+      var el = document.getElementById(id);
+      var disp = document.getElementById(displayId);
+      el.addEventListener('input', function(){
+        var v = isFloat ? parseFloat(el.value) : parseInt(el.value);
+        disp.textContent = (prefix||'') + v.toLocaleString() + (suffix||'');
+        calc();
+      });
+    }
+
+    bindSlider('roi-visitors', 'roi-visitors-val', '', '', false);
+    bindSlider('roi-cvr',      'roi-cvr-val',      '', '%', true);
+    bindSlider('roi-acv',      'roi-acv-val',      '$', '', false);
+    bindSlider('roi-close',    'roi-close-val',    '', '%', false);
+
+    document.querySelectorAll('.roi-plan-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.roi-plan-btn').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        planCost = parseInt(btn.dataset.plan);
+        calc();
+      });
+    });
+
+    calc();
+  })();
+  </script>
+
+  <!-- ── REPUTATION DEMO JS ─────────────────────────────────────────────── -->
+  <script>
+  (function(){
+    var reviews = [
+      { name: 'Michael T.', init: 'MT', source: 'Google', stars: 5, text: 'Summit completely transformed our online presence. We went from barely showing up on Google to ranking #1 for our top keywords in under 90 days. The automation alone saved us 10+ hours a week.', time: '2 minutes ago', ai: true },
+      { name: 'Sarah K.', init: 'SK', source: 'Google', stars: 5, text: 'The speed-to-lead system they built for us is unreal. We used to lose leads because we called back too late. Now the system reaches out in seconds — our close rate jumped 40% in the first month.', time: '18 minutes ago', ai: true },
+      { name: 'James R.', init: 'JR', source: 'Facebook', stars: 5, text: 'Professional, responsive, and they actually know marketing. Our review count went from 12 to 67 in 60 days. Highly recommend for any local business wanting to grow.', time: '1 hour ago', ai: false },
+      { name: 'Amanda L.', init: 'AL', source: 'Google', stars: 5, text: 'Worth every penny. The ROI we\'ve seen in 4 months has more than paid for the entire year. Nic and the team genuinely care about results.', time: '3 hours ago', ai: true },
+      { name: 'David M.', init: 'DM', source: 'Yelp', stars: 5, text: 'Finally a marketing agency that shows you real numbers. I can log into my dashboard any time and see exactly what\'s working. No fluff, just results.', time: '6 hours ago', ai: false },
+    ];
+
+    var feed = document.getElementById('repFeed');
+    var reviewCount = 127;
+    var reviewIdx = 0;
+
+    function renderReview(review, isNew) {
+      var starsHtml = '★★★★★'.slice(0, review.stars) + '☆☆☆☆☆'.slice(0, 5 - review.stars);
+      var aiHtml = review.ai ? '<div class="review-ai-response"><strong>AI Response — Sent</strong>Thank you so much for sharing your experience! We\'re thrilled to hear about the results and look forward to continuing to help you grow. 🏔</div>' : '';
+      var card = document.createElement('div');
+      card.className = 'review-card' + (isNew ? ' new-review' : '');
+      card.innerHTML = '<div class="review-header"><div class="review-author"><div class="review-avatar">' + review.init + '</div><div><div class="review-name">' + review.name + '</div><div class="review-source">' + review.source + '</div></div></div><div class="review-stars">' + starsHtml + '</div></div><div class="review-text">' + review.text + '</div><div class="review-time">' + review.time + '</div>' + aiHtml + '</div>';
+      return card;
+    }
+
+    reviews.forEach(function(r){ feed.appendChild(renderReview(r, false)); });
+
+    var newReviews = [
+      { name: 'Chris W.', init: 'CW', source: 'Google', stars: 5, text: 'Just booked our strategy call after seeing all these reviews. Already impressed before we even started!', time: 'Just now', ai: false },
+      { name: 'Lisa P.', init: 'LP', source: 'Google', stars: 5, text: 'Summit got us 15 new reviews in our first week of working together. The automated follow-up system is brilliant.', time: 'Just now', ai: true },
+      { name: 'Tony B.', init: 'TB', source: 'Facebook', stars: 5, text: 'Best investment we\'ve made for our business. The reporting is crystal clear and the results speak for themselves.', time: 'Just now', ai: true },
+    ];
+
+    setInterval(function(){
+      var r = newReviews[reviewIdx % newReviews.length];
+      reviewIdx++;
+      reviewCount++;
+
+      document.getElementById('repCount').textContent = 'Based on ' + reviewCount + ' reviews across all platforms';
+
+      var card = renderReview(r, true);
+      feed.insertBefore(card, feed.firstChild);
+
+      var old = feed.querySelectorAll('.review-card');
+      if (old.length > 5) {
+        feed.removeChild(old[old.length - 1]);
+      }
+
+      setTimeout(function(){ card.classList.remove('new-review'); }, 4000);
+    }, 9000);
+  })();
+  </script>
+
+</body>
+</html>
