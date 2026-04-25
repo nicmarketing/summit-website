@@ -1079,18 +1079,246 @@
     footer a { color: inherit; text-decoration: none; }
     footer a:hover { color: var(--white); }
 
+    /* ── LIVE STL FEED ────────────────────────────────────────────────── */
+    .live-stl-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .live-stl-stats { display: flex; flex-direction: column; gap: 16px; }
+    .live-stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .live-stat-val {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -.05em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .live-stat-label { font-size: .78rem; color: var(--muted); line-height: 1.4; }
+    .live-stat-icon { font-size: 2rem; opacity: .5; }
+    .live-stl-feed-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .live-stl-feed-header {
+      padding: 16px 22px;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .live-stl-feed-title { font-size: .82rem; font-weight: 700; color: rgba(255,255,255,.7); letter-spacing: .04em; text-transform: uppercase; }
+    .live-stl-feed { padding: 12px; display: flex; flex-direction: column; gap: 8px; min-height: 420px; }
+    .stl-feed-row {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 12px;
+      padding: 12px 16px;
+      animation: stlRowIn .4s cubic-bezier(.22,.68,0,1.08) both;
+    }
+    .stl-feed-row.new-lead { border-color: rgba(0,174,239,.35); background: rgba(0,174,239,.05); }
+    @keyframes stlRowIn { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:translateY(0)} }
+    .stl-feed-row-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .stl-feed-name { font-size: .85rem; font-weight: 700; }
+    .stl-feed-biz { font-size: .72rem; color: var(--muted); }
+    .stl-feed-elapsed {
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--cyan);
+      white-space: nowrap;
+    }
+    .stl-feed-pipeline {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+      row-gap: 6px;
+    }
+    .stl-feed-step {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: .7rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 100px;
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,.07);
+      transition: background .3s, color .3s, border-color .3s;
+      white-space: nowrap;
+    }
+    .stl-feed-step.done {
+      background: rgba(34,197,94,.12);
+      border-color: rgba(34,197,94,.3);
+      color: var(--green);
+    }
+    .stl-feed-step.active {
+      background: rgba(0,174,239,.15);
+      border-color: rgba(0,174,239,.4);
+      color: var(--cyan);
+      animation: stepPulse .8s ease-in-out infinite;
+    }
+    @keyframes stepPulse { 0%,100%{opacity:1} 50%{opacity:.6} }
+    .stl-feed-arrow { color: rgba(255,255,255,.2); font-size: .65rem; }
+
+    /* ── SOCIAL MEDIA ─────────────────────────────────────────────────── */
+    .social-grid-top {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+    .social-stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px 22px;
+      text-align: center;
+      transition: border-color .25s, transform .25s;
+    }
+    .social-stat-card:hover { border-color: rgba(0,174,239,.35); transform: translateY(-3px); }
+    .social-platform-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .social-platform-name { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .social-stat-num { font-size: 1.7rem; font-weight: 900; letter-spacing: -.05em; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 4px; }
+    .social-stat-sub { font-size: .72rem; color: var(--muted); }
+    .social-main-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .social-posts { display: flex; flex-direction: column; gap: 18px; }
+    .social-post-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: border-color .25s;
+    }
+    .social-post-card:hover { border-color: rgba(0,174,239,.3); }
+    .social-post-header { padding: 14px 18px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(255,255,255,.04); }
+    .social-post-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 800; color: var(--bg); flex-shrink: 0; }
+    .social-post-handle { font-size: .82rem; font-weight: 700; }
+    .social-post-platform { font-size: .7rem; color: var(--muted); }
+    .social-post-time { margin-left: auto; font-size: .7rem; color: var(--muted); }
+    .social-post-img {
+      width: 100%; aspect-ratio: 16/7;
+      background: linear-gradient(135deg, #0b2255 0%, #071940 50%, #041530 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; position: relative; overflow: hidden;
+    }
+    .social-post-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(2,12,31,.6) 100%);
+    }
+    .social-post-caption { padding: 12px 18px; font-size: .82rem; color: rgba(255,255,255,.75); line-height: 1.6; }
+    .social-post-caption strong { color: var(--cyan); }
+    .social-post-footer { padding: 10px 18px 14px; display: flex; gap: 20px; border-top: 1px solid rgba(255,255,255,.04); }
+    .social-post-action { display: flex; align-items: center; gap: 5px; font-size: .78rem; color: var(--muted); cursor: default; }
+    .social-post-action span { font-size: .75rem; font-weight: 700; color: rgba(255,255,255,.7); transition: color .3s; }
+    .social-post-action.liked span { color: #f472b6; }
+
+    .social-right { display: flex; flex-direction: column; gap: 18px; }
+    .social-calendar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 22px;
+    }
+    .social-cal-title { font-size: .78rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .social-cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+    .social-cal-day-hdr { font-size: .62rem; font-weight: 700; text-align: center; color: var(--muted); padding: 4px 0; text-transform: uppercase; letter-spacing: .04em; }
+    .social-cal-cell {
+      aspect-ratio: 1;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--muted);
+      background: rgba(255,255,255,.03);
+      position: relative;
+    }
+    .social-cal-cell.has-post {
+      background: rgba(0,174,239,.12);
+      border: 1px solid rgba(0,174,239,.25);
+      color: var(--white);
+    }
+    .social-cal-cell.today {
+      background: var(--grad);
+      color: var(--bg);
+      font-weight: 800;
+    }
+    .social-cal-cell.has-post::after {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      width: 4px; height: 4px;
+      background: var(--cyan);
+      border-radius: 50%;
+    }
+    .social-engage-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 22px;
+    }
+    .social-engage-title { font-size: .78rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .social-engage-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .social-engage-label { font-size: .78rem; color: rgba(255,255,255,.7); width: 80px; flex-shrink: 0; }
+    .social-engage-bar-wrap { flex: 1; height: 8px; background: rgba(255,255,255,.06); border-radius: 4px; overflow: hidden; }
+    .social-engage-bar { height: 100%; border-radius: 4px; background: var(--grad); width: 0%; transition: width 1.5s cubic-bezier(.22,.68,0,1.08); }
+    .social-engage-pct { font-size: .75rem; font-weight: 700; color: var(--cyan); width: 36px; text-align: right; flex-shrink: 0; }
+    .social-reach-card {
+      background: linear-gradient(135deg, #0b2255 0%, #071940 100%);
+      border: 1px solid rgba(0,174,239,.3);
+      border-radius: 18px;
+      padding: 20px 22px;
+      text-align: center;
+    }
+    .social-reach-num { font-size: 2.4rem; font-weight: 900; letter-spacing: -.06em; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .social-reach-label { font-size: .78rem; color: var(--muted); margin-top: 4px; }
+
     /* ── RESPONSIVE ───────────────────────────────────────────────────── */
     @media (max-width: 1024px) {
       section { padding: 80px 32px; }
       .hero { padding: 120px 32px 80px; }
       nav { padding: 14px 32px; }
       .stl-wrap { grid-template-columns: 1fr; }
+      .live-stl-wrap { grid-template-columns: 1fr; }
       .roi-grid { grid-template-columns: 1fr; gap: 40px; }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .rep-wrap { grid-template-columns: 1fr; }
       .auto-grid { grid-template-columns: repeat(2, 1fr); }
       .pricing-grid { grid-template-columns: repeat(2, 1fr); }
       .stats-strip { grid-template-columns: repeat(2, 1fr); }
+      .social-grid-top { grid-template-columns: repeat(2, 1fr); }
+      .social-main-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       section { padding: 64px 20px; }
@@ -1103,6 +1331,7 @@
       .roi-wrap { padding: 32px 24px; }
       .roi-plan-btns { flex-wrap: wrap; }
       .stl-row { flex-direction: column; }
+      .social-grid-top { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -1129,11 +1358,13 @@
         This page demos the real tools we deploy for every client — from the moment a lead hits your site to when they're leaving you a 5-star review. Scroll through and interact with each section.
       </p>
       <div class="hero-pills">
-        <a href="#speed-to-lead" class="hero-pill">⚡ Speed-to-Lead Automation</a>
+        <a href="#speed-to-lead" class="hero-pill">⚡ Speed-to-Lead</a>
+        <a href="#live-stl" class="hero-pill">📡 Live STL Feed</a>
         <a href="#roi" class="hero-pill">📈 ROI Calculator</a>
         <a href="#services" class="hero-pill">🛠 Services</a>
-        <a href="#reputation" class="hero-pill">⭐ Reputation Management</a>
-        <a href="#automations" class="hero-pill">🤖 Automation Flows</a>
+        <a href="#reputation" class="hero-pill">⭐ Reputation</a>
+        <a href="#social" class="hero-pill">📱 Social Media</a>
+        <a href="#automations" class="hero-pill">🤖 Automations</a>
         <a href="#pricing" class="hero-pill">💰 Pricing</a>
       </div>
     </div>
@@ -1697,6 +1928,198 @@
 
   <div class="divider"></div>
 
+  <!-- ── LIVE STL FEED ────────────────────────────────────────────────────── -->
+  <section id="live-stl">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Live Feed · Speed-to-Lead</div>
+        <h2 class="section-title">Watch leads get <em>worked in real time.</em></h2>
+        <p class="section-sub">This is your pipeline running live — every new lead captured, contacted, and followed up with automatically. No human needed.</p>
+      </div>
+      <div class="live-stl-wrap">
+        <div class="live-stl-stats">
+          <div class="live-stat-card">
+            <div>
+              <div class="live-stat-val" id="lstlLeadsToday">0</div>
+              <div class="live-stat-label">Leads processed<br />today</div>
+            </div>
+            <div class="live-stat-icon">📥</div>
+          </div>
+          <div class="live-stat-card">
+            <div>
+              <div class="live-stat-val" id="lstlAvgTime">&lt;60s</div>
+              <div class="live-stat-label">Avg. response<br />time</div>
+            </div>
+            <div class="live-stat-icon">⚡</div>
+          </div>
+          <div class="live-stat-card">
+            <div>
+              <div class="live-stat-val" id="lstlContacted">0</div>
+              <div class="live-stat-label">Leads contacted<br />automatically</div>
+            </div>
+            <div class="live-stat-icon">📞</div>
+          </div>
+          <div class="live-stat-card">
+            <div>
+              <div class="live-stat-val" id="lstlNurtured">0</div>
+              <div class="live-stat-label">In nurture<br />sequence</div>
+            </div>
+            <div class="live-stat-icon">🔄</div>
+          </div>
+        </div>
+        <div class="live-stl-feed-wrap">
+          <div class="live-stl-feed-header">
+            <div class="live-stl-feed-title">Live Pipeline Activity</div>
+            <div class="rep-live-badge"><span class="rep-live-dot"></span> Auto-Running</div>
+          </div>
+          <div class="live-stl-feed" id="lstlFeed"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SOCIAL MEDIA ───────────────────────────────────────────────────── -->
+  <section id="social">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Live Demo · Social Media Marketing</div>
+        <h2 class="section-title">Content that <em>builds your brand</em> every day.</h2>
+        <p class="section-sub">We manage your social presence end-to-end — posting, engaging, and growing your audience across every platform on a consistent schedule.</p>
+      </div>
+
+      <div class="social-grid-top">
+        <div class="social-stat-card">
+          <div class="social-platform-icon">📘</div>
+          <div class="social-platform-name">Facebook</div>
+          <div class="social-stat-num" id="socialFB">1,847</div>
+          <div class="social-stat-sub">Page followers</div>
+        </div>
+        <div class="social-stat-card">
+          <div class="social-platform-icon">📸</div>
+          <div class="social-platform-name">Instagram</div>
+          <div class="social-stat-num" id="socialIG">2,341</div>
+          <div class="social-stat-sub">Profile followers</div>
+        </div>
+        <div class="social-stat-card">
+          <div class="social-platform-icon">🔗</div>
+          <div class="social-platform-name">LinkedIn</div>
+          <div class="social-stat-num" id="socialLI">892</div>
+          <div class="social-stat-sub">Connections</div>
+        </div>
+        <div class="social-stat-card">
+          <div class="social-platform-icon">📊</div>
+          <div class="social-platform-name">Monthly Reach</div>
+          <div class="social-stat-num" id="socialReach">18.4k</div>
+          <div class="social-stat-sub">Across all platforms</div>
+        </div>
+      </div>
+
+      <div class="social-main-grid">
+        <div class="social-posts" id="socialFeed">
+
+          <div class="social-post-card">
+            <div class="social-post-header">
+              <div class="social-post-avatar">SM</div>
+              <div>
+                <div class="social-post-handle">Summit Marketing LLC</div>
+                <div class="social-post-platform">📘 Facebook</div>
+              </div>
+              <div class="social-post-time">2h ago</div>
+            </div>
+            <div class="social-post-img">🏔</div>
+            <div class="social-post-caption">
+              Did you know 78% of local searches result in a purchase within 24 hours? <strong>#SEO</strong> isn't just about rankings — it's about being found when your customers are ready to buy. Let's talk strategy. 📈 <strong>#DigitalMarketing #Mississippi</strong>
+            </div>
+            <div class="social-post-footer">
+              <div class="social-post-action liked">❤️ <span id="postLikes1">47</span></div>
+              <div class="social-post-action">💬 <span id="postComments1">12</span></div>
+              <div class="social-post-action">🔁 <span id="postShares1">8</span></div>
+            </div>
+          </div>
+
+          <div class="social-post-card">
+            <div class="social-post-header">
+              <div class="social-post-avatar">SM</div>
+              <div>
+                <div class="social-post-handle">Summit Marketing LLC</div>
+                <div class="social-post-platform">📸 Instagram</div>
+              </div>
+              <div class="social-post-time">Yesterday</div>
+            </div>
+            <div class="social-post-img">⚡</div>
+            <div class="social-post-caption">
+              Speed-to-lead = the #1 conversion factor in 2026. Our clients respond to new leads in under 60 seconds — automatically. While competitors are sleeping, your CRM is working. <strong>#MarketingAutomation #GoHighLevel</strong>
+            </div>
+            <div class="social-post-footer">
+              <div class="social-post-action liked">❤️ <span id="postLikes2">93</span></div>
+              <div class="social-post-action">💬 <span id="postComments2">24</span></div>
+              <div class="social-post-action">🔁 <span id="postShares2">31</span></div>
+            </div>
+          </div>
+
+          <div class="social-post-card">
+            <div class="social-post-header">
+              <div class="social-post-avatar">SM</div>
+              <div>
+                <div class="social-post-handle">Summit Marketing LLC</div>
+                <div class="social-post-platform">🔗 LinkedIn</div>
+              </div>
+              <div class="social-post-time">2 days ago</div>
+            </div>
+            <div class="social-post-img">⭐</div>
+            <div class="social-post-caption">
+              A 4.9-star reputation isn't luck — it's a system. We help local businesses automate review collection, monitor every platform, and respond to every review with AI-crafted replies. Your reputation is your most valuable marketing asset. Protect it. <strong>#ReputationManagement</strong>
+            </div>
+            <div class="social-post-footer">
+              <div class="social-post-action liked">❤️ <span id="postLikes3">61</span></div>
+              <div class="social-post-action">💬 <span id="postComments3">18</span></div>
+              <div class="social-post-action">🔁 <span id="postShares3">22</span></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="social-right">
+          <div class="social-calendar-card">
+            <div class="social-cal-title">April 2026 — Post Schedule</div>
+            <div class="social-cal-grid" id="socialCal"></div>
+          </div>
+          <div class="social-engage-card">
+            <div class="social-engage-title">Engagement by Platform</div>
+            <div class="social-engage-row">
+              <div class="social-engage-label">Facebook</div>
+              <div class="social-engage-bar-wrap"><div class="social-engage-bar" data-width="72"></div></div>
+              <div class="social-engage-pct">7.2%</div>
+            </div>
+            <div class="social-engage-row">
+              <div class="social-engage-label">Instagram</div>
+              <div class="social-engage-bar-wrap"><div class="social-engage-bar" data-width="88"></div></div>
+              <div class="social-engage-pct">8.8%</div>
+            </div>
+            <div class="social-engage-row">
+              <div class="social-engage-label">LinkedIn</div>
+              <div class="social-engage-bar-wrap"><div class="social-engage-bar" data-width="54"></div></div>
+              <div class="social-engage-pct">5.4%</div>
+            </div>
+            <div class="social-engage-row">
+              <div class="social-engage-label">Google</div>
+              <div class="social-engage-bar-wrap"><div class="social-engage-bar" data-width="65"></div></div>
+              <div class="social-engage-pct">6.5%</div>
+            </div>
+          </div>
+          <div class="social-reach-card">
+            <div class="social-reach-num" id="socialMTD">0</div>
+            <div class="social-reach-label">People reached this month across all platforms</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- ── FINAL CTA ──────────────────────────────────────────────────────── -->
   <section style="text-align:center; padding: 100px 52px;">
     <div class="container">
@@ -1941,6 +2364,192 @@
 
       setTimeout(function(){ card.classList.remove('new-review'); }, 4000);
     }, 9000);
+  })();
+  </script>
+
+  <!-- ── LIVE STL FEED JS ──────────────────────────────────────────────── -->
+  <script>
+  (function(){
+    var feed = document.getElementById('lstlFeed');
+    var leadsToday = 0, contacted = 0, nurtured = 0;
+
+    var fakeLeads = [
+      { name: 'James R.', biz: 'River City Roofing' },
+      { name: 'Amanda K.', biz: 'Magnolia Med Spa' },
+      { name: 'Derek W.', biz: 'Delta Pest Control' },
+      { name: 'Sarah M.', biz: 'Pearl HVAC Solutions' },
+      { name: 'Tony B.', biz: 'Brandon Law Group' },
+      { name: 'Lisa C.', biz: 'Jackson Auto Glass' },
+      { name: 'Marcus H.', biz: 'Gulf Coast Realty' },
+      { name: 'Priya N.', biz: 'Flowood Dental Care' },
+      { name: 'Chris P.', biz: 'Rankin County Plumbing' },
+      { name: 'Kelly D.', biz: 'Oak Grove Landscaping' },
+    ];
+
+    var pipelineSteps = [
+      { label: 'Captured', icon: '📥' },
+      { label: 'CRM Created', icon: '🗄️' },
+      { label: 'SMS Sent', icon: '💬' },
+      { label: 'Rep Notified', icon: '🔔' },
+      { label: 'Call Initiated', icon: '📞' },
+      { label: 'Nurture Active', icon: '🔄' },
+    ];
+
+    var leadIdx = 0;
+
+    function createRow(lead) {
+      var row = document.createElement('div');
+      row.className = 'stl-feed-row new-lead';
+      var elapsed = (Math.random() * 30 + 8).toFixed(1) + 's';
+
+      var stepsHtml = pipelineSteps.map(function(s, i){
+        return '<div class="stl-feed-step" id="lstlStep_' + leadIdx + '_' + i + '">' + s.icon + ' ' + s.label + '</div>' +
+          (i < pipelineSteps.length - 1 ? '<div class="stl-feed-arrow">›</div>' : '');
+      }).join('');
+
+      row.innerHTML = '<div class="stl-feed-row-top"><div><div class="stl-feed-name">' + lead.name + '</div><div class="stl-feed-biz">' + lead.biz + '</div></div><div class="stl-feed-elapsed">⚡ ' + elapsed + '</div></div><div class="stl-feed-pipeline">' + stepsHtml + '</div>';
+      return row;
+    }
+
+    function animateSteps(rowId) {
+      pipelineSteps.forEach(function(s, i){
+        setTimeout(function(){
+          var el = document.getElementById('lstlStep_' + rowId + '_' + i);
+          if (!el) return;
+          el.classList.add('active');
+          setTimeout(function(){
+            el.classList.remove('active');
+            el.classList.add('done');
+            if (i === pipelineSteps.length - 1) {
+              contacted++;
+              nurtured++;
+              document.getElementById('lstlContacted').textContent = contacted;
+              document.getElementById('lstlNurtured').textContent = nurtured;
+            }
+          }, 900);
+        }, i * 600);
+      });
+    }
+
+    function addLead() {
+      var lead = fakeLeads[leadIdx % fakeLeads.length];
+      var currentIdx = leadIdx;
+      leadIdx++;
+      leadsToday++;
+      document.getElementById('lstlLeadsToday').textContent = leadsToday;
+
+      var row = createRow(lead);
+      feed.insertBefore(row, feed.firstChild);
+
+      setTimeout(function(){ row.classList.remove('new-lead'); }, 3000);
+
+      animateSteps(currentIdx);
+
+      var rows = feed.querySelectorAll('.stl-feed-row');
+      if (rows.length > 6) feed.removeChild(rows[rows.length - 1]);
+    }
+
+    addLead();
+    setTimeout(addLead, 3500);
+    setTimeout(addLead, 7000);
+
+    setInterval(addLead, 8000);
+  })();
+  </script>
+
+  <!-- ── SOCIAL MEDIA JS ────────────────────────────────────────────────── -->
+  <script>
+  (function(){
+    /* content calendar */
+    var cal = document.getElementById('socialCal');
+    var days = ['S','M','T','W','T','F','S'];
+    days.forEach(function(d){
+      var h = document.createElement('div');
+      h.className = 'social-cal-day-hdr';
+      h.textContent = d;
+      cal.appendChild(h);
+    });
+    var postDays = [1,3,5,8,10,12,15,17,19,22,24,25,26,29];
+    var today = 25;
+    for (var d = 1; d <= 30; d++) {
+      var cell = document.createElement('div');
+      cell.className = 'social-cal-cell';
+      if (d === today) cell.classList.add('today');
+      else if (postDays.indexOf(d) > -1) cell.classList.add('has-post');
+      cell.textContent = d;
+      cal.appendChild(cell);
+    }
+
+    /* engagement bars */
+    setTimeout(function(){
+      document.querySelectorAll('.social-engage-bar').forEach(function(bar){
+        bar.style.width = bar.dataset.width + '%';
+      });
+    }, 600);
+
+    /* MTD reach count-up */
+    var mtdTarget = 18400;
+    var mtdEl = document.getElementById('socialMTD');
+    var mtdStart = null;
+    function countUp(ts) {
+      if (!mtdStart) mtdStart = ts;
+      var prog = Math.min((ts - mtdStart) / 1800, 1);
+      var val = Math.round(mtdTarget * prog);
+      mtdEl.textContent = val >= 1000 ? (val/1000).toFixed(1) + 'k' : val;
+      if (prog < 1) requestAnimationFrame(countUp);
+    }
+
+    var observer = new IntersectionObserver(function(entries){
+      if (entries[0].isIntersecting) {
+        requestAnimationFrame(countUp);
+        observer.disconnect();
+      }
+    }, { threshold: 0.3 });
+    observer.observe(mtdEl);
+
+    /* follower count-ups */
+    var counters = [
+      { id: 'socialFB', target: 1847 },
+      { id: 'socialIG', target: 2341 },
+      { id: 'socialLI', target: 892 },
+    ];
+    counters.forEach(function(c){
+      var el = document.getElementById(c.id);
+      var obs = new IntersectionObserver(function(entries){
+        if (!entries[0].isIntersecting) return;
+        var start = null;
+        function tick(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / 1400, 1);
+          el.textContent = Math.round(c.target * p).toLocaleString();
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        obs.disconnect();
+      }, { threshold: 0.3 });
+      obs.observe(el);
+    });
+
+    /* live engagement increments */
+    var postIds = [
+      { likes: 'postLikes1', comments: 'postComments1', shares: 'postShares1' },
+      { likes: 'postLikes2', comments: 'postComments2', shares: 'postShares2' },
+      { likes: 'postLikes3', comments: 'postComments3', shares: 'postShares3' },
+    ];
+    setInterval(function(){
+      var post = postIds[Math.floor(Math.random() * postIds.length)];
+      var type = Math.random() < 0.6 ? 'likes' : (Math.random() < 0.5 ? 'comments' : 'shares');
+      var el = document.getElementById(post[type]);
+      if (el) el.textContent = parseInt(el.textContent) + 1;
+    }, 4500);
+
+    /* reach ticker */
+    var reachEl = document.getElementById('socialReach');
+    var reachVal = 18400;
+    setInterval(function(){
+      reachVal += Math.floor(Math.random() * 12 + 3);
+      reachEl.textContent = (reachVal / 1000).toFixed(1) + 'k';
+    }, 7000);
   })();
   </script>
 
