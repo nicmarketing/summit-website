@@ -1079,6 +1079,79 @@
     footer a { color: inherit; text-decoration: none; }
     footer a:hover { color: var(--white); }
 
+    /* ── AUTO-TYPE DEMO ───────────────────────────────────────────────── */
+    .stl-demo-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0,174,239,.08);
+      border: 1px solid rgba(0,174,239,.2);
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: .78rem;
+      color: rgba(255,255,255,.75);
+      margin-bottom: 20px;
+    }
+    .stl-demo-dot {
+      width: 7px; height: 7px;
+      background: var(--cyan);
+      border-radius: 50%;
+      animation: blink 1.2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .stl-field input.typing-active,
+    .stl-field select.typing-active {
+      border-color: rgba(0,174,239,.7);
+      background: rgba(0,174,239,.05);
+    }
+    .stl-step-time {
+      font-size: .68rem;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: .02em;
+      margin-top: 3px;
+    }
+    .stl-step-time::before { content: 'at '; opacity: .6; }
+    .stl-sms-preview {
+      display: none;
+      padding: 16px 20px;
+      background: rgba(34,197,94,.05);
+      border-top: 1px solid rgba(34,197,94,.15);
+      animation: slideIn .4s ease both;
+    }
+    .stl-sms-label {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .stl-sms-bubble-wrap { display: flex; align-items: flex-end; gap: 10px; }
+    .stl-sms-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--grad);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .72rem; font-weight: 800;
+      color: var(--bg);
+      flex-shrink: 0;
+    }
+    .stl-sms-bubble {
+      background: rgba(0,174,239,.18);
+      border: 1px solid rgba(0,174,239,.3);
+      border-radius: 18px 18px 4px 18px;
+      padding: 12px 16px;
+      font-size: .84rem;
+      color: var(--white);
+      line-height: 1.55;
+      max-width: 340px;
+    }
+    .stl-sms-time { font-size: .68rem; color: var(--muted); margin-top: 6px; }
+
     /* ── LIVE STL FEED ────────────────────────────────────────────────── */
     .live-stl-wrap {
       display: grid;
@@ -1387,35 +1460,39 @@
           <h3 class="stl-form-title">Let's reach new heights together</h3>
           <p class="stl-form-sub">Tell us about your business. A strategist will call within 60 seconds during business hours.</p>
           <div class="stl-divider"></div>
-          <form id="stlForm">
+          <div class="stl-demo-bar">
+            <span class="stl-demo-dot"></span>
+            <span id="stlDemoStatus">Demo mode — auto-filling now…</span>
+          </div>
+          <form id="stlForm" autocomplete="off">
             <div class="stl-row">
               <div class="stl-field">
                 <label>First Name</label>
-                <input type="text" name="first_name" placeholder="Jane" required />
+                <input type="text" id="stlFname" name="first_name" placeholder="First name…" />
               </div>
               <div class="stl-field">
                 <label>Last Name</label>
-                <input type="text" name="last_name" placeholder="Smith" required />
+                <input type="text" id="stlLname" name="last_name" placeholder="Last name…" />
               </div>
             </div>
             <div class="stl-row">
               <div class="stl-field">
                 <label>Phone</label>
-                <input type="tel" name="phone" placeholder="(601) 555-0100" required />
+                <input type="tel" id="stlPhone" name="phone" placeholder="Phone number…" />
               </div>
               <div class="stl-field">
                 <label>Email</label>
-                <input type="email" name="email" placeholder="jane@example.com" required />
+                <input type="email" id="stlEmail" name="email" placeholder="Email address…" />
               </div>
             </div>
             <div class="stl-row">
               <div class="stl-field">
                 <label>Business Name</label>
-                <input type="text" name="company_name" placeholder="Acme Roofing Co." required />
+                <input type="text" id="stlCompany" name="company_name" placeholder="Business name…" />
               </div>
               <div class="stl-field">
                 <label>Service Interest</label>
-                <select name="service_interest">
+                <select id="stlService" name="service_interest">
                   <option value="">Select a service…</option>
                   <option>SEO &amp; Content Marketing</option>
                   <option>Marketing Automation &amp; CRM</option>
@@ -1427,8 +1504,8 @@
             </div>
             <input type="hidden" name="source" value="Summit Marketing Sales Demo" />
             <input type="hidden" name="lead_source" value="Sales Demo Page" />
-            <button type="submit" class="stl-submit" id="stlSubmitBtn">
-              Start the Clock — Submit Lead →
+            <button type="button" class="stl-submit" id="stlSubmitBtn" onclick="stlManualSubmit()">
+              ↺ Restart Demo
             </button>
           </form>
         </div>
@@ -1441,8 +1518,8 @@
           </div>
           <div class="stl-steps">
             <div id="stlIdleMsg" class="stl-idle-msg">
-              <strong>Ready to demo</strong>
-              Submit the form to watch the pipeline fire live. Every step here represents a real automation trigger in your account.
+              <strong>Auto-Demo Starting…</strong>
+              Watch the form fill itself and the pipeline fire in real time — this loops automatically with a new lead each cycle.
             </div>
             <div id="stlStep1" class="stl-step" style="display:none;">
               <div class="stl-step-icon">📥</div>
@@ -1505,7 +1582,19 @@
             </div>
             <div class="stl-complete-time" id="stlFinalTime">—</div>
             <div class="stl-complete-label">Total automation time — that's your Speed-to-Lead</div>
-            <button class="stl-reset" id="stlResetBtn">↺ Run Demo Again</button>
+            <button class="stl-reset" id="stlResetBtn">↺ Run Next Demo</button>
+          </div>
+          <div class="stl-sms-preview" id="stlSmsPreview">
+            <div class="stl-sms-label">
+              <span>✓</span> SMS Delivered · <span id="stlSmsElapsed"></span>
+            </div>
+            <div class="stl-sms-bubble-wrap">
+              <div class="stl-sms-avatar" id="stlSmsAvatar">?</div>
+              <div>
+                <div class="stl-sms-bubble" id="stlSmsBubble">Hey! We just got your request…</div>
+                <div class="stl-sms-time">Delivered · Just now</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2143,51 +2232,123 @@
     data-widget-id="69ab22b6d72daa7a88db42e8">
   </script>
 
-  <!-- ── SPEED-TO-LEAD JS ───────────────────────────────────────────────── -->
+  <!-- ── SPEED-TO-LEAD AUTO-DEMO JS ────────────────────────────────────── -->
   <script>
-  (function(){
-    var form = document.getElementById('stlForm');
-    var submitBtn = document.getElementById('stlSubmitBtn');
-    var timer = document.getElementById('stlTimer');
-    var idleMsg = document.getElementById('stlIdleMsg');
-    var complete = document.getElementById('stlComplete');
-    var finalTime = document.getElementById('stlFinalTime');
-    var resetBtn = document.getElementById('stlResetBtn');
+  var stlDemo = (function(){
+    var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ';
 
-    var steps = [
-      { id: 'stlStep1', timeId: 'stlTime1', delay: 0,    name: 'Lead Captured',           status: 'Received' },
-      { id: 'stlStep2', timeId: 'stlTime2', delay: 1800, name: 'CRM Contact Created',      status: 'Created' },
-      { id: 'stlStep3', timeId: 'stlTime3', delay: 4200, name: 'SMS Sent to Lead',          status: 'Sent' },
-      { id: 'stlStep4', timeId: 'stlTime4', delay: 6500, name: 'Rep Notified',             status: 'Notified' },
-      { id: 'stlStep5', timeId: 'stlTime5', delay: 9000, name: 'Automated Call Initiated', status: 'Dialing' },
-      { id: 'stlStep6', timeId: 'stlTime6', delay: 13000,'name': 'Follow-up Email Queued', status: 'Queued' }
+    var fakeLeads = [
+      { first:'James',  last:'Richardson', phone:'(601) 555-0142', email:'james.r@example.com',  company:'River City Roofing',    service:'SEO & Content Marketing' },
+      { first:'Amanda', last:'Kowalski',   phone:'(769) 555-0278', email:'amanda.k@example.com', company:'Magnolia Med Spa',      service:'Marketing Automation & CRM' },
+      { first:'Derek',  last:'Washington', phone:'(601) 555-0319', email:'derek.w@example.com',  company:'Delta Pest Control',    service:'Reputation Management' },
+      { first:'Sarah',  last:'Monroe',     phone:'(769) 555-0487', email:'sarah.m@example.com',  company:'Pearl HVAC Solutions',  service:'Full-Stack Growth Strategy' },
+      { first:'Marcus', last:'Henderson',  phone:'(601) 555-0561', email:'marcus.h@example.com', company:'Gulf Coast Realty',     service:'Web Design & Development' },
+      { first:'Priya',  last:'Nguyen',     phone:'(769) 555-0634', email:'priya.n@example.com',  company:'Flowood Dental Care',   service:'SEO & Content Marketing' },
     ];
 
+    var steps = [
+      { id:'stlStep1', timeId:'stlTime1', delay:0,     dur:900,  status:'Received', label:'Lead Captured' },
+      { id:'stlStep2', timeId:'stlTime2', delay:1600,  dur:1000, status:'Created',  label:'CRM Contact Created' },
+      { id:'stlStep3', timeId:'stlTime3', delay:4200,  dur:1100, status:'Sent',     label:'SMS Sent to Lead' },
+      { id:'stlStep4', timeId:'stlTime4', delay:6800,  dur:900,  status:'Notified', label:'Rep Notified' },
+      { id:'stlStep5', timeId:'stlTime5', delay:9400,  dur:1100, status:'Dialing',  label:'Call Initiated' },
+      { id:'stlStep6', timeId:'stlTime6', delay:13000, dur:800,  status:'Queued',   label:'Nurture Queued' },
+    ];
+
+    var leadIdx = 0;
     var startTs = null;
     var timerInterval = null;
-    var stepTimeouts = [];
+    var allTimeouts = [];
+    var running = false;
 
-    function formatMs(ms) {
-      var s = Math.floor(ms / 1000);
-      var m = Math.floor(s / 60);
+    var els = {
+      timer:      document.getElementById('stlTimer'),
+      idleMsg:    document.getElementById('stlIdleMsg'),
+      complete:   document.getElementById('stlComplete'),
+      finalTime:  document.getElementById('stlFinalTime'),
+      resetBtn:   document.getElementById('stlResetBtn'),
+      submitBtn:  document.getElementById('stlSubmitBtn'),
+      demoStatus: document.getElementById('stlDemoStatus'),
+      smsPreview: document.getElementById('stlSmsPreview'),
+      smsElapsed: document.getElementById('stlSmsElapsed'),
+      smsAvatar:  document.getElementById('stlSmsAvatar'),
+      smsBubble:  document.getElementById('stlSmsBubble'),
+    };
+
+    var fields = {
+      fname:   document.getElementById('stlFname'),
+      lname:   document.getElementById('stlLname'),
+      phone:   document.getElementById('stlPhone'),
+      email:   document.getElementById('stlEmail'),
+      company: document.getElementById('stlCompany'),
+      service: document.getElementById('stlService'),
+    };
+
+    function fmt(ms) {
+      var s = Math.floor(ms/1000), m = Math.floor(s/60);
       s = s % 60;
-      var tenth = Math.floor((ms % 1000) / 100);
-      return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s + '.' + tenth;
+      return (m<10?'0':'')+m+':'+(s<10?'0':'')+s+'.'+Math.floor((ms%1000)/100);
     }
 
-    function startTimer() {
-      startTs = Date.now();
-      timerInterval = setInterval(function(){
-        timer.textContent = formatMs(Date.now() - startTs);
-      }, 100);
+    function addTimeout(fn, delay) {
+      var t = setTimeout(fn, delay);
+      allTimeouts.push(t);
+      return t;
     }
 
-    function stopTimer() {
+    function clearAll() {
+      allTimeouts.forEach(clearTimeout);
+      allTimeouts = [];
       clearInterval(timerInterval);
     }
 
-    function fireStep(stepIdx) {
-      var s = steps[stepIdx];
+    function typeField(el, text, speed, done) {
+      el.classList.add('typing-active');
+      el.value = '';
+      var i = 0;
+      function tick() {
+        if (i < text.length) {
+          el.value += text[i++];
+          var jitter = speed * 0.4;
+          var t = setTimeout(tick, speed - jitter + Math.random() * jitter * 2);
+          allTimeouts.push(t);
+        } else {
+          el.classList.remove('typing-active');
+          if (done) done();
+        }
+      }
+      tick();
+    }
+
+    function typeSequence(lead, onDone) {
+      var seq = [
+        { el: fields.fname,   text: lead.first,   speed: 95 },
+        { el: fields.lname,   text: lead.last,     speed: 85 },
+        { el: fields.phone,   text: lead.phone,    speed: 75 },
+        { el: fields.email,   text: lead.email,    speed: 65 },
+        { el: fields.company, text: lead.company,  speed: 80 },
+      ];
+      var idx = 0;
+      function next() {
+        if (idx < seq.length) {
+          var f = seq[idx++];
+          addTimeout(function(){ typeField(f.el, f.text, f.speed, next); }, 280);
+        } else {
+          addTimeout(function(){
+            fields.service.classList.add('typing-active');
+            fields.service.value = lead.service;
+            addTimeout(function(){
+              fields.service.classList.remove('typing-active');
+              onDone();
+            }, 450);
+          }, 320);
+        }
+      }
+      next();
+    }
+
+    function fireStep(idx, lead) {
+      var s = steps[idx];
       var el = document.getElementById(s.id);
       var timeEl = document.getElementById(s.timeId);
       var statusEl = el.querySelector('.stl-step-status');
@@ -2195,40 +2356,58 @@
       el.style.display = 'flex';
       el.classList.add('active');
       statusEl.textContent = 'Processing…';
+      timeEl.textContent = fmt(Date.now() - startTs);
 
-      var elapsed = Date.now() - startTs;
-      timeEl.textContent = 'at ' + formatMs(elapsed);
-
-      setTimeout(function(){
+      addTimeout(function(){
         el.classList.remove('active');
         el.classList.add('done');
         statusEl.textContent = s.status;
 
-        if (stepIdx === steps.length - 1) {
-          stopTimer();
-          var total = Date.now() - startTs;
-          finalTime.textContent = formatMs(total);
-          complete.classList.add('show');
+        if (idx === 2) {
+          var elapsed = fmt(Date.now() - startTs);
+          els.smsElapsed.textContent = elapsed;
+          els.smsAvatar.textContent = lead.first[0] + lead.last[0];
+          els.smsBubble.innerHTML = 'Hey <strong>' + lead.first + '</strong>! This is Summit Marketing — we just received your info for <em>' + lead.service + '</em>. We\'re on it, a strategist will be reaching out to you shortly! 🏔';
+          els.smsPreview.style.display = 'block';
         }
-      }, 1200);
+
+        if (idx === steps.length - 1) {
+          clearInterval(timerInterval);
+          els.finalTime.textContent = fmt(Date.now() - startTs);
+          els.complete.classList.add('show');
+          addTimeout(function(){ resetAndRun(); }, 6000);
+        }
+      }, s.dur);
     }
 
-    function runPipeline() {
-      idleMsg.style.display = 'none';
-      startTimer();
+    function runPipeline(lead) {
+      els.idleMsg.style.display = 'none';
+      startTs = Date.now();
+      timerInterval = setInterval(function(){
+        els.timer.textContent = fmt(Date.now() - startTs);
+      }, 100);
+
+      fetch(WEBHOOK, {
+        method: 'POST',
+        body: new URLSearchParams({
+          first_name: lead.first, last_name: lead.last,
+          phone: lead.phone, email: lead.email,
+          company_name: lead.company, service_interest: lead.service,
+          source: 'Summit Marketing Sales Demo', lead_source: 'Sales Demo Page'
+        })
+      }).catch(function(){});
+
       steps.forEach(function(s, i){
-        var t = setTimeout(function(){ fireStep(i); }, s.delay);
-        stepTimeouts.push(t);
+        addTimeout(function(){ fireStep(i, lead); }, s.delay);
       });
     }
 
-    function resetDemo() {
-      stopTimer();
-      stepTimeouts.forEach(clearTimeout);
-      stepTimeouts = [];
-      timer.textContent = '00:00.0';
-      complete.classList.remove('show');
-      idleMsg.style.display = 'block';
+    function resetDisplay() {
+      clearInterval(timerInterval);
+      els.timer.textContent = '00:00.0';
+      els.complete.classList.remove('show');
+      els.smsPreview.style.display = 'none';
+      els.idleMsg.style.display = 'block';
       steps.forEach(function(s){
         var el = document.getElementById(s.id);
         el.style.display = 'none';
@@ -2236,25 +2415,41 @@
         el.querySelector('.stl-step-status').textContent = 'Pending';
         document.getElementById(s.timeId).textContent = '';
       });
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Start the Clock — Submit Lead →';
+      Object.values(fields).forEach(function(f){
+        if (f.tagName === 'SELECT') f.selectedIndex = 0;
+        else f.value = '';
+        f.classList.remove('typing-active');
+      });
     }
 
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Lead Submitted — Watch the Pipeline…';
+    function startDemo(lead) {
+      els.demoStatus.textContent = 'Simulating: ' + lead.first + ' ' + lead.last + ' · ' + lead.company;
+      addTimeout(function(){
+        typeSequence(lead, function(){
+          els.submitBtn.textContent = 'Lead Submitted — Pipeline Running…';
+          els.demoStatus.textContent = 'Pipeline firing — watch each step…';
+          addTimeout(function(){ runPipeline(lead); }, 500);
+        });
+      }, 900);
+    }
 
-      fetch('https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ', {
-        method: 'POST',
-        body: new URLSearchParams(new FormData(form))
-      }).catch(function(){});
+    function resetAndRun() {
+      clearAll();
+      resetDisplay();
+      leadIdx = (leadIdx + 1) % fakeLeads.length;
+      els.submitBtn.textContent = '↺ Restart Demo';
+      els.demoStatus.textContent = 'Loading next demo lead…';
+      addTimeout(function(){ startDemo(fakeLeads[leadIdx]); }, 1400);
+    }
 
-      runPipeline();
-    });
+    els.resetBtn.addEventListener('click', function(){ clearAll(); resetAndRun(); });
 
-    resetBtn.addEventListener('click', resetDemo);
+    addTimeout(function(){ startDemo(fakeLeads[leadIdx]); }, 1200);
+
+    return { restart: function(){ clearAll(); resetDisplay(); leadIdx = 0; addTimeout(function(){ startDemo(fakeLeads[0]); }, 400); } };
   })();
+
+  function stlManualSubmit() { stlDemo.restart(); }
   </script>
 
   <!-- ── ROI CALCULATOR JS ──────────────────────────────────────────────── -->
