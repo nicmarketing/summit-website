@@ -2594,15 +2594,7 @@
         els.timer.textContent = fmt(Date.now() - startTs);
       }, 100);
 
-      fetch(WEBHOOK, {
-        method: 'POST',
-        body: new URLSearchParams({
-          first_name: lead.first, last_name: lead.last,
-          phone: lead.phone, email: lead.email,
-          company_name: lead.company, service_interest: lead.service,
-          source: 'Summit Marketing Sales Demo', lead_source: 'Sales Demo Page'
-        })
-      }).catch(function(){});
+      /* Demo only — no real webhook fire */
 
       steps.forEach(function(s, i){
         addTimeout(function(){ fireStep(i, lead); }, s.delay);
