@@ -1302,6 +1302,133 @@
     }
     .stl-sms-time { font-size: .68rem; color: var(--muted); margin-top: 6px; }
 
+    /* ── AUTOMATION TABS ──────────────────────────────────────────────── */
+    .auto-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .auto-tab {
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: .84rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: transparent;
+      font-family: 'Inter', Arial, sans-serif;
+      transition: all .15s;
+    }
+    .auto-tab:hover { border-color: rgba(0,174,239,.4); color: var(--white); }
+    .auto-tab.active {
+      background: var(--grad);
+      color: var(--bg);
+      border-color: transparent;
+      font-weight: 700;
+    }
+    .auto-panel { display: none; }
+    .auto-panel.active { display: block; }
+    .auto-panel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+    .tl-wrap {
+      position: relative;
+      padding-left: 28px;
+    }
+    .tl-wrap::before {
+      content: '';
+      position: absolute;
+      left: 8px; top: 4px; bottom: 4px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue), rgba(0,174,239,0));
+    }
+    .tl-item { position: relative; margin-bottom: 28px; }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -24px; top: 4px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--blue);
+      border: 3px solid var(--bg);
+    }
+    .tl-dot.green { background: var(--green); }
+    .tl-dot.amber { background: var(--amber); }
+    .tl-time {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 4px;
+    }
+    .tl-title { font-size: .92rem; font-weight: 700; margin-bottom: 4px; }
+    .tl-body { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+    .msg-preview {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 10px;
+      font-size: .82rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.6;
+    }
+    .msg-channel {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    .msg-channel.sms { background: rgba(34,197,94,.15); color: var(--green); }
+    .msg-channel.email { background: rgba(0,174,239,.15); color: var(--cyan); }
+    .msg-channel.call { background: rgba(245,158,11,.15); color: var(--amber); }
+    .auto-panel-right { display: flex; flex-direction: column; gap: 14px; }
+    .auto-mini-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: border-color .2s;
+    }
+    .auto-mini-card:hover { border-color: rgba(0,174,239,.3); }
+    .auto-mini-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(0,174,239,.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .auto-mini-name { font-size: .88rem; font-weight: 700; margin-bottom: 3px; }
+    .auto-mini-desc { font-size: .78rem; color: var(--muted); line-height: 1.5; }
+    .auto-mini-tag {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(0,174,239,.12);
+      color: var(--cyan);
+    }
+
     /* ── LIVE STL FEED ────────────────────────────────────────────────── */
     .live-stl-wrap {
       display: grid;
@@ -1583,7 +1710,6 @@
       </p>
       <div class="hero-pills">
         <a href="#speed-to-lead" class="hero-pill">⚡ Speed-to-Lead</a>
-        <a href="#live-stl" class="hero-pill">📡 Live STL Feed</a>
         <a href="#roi" class="hero-pill">📈 ROI Calculator</a>
         <a href="#services" class="hero-pill">🛠 Services</a>
         <a href="#social" class="hero-pill">📱 Social Media</a>
@@ -1957,82 +2083,354 @@
       <div class="section-header">
         <div class="section-eyebrow">Under the Hood · Automation</div>
         <h2 class="section-title">Built-in automations<br /><em>that never clock out.</em></h2>
-        <p class="section-sub">Every Summit plan includes a core set of automations wired up in your GoHighLevel account — running without lifting a finger.</p>
+        <p class="section-sub">Every system we build includes a full stack of automations wired up and running 24/7 — no manual effort required from your team.</p>
       </div>
-      <div class="auto-grid">
-        <div class="auto-tile">
-          <div class="auto-tile-icon">⚡</div>
-          <div class="auto-tile-name">Speed-to-Lead</div>
-          <div class="auto-tile-desc">New lead → call attempt &amp; SMS in under 60 seconds, 24/7</div>
-        </div>
-        <div class="auto-tile">
-          <div class="auto-tile-icon">🔄</div>
-          <div class="auto-tile-name">Lead Nurture</div>
-          <div class="auto-tile-desc">Multi-step email + SMS sequence over 30 days to warm cold leads</div>
-        </div>
-        <div class="auto-tile">
-          <div class="auto-tile-icon">⭐</div>
-          <div class="auto-tile-name">Review Requests</div>
-          <div class="auto-tile-desc">Post-service SMS/email requesting a Google review automatically</div>
-        </div>
-        <div class="auto-tile">
-          <div class="auto-tile-icon">📅</div>
-          <div class="auto-tile-name">Appointment Reminders</div>
-          <div class="auto-tile-desc">Automated confirmations &amp; reminders that cut no-shows by 60%</div>
-        </div>
-        <div class="auto-tile">
-          <div class="auto-tile-icon">🛒</div>
-          <div class="auto-tile-name">Abandoned Pipeline</div>
-          <div class="auto-tile-desc">Re-engage stalled deals with timed follow-up sequences</div>
-        </div>
-        <div class="auto-tile">
-          <div class="auto-tile-icon">🎉</div>
-          <div class="auto-tile-name">Win Celebration</div>
-          <div class="auto-tile-desc">Automated onboarding sequence fires the moment a deal closes</div>
-        </div>
-        <div class="auto-tile">
-          <div class="auto-tile-icon">📊</div>
-          <div class="auto-tile-name">Monthly Reports</div>
-          <div class="auto-tile-desc">Automated performance dashboards delivered to your inbox</div>
-        </div>
-        <div class="auto-tile">
-          <div class="auto-tile-icon">🤖</div>
-          <div class="auto-tile-name">AI Chat &amp; SMS Bot</div>
-          <div class="auto-tile-desc">Qualifies leads 24/7, books appointments, answers FAQs — zero human required</div>
-        </div>
+
+      <div class="auto-tabs">
+        <button class="auto-tab active" onclick="showAutoTab('stl')">⚡ Speed-to-Lead</button>
+        <button class="auto-tab" onclick="showAutoTab('followup')">🔄 7-Day Follow-Up</button>
+        <button class="auto-tab" onclick="showAutoTab('reminders')">📅 Appointment Reminders</button>
+        <button class="auto-tab" onclick="showAutoTab('estimate')">📋 Estimate Follow-Up</button>
+        <button class="auto-tab" onclick="showAutoTab('recovery')">🔁 Cancellation Recovery</button>
+        <button class="auto-tab" onclick="showAutoTab('lifetime')">♾️ Customer Lifetime</button>
       </div>
-      <div class="auto-flow">
-        <div class="auto-flow-title">Example: New Lead Workflow</div>
-        <div class="auto-flow-steps">
-          <div class="auto-flow-step">
-            <div class="auto-flow-node">Form Submit</div>
-            <div class="auto-flow-arrow">→</div>
+
+      <!-- Speed-to-Lead -->
+      <div class="auto-panel active" id="autopanel-stl">
+        <div class="auto-panel-grid">
+          <div class="tl-wrap">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">T + 0 seconds</div>
+              <div class="tl-title">Lead submits form or calls in</div>
+              <div class="tl-body">From any source — Google, Facebook, your website, or a phone call. The system catches every one, 24/7.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">T + &lt;5 seconds</div>
+              <div class="tl-title">CRM contact created &amp; tagged by source</div>
+              <div class="tl-body">A contact record is created automatically. Source tag applied so your team knows exactly where the lead came from.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">T + &lt;30 seconds</div>
+              <div class="tl-title">Personalized SMS fires</div>
+              <div class="tl-body">The lead gets a text that sounds like it came directly from your business.</div>
+              <div class="msg-preview">
+                <div class="msg-channel sms">📱 SMS</div>
+                Hey <strong>[First Name]</strong>, this is <strong>[Your Company]</strong>! We just got your request — we're on it and someone will be reaching out to you shortly. Reply STOP to opt out.
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot green"></div>
+              <div class="tl-time">T + &lt;60 seconds</div>
+              <div class="tl-title">Rep notified &amp; AI call initiated</div>
+              <div class="tl-body">Your assigned rep gets an instant push alert. Simultaneously, an AI-assisted outbound call attempt connects your team to the lead — while they're still on your site.</div>
+            </div>
           </div>
-          <div class="auto-flow-step">
-            <div class="auto-flow-node">CRM Contact Created</div>
-            <div class="auto-flow-arrow">→</div>
-          </div>
-          <div class="auto-flow-step">
-            <div class="auto-flow-node">SMS: "We got you!"</div>
-            <div class="auto-flow-arrow">→</div>
-          </div>
-          <div class="auto-flow-step">
-            <div class="auto-flow-node">Rep Notified</div>
-            <div class="auto-flow-arrow">→</div>
-          </div>
-          <div class="auto-flow-step">
-            <div class="auto-flow-node">Auto-Dial Attempt</div>
-            <div class="auto-flow-arrow">→</div>
-          </div>
-          <div class="auto-flow-step">
-            <div class="auto-flow-node">30-Day Email Nurture</div>
-            <div class="auto-flow-arrow">→</div>
-          </div>
-          <div class="auto-flow-step">
-            <div class="auto-flow-node">Pipeline Stage Updated</div>
+          <div class="auto-panel-right">
+            <div class="auto-mini-card">
+              <div class="auto-mini-icon">⚡</div>
+              <div>
+                <div class="auto-mini-name">Why it matters</div>
+                <div class="auto-mini-desc">Studies show 78% of sales go to the first responder. Calling within 60 seconds makes you 60× more likely to connect than calling within an hour.</div>
+                <span class="auto-mini-tag">Speed wins deals</span>
+              </div>
+            </div>
+            <div class="auto-mini-card">
+              <div class="auto-mini-icon">🔁</div>
+              <div>
+                <div class="auto-mini-name">No answer? No problem.</div>
+                <div class="auto-mini-desc">If the first call doesn't connect, a 7-day follow-up sequence activates automatically — SMS, email, and call attempts on a smart schedule.</div>
+                <span class="auto-mini-tag">Zero leads slip through</span>
+              </div>
+            </div>
+            <div class="auto-mini-card">
+              <div class="auto-mini-icon">🌐</div>
+              <div>
+                <div class="auto-mini-name">Works from any source</div>
+                <div class="auto-mini-desc">Website forms, Google LSA, Facebook Lead Ads, Angi, phone calls — every lead source feeds into the same instant pipeline.</div>
+                <span class="auto-mini-tag">Omnichannel coverage</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- 7-Day Follow-Up -->
+      <div class="auto-panel" id="autopanel-followup">
+        <div class="auto-panel-grid">
+          <div class="tl-wrap">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">Day 0 — Immediately</div>
+              <div class="tl-title">Initial contact attempt</div>
+              <div class="tl-body">SMS + call fires within 60 seconds of lead submission. If no response, the follow-up sequence arms automatically.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">Day 1 — 10:00 AM</div>
+              <div class="tl-title">Follow-up SMS</div>
+              <div class="tl-body">A friendly check-in — casual tone, no pressure.</div>
+              <div class="msg-preview">
+                <div class="msg-channel sms">📱 SMS</div>
+                Hey <strong>[First Name]</strong>, just wanted to make sure you got our message yesterday! We'd love to connect and see how we can help. When's a good time?
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">Day 3 — 9:00 AM</div>
+              <div class="tl-title">Value-add email</div>
+              <div class="tl-body">An email that educates and builds trust — not a hard sell. Positions your business as the obvious choice.</div>
+              <div class="msg-preview">
+                <div class="msg-channel email">✉️ Email</div>
+                Subject: <strong>3 things to look for when choosing [your service type]</strong><br />A helpful guide that subtly highlights your differentiators and ends with a soft CTA.
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot green"></div>
+              <div class="tl-time">Day 5 &amp; 7 — Final Touches</div>
+              <div class="tl-title">Second call + closing SMS</div>
+              <div class="tl-body">One more call attempt on day 5, then a final "closing the loop" text on day 7. After that, the contact moves to a long-term nurture list — not deleted.</div>
+            </div>
+          </div>
+          <div class="auto-panel-right">
+            <div class="auto-mini-card">
+              <div class="auto-mini-icon">📊</div>
+              <div>
+                <div class="auto-mini-name">80% of sales require 5+ follow-ups</div>
+                <div class="auto-mini-desc">Most businesses give up after 1–2 attempts. This sequence runs all 7 days automatically — you never have to remember to follow up.</div>
+                <span class="auto-mini-tag">Set it and forget it</span>
+              </div>
+            </div>
+            <div class="auto-mini-card">
+              <div class="auto-mini-icon">🛑</div>
+              <div>
+                <div class="auto-mini-name">Stops the moment they reply</div>
+                <div class="auto-mini-desc">As soon as a lead responds or books, the sequence halts instantly. No awkward messages after they've already converted.</div>
+                <span class="auto-mini-tag">Smart &amp; context-aware</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Appointment Reminders -->
+      <div class="auto-panel" id="autopanel-reminders">
+        <div class="auto-panel-grid">
+          <div class="tl-wrap">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">Immediately after booking</div>
+              <div class="tl-title">Confirmation SMS + Email</div>
+              <div class="tl-body">The moment an appointment is booked, a confirmation fires with the date, time, and what to expect.</div>
+              <div class="msg-preview">
+                <div class="msg-channel sms">📱 SMS</div>
+                You're confirmed! <strong>[Your Company]</strong> will be there <strong>[Date]</strong> between <strong>[Time Window]</strong>. Reply C to confirm or call us to reschedule.
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">24 hours before</div>
+              <div class="tl-title">Day-before reminder</div>
+              <div class="tl-body">A reminder SMS that prompts the customer to confirm — cuts no-shows by up to 60%.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">2 hours before</div>
+              <div class="tl-title">Final reminder</div>
+              <div class="tl-body">Last-chance nudge so they're ready when your team arrives. Includes the rep's name for a personal touch.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot amber"></div>
+              <div class="tl-time">No-show detected</div>
+              <div class="tl-title">Automatic reschedule sequence</div>
+              <div class="tl-body">If the appointment is marked as a no-show, a reschedule flow fires automatically — no manual follow-up needed.</div>
+            </div>
+          </div>
+          <div class="auto-panel-right">
+            <div class="auto-mini-card">
+              <div class="auto-mini-icon">📉</div>
+              <div>
+                <div class="auto-mini-name">Cuts no-shows by up to 60%</div>
+                <div class="auto-mini-desc">Every missed appointment is lost revenue. This sequence runs automatically for every booking across every tech you use.</div>
+                <span class="auto-mini-tag">Protect your schedule</span>
+              </div>
+            </div>
+            <div class="auto-mini-card">
+              <div class="auto-mini-icon">🔗</div>
+              <div>
+                <div class="auto-mini-name">Connects to your calendar</div>
+                <div class="auto-mini-desc">Works with your existing booking system — whether that's GHL, Calendly, or your own scheduling tool.</div>
+                <span class="auto-mini-tag">No new tools required</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Estimate Follow-Up -->
+      <div class="auto-panel" id="autopanel-estimate">
+        <div class="auto-panel-grid">
+          <div class="tl-wrap">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">Same day as estimate sent</div>
+              <div class="tl-title">Thank-you SMS</div>
+              <div class="tl-body">A quick, warm message thanking them for the opportunity and confirming they received the estimate.</div>
+              <div class="msg-preview">
+                <div class="msg-channel sms">📱 SMS</div>
+                Hey <strong>[First Name]</strong>, thanks for letting us take a look! Your estimate was just sent — let us know if you have any questions. We'd love to earn your business!
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">Day 2</div>
+              <div class="tl-title">Check-in call + voicemail</div>
+              <div class="tl-body">A personal touch — your rep or AI places a call to answer any questions and move them toward a decision.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">Day 5</div>
+              <div class="tl-title">Value-add email</div>
+              <div class="tl-body">An email that reinforces your credibility — testimonials, guarantees, or a breakdown of what makes your estimate worth it.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot green"></div>
+              <div class="tl-time">Day 10</div>
+              <div class="tl-title">Final closing SMS</div>
+              <div class="tl-body">A low-pressure final message. If still no response, the contact moves to long-term nurture — never permanently lost.</div>
+            </div>
+          </div>
+          <div class="auto-panel-right">
+            <div class="auto-mini-card">
+              <div class="auto-mini-icon">💵</div>
+              <div>
+                <div class="auto-mini-name">Stop losing warm leads</div>
+                <div class="auto-mini-desc">Most estimates die because nobody follows up. This sequence works every sent estimate automatically — recovering deals your competitors miss.</div>
+                <span class="auto-mini-tag">Recover lost revenue</span>
+              </div>
+            </div>
+            <div class="auto-mini-card">
+              <div class="auto-mini-icon">✅</div>
+              <div>
+                <div class="auto-mini-name">Stops on acceptance</div>
+                <div class="auto-mini-desc">The moment they accept or you mark it won, the sequence halts and a new client onboarding flow can fire in its place.</div>
+                <span class="auto-mini-tag">Seamless handoff</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cancellation Recovery -->
+      <div class="auto-panel" id="autopanel-recovery">
+        <div class="auto-panel-grid">
+          <div class="tl-wrap">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">Immediately on cancellation</div>
+              <div class="tl-title">Acknowledgment + reschedule offer</div>
+              <div class="tl-body">A friendly, no-pressure message that acknowledges the cancellation and offers an easy path to reschedule.</div>
+              <div class="msg-preview">
+                <div class="msg-channel sms">📱 SMS</div>
+                Hey <strong>[First Name]</strong>, no worries at all! Whenever you're ready, we'd love to get you back on the schedule. Just reply here and we'll take care of it.
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">Day 3</div>
+              <div class="tl-title">Second outreach</div>
+              <div class="tl-body">Another gentle nudge with a direct booking link — makes it as easy as possible for them to come back.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot amber"></div>
+              <div class="tl-time">Day 7</div>
+              <div class="tl-title">Incentive offer (optional)</div>
+              <div class="tl-body">An optional discount, priority scheduling, or added-value offer to win them back before they go to a competitor.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot green"></div>
+              <div class="tl-time">Day 14</div>
+              <div class="tl-title">Final attempt + long-term nurture</div>
+              <div class="tl-body">Last outreach. If still no response, they roll into a seasonal re-engagement list — not deleted from your CRM.</div>
+            </div>
+          </div>
+          <div class="auto-panel-right">
+            <div class="auto-mini-card">
+              <div class="auto-mini-icon">🔁</div>
+              <div>
+                <div class="auto-mini-name">Win back 20–35% of cancellations</div>
+                <div class="auto-mini-desc">Most cancellations aren't permanent — life gets in the way. A smart recovery sequence brings a significant percentage back without any manual work.</div>
+                <span class="auto-mini-tag">Recapture revenue</span>
+              </div>
+            </div>
+            <div class="auto-mini-card">
+              <div class="auto-mini-icon">🤝</div>
+              <div>
+                <div class="auto-mini-name">Preserve the relationship</div>
+                <div class="auto-mini-desc">The tone stays warm and helpful — never pushy. Even if they don't rebook now, they'll remember you when they're ready.</div>
+                <span class="auto-mini-tag">Long-game thinking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer Lifetime -->
+      <div class="auto-panel" id="autopanel-lifetime">
+        <div class="auto-panel-grid">
+          <div class="tl-wrap">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">Within 24 hours of job completion</div>
+              <div class="tl-title">Review request SMS</div>
+              <div class="tl-body">Strike while the experience is fresh — an automated text asking for a Google review with a direct link.</div>
+              <div class="msg-preview">
+                <div class="msg-channel sms">📱 SMS</div>
+                Hey <strong>[First Name]</strong>! Hope everything went great today. If you have 60 seconds, a Google review would mean the world to us: <strong>[Direct Link]</strong> — thanks so much! 🙏
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">30 days later</div>
+              <div class="tl-title">Satisfaction check-in</div>
+              <div class="tl-body">A quick check-in to make sure they're happy and plant the seed for repeat service or a referral ask.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-time">Seasonal touchpoints</div>
+              <div class="tl-title">Maintenance &amp; seasonal reminders</div>
+              <div class="tl-body">Timed reminders relevant to your industry — spring tune-ups, annual inspections, seasonal promotions — keeping you top-of-mind year-round.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot green"></div>
+              <div class="tl-time">Ongoing</div>
+              <div class="tl-title">Referral &amp; loyalty campaigns</div>
+              <div class="tl-body">Automated campaigns that reward loyal customers and incentivize referrals — turning your best clients into your best salespeople.</div>
+            </div>
+          </div>
+          <div class="auto-panel-right">
+            <div class="auto-mini-card">
+              <div class="auto-mini-icon">💰</div>
+              <div>
+                <div class="auto-mini-name">A past customer is worth 5× a new one</div>
+                <div class="auto-mini-desc">Repeat business and referrals cost almost nothing to acquire. This system keeps your past clients warm and buying — automatically.</div>
+                <span class="auto-mini-tag">Maximize LTV</span>
+              </div>
+            </div>
+            <div class="auto-mini-card">
+              <div class="auto-mini-icon">⭐</div>
+              <div>
+                <div class="auto-mini-name">Build your review count on autopilot</div>
+                <div class="auto-mini-desc">Every completed job becomes a review request. Clients who don't review get a follow-up. Your rating grows without you lifting a finger.</div>
+                <span class="auto-mini-tag">Reputation on autopilot</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -2142,58 +2540,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ── LIVE STL FEED ────────────────────────────────────────────────────── -->
-  <section id="live-stl">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Live Feed · Speed-to-Lead</div>
-        <h2 class="section-title">Watch leads get <em>worked in real time.</em></h2>
-        <p class="section-sub">This is your pipeline running live — every new lead captured, contacted, and followed up with automatically. No human needed.</p>
-      </div>
-      <div class="live-stl-wrap">
-        <div class="live-stl-stats">
-          <div class="live-stat-card">
-            <div>
-              <div class="live-stat-val" id="lstlLeadsToday">0</div>
-              <div class="live-stat-label">Leads processed<br />today</div>
-            </div>
-            <div class="live-stat-icon">📥</div>
-          </div>
-          <div class="live-stat-card">
-            <div>
-              <div class="live-stat-val" id="lstlAvgTime">&lt;60s</div>
-              <div class="live-stat-label">Avg. response<br />time</div>
-            </div>
-            <div class="live-stat-icon">⚡</div>
-          </div>
-          <div class="live-stat-card">
-            <div>
-              <div class="live-stat-val" id="lstlContacted">0</div>
-              <div class="live-stat-label">Leads contacted<br />automatically</div>
-            </div>
-            <div class="live-stat-icon">📞</div>
-          </div>
-          <div class="live-stat-card">
-            <div>
-              <div class="live-stat-val" id="lstlNurtured">0</div>
-              <div class="live-stat-label">In nurture<br />sequence</div>
-            </div>
-            <div class="live-stat-icon">🔄</div>
-          </div>
-        </div>
-        <div class="live-stl-feed-wrap">
-          <div class="live-stl-feed-header">
-            <div class="live-stl-feed-title">Live Pipeline Activity</div>
-            <div class="rep-live-badge"><span class="rep-live-dot"></span> Auto-Running</div>
-          </div>
-          <div class="live-stl-feed" id="lstlFeed"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
 
   <!-- ── SOCIAL MEDIA ───────────────────────────────────────────────────── -->
   <section id="social">
@@ -2795,94 +3141,14 @@
   })();
   </script>
 
-  <!-- ── LIVE STL FEED JS ──────────────────────────────────────────────── -->
+  <!-- ── AUTOMATION TABS JS ───────────────────────────────────────────── -->
   <script>
-  (function(){
-    var feed = document.getElementById('lstlFeed');
-    var leadsToday = 0, contacted = 0, nurtured = 0;
-
-    var fakeLeads = [
-      { name: 'James R.', biz: 'River City Roofing' },
-      { name: 'Amanda K.', biz: 'Magnolia Med Spa' },
-      { name: 'Derek W.', biz: 'Delta Pest Control' },
-      { name: 'Sarah M.', biz: 'Pearl HVAC Solutions' },
-      { name: 'Tony B.', biz: 'Brandon Law Group' },
-      { name: 'Lisa C.', biz: 'Jackson Auto Glass' },
-      { name: 'Marcus H.', biz: 'Gulf Coast Realty' },
-      { name: 'Priya N.', biz: 'Flowood Dental Care' },
-      { name: 'Chris P.', biz: 'Rankin County Plumbing' },
-      { name: 'Kelly D.', biz: 'Oak Grove Landscaping' },
-    ];
-
-    var pipelineSteps = [
-      { label: 'Captured', icon: '📥' },
-      { label: 'CRM Created', icon: '🗄️' },
-      { label: 'SMS Sent', icon: '💬' },
-      { label: 'Rep Notified', icon: '🔔' },
-      { label: 'Call Initiated', icon: '📞' },
-      { label: 'Nurture Active', icon: '🔄' },
-    ];
-
-    var leadIdx = 0;
-
-    function createRow(lead) {
-      var row = document.createElement('div');
-      row.className = 'stl-feed-row new-lead';
-      var elapsed = (Math.random() * 30 + 8).toFixed(1) + 's';
-
-      var stepsHtml = pipelineSteps.map(function(s, i){
-        return '<div class="stl-feed-step" id="lstlStep_' + leadIdx + '_' + i + '">' + s.icon + ' ' + s.label + '</div>' +
-          (i < pipelineSteps.length - 1 ? '<div class="stl-feed-arrow">›</div>' : '');
-      }).join('');
-
-      row.innerHTML = '<div class="stl-feed-row-top"><div><div class="stl-feed-name">' + lead.name + '</div><div class="stl-feed-biz">' + lead.biz + '</div></div><div class="stl-feed-elapsed">⚡ ' + elapsed + '</div></div><div class="stl-feed-pipeline">' + stepsHtml + '</div>';
-      return row;
-    }
-
-    function animateSteps(rowId) {
-      pipelineSteps.forEach(function(s, i){
-        setTimeout(function(){
-          var el = document.getElementById('lstlStep_' + rowId + '_' + i);
-          if (!el) return;
-          el.classList.add('active');
-          setTimeout(function(){
-            el.classList.remove('active');
-            el.classList.add('done');
-            if (i === pipelineSteps.length - 1) {
-              contacted++;
-              nurtured++;
-              document.getElementById('lstlContacted').textContent = contacted;
-              document.getElementById('lstlNurtured').textContent = nurtured;
-            }
-          }, 900);
-        }, i * 600);
-      });
-    }
-
-    function addLead() {
-      var lead = fakeLeads[leadIdx % fakeLeads.length];
-      var currentIdx = leadIdx;
-      leadIdx++;
-      leadsToday++;
-      document.getElementById('lstlLeadsToday').textContent = leadsToday;
-
-      var row = createRow(lead);
-      feed.insertBefore(row, feed.firstChild);
-
-      setTimeout(function(){ row.classList.remove('new-lead'); }, 3000);
-
-      animateSteps(currentIdx);
-
-      var rows = feed.querySelectorAll('.stl-feed-row');
-      if (rows.length > 6) feed.removeChild(rows[rows.length - 1]);
-    }
-
-    addLead();
-    setTimeout(addLead, 3500);
-    setTimeout(addLead, 7000);
-
-    setInterval(addLead, 8000);
-  })();
+  function showAutoTab(id) {
+    document.querySelectorAll('.auto-tab').forEach(function(t){ t.classList.remove('active'); });
+    document.querySelectorAll('.auto-panel').forEach(function(p){ p.classList.remove('active'); });
+    event.currentTarget.classList.add('active');
+    document.getElementById('autopanel-' + id).classList.add('active');
+  }
   </script>
 
   <!-- ── SOCIAL MEDIA JS ────────────────────────────────────────────────── -->
