@@ -955,6 +955,156 @@
       line-height: 1.5;
     }
 
+    /* ── VOICE AI ─────────────────────────────────────────────────────── */
+    .voice-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+    .voice-transcript {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .voice-transcript-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .voice-live-dot {
+      width: 9px; height: 9px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(34,197,94,.4);
+      animation: voicePulse 2s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes voicePulse {
+      0%   { box-shadow: 0 0 0 0 rgba(34,197,94,.4); }
+      70%  { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+    .voice-transcript-title { font-size: .88rem; font-weight: 700; }
+    .voice-transcript-sub { font-size: .72rem; color: var(--muted); margin-top: 1px; }
+    .voice-transcript-body {
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 360px;
+    }
+    .voice-line {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .4s ease, transform .4s ease;
+    }
+    .voice-line.visible { opacity: 1; transform: translateY(0); }
+    .voice-speaker {
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .voice-speaker.ai {
+      background: rgba(0,174,239,.2);
+      color: var(--cyan);
+    }
+    .voice-speaker.caller {
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.6);
+    }
+    .voice-text {
+      font-size: .84rem;
+      color: rgba(255,255,255,.8);
+      line-height: 1.6;
+    }
+    .voice-transcript-footer {
+      padding: 14px 24px;
+      border-top: 1px solid rgba(255,255,255,.04);
+      background: rgba(34,197,94,.05);
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .voice-footer-tag {
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .voice-footer-tag::before { content: '✓'; }
+    .voice-right { display: flex; flex-direction: column; gap: 18px; }
+    .voice-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .voice-stat {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 20px;
+      text-align: center;
+    }
+    .voice-stat-val {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -.05em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .voice-stat-label { font-size: .75rem; color: var(--muted); }
+    .voice-handles {
+      background: var(--bg-card);
+      border: 1px solid rgba(0,174,239,.2);
+      border-radius: 16px;
+      padding: 24px 24px;
+    }
+    .voice-handles-title {
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 16px;
+    }
+    .voice-handle-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: .84rem;
+      color: rgba(255,255,255,.75);
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+    .voice-handle-item:last-child { margin-bottom: 0; }
+    .voice-handle-check {
+      color: var(--cyan);
+      font-weight: 800;
+      font-size: .8rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .voice-handle-item strong { color: var(--white); }
+
     /* ── PRICING CARDS ────────────────────────────────────────────────── */
     .pricing-grid {
       display: grid;
@@ -1392,6 +1542,7 @@
       .stats-strip { grid-template-columns: repeat(2, 1fr); }
       .social-grid-top { grid-template-columns: repeat(2, 1fr); }
       .social-main-grid { grid-template-columns: 1fr; }
+      .voice-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       section { padding: 64px 20px; }
@@ -1437,6 +1588,7 @@
         <a href="#services" class="hero-pill">🛠 Services</a>
         <a href="#social" class="hero-pill">📱 Social Media</a>
         <a href="#automations" class="hero-pill">🤖 Automations</a>
+        <a href="#voice-ai" class="hero-pill">📞 Voice AI</a>
         <a href="#pricing" class="hero-pill">💰 Pricing</a>
       </div>
     </div>
@@ -1880,6 +2032,113 @@
             <div class="auto-flow-node">Pipeline Stage Updated</div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── VOICE AI ──────────────────────────────────────────────────────── -->
+  <section id="voice-ai">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Live Demo · Voice AI</div>
+        <h2 class="section-title">Your phone answered<br /><em>24/7. No CSR needed.</em></h2>
+        <p class="section-sub">Our AI voice assistant handles every inbound call after hours, on weekends, and during overflow — trained on your business, qualifying callers and booking directly onto your calendar.</p>
+      </div>
+      <div class="voice-grid">
+
+        <!-- Animated transcript -->
+        <div class="voice-transcript">
+          <div class="voice-transcript-header">
+            <div class="voice-live-dot"></div>
+            <div>
+              <div class="voice-transcript-title">Sample Call Transcript</div>
+              <div class="voice-transcript-sub">Inbound call — Saturday 9:47 PM</div>
+            </div>
+          </div>
+          <div class="voice-transcript-body" id="voiceTranscript">
+            <div class="voice-line" id="vl0">
+              <div class="voice-speaker ai">AI</div>
+              <div class="voice-text">Thanks for calling <strong>[Your Company]</strong>! I'm the virtual assistant here. Our team is currently unavailable, but I can help you get scheduled right now. What can we help you with today?</div>
+            </div>
+            <div class="voice-line" id="vl1">
+              <div class="voice-speaker caller">Caller</div>
+              <div class="voice-text">Yeah, my AC stopped working and it's like 90 degrees in here. I need someone out as soon as possible.</div>
+            </div>
+            <div class="voice-line" id="vl2">
+              <div class="voice-speaker ai">AI</div>
+              <div class="voice-text">I'm sorry to hear that — we'll get that taken care of. Can I get your name and the address where you need service?</div>
+            </div>
+            <div class="voice-line" id="vl3">
+              <div class="voice-speaker caller">Caller</div>
+              <div class="voice-text">It's Mike Henderson, 412 Oak Street in Brandon.</div>
+            </div>
+            <div class="voice-line" id="vl4">
+              <div class="voice-speaker ai">AI</div>
+              <div class="voice-text">Perfect, Mike. We have availability tomorrow morning between 8 and 11 AM. Does that work for you?</div>
+            </div>
+            <div class="voice-line" id="vl5">
+              <div class="voice-speaker caller">Caller</div>
+              <div class="voice-text">Yes, that works great.</div>
+            </div>
+            <div class="voice-line" id="vl6">
+              <div class="voice-speaker ai">AI</div>
+              <div class="voice-text">You're all set, Mike! I've booked you for tomorrow morning. You'll get a confirmation text shortly. Is there anything else I can help with?</div>
+            </div>
+          </div>
+          <div class="voice-transcript-footer">
+            <div class="voice-footer-tag">Appointment booked</div>
+            <div class="voice-footer-tag">Confirmation SMS sent</div>
+            <div class="voice-footer-tag">Rep notified</div>
+          </div>
+        </div>
+
+        <!-- Stats + handles -->
+        <div class="voice-right">
+          <div class="voice-stats-grid">
+            <div class="voice-stat">
+              <div class="voice-stat-val">24/7</div>
+              <div class="voice-stat-label">Coverage — no gaps</div>
+            </div>
+            <div class="voice-stat">
+              <div class="voice-stat-val">0</div>
+              <div class="voice-stat-label">CSRs required</div>
+            </div>
+            <div class="voice-stat">
+              <div class="voice-stat-val">100%</div>
+              <div class="voice-stat-label">Calls answered</div>
+            </div>
+            <div class="voice-stat">
+              <div class="voice-stat-val">All-in</div>
+              <div class="voice-stat-label">Usage costs included</div>
+            </div>
+          </div>
+          <div class="voice-handles">
+            <div class="voice-handles-title">What the AI Handles</div>
+            <div class="voice-handle-item">
+              <span class="voice-handle-check">✓</span>
+              <span><strong>Qualifies callers</strong> — collects name, address, and job type before booking</span>
+            </div>
+            <div class="voice-handle-item">
+              <span class="voice-handle-check">✓</span>
+              <span><strong>Books confirmed appointments</strong> directly onto your calendar without a CSR</span>
+            </div>
+            <div class="voice-handle-item">
+              <span class="voice-handle-check">✓</span>
+              <span><strong>Answers common questions</strong> about your services, pricing range, and service area</span>
+            </div>
+            <div class="voice-handle-item">
+              <span class="voice-handle-check">✓</span>
+              <span><strong>Handles after-hours, weekends, and overflow</strong> — never misses a call</span>
+            </div>
+            <div class="voice-handle-item">
+              <span class="voice-handle-check">✓</span>
+              <span><strong>Sounds like your business</strong> — trained on your services, pricing, and brand voice</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -2507,6 +2766,42 @@
 
       setTimeout(function(){ card.classList.remove('new-review'); }, 4000);
     }, 9000);
+  })();
+  </script>
+
+  <!-- ── VOICE AI JS ──────────────────────────────────────────────────── -->
+  <script>
+  (function(){
+    var lineCount = 7;
+    var delays = [0, 2800, 5200, 7400, 9600, 11200, 13000];
+    var loopDelay = 19000;
+
+    function runTranscript() {
+      for (var i = 0; i < lineCount; i++) {
+        (function(idx){
+          setTimeout(function(){
+            var el = document.getElementById('vl' + idx);
+            if (el) el.classList.add('visible');
+          }, delays[idx]);
+        })(i);
+      }
+      setTimeout(function(){
+        for (var i = 0; i < lineCount; i++) {
+          var el = document.getElementById('vl' + i);
+          if (el) el.classList.remove('visible');
+        }
+        setTimeout(runTranscript, 1000);
+      }, loopDelay);
+    }
+
+    var obs = new IntersectionObserver(function(entries){
+      if (entries[0].isIntersecting) {
+        runTranscript();
+        obs.disconnect();
+      }
+    }, { threshold: 0.2 });
+    var section = document.getElementById('voice-ai');
+    if (section) obs.observe(section);
   })();
   </script>
 
