@@ -598,8 +598,12 @@
     .sm-textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
     .sm-submit { width: 100%; padding: 16px 24px; background: linear-gradient(135deg, #00AEEF, #41D9F2); color: #020c1f; border: none; border-radius: 10px; font-size: 15px; font-weight: 800; font-family: 'Inter', Arial, sans-serif; letter-spacing: -.01em; cursor: pointer; margin-top: 6px; display: block; text-align: center; transition: opacity .2s; }
     .sm-submit:hover { opacity: .85; }
-    .sm-disclaimer { font-size: 11px; color: rgba(255,255,255,.22); text-align: center; margin-top: 14px; line-height: 1.65; }
-    .sm-disclaimer a { color: rgba(0,174,239,.55); text-decoration: none; }
+    .sm-consent-box { display: flex; align-items: flex-start; gap: 12px; background: rgba(0,174,239,.05); border: 1px solid rgba(0,174,239,.18); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; cursor: pointer; }
+    .sm-consent-box input[type="checkbox"] { flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px; accent-color: #00AEEF; cursor: pointer; }
+    .sm-consent-text { font-size: 12px; color: rgba(255,255,255,.48); line-height: 1.7; }
+    .sm-consent-text strong { color: rgba(255,255,255,.75); }
+    .sm-consent-text a { color: rgba(0,174,239,.75); text-decoration: none; }
+    .sm-consent-text a:hover { text-decoration: underline; }
     @media (max-width: 520px) { .sm-row { grid-template-columns: 1fr; } }
 
     /* ── THANK YOU MODAL ── */
@@ -1230,14 +1234,13 @@
         </div>
         <input type="hidden" name="source" value="Summit Marketing Website" />
         <input type="hidden" name="lead_source" value="Pricing Page" />
+        <div class="sm-group">
+          <label class="sm-consent-box" for="bm-sms-consent">
+            <input type="checkbox" id="bm-sms-consent" name="sms_consent" value="true" required />
+            <span class="sm-consent-text">By checking this box, I consent to receive SMS/MMS text messages from <strong>Summit Marketing</strong> at the phone number provided above. Message types include: appointment confirmations and service updates. Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to unsubscribe at any time. Reply <strong>HELP</strong> for help. View our <a href="https://www.summitmarketingms.com/privacy-policy" target="_blank">Privacy Policy</a> &amp; <a href="https://www.summitmarketingms.com/terms-of-service" target="_blank">Terms of Service</a>. Consent is not a condition of purchase.</span>
+          </label>
+        </div>
         <button type="submit" class="sm-submit">Book My Free Strategy Call &rarr;</button>
-        <p class="sm-disclaimer">
-          By submitting you agree to our
-          <a href="/privacy-policy">Privacy Policy</a>
-          &amp;
-          <a href="/terms-of-service">Terms of Service</a>.
-          We never sell your information.
-        </p>
       </form>
     </div>
   </div>

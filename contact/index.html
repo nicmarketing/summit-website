@@ -800,6 +800,12 @@
     .sm-success-step-text strong { color: rgba(255,255,255,.88); display: block; margin-bottom: 2px; font-size: 13.5px; }
     .sm-success-cta { font-size: 12px; color: rgba(255,255,255,.3); line-height: 1.6; }
     .sm-success-cta a { color: rgba(0,174,239,.75); text-decoration: none; }
+    .sm-consent-box { display: flex; align-items: flex-start; gap: 12px; background: rgba(0,174,239,.05); border: 1px solid rgba(0,174,239,.18); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; cursor: pointer; }
+    .sm-consent-box input[type="checkbox"] { flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px; accent-color: #00AEEF; cursor: pointer; }
+    .sm-consent-text { font-size: 12px; color: rgba(255,255,255,.48); line-height: 1.7; }
+    .sm-consent-text strong { color: rgba(255,255,255,.75); }
+    .sm-consent-text a { color: rgba(0,174,239,.75); text-decoration: none; }
+    .sm-consent-text a:hover { text-decoration: underline; }
     .contact-form-col .sm-wrap { background: transparent; border: none; box-shadow: none; padding: 0; overflow: visible; }
     .contact-form-col .sm-wrap::before { display: none; }
     .book-inner { background: transparent; padding: 44px 0 0; width: 100%; max-width: 600px; position: relative; flex-shrink: 0; }
@@ -945,10 +951,15 @@
             </select>
           </div>
           <div class="sm-group"><label class="sm-label" for="smf-message">Tell Us About Your Goals</label><textarea class="sm-textarea" id="smf-message" name="message" placeholder="What are you looking to achieve? What's your biggest marketing challenge right now?"></textarea></div>
+          <div class="sm-group">
+            <label class="sm-consent-box" for="smf-sms-consent">
+              <input type="checkbox" id="smf-sms-consent" name="sms_consent" value="true" required />
+              <span class="sm-consent-text">By checking this box, I consent to receive SMS/MMS text messages from <strong>Summit Marketing</strong> at the phone number provided above. Message types include: appointment confirmations and service updates. Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to unsubscribe at any time. Reply <strong>HELP</strong> for help. View our <a href="https://www.summitmarketingms.com/privacy-policy" target="_blank">Privacy Policy</a> &amp; <a href="https://www.summitmarketingms.com/terms-of-service" target="_blank">Terms of Service</a>. Consent is not a condition of purchase.</span>
+            </label>
+          </div>
           <input type="hidden" name="source" value="Summit Marketing Website" />
           <input type="hidden" name="lead_source" value="Website Contact Form" />
           <button type="submit" class="sm-submit" id="smSubmitBtn">Book My Free Strategy Call &rarr;</button>
-          <p class="sm-disclaimer">By submitting, you agree to our <a href="/privacy-policy" target="_blank">Privacy Policy</a> &amp; <a href="/terms-of-service" target="_blank">Terms of Service</a>. We never sell your information.</p>
         </form>
       </div>
     </div>
@@ -1193,10 +1204,15 @@
             </select>
           </div>
           <div class="sm-group"><label class="sm-label" for="smf2-message">Tell Us About Your Goals</label><textarea class="sm-textarea" id="smf2-message" name="message" placeholder="What are you looking to achieve? What's your biggest marketing challenge right now?"></textarea></div>
+          <div class="sm-group">
+            <label class="sm-consent-box" for="smf2-sms-consent">
+              <input type="checkbox" id="smf2-sms-consent" name="sms_consent" value="true" required />
+              <span class="sm-consent-text">By checking this box, I consent to receive SMS/MMS text messages from <strong>Summit Marketing</strong> at the phone number provided above. Message types include: appointment confirmations and service updates. Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to unsubscribe at any time. Reply <strong>HELP</strong> for help. View our <a href="https://www.summitmarketingms.com/privacy-policy" target="_blank">Privacy Policy</a> &amp; <a href="https://www.summitmarketingms.com/terms-of-service" target="_blank">Terms of Service</a>. Consent is not a condition of purchase.</span>
+            </label>
+          </div>
           <input type="hidden" name="source" value="Summit Marketing Website" />
           <input type="hidden" name="lead_source" value="Website Contact Form" />
           <button type="submit" class="sm-submit" id="smSubmitBtn2">Book My Free Strategy Call &rarr;</button>
-          <p class="sm-disclaimer">By submitting, you agree to our <a href="/privacy-policy" target="_blank">Privacy Policy</a> &amp; <a href="/terms-of-service" target="_blank">Terms of Service</a>. We never sell your information.</p>
         </form>
       </div>
     </div>
