@@ -1919,24 +1919,19 @@
       .cal-head-title { font-size: .78rem; }
     }
 
-    /* ── SERVICES PAGE HERO ─── */
-    .svc-page-hero { background: linear-gradient(135deg, #010d22 0%, #002060 60%, #010d22 100%); padding: 120px 24px 80px; border-bottom: 1px solid rgba(0,174,239,.12); }
-    .svc-page-hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-    .svc-page-hero-copy { padding-top: 20px; }
-    .svc-page-hero-h1 { font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 700; color: #fff; line-height: 1.1; margin: 12px 0 20px; text-transform: uppercase; letter-spacing: .02em; }
-    .svc-page-hero-h1 em { font-style: normal; color: #00AEEF; }
-    .svc-page-hero-sub { font-size: 1.05rem; color: rgba(255,255,255,.7); line-height: 1.75; margin-bottom: 28px; max-width: 480px; }
-    .svc-trust-list { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 12px; }
-    .svc-trust-list li { font-size: .95rem; color: rgba(255,255,255,.8); display: flex; align-items: center; gap: 10px; }
-    .svc-trust-icon { color: #00AEEF; font-weight: 700; font-size: 1.1rem; }
-    .svc-trust-badges { display: flex; gap: 24px; flex-wrap: wrap; }
-    .svc-badge-item { background: rgba(0,174,239,.08); border: 1px solid rgba(0,174,239,.2); border-radius: 10px; padding: 12px 18px; min-width: 140px; }
-    .svc-badge-stars { color: #FBBC04; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 4px; }
-    .svc-badge-num { font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700; color: #00AEEF; margin-bottom: 4px; }
-    .svc-badge-label { font-size: .7rem; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .08em; }
-    @media (max-width: 900px) {
-      .svc-page-hero-inner { grid-template-columns: 1fr; gap: 48px; }
-      .svc-page-hero { padding: 100px 24px 60px; }
+    /* ── HERO FORM SECTION ─── */
+    .hero-form-section { background: linear-gradient(180deg, #010d22 0%, #020c1f 100%); padding: 80px 24px 100px; border-bottom: 1px solid rgba(0,174,239,.1); }
+    .hero-form-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: start; }
+    .hero-form-copy { padding-top: 12px; }
+    .hero-form-h2 { font-family: 'Oswald', sans-serif; font-size: clamp(1.9rem, 3.5vw, 3rem); font-weight: 700; color: #fff; line-height: 1.1; margin: 10px 0 18px; text-transform: uppercase; letter-spacing: .02em; }
+    .hero-form-h2 em { font-style: normal; color: #00AEEF; }
+    .hero-form-sub { font-size: 1rem; color: rgba(255,255,255,.65); line-height: 1.75; margin-bottom: 28px; max-width: 420px; }
+    .hero-form-trust { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+    .hero-form-trust li { font-size: .9rem; color: rgba(255,255,255,.75); display: flex; align-items: center; gap: 10px; }
+    .hero-form-trust li span { color: #00AEEF; font-weight: 700; font-size: 1rem; }
+    @media (max-width: 860px) {
+      .hero-form-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-form-section { padding: 60px 24px 80px; }
     }
 
     /* ── GOOGLE REVIEWS WIDGET ─── */
@@ -1987,202 +1982,6 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
-
-  <!-- ── SERVICES ───────────────────────────────────────────────────────── -->
-  <section class="services" id="services">
-    <div class="services-header">
-      <div class="section-eyebrow">Our Packages</div>
-      <h2>Choose your <em>summit</em></h2>
-      <p>Every package is designed around real growth — not deliverables for deliverables' sake. Pick the tier that matches where you are and where you want to go.</p>
-    </div>
-    <div class="svc-page-hero">
-      <div class="svc-page-hero-inner">
-        <div class="svc-page-hero-copy">
-          <div class="section-eyebrow">Done-For-You Marketing</div>
-          <h1 class="svc-page-hero-h1">Marketing that <em>climbs</em> with your business</h1>
-          <p class="svc-page-hero-sub">Summit Marketing builds and runs your entire digital growth engine — from SEO and content to automation and lead capture. You focus on running your business. We drive the growth.</p>
-          <ul class="svc-trust-list">
-            <li><span class="svc-trust-icon">✓</span> 100% done-for-you execution</li>
-            <li><span class="svc-trust-icon">✓</span> Response guaranteed within 24 hours</li>
-            <li><span class="svc-trust-icon">✓</span> No long-term contracts required</li>
-          </ul>
-          <div class="svc-trust-badges">
-            <div class="svc-badge-item">
-              <div class="svc-badge-stars">★★★★★</div>
-              <div class="svc-badge-label">5-Star Rated on Google</div>
-            </div>
-            <div class="svc-badge-item">
-              <div class="svc-badge-num">Mississippi</div>
-              <div class="svc-badge-label">Based &amp; Serving Nationwide</div>
-            </div>
-          </div>
-        </div>
-        <div class="svc-page-hero-form">
-          <div class="sm-wrap">
-            <div class="sm-success" id="smSuccess3" style="display:none">
-              <div class="sm-success-icon">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="#020c1f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="sm-eyebrow">You're Booked</div>
-              <h2 class="sm-success-title">Let's reach <span>new heights</span> together</h2>
-              <p class="sm-success-msg">Thanks for reaching out to Summit Marketing LLC. We've received your request and will be in touch within 1 business day to confirm your strategy call.</p>
-            </div>
-            <div id="smForm3">
-              <div class="sm-eyebrow">Free Strategy Call</div>
-              <h2 class="sm-title">Let's reach <span>new heights</span> together</h2>
-              <p class="sm-sub">Tell us about your business and goals. We'll review your current marketing and show you exactly what's possible.</p>
-              <div class="sm-divider"></div>
-              <form id="smfMain3">
-                <div class="sm-row">
-                  <div class="sm-group"><label class="sm-label" for="smf3-first">First Name *</label><input class="sm-input" type="text" id="smf3-first" name="first_name" placeholder="John" required /></div>
-                  <div class="sm-group"><label class="sm-label" for="smf3-last">Last Name *</label><input class="sm-input" type="text" id="smf3-last" name="last_name" placeholder="Smith" required /></div>
-                </div>
-                <div class="sm-row">
-                  <div class="sm-group"><label class="sm-label" for="smf3-email">Email *</label><input class="sm-input" type="email" id="smf3-email" name="email" placeholder="john@company.com" required /></div>
-                  <div class="sm-group"><label class="sm-label" for="smf3-phone">Phone</label><input class="sm-input" type="tel" id="smf3-phone" name="phone" placeholder="+1 (555) 000-0000" /></div>
-                </div>
-                <div class="sm-group"><label class="sm-label" for="smf3-company">Business Name</label><input class="sm-input" type="text" id="smf3-company" name="company_name" placeholder="Your Company LLC" /></div>
-                <div class="sm-group">
-                  <label class="sm-label" for="smf3-service">Service Interest *</label>
-                  <select class="sm-select" id="smf3-service" name="service_interest" required>
-                    <option value="" disabled selected>Select a package...</option>
-                    <option value="Basecamp">Basecamp — Foundation &amp; SEO</option>
-                    <option value="Elevate">Elevate — Growth &amp; Brand</option>
-                    <option value="Ascent">Ascent — Full-Funnel Scale (Most Popular)</option>
-                    <option value="Peak">Peak — Enterprise Custom</option>
-                    <option value="Not Sure">Not sure yet — help me choose</option>
-                  </select>
-                </div>
-                <div class="sm-group"><label class="sm-label" for="smf3-message">Tell Us About Your Goals</label><textarea class="sm-textarea" id="smf3-message" name="message" placeholder="What are you looking to achieve? What's your biggest marketing challenge right now?"></textarea></div>
-                <div class="sm-group">
-                  <label class="sm-consent-box" for="smf3-sms-consent">
-                    <input type="checkbox" id="smf3-sms-consent" name="sms_consent" value="true" />
-                    <span class="sm-consent-text">By checking this box, I consent to receive SMS/MMS text messages from <strong>Summit Marketing</strong> at the phone number provided above. Message types include: appointment confirmations and service updates. Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to unsubscribe at any time. Reply <strong>HELP</strong> for help. View our <a href="https://www.summitmarketingms.com/privacy-policy" target="_blank">Privacy Policy</a> &amp; <a href="https://www.summitmarketingms.com/terms-of-service" target="_blank">Terms of Service</a>. Consent is not a condition of purchase.</span>
-                  </label>
-                </div>
-                <input type="hidden" name="source" value="Summit Marketing Website" />
-                <input type="hidden" name="lead_source" value="Website Top Form" />
-                <button type="submit" class="sm-submit" id="smSubmitBtn3">Book My Free Strategy Call &rarr;</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="services-grid">
-
-      <!-- BASECAMP -->
-      <div class="svc-card" data-pkg="basecamp">
-        <div class="svc-tier">Tier 01</div>
-        <div class="svc-name">Basecamp</div>
-        <div class="svc-tagline">Build the foundation for growth. Perfect for businesses ready to establish their digital presence.</div>
-        <div class="svc-divider"></div>
-        <ul class="svc-features">
-          <li>SEO Audit &amp; Strategy</li>
-          <li>On-Page SEO Optimization</li>
-          <li>Monthly Content (2 articles)</li>
-          <li>Email Newsletter Setup</li>
-          <li>Monthly Analytics Report</li>
-          <li>Google Business Optimization</li>
-        </ul>
-        <a href="#contact" class="svc-cta" onclick="event.preventDefault();openBook()">Get Started</a>
-      </div>
-
-      <!-- ELEVATE -->
-      <div class="svc-card" data-pkg="elevate">
-        <div class="svc-tier">Tier 02</div>
-        <div class="svc-name">Elevate</div>
-        <div class="svc-tagline">Everything in Basecamp, plus brand-building and conversion tools that accelerate growth.</div>
-        <div class="svc-divider"></div>
-        <ul class="svc-features">
-          <li>Everything in Basecamp</li>
-          <li>Brand Strategy &amp; Positioning</li>
-          <li>Monthly Content (4 articles)</li>
-          <li>Social Media Management</li>
-          <li>Email Nurture Sequences</li>
-          <li>Conversion Rate Optimization</li>
-          <li>Bi-weekly Strategy Calls</li>
-        </ul>
-        <a href="#contact" class="svc-cta" onclick="event.preventDefault();openBook()">Get Started</a>
-      </div>
-
-      <!-- ASCENT — FEATURED -->
-      <div class="svc-card featured" data-pkg="ascent">
-        <div class="svc-badge">Most Popular</div>
-        <div class="svc-tier">Tier 03</div>
-        <div class="svc-name">Ascent</div>
-        <div class="svc-tagline">Full-funnel marketing built for scale — the complete growth engine for ambitious businesses.</div>
-        <div class="svc-divider"></div>
-        <ul class="svc-features">
-          <li>Everything in Elevate</li>
-          <li>Full-Funnel Marketing Strategy</li>
-          <li>Landing Page &amp; Funnel Design</li>
-          <li>Marketing Automation Builds</li>
-          <li>Dedicated Account Manager</li>
-          <li>Weekly Performance Reviews</li>
-          <li>Competitor Gap Analysis</li>
-          <li>Monthly Content (8 articles)</li>
-        </ul>
-        <a href="#contact" class="svc-cta" onclick="event.preventDefault();openBook()">Get Started</a>
-      </div>
-
-      <!-- PEAK -->
-      <div class="svc-card" data-pkg="peak">
-        <div class="svc-tier">Tier 04</div>
-        <div class="svc-name">Peak</div>
-        <div class="svc-tagline">Enterprise-grade, fully custom strategy. For organizations ready to dominate their market.</div>
-        <div class="svc-divider"></div>
-        <ul class="svc-features">
-          <li>Everything in Ascent</li>
-          <li>Custom Growth Roadmap</li>
-          <li>Multi-Channel Orchestration</li>
-          <li>Executive Quarterly Reviews</li>
-          <li>Priority Support &amp; SLAs</li>
-          <li>PR &amp; Authority Building</li>
-          <li>Custom Integrations</li>
-          <li>Unlimited Content Production</li>
-        </ul>
-        <a href="#contact" class="svc-cta" onclick="event.preventDefault();openBook()">Let's Talk</a>
-      </div>
-
-    </div>
-
-    <!-- WEB DESIGN FEATURE CALLOUT -->
-    <div class="web-design-feature">
-      <div class="wdf-inner">
-        <div class="wdf-icon-wrap">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00AEEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-          </svg>
-        </div>
-        <div class="wdf-content">
-          <div class="wdf-label">Also Available</div>
-          <h3>Web Design &amp; Development</h3>
-          <p>We don't just run your marketing — we build the websites that power it. Every Summit site is SEO-ready, conversion-optimized, and built to integrate seamlessly with your campaigns from day one.</p>
-        </div>
-        <div class="wdf-tiers">
-          <div class="wdf-tier">
-            <div class="wdf-tier-name">Trailhead</div>
-            <div class="wdf-tier-price">$300–$2K</div>
-            <div class="wdf-tier-desc">5–10 pages</div>
-          </div>
-          <div class="wdf-tier">
-            <div class="wdf-tier-name">Pinnacle</div>
-            <div class="wdf-tier-price">$2K–$5K</div>
-            <div class="wdf-tier-desc">Custom design</div>
-          </div>
-          <div class="wdf-tier">
-            <div class="wdf-tier-name">Apex</div>
-            <div class="wdf-tier-price">$5K–$20K+</div>
-            <div class="wdf-tier-desc">E-commerce</div>
-          </div>
-        </div>
-        <a href="/pricing/#web-design" class="wdf-cta">See Web Pricing &rarr;</a>
-      </div>
-    </div>
-
-  </section>
 
   <!-- ── HERO ─────────────────────────────────────────────────────────── -->
   <section class="hero">
@@ -2335,6 +2134,73 @@
     </div>
   </section>
 
+  <!-- ── HERO FORM ────────────────────────────────────────────────────── -->
+  <section class="hero-form-section">
+    <div class="hero-form-inner">
+      <div class="hero-form-copy">
+        <div class="section-eyebrow">Free Strategy Call</div>
+        <h2 class="hero-form-h2">Ready to start <em>climbing?</em></h2>
+        <p class="hero-form-sub">Tell us about your business and we'll build a custom growth plan — no pressure, no obligation.</p>
+        <ul class="hero-form-trust">
+          <li><span>✓</span> 100% done-for-you execution</li>
+          <li><span>✓</span> Response guaranteed within 24 hrs</li>
+          <li><span>✓</span> No long-term contracts</li>
+          <li><span>✓</span> 5-star rated on Google</li>
+        </ul>
+      </div>
+      <div class="hero-form-wrap">
+        <div class="sm-wrap">
+          <div class="sm-success" id="smSuccess3" style="display:none">
+            <div class="sm-success-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke="#020c1f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="sm-eyebrow">You're Booked</div>
+            <h2 class="sm-success-title">Let's reach <span>new heights</span> together</h2>
+            <p class="sm-success-msg">Thanks for reaching out to Summit Marketing LLC. We've received your request and will be in touch within 1 business day to confirm your strategy call.</p>
+          </div>
+          <div id="smForm3">
+            <div class="sm-eyebrow">Free Strategy Call</div>
+            <h2 class="sm-title">Let's reach <span>new heights</span> together</h2>
+            <p class="sm-sub">Tell us about your business and goals. We'll review your current marketing and show you exactly what's possible.</p>
+            <div class="sm-divider"></div>
+            <form id="smfMain3">
+              <div class="sm-row">
+                <div class="sm-group"><label class="sm-label" for="smf3-first">First Name *</label><input class="sm-input" type="text" id="smf3-first" name="first_name" placeholder="John" required /></div>
+                <div class="sm-group"><label class="sm-label" for="smf3-last">Last Name *</label><input class="sm-input" type="text" id="smf3-last" name="last_name" placeholder="Smith" required /></div>
+              </div>
+              <div class="sm-row">
+                <div class="sm-group"><label class="sm-label" for="smf3-email">Email *</label><input class="sm-input" type="email" id="smf3-email" name="email" placeholder="john@company.com" required /></div>
+                <div class="sm-group"><label class="sm-label" for="smf3-phone">Phone</label><input class="sm-input" type="tel" id="smf3-phone" name="phone" placeholder="+1 (555) 000-0000" /></div>
+              </div>
+              <div class="sm-group"><label class="sm-label" for="smf3-company">Business Name</label><input class="sm-input" type="text" id="smf3-company" name="company_name" placeholder="Your Company LLC" /></div>
+              <div class="sm-group">
+                <label class="sm-label" for="smf3-service">Service Interest *</label>
+                <select class="sm-select" id="smf3-service" name="service_interest" required>
+                  <option value="" disabled selected>Select a package...</option>
+                  <option value="Basecamp">Basecamp — Foundation &amp; SEO</option>
+                  <option value="Elevate">Elevate — Growth &amp; Brand</option>
+                  <option value="Ascent">Ascent — Full-Funnel Scale (Most Popular)</option>
+                  <option value="Peak">Peak — Enterprise Custom</option>
+                  <option value="Not Sure">Not sure yet — help me choose</option>
+                </select>
+              </div>
+              <div class="sm-group"><label class="sm-label" for="smf3-message">Tell Us About Your Goals</label><textarea class="sm-textarea" id="smf3-message" name="message" placeholder="What are you looking to achieve? What's your biggest marketing challenge right now?"></textarea></div>
+              <div class="sm-group">
+                <label class="sm-consent-box" for="smf3-sms-consent">
+                  <input type="checkbox" id="smf3-sms-consent" name="sms_consent" value="true" />
+                  <span class="sm-consent-text">By checking this box, I consent to receive SMS/MMS text messages from <strong>Summit Marketing</strong> at the phone number provided above. Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to unsubscribe. View our <a href="https://www.summitmarketingms.com/privacy-policy" target="_blank">Privacy Policy</a> &amp; <a href="https://www.summitmarketingms.com/terms-of-service" target="_blank">Terms of Service</a>. Consent is not a condition of purchase.</span>
+                </label>
+              </div>
+              <input type="hidden" name="source" value="Summit Marketing Website" />
+              <input type="hidden" name="lead_source" value="Website Hero Form" />
+              <button type="submit" class="sm-submit" id="smSubmitBtn3">Book My Free Strategy Call &rarr;</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── FEATURES ─────────────────────────────────────────────────────── -->
   <section class="features">
     <div class="features-grid">
@@ -2437,17 +2303,16 @@
         </div>
       </div>
       <div class="reviews-grid" id="reviewsGrid">
-        <!-- Placeholder reviews — replaced by JS if API key is configured -->
         <div class="review-card">
           <div class="review-card-header">
-            <div class="review-avatar">S</div>
+            <div class="review-avatar">H</div>
             <div class="review-meta">
-              <div class="review-author">Summit Client</div>
-              <div class="review-date">June 2025</div>
+              <div class="review-author">Holden Hornsby</div>
+              <div class="review-date">4 weeks ago</div>
             </div>
             <div class="review-stars">★★★★★</div>
           </div>
-          <p class="review-text">"Working with Summit Marketing has been a game changer for our business. Within the first 90 days we saw a significant uptick in leads and our online presence improved dramatically. Highly recommend!"</p>
+          <p class="review-text">"Nic is the GOAT! Built my website exactly how I wanted! Very fast and professional!! Would give ten stars if I could! Will be using Summit Marketing for all my website and marketing needs forever!!"</p>
           <div class="review-source">
             <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
             Google Review
@@ -2455,14 +2320,14 @@
         </div>
         <div class="review-card">
           <div class="review-card-header">
-            <div class="review-avatar">M</div>
+            <div class="review-avatar">B</div>
             <div class="review-meta">
-              <div class="review-author">Mississippi Business Owner</div>
-              <div class="review-date">May 2025</div>
+              <div class="review-author">Brandon Benton</div>
+              <div class="review-date">4 weeks ago</div>
             </div>
             <div class="review-stars">★★★★★</div>
           </div>
-          <p class="review-text">"Summit Marketing truly delivers on their promise. The team is responsive, strategic, and genuinely cares about your results. Our ROI has been phenomenal and we're seeing consistent growth month over month."</p>
+          <p class="review-text">"If you're looking for a marketing company that actually understands how to make a business run more efficiently, I highly recommend Summit Marketing and Nic Butts. Nic has helped us tremendously with lead speed, backend automations, integrations, workflows, and making sure everything works together the way it should. What separates Summit Marketing from most companies is they don't just focus on "marketing" — they focus on building systems that help your business operate smoother, respond faster, and convert more leads. From automation setups to workflow improvements, Nic is always available when I need him and consistently goes above and beyond to help solve problems and improve operations. First-class company, first-class service, and someone who genuinely cares about helping businesses grow and become more efficient. If you want better organization, faster lead response, stronger integrations, and a smoother overall workflow, Summit Marketing is the real deal."</p>
           <div class="review-source">
             <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
             Google Review
@@ -2653,6 +2518,128 @@
             <div class="diff-text">We're invested in your growth trajectory, not just your next invoice. We build relationships built on results.</div>
           </div>
         </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── SERVICES ───────────────────────────────────────────────────────── -->
+  <section class="services" id="services">
+    <div class="services-header">
+      <div class="section-eyebrow">Our Packages</div>
+      <h2>Choose your <em>summit</em></h2>
+      <p>Every package is designed around real growth — not deliverables for deliverables' sake. Pick the tier that matches where you are and where you want to go.</p>
+    </div>
+    <div class="services-grid">
+
+      <!-- BASECAMP -->
+      <div class="svc-card" data-pkg="basecamp">
+        <div class="svc-tier">Tier 01</div>
+        <div class="svc-name">Basecamp</div>
+        <div class="svc-tagline">Build the foundation for growth. Perfect for businesses ready to establish their digital presence.</div>
+        <div class="svc-divider"></div>
+        <ul class="svc-features">
+          <li>SEO Audit &amp; Strategy</li>
+          <li>On-Page SEO Optimization</li>
+          <li>Monthly Content (2 articles)</li>
+          <li>Email Newsletter Setup</li>
+          <li>Monthly Analytics Report</li>
+          <li>Google Business Optimization</li>
+        </ul>
+        <a href="#contact" class="svc-cta" onclick="event.preventDefault();openBook()">Get Started</a>
+      </div>
+
+      <!-- ELEVATE -->
+      <div class="svc-card" data-pkg="elevate">
+        <div class="svc-tier">Tier 02</div>
+        <div class="svc-name">Elevate</div>
+        <div class="svc-tagline">Everything in Basecamp, plus brand-building and conversion tools that accelerate growth.</div>
+        <div class="svc-divider"></div>
+        <ul class="svc-features">
+          <li>Everything in Basecamp</li>
+          <li>Brand Strategy &amp; Positioning</li>
+          <li>Monthly Content (4 articles)</li>
+          <li>Social Media Management</li>
+          <li>Email Nurture Sequences</li>
+          <li>Conversion Rate Optimization</li>
+          <li>Bi-weekly Strategy Calls</li>
+        </ul>
+        <a href="#contact" class="svc-cta" onclick="event.preventDefault();openBook()">Get Started</a>
+      </div>
+
+      <!-- ASCENT — FEATURED -->
+      <div class="svc-card featured" data-pkg="ascent">
+        <div class="svc-badge">Most Popular</div>
+        <div class="svc-tier">Tier 03</div>
+        <div class="svc-name">Ascent</div>
+        <div class="svc-tagline">Full-funnel marketing built for scale — the complete growth engine for ambitious businesses.</div>
+        <div class="svc-divider"></div>
+        <ul class="svc-features">
+          <li>Everything in Elevate</li>
+          <li>Full-Funnel Marketing Strategy</li>
+          <li>Landing Page &amp; Funnel Design</li>
+          <li>Marketing Automation Builds</li>
+          <li>Dedicated Account Manager</li>
+          <li>Weekly Performance Reviews</li>
+          <li>Competitor Gap Analysis</li>
+          <li>Monthly Content (8 articles)</li>
+        </ul>
+        <a href="#contact" class="svc-cta" onclick="event.preventDefault();openBook()">Get Started</a>
+      </div>
+
+      <!-- PEAK -->
+      <div class="svc-card" data-pkg="peak">
+        <div class="svc-tier">Tier 04</div>
+        <div class="svc-name">Peak</div>
+        <div class="svc-tagline">Enterprise-grade, fully custom strategy. For organizations ready to dominate their market.</div>
+        <div class="svc-divider"></div>
+        <ul class="svc-features">
+          <li>Everything in Ascent</li>
+          <li>Custom Growth Roadmap</li>
+          <li>Multi-Channel Orchestration</li>
+          <li>Executive Quarterly Reviews</li>
+          <li>Priority Support &amp; SLAs</li>
+          <li>PR &amp; Authority Building</li>
+          <li>Custom Integrations</li>
+          <li>Unlimited Content Production</li>
+        </ul>
+        <a href="#contact" class="svc-cta" onclick="event.preventDefault();openBook()">Let's Talk</a>
+      </div>
+
+    </div>
+
+    <!-- WEB DESIGN FEATURE CALLOUT -->
+    <div class="web-design-feature">
+      <div class="wdf-inner">
+        <div class="wdf-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00AEEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <div class="wdf-content">
+          <div class="wdf-label">Also Available</div>
+          <h3>Web Design &amp; Development</h3>
+          <p>We don't just run your marketing — we build the websites that power it. Every Summit site is SEO-ready, conversion-optimized, and built to integrate seamlessly with your campaigns from day one.</p>
+        </div>
+        <div class="wdf-tiers">
+          <div class="wdf-tier">
+            <div class="wdf-tier-name">Trailhead</div>
+            <div class="wdf-tier-price">$300–$2K</div>
+            <div class="wdf-tier-desc">5–10 pages</div>
+          </div>
+          <div class="wdf-tier">
+            <div class="wdf-tier-name">Pinnacle</div>
+            <div class="wdf-tier-price">$2K–$5K</div>
+            <div class="wdf-tier-desc">Custom design</div>
+          </div>
+          <div class="wdf-tier">
+            <div class="wdf-tier-name">Apex</div>
+            <div class="wdf-tier-price">$5K–$20K+</div>
+            <div class="wdf-tier-desc">E-commerce</div>
+          </div>
+        </div>
+        <a href="/pricing/#web-design" class="wdf-cta">See Web Pricing &rarr;</a>
       </div>
     </div>
 
@@ -3459,10 +3446,8 @@
   form.addEventListener('submit',function(e){
     e.preventDefault();
     btn.disabled=true; btn.textContent='Sending\u2026';
-    var data=new FormData(form);
-    fetch('https://services.leadconnectorhq.com/hooks/JxM9UZKqYuHjMkrh7lIV/webhook-trigger/7acae1d0-75bd-44b8-80d0-9e6f9a6dc1e3',{method:'POST',body:data})
-      .then(function(){wrap.style.display='none';success.style.display='block';})
-      .catch(function(){wrap.style.display='none';success.style.display='block';});
+    fetch('https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ',{method:'POST',body:new URLSearchParams(new FormData(form))}).catch(function(){});
+    wrap.style.display='none';success.style.display='flex';
   });
 })();
 </script>
