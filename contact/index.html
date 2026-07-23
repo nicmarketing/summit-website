@@ -35,15 +35,10 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://www.summitmarketingms.com/contact/#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.summitmarketingms.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.summitmarketingms.com/contact/" }
-        ]
-      }
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": { "@id": "https://www.summitmarketingms.com/" } },
+      { "@type": "ListItem", "position": 2, "name": "Contact", "item": { "@id": "https://www.summitmarketingms.com/contact/" } }
     ]
   }
   </script>
