@@ -187,11 +187,11 @@
         "offers": {
           "@type": "Offer",
           "name": "Ascent Monthly Plan",
-          "price": "2297.00",
+          "price": "1997.00",
           "priceCurrency": "USD",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "2297.00",
+            "price": "1997.00",
             "priceCurrency": "USD",
             "unitText": "month",
             "billingIncrement": 1
@@ -230,11 +230,11 @@
         "offers": {
           "@type": "Offer",
           "name": "Peak Monthly Plan",
-          "price": "3997.00",
+          "price": "3250.00",
           "priceCurrency": "USD",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "3997.00",
+            "price": "3250.00",
             "priceCurrency": "USD",
             "unitText": "month",
             "billingIncrement": 1
@@ -284,7 +284,7 @@
       {
         "@type": "Question",
         "name": "What makes the Ascent plan the most popular?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The Ascent plan ($2,297/month) is our most popular because it delivers professional website management, Chat Widget AI, Voice AI (inbound and outbound), landing page creation, conversion optimization, advanced reporting, and monthly strategy calls — everything you need to dominate your local market." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The Ascent plan ($1,997/month) is our most popular because it delivers professional website management, Chat Widget AI, Voice AI (inbound and outbound), landing page creation, conversion optimization, advanced reporting, and monthly strategy calls — everything you need to dominate your local market." }
       },
       {
         "@type": "Question",
@@ -913,6 +913,7 @@
     <li><a href="/#services">Services</a></li>
     <li><a href="/results/">Results</a></li>
     <li><a href="/pricing/" class="active">Pricing</a></li>
+    <li><a href="/locations/">Service Area</a></li>
     <li><a href="/about/">About</a></li>
     <li><a href="/faq/">FAQ</a></li>
     <li><a href="/contact/">Contact</a></li>
@@ -1008,7 +1009,7 @@
       <div class="plan-tagline">Built for companies serious about dominating their local market.</div>
       <div class="plan-price">
         <div class="price-amount">
-          <span class="dollar">$</span><span class="price-num" data-monthly="2297" data-annual="1952">2,297</span><span class="period">/mo</span>
+          <span class="dollar">$</span><span class="price-num" data-monthly="1997" data-annual="1697">1,997</span><span class="period">/mo</span>
         </div>
         <div class="price-annual-note annual-note" style="display:none;">Billed $23,424/yr — save $4,140</div>
         <div style="font-size:.75rem;color:var(--muted);margin-top:6px;">$3,000 onboarding fee</div>
@@ -1038,7 +1039,7 @@
       <div class="plan-tagline">Everything Summit offers. Built for total market domination.</div>
       <div class="plan-price">
         <div class="price-amount">
-          <span class="dollar">$</span><span class="price-num" data-monthly="3997" data-annual="3397">3,997</span><span style="font-family:'Inter',Arial,sans-serif;font-size:2.6rem;font-weight:800;color:#fff;">+</span><span class="period">/mo</span>
+          <span class="dollar">$</span><span class="price-num" data-monthly="3250" data-annual="2762">3,250</span><span style="font-family:'Inter',Arial,sans-serif;font-size:2.6rem;font-weight:800;color:#fff;">+</span><span class="period">/mo</span>
         </div>
         <div class="price-annual-note annual-note" style="display:none;">Billed $40,764+/yr — save 15%</div>
       </div>
@@ -1266,8 +1267,8 @@
         <select class="calc-plan-select" id="plan-select" onchange="calcUpdate()">
           <option value="697">Basecamp — $697/mo</option>
           <option value="1297">Elevate — $1,297/mo</option>
-          <option value="2297" selected>Ascent — $2,297/mo</option>
-          <option value="3997">Peak — $3,997+/mo</option>
+          <option value="1997" selected>Ascent — $1,997/mo</option>
+          <option value="3250">Peak — $3,250/mo</option>
         </select>
       </div>
 
@@ -1334,7 +1335,7 @@
           <div class="result-grid">
             <div class="result-item">
               <div class="result-label">Base Plan</div>
-              <div class="result-value" id="res-plan">$2,297</div>
+              <div class="result-value" id="res-plan">$1,997</div>
             </div>
             <div class="result-item">
               <div class="result-label">Est. Usage Fees</div>
@@ -1342,7 +1343,7 @@
             </div>
             <div class="result-item">
               <div class="result-label">Estimated Monthly Total</div>
-              <div class="result-value total-val" id="res-total">$2,297</div>
+              <div class="result-value total-val" id="res-total">$1,997</div>
             </div>
           </div>
 
@@ -1622,6 +1623,7 @@
       <li><a href="/#services">Services</a></li>
       <li><a href="/results/">Results</a></li>
       <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/locations/">Service Area</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/faq/">FAQ</a></li>
       <li><a href="/contact/">Contact</a></li>
@@ -1788,7 +1790,7 @@
     const sel = document.getElementById('plan-select');
     const cur = sel.options[sel.selectedIndex].text;
     // update options
-    const annualPrices = { '697': '593', '1297': '1102', '2297': '1952', '3997': '3397' };
+    const annualPrices = { '697': '593', '1297': '1102', '1997': '1697', '3250': '2762' };
     Array.from(sel.options).forEach(opt => {
       const base = opt.value;
       const price = isAnnual ? annualPrices[base] : base;
