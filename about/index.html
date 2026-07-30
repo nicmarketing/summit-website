@@ -461,6 +461,9 @@
       .mission-strip { padding: 48px 24px; }
       .mission-strip-inner { grid-template-columns: 1fr; gap: 28px; }
       .story-grid { grid-template-columns: 1fr; gap: 44px; }
+      .founder-grid { grid-template-columns: 1fr; gap: 44px; }
+      .founder-photo-wrap { max-width: 340px; margin: 0 auto; }
+      .founder-photo-badge { left: 50%; transform: translateX(-50%); }
       .svc-grid { grid-template-columns: 1fr; }
       .svc-grid-bottom { grid-template-columns: 1fr; max-width: 100%; }
       .clients-grid { grid-template-columns: 1fr; }
@@ -476,6 +479,21 @@
       footer { padding: 28px 24px; }
       .footer-links { gap: 18px; }
     }
+    /* ── FOUNDER ── */
+    .founder-grid { display: grid; grid-template-columns: 360px 1fr; gap: 72px; align-items: center; }
+    .founder-photo-wrap { position: relative; flex-shrink: 0; }
+    .founder-photo { width: 100%; border-radius: 20px; border: 1px solid rgba(0,174,239,.25); display: block; object-fit: cover; object-position: center top; aspect-ratio: 4/5; box-shadow: 0 24px 64px rgba(0,0,0,.55), 0 0 40px rgba(0,174,239,.08); }
+    .founder-photo-badge { position: absolute; bottom: -16px; left: 24px; background: var(--grad); color: var(--bg); font-size: .78rem; font-weight: 700; padding: 9px 22px; border-radius: 100px; white-space: nowrap; letter-spacing: .06em; box-shadow: 0 6px 24px rgba(0,174,239,.35); text-transform: uppercase; }
+    .founder-quote { background: linear-gradient(160deg,#0b2255,#071940); border: 1px solid rgba(0,174,239,.2); border-left: 3px solid var(--blue); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+    .founder-quote p { font-size: 1rem; color: rgba(255,255,255,.82); line-height: 1.72; font-style: italic; }
+    .founder-bio p { font-size: .96rem; color: var(--muted); line-height: 1.82; margin-bottom: 16px; }
+    .founder-bio p:last-child { margin-bottom: 0; }
+    .founder-details { display: flex; flex-direction: column; gap: 10px; margin: 26px 0 24px; padding: 20px 22px; background: rgba(0,174,239,.04); border: 1px solid rgba(0,174,239,.12); border-radius: 14px; }
+    .founder-detail { display: flex; align-items: center; gap: 12px; font-size: .87rem; color: rgba(255,255,255,.6); }
+    .founder-detail-icon { font-size: 1rem; flex-shrink: 0; width: 22px; text-align: center; }
+    .founder-cta { display: inline-flex; align-items: center; gap: 8px; color: var(--blue); font-size: .88rem; font-weight: 600; text-decoration: none; border: 1px solid rgba(0,174,239,.35); padding: 10px 22px; border-radius: 8px; transition: all .2s; }
+    .founder-cta:hover { background: rgba(0,174,239,.08); border-color: var(--blue); transform: translateX(3px); }
+
     /* ── CONTACT FORM ── */
     .sm-wrap * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
     .sm-wrap { font-family: 'Inter', Arial, sans-serif; background: linear-gradient(160deg, #0b2255 0%, #071940 55%, #020c1f 100%); border: 1px solid rgba(0,174,239,.3); border-radius: 20px; padding: 48px 44px; max-width: 600px; width: 100%; margin: 0 auto; box-shadow: 0 0 80px rgba(0,174,239,.12), 0 40px 80px rgba(0,0,0,.4); position: relative; overflow: hidden; text-align: left; }
@@ -663,6 +681,37 @@
             Mississippi-based, Southeast-focused
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-line"></div>
+
+  <!-- ── MEET THE FOUNDER ── -->
+  <section class="section" aria-label="Meet the Founder">
+    <div class="founder-grid">
+      <div class="founder-photo-wrap reveal">
+        <img src="/brand-assets/nic-butts.jpg" alt="Nic Butts, Founder & CEO of Summit Marketing LLC" class="founder-photo" />
+        <div class="founder-photo-badge">Founder &amp; CEO</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="section-eyebrow">Meet the Founder</div>
+        <h2 class="section-title">Nic Butts — <em>Built for the climb</em></h2>
+        <div class="founder-quote">
+          <p>"Many businesses aren't losing because of a lack of leads — they're losing because they lack the right systems. That realization is what Summit Marketing was built on."</p>
+        </div>
+        <div class="founder-bio">
+          <p>Summit Marketing was inspired by a passion for helping businesses grow through smarter marketing, automation, and technology. After spending more than two years building marketing systems in the home services industry, I saw first-hand how the right infrastructure — not just more leads — is what actually moves businesses forward.</p>
+          <p>Along the way, I was encouraged by mentors who believed in my abilities and pushed me to step out, keep learning, and build something of my own. Their confidence gave me the motivation to turn years of hands-on experience into a company focused on helping others succeed.</p>
+          <p>Today, Summit Marketing exists to help businesses generate more leads, streamline operations, and achieve long-term, measurable growth.</p>
+        </div>
+        <div class="founder-details">
+          <div class="founder-detail"><span class="founder-detail-icon">📍</span><span>Based in Mississippi — serving businesses across the Southeast</span></div>
+          <div class="founder-detail"><span class="founder-detail-icon">⚡</span><span>2+ years building marketing systems in the home services industry</span></div>
+          <div class="founder-detail"><span class="founder-detail-icon">🎯</span><span>Specializes in marketing automation, lead generation &amp; CRM systems</span></div>
+          <div class="founder-detail"><span class="founder-detail-icon">🤝</span><span>Driven by mentorship and a genuine belief in small business success</span></div>
+        </div>
+        <a href="mailto:nic@summitmarketingms.com" class="founder-cta">Email Nic Directly &rarr;</a>
       </div>
     </div>
   </section>
