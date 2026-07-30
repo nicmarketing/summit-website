@@ -444,6 +444,59 @@
     }
     .run-again-btn:hover { color: var(--blue); }
 
+    /* ── AEO PROVIDER SCORES ── */
+    .aeo-providers-section {
+      padding: 32px 52px;
+      border-bottom: 1px solid var(--border);
+    }
+    .aeo-providers-header { margin-bottom: 24px; }
+    .aeo-providers-header h3 {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: .85rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 6px;
+    }
+    .aeo-providers-note {
+      display: flex; align-items: center; gap: 6px;
+      font-size: .76rem; color: rgba(255,255,255,.28); line-height: 1.4;
+    }
+    .aeo-providers-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    }
+    .aeo-provider-card {
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 14px; padding: 22px 18px;
+    }
+    .aeo-provider-name {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: .88rem; font-weight: 700; color: var(--white); margin-bottom: 3px;
+    }
+    .aeo-provider-sub { font-size: .7rem; color: rgba(255,255,255,.32); margin-bottom: 18px; }
+    .aeo-mini-gauge-wrap { display: flex; justify-content: center; margin-bottom: 4px; }
+    .aeo-gauge-label-text {
+      text-align: center; font-size: .78rem; color: rgba(255,255,255,.45);
+      font-weight: 500; margin-bottom: 18px;
+    }
+    .aeo-sub-bars { display: flex; flex-direction: column; gap: 11px; }
+    .aeo-sub-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+    .aeo-sub-label { font-size: .72rem; color: rgba(255,255,255,.48); font-weight: 500; }
+    .aeo-sub-score { font-size: .7rem; color: rgba(255,255,255,.38); font-weight: 600; }
+    .aeo-sub-bar-track {
+      height: 5px; background: rgba(255,255,255,.06); border-radius: 100px; overflow: hidden;
+    }
+    .aeo-sub-bar-fill {
+      height: 100%; border-radius: 100px;
+      background: linear-gradient(90deg, #00AEEF, #41D9F2);
+      transition: width 1.5s cubic-bezier(.2,.8,.2,1); width: 0%;
+    }
+    .aeo-disclaimer {
+      margin-top: 18px;
+      background: rgba(0,174,239,.05); border: 1px solid rgba(0,174,239,.12);
+      border-radius: 10px; padding: 12px 16px;
+      font-size: .74rem; color: rgba(255,255,255,.35); line-height: 1.55;
+    }
+    .aeo-disclaimer strong { color: rgba(255,255,255,.55); }
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
@@ -482,6 +535,8 @@
       .findings-section { padding: 0 24px 32px; }
       .results-cta { flex-direction: column; margin: 0 24px 32px; }
       .run-again-btn { margin: 0 24px 24px; }
+      .aeo-providers-section { padding: 24px; }
+      .aeo-providers-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -520,7 +575,7 @@
     <div class="trust-pill"><span class="tick">✓</span> 19-point analysis</div>
     <div class="trust-pill"><span class="tick">✓</span> Results in seconds</div>
     <div class="trust-pill"><span class="tick">✓</span> No account needed</div>
-    <div class="trust-pill"><span class="tick">✓</span> AI visibility check</div>
+    <div class="trust-pill"><span class="tick">✓</span> ChatGPT, Perplexity &amp; Gemini scores</div>
   </div>
 </section>
 
@@ -588,6 +643,7 @@
           <li class="scan-step" data-label="Evaluating social tags..."><div class="step-dot">○</div><span>Evaluating Open Graph &amp; social tags</span></li>
           <li class="scan-step" data-label="Auditing structured data..."><div class="step-dot">○</div><span>Auditing structured data / schema</span></li>
           <li class="scan-step" data-label="Scoring AI visibility..."><div class="step-dot">○</div><span>Scoring AI &amp; LLM visibility</span></li>
+          <li class="scan-step" data-label="Estimating AI provider scores..."><div class="step-dot">○</div><span>Estimating AI provider scores (ChatGPT, Perplexity, Gemini)</span></li>
           <li class="scan-step" data-label="Calculating your score..."><div class="step-dot">○</div><span>Calculating your score</span></li>
         </ul>
       </div>
@@ -630,6 +686,9 @@
 
         <!-- Category breakdown -->
         <div class="cat-bars" id="cat-bars"></div>
+
+        <!-- AI Provider Scores -->
+        <div class="aeo-providers-section" id="aeo-section" style="display:none"></div>
 
         <!-- Detailed findings -->
         <div class="findings-section">
@@ -861,10 +920,179 @@
       findingsEl.appendChild(group);
     }
 
+    // AEO per-provider scores
+    renderAEOSection(results);
+
     // Track in GA
     if (typeof gtag === 'function') {
       gtag('event', 'audit_complete', { event_category: 'SEO Audit', event_label: data.url, value: score });
     }
+  }
+
+  /* ── AEO PROVIDER SCORES ──────────────────────────────────────── */
+  function computeAEOData(results) {
+    const r = id => results.find(c => c.id === id) || {};
+    const pass = id => r(id).status === 'pass';
+    const warn = id => r(id).status === 'warn';
+    const v = (id, p, w, f) => pass(id) ? p : warn(id) ? w : f;
+
+    // Base sub-scores (total max = 100)
+    const entity = Math.min(
+      v('org',10,5,0) + v('schema',4,2,0) + v('website',3,1,0) +
+      v('og',2,1,0) + v('breadcrumb',1,0,0), 20);
+
+    const market = Math.min(
+      v('org',3,1,0) + v('mobile',2,1,0) + v('sitemap',2,1,0) +
+      v('canonical',2,1,0) + v('robots',1,0,0), 10);
+
+    const presence = Math.min(
+      v('schema',6,3,0) + v('faq',5,0,0) + v('org',4,2,0) +
+      v('article',3,0,0) + v('breadcrumb',2,0,0), 20);
+
+    const content = Math.min(
+      v('title',8,4,0) + v('desc',7,3,0) + v('h1',7,3,0) +
+      v('faq',6,0,0) + v('alts',5,2,0) + v('h2',4,2,0) + v('keywords',3,0,0), 40);
+
+    const crawl = Math.min(
+      v('robots',4,2,0) + v('sitemap',3,1,0) + v('https',2,0,0) + v('canonical',1,0,0), 10);
+
+    // Per-provider slight variations (each AI weights signals differently)
+    const providers = [
+      {
+        name: 'OpenAI', sub: 'Powers ChatGPT',
+        s: {
+          entity: Math.min(entity + 1, 20),
+          market: Math.max(market - 1, 0),
+          presence,
+          content,
+          crawl: Math.max(crawl - 1, 0),
+        }
+      },
+      {
+        name: 'Perplexity', sub: 'Real-Time AI Search',
+        s: {
+          entity,
+          market: Math.min(market + 1, 10),
+          presence: Math.min(presence + 2, 20),
+          content: Math.max(content - 2, 0),
+          crawl: Math.min(crawl + 1, 10),
+        }
+      },
+      {
+        name: 'Gemini', sub: 'Powers Google AI Overview',
+        s: {
+          entity: Math.min(entity + 2, 20),
+          market: Math.min(market + 2, 10),
+          presence: Math.max(presence - 1, 0),
+          content: Math.max(content - 3, 0),
+          crawl,
+        }
+      },
+    ];
+
+    const lbl = t => t >= 75 ? 'Strong AI presence' : t >= 50 ? "You're on the right track" : t >= 30 ? 'Room to improve' : 'Needs significant work';
+
+    return providers.map(p => {
+      const total = p.s.entity + p.s.market + p.s.presence + p.s.content + p.s.crawl;
+      return { ...p, total, label: lbl(total) };
+    });
+  }
+
+  function renderAEOSection(results) {
+    const data = computeAEOData(results);
+    const R = 45, C = 2 * Math.PI * R; // r=45, full circumference
+    const arcLen = C * 0.75; // 270° visible arc
+
+    const subDefs = [
+      { key: 'entity',   label: 'Entity Clarity',    max: 20 },
+      { key: 'market',   label: 'Market Signals',     max: 10 },
+      { key: 'presence', label: 'Presence Quality',   max: 20 },
+      { key: 'content',  label: 'Content Quality',    max: 40 },
+      { key: 'crawl',    label: 'AI Crawlability',    max: 10 },
+    ];
+
+    const cards = data.map((p, i) => {
+      const fillLen = arcLen * (p.total / 100);
+      const gapBg = C - arcLen;
+      const gapFill = C - fillLen;
+      const uid = 'aeoG' + i;
+
+      const bars = subDefs.map(sk => `
+        <div>
+          <div class="aeo-sub-row">
+            <span class="aeo-sub-label">${sk.label}</span>
+            <span class="aeo-sub-score">${p.s[sk.key]}/${sk.max}</span>
+          </div>
+          <div class="aeo-sub-bar-track">
+            <div class="aeo-sub-bar-fill" data-pct="${((p.s[sk.key]/sk.max)*100).toFixed(1)}" style="width:0%"></div>
+          </div>
+        </div>`).join('');
+
+      return `
+      <div class="aeo-provider-card">
+        <div class="aeo-provider-name">${p.name}</div>
+        <div class="aeo-provider-sub">${p.sub}</div>
+        <div class="aeo-mini-gauge-wrap">
+          <svg viewBox="0 0 120 120" width="118" height="118">
+            <defs>
+              <linearGradient id="${uid}" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00AEEF"/>
+                <stop offset="100%" stop-color="#41D9F2"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="${R}" fill="none"
+              stroke="rgba(255,255,255,0.06)" stroke-width="10" stroke-linecap="round"
+              stroke-dasharray="${arcLen.toFixed(2)} ${gapBg.toFixed(2)}"
+              transform="rotate(135 60 60)"/>
+            <circle cx="60" cy="60" r="${R}" fill="none"
+              stroke="url(#${uid})" stroke-width="10" stroke-linecap="round"
+              stroke-dasharray="0 ${C.toFixed(2)}"
+              transform="rotate(135 60 60)"
+              class="aeo-arc-fill"
+              data-fill="${fillLen.toFixed(2)}"
+              data-c="${C.toFixed(2)}"/>
+            <text x="60" y="56" text-anchor="middle" dominant-baseline="middle"
+              font-family="Oswald,sans-serif" font-size="27" font-weight="700" fill="white">${p.total}</text>
+            <text x="60" y="74" text-anchor="middle" dominant-baseline="middle"
+              font-family="Inter,sans-serif" font-size="8.5" fill="rgba(255,255,255,0.32)">out of 100</text>
+          </svg>
+        </div>
+        <div class="aeo-gauge-label-text">${p.label}</div>
+        <div class="aeo-sub-bars">${bars}</div>
+      </div>`;
+    }).join('');
+
+    const section = document.getElementById('aeo-section');
+    section.innerHTML = `
+      <div class="aeo-providers-header">
+        <h3>AI Visibility — Per Provider</h3>
+        <div class="aeo-providers-note">
+          <span>⚡</span>
+          <span>Estimated from on-page signals · Brand recognition &amp; share of voice require live AI query testing</span>
+        </div>
+      </div>
+      <div class="aeo-providers-grid">${cards}</div>
+      <div class="aeo-disclaimer">
+        <strong>How these scores work:</strong> Entity Clarity measures how well AI can identify your brand.
+        Market Signals reflect local business indicators. Presence Quality scores your schema markup depth.
+        Content Quality evaluates title, headings, FAQ, and copy structure. AI Crawlability checks whether AI bots
+        can access and index your site. For live brand recognition and share-of-voice data,
+        <a href="/contact/" style="color:var(--blue);text-decoration:none">book a full AEO audit</a>.
+      </div>`;
+    section.style.display = 'block';
+
+    // Animate arcs and bars after paint
+    setTimeout(() => {
+      section.querySelectorAll('.aeo-arc-fill').forEach(el => {
+        const fill = parseFloat(el.dataset.fill);
+        const c = parseFloat(el.dataset.c);
+        el.style.transition = 'stroke-dasharray 1.6s cubic-bezier(.2,.8,.2,1)';
+        el.style.strokeDasharray = `${fill.toFixed(2)} ${(c - fill).toFixed(2)}`;
+      });
+      section.querySelectorAll('.aeo-sub-bar-fill').forEach(el => {
+        el.style.width = el.dataset.pct + '%';
+      });
+    }, 120);
   }
 
   function animateNumber(id, target, duration) {
