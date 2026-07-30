@@ -8,7 +8,7 @@
 
 **Name**: Summit Marketing LLC
 **Founder & CEO**: Nic Butts
-**Founded**: 2024
+**Founded**: 2026
 **Headquarters**: 4725 US Highway 80 E, Pearl, Mississippi 39208
 **Phone**: (601) 607-9714
 **Email**: nic@summitmarketingms.com
@@ -23,7 +23,7 @@ Summit Marketing LLC builds the Contractor Revenue Engine™ — a complete auto
 
 ## About the Founder — Nic Butts
 
-Nic Butts founded Summit Marketing after spending 2+ years in the home services industry and seeing the same problem repeated: businesses weren't losing because of a lack of leads — they were losing because they lacked the right systems. Jobs went to whoever called back first, and most contractors were calling back the next day, not the next minute.
+Nic Butts founded Summit Marketing in 2026 after spending 2+ years in the home services industry and seeing the same problem repeated: businesses weren't losing because of a lack of leads — they were losing because they lacked the right systems. Jobs went to whoever called back first, and most contractors were calling back the next day, not the next minute.
 
 Nic built Summit Marketing to install the systems that change that outcome. His background combines hands-on home services experience with digital marketing expertise, and his mission is straightforward: help Mississippi contractors stop losing booked jobs to slow response times and missed calls.
 
@@ -147,7 +147,7 @@ Summit Marketing does not run paid advertising (Google Ads, Meta Ads, Facebook A
 - **AI Sales Assistant**: Proactively follows up on unbooked estimates with personalized messages, revives cold leads, and sends appointment reminders.
 - **Chatbot with Company Knowledge Base**: Embeds on your website and answers visitor questions instantly using your specific business information, reducing friction and capturing leads 24/7.
 - **Voice AI**: Inbound and outbound AI voice calls for lead qualification, appointment reminders, and follow-up.
-- **Missed Call Text Back**: When a call goes unanswered, an automated text goes out within seconds so the lead knows you're on it.
+- **Missed Opportunity Recovery**: When a call goes unanswered or a lead doesn't book, an automated follow-up goes out within seconds so no lead falls through the cracks.
 
 ---
 
