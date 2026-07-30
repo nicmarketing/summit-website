@@ -25,6 +25,9 @@
   <meta name="twitter:image" content="https://www.summitmarketingms.com/brand-assets/og-image.png" />
   <link rel="icon" type="image/png" href="brand-assets/Summt Marketing LOGO.png" />
   <link rel="apple-touch-icon" href="brand-assets/Summt Marketing LOGO.png" />
+  <!-- LLM / AI crawler discovery -->
+  <link rel="alternate" type="text/plain" href="https://www.summitmarketingms.com/llms.txt" title="LLM Summary" />
+  <link rel="alternate" type="text/plain" href="https://www.summitmarketingms.com/llms-full.txt" title="LLM Full Reference" />
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R81TMRFN4"></script>
   <script>
@@ -55,10 +58,26 @@
         "image": { "@id": "https://www.summitmarketingms.com/#logo" },
         "email": "nic@summitmarketingms.com",
         "telephone": "+16016079714",
-        "description": "Results-driven digital marketing agency offering SEO, content, automation, and AI-powered growth strategies for businesses across Mississippi.",
+        "description": "Mississippi's AI-powered revenue systems agency. We build the Contractor Revenue Engine™ — automated lead capture, 5-minute response, AI Receptionist, and booking systems that help home service contractors stop losing jobs to slow follow-up.",
         "slogan": "Reaching New Heights Together",
-        "foundingDate": "2026",
-        "areaServed": { "@type": "State", "name": "Mississippi" },
+        "foundingDate": "2024",
+        "founder": {
+          "@type": "Person",
+          "@id": "https://www.summitmarketingms.com/#founder",
+          "name": "Nic Butts",
+          "jobTitle": "Founder & CEO",
+          "email": "nic@summitmarketingms.com",
+          "worksFor": { "@id": "https://www.summitmarketingms.com/#organization" }
+        },
+        "areaServed": [
+          { "@type": "State", "name": "Mississippi" },
+          { "@type": "City", "name": "Jackson", "containedInPlace": { "@type": "State", "name": "Mississippi" } },
+          { "@type": "City", "name": "Gulfport", "containedInPlace": { "@type": "State", "name": "Mississippi" } },
+          { "@type": "City", "name": "Biloxi", "containedInPlace": { "@type": "State", "name": "Mississippi" } },
+          { "@type": "City", "name": "Hattiesburg", "containedInPlace": { "@type": "State", "name": "Mississippi" } },
+          { "@type": "City", "name": "Tupelo", "containedInPlace": { "@type": "State", "name": "Mississippi" } },
+          { "@type": "City", "name": "Southaven", "containedInPlace": { "@type": "State", "name": "Mississippi" } }
+        ],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "4725 US Highway 80 E",
@@ -70,7 +89,57 @@
         "sameAs": [
           "https://www.facebook.com/SummitMarketingMS",
           "https://www.instagram.com/summitmarketingms"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Contractor Revenue Engine™ Plans",
+          "itemListElement": [
+            { "@type": "Offer", "name": "Basecamp", "price": "697", "priceCurrency": "USD", "description": "Lead Capture, 5-Minute Response, Missed Opportunity Recovery, Reputation System, GBP Optimization, Local SEO" },
+            { "@type": "Offer", "name": "Elevate", "price": "1297", "priceCurrency": "USD", "description": "Everything in Basecamp plus SEO/AEO/GEO, Local Authority Building, Reputation Management" },
+            { "@type": "Offer", "name": "Ascent", "price": "1997", "priceCurrency": "USD", "description": "Everything in Elevate plus 24/7 AI Receptionist, AI Sales Assistant, Converting Website, Landing Pages, Monthly Strategy Call" },
+            { "@type": "Offer", "name": "Peak", "price": "3250", "priceCurrency": "USD", "description": "Everything in Ascent plus Estimate Recovery, Lost Lead Recovery, Referral Automation, Full Social Media, Custom AI Knowledge Base" }
+          ]
+        }
+      },
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://www.summitmarketingms.com/#localbusiness",
+        "name": "Summit Marketing LLC",
+        "url": "https://www.summitmarketingms.com/",
+        "telephone": "+16016079714",
+        "email": "nic@summitmarketingms.com",
+        "image": "https://www.summitmarketingms.com/brand-assets/Summt%20Marketing%20LOGO.png",
+        "description": "Home service contractor marketing agency in Pearl, Mississippi. We install the Contractor Revenue Engine™ — AI Receptionist, 5-Minute Lead Response, automated follow-up, and reputation systems that book more jobs automatically.",
+        "priceRange": "$697–$3,250+/month",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4725 US Highway 80 E",
+          "addressLocality": "Pearl",
+          "addressRegion": "MS",
+          "postalCode": "39208",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "32.2765",
+          "longitude": "-90.0951"
+        },
+        "areaServed": { "@type": "State", "name": "Mississippi" },
+        "sameAs": [
+          "https://www.facebook.com/SummitMarketingMS",
+          "https://www.instagram.com/summitmarketingms"
         ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.summitmarketingms.com/#founder",
+        "name": "Nic Butts",
+        "jobTitle": "Founder & CEO",
+        "worksFor": { "@id": "https://www.summitmarketingms.com/#organization" },
+        "email": "nic@summitmarketingms.com",
+        "image": "https://www.summitmarketingms.com/brand-assets/pic.jpg",
+        "description": "Nic Butts founded Summit Marketing LLC in 2024 after 2+ years in the home services industry, recognizing that contractors were losing jobs not from a lack of leads but a lack of systems. He built the Contractor Revenue Engine™ to solve that problem.",
+        "url": "https://www.summitmarketingms.com/about/"
       },
       {
         "@type": "WebSite",
@@ -193,7 +262,7 @@
         "name": "How much does Summit Marketing cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Summit Marketing's retainer plans start at $697/month (Basecamp) and range up to $1,997/month (Ascent) and $3,250/month (Peak). Web design projects start at $1,200 (Trailhead) and $2,000+ (Pinnacle custom). All plans are flat-rate with no hidden fees."
+          "text": "Summit Marketing's retainer plans start at $697/month (Basecamp), then Elevate at $1,297/month, Ascent at $1,997/month (most popular), and Peak starting at $3,250/month. All plans have a one-time onboarding fee. Web design projects start at $300 (Trailhead) and $2,000+ (Pinnacle custom). All plans are flat-rate month-to-month with no long-term contracts."
         }
       },
       {

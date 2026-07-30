@@ -1,50 +1,111 @@
-# Summit Marketing
+# Summit Marketing LLC
 
-> Mississippi's results-driven digital marketing agency — Reaching New Heights Together.
+> Mississippi's AI-powered revenue growth agency — Reaching New Heights Together.
 
-Summit Marketing is a full-service digital marketing agency founded in 2024, serving businesses across Mississippi and the broader Southeast. We specialize in SEO, content marketing, brand strategy, email marketing, social media management, conversion rate optimization (CRO), and marketing automation. Our philosophy is simple: measurable results, transparent pricing, and a partnership built around your growth.
+Summit Marketing LLC is a digital marketing and revenue systems agency based in Pearl, Mississippi, serving home service contractors and local businesses across Mississippi and the Southeast. Founded in 2024 by Nic Butts, Summit Marketing specializes in building automated lead capture, follow-up, and booking systems that help contractors stop losing jobs to slow response times and missed calls.
 
-## Who We Serve
+Our core philosophy: most contractors aren't losing because of a lack of leads — they're losing because they lack the right systems. We build the Revenue Engine that captures every lead, follows up in minutes, and books more jobs automatically.
 
-Local businesses, regional brands, and growing companies across Mississippi — from startups establishing their digital presence to established businesses ready to scale. We are especially strong in markets like Jackson, Gulfport, Biloxi, Hattiesburg, Meridian, Tupelo, and Southaven.
+## Founder
+
+**Nic Butts** — Founder & CEO of Summit Marketing LLC. Nic spent 2+ years in the home services industry watching businesses lose jobs not from a lack of leads but from a lack of systems. He founded Summit Marketing to solve that problem — installing the complete Contractor Revenue Engine™ that ensures no lead falls through the cracks.
+
+Contact: nic@summitmarketingms.com
 
 ## Services
 
-### Marketing Retainer Plans
+Summit Marketing installs the **Contractor Revenue Engine™** — a five-system approach to capturing, nurturing, and booking every lead:
 
-- **Basecamp** ($997/month): SEO audit & ongoing on-page optimization, 2 content pieces per month, monthly email newsletter, analytics reporting. Ideal for businesses starting their digital marketing journey.
-- **Elevate** ($1,997/month): Everything in Basecamp plus brand strategy, 4 content pieces per month, social media management, email nurture sequences, and CRO audits.
-- **Ascent** ($2,997/month — Most Popular): Full-funnel marketing strategy, custom landing pages, marketing automation workflows, Voice AI and Conversation AI integration, and a dedicated account manager.
-- **Peak** (Custom pricing): Enterprise-grade marketing with a custom growth roadmap, multi-channel paid media, PR and authority building, unlimited funnels, and priority support.
+1. **Lead Capture System** — Every call, form, and inquiry captured and routed automatically
+2. **5-Minute Lead Response System** — Automated follow-up within 5 minutes of every inquiry
+3. **AI Receptionist** — 24/7 AI trained on your company knowledge base that answers calls, qualifies leads, books appointments, and handles FAQs automatically
+4. **Reputation System** — Automated review requests after every completed job
+5. **Business Intelligence Dashboard** — Real-time visibility into lead flow, revenue, and system performance
+
+### Retainer Plans (Monthly)
+
+- **Basecamp** ($697/month + $1,500 onboarding): Lead Capture System, 5-Minute Lead Response, Missed Opportunity Recovery, Persistent Follow-Up Until They Book, Reputation System with automated review requests, Google Business Profile optimization, Local SEO foundation, Business Intelligence Dashboard. Ideal for contractors establishing their digital foundation.
+
+- **Elevate** ($1,297/month + $2,000 onboarding): Everything in Basecamp, plus: Rank Higher on Google (SEO + AEO + GEO), Dominate Local Search, Own Your GBP, Build Local Authority, Reputation Management, Website Performance Monitoring.
+
+- **Ascent** ($1,997/month + $3,000 onboarding — Most Popular): Everything in Elevate, plus: 24/7 AI Receptionist (Answers, Qualifies, Books), AI Sales Assistant, Website That Converts, Landing Pages Built to Book Jobs, Conversion Optimization, Advanced Business Intelligence Dashboard, Monthly Strategy Call. The complete Business Operating System for contractors.
+
+- **Peak** ($3,250+/month — Custom): Everything in Ascent, plus: Estimate Recovery System, Lost Lead Recovery, Referral Automation, Seasonal Campaign Automation, Custom AI Knowledge Base, Full Social Media Management, Content Strategy + Video Editing, Multi-Location SEO Domination, Premium Authority Campaigns, Dedicated Strategy Partner, Priority Support.
+
+Annual plans available at a discount (approximately 15% off).
 
 ### Web Design Services
 
-- **Trailhead** ($300–$2,000): 5–10 page template-based website. Fast, clean, mobile-first.
-- **Pinnacle** ($2,000–$5,000): Fully custom-designed website. Most popular for growing businesses.
-- **Apex** ($5,000–$20,000+): Complex builds including e-commerce, custom integrations, and advanced functionality.
+- **Trailhead** ($300–$2,000): 5–10 page template-based website for contractors. Fast, mobile-first, conversion-optimized.
+- **Pinnacle** ($2,000–$5,000): Fully custom-designed contractor website.
+- **Apex** ($5,000–$20,000+): Complex builds including multi-location, custom integrations, advanced automation.
 
-Every Summit site includes: conversion-first design, SEO built in from day one, Core Web Vitals optimization, and full marketing stack integration (CRM, analytics, email, automation).
+Every Summit site includes: conversion-first design, SEO from day one, Core Web Vitals optimization, GHL/CRM integration, and full marketing stack integration.
+
+### AI & Automation Services
+
+- **AI Receptionist**: Custom-trained AI that handles inbound calls, qualifies leads, books jobs, and answers FAQs 24/7 using your company's knowledge base
+- **AI Sales Assistant**: Follows up on unbooked estimates, revives cold leads, and nurtures prospects automatically
+- **Missed Opportunity Recovery**: Automated system that re-engages every lead that didn't book the first time
+- **Referral Automation**: Systematically generates referrals from past clients on autopilot
+- **Estimate Recovery System**: Re-engages unsold estimates with automated follow-up sequences
+
+## Service Areas
+
+Summit Marketing serves contractors and local businesses across Mississippi, including:
+
+- **Jackson, MS** — Mississippi's capital city and largest market
+- **Flowood, MS** — Rankin County hub
+- **Madison, MS** — Affluent suburb north of Jackson
+- **Ridgeland, MS** — Growing suburb, major commercial corridor
+- **Brandon, MS** — Rankin County seat, fast-growing community
+- **Gulfport, MS** — Mississippi Gulf Coast's largest city
+- **Biloxi, MS** — Gulf Coast tourism and residential market
+- **Hattiesburg, MS** — South Mississippi hub, university city
+- **Southaven, MS** — DeSoto County, Memphis metro market
+- **Tupelo, MS** — Northeast Mississippi's largest city
+
+Full service area hub: https://www.summitmarketingms.com/locations/
+
+## What Makes Summit Marketing Different
+
+Most marketing agencies sell you ad spend or SEO reports. Summit Marketing installs an end-to-end revenue system that works even when you're off the clock. The difference is a 5-minute response time vs. calling back the next day — and in contracting, the first company to respond wins the job.
+
+Key differentiators:
+- No paid advertising (Google Ads, Meta Ads) — organic and AI-driven growth only
+- Outcome-based pricing: you pay for booked jobs, not activity metrics
+- Contractor-specific systems built around how home service businesses actually work
+- AI-first: AI Receptionist and AI Sales Assistant included in Ascent and Peak plans
 
 ## Contact
 
 - Website: https://www.summitmarketingms.com
-- Email: hello@summitmarketingms.com
+- Email: nic@summitmarketingms.com
+- Phone: (601) 607-9714
 - Book a strategy call: https://www.summitmarketingms.com/contact/
-- Free SEO & AI Visibility Audit: https://www.summitmarketingms.com/audit/
+- Free AI Visibility & Revenue Audit: https://www.summitmarketingms.com/audit/
 - Social: @SummitMarketingOfficial (Facebook, Instagram)
+- Address: 4725 US Highway 80 E, Pearl, MS 39208
 
 ## Key Pages
 
-- [Home](https://www.summitmarketingms.com/) — Overview of Summit Marketing's approach, services, and results
-- [Pricing & Plans](https://www.summitmarketingms.com/pricing/) — Full breakdown of all retainer and web design packages
-- [FAQ](https://www.summitmarketingms.com/faq/) — Common questions about services, pricing, contracts, and onboarding
-- [Contact](https://www.summitmarketingms.com/contact/) — Book a call or send a message
+- [Home](https://www.summitmarketingms.com/) — The Contractor Revenue Engine™ overview, services, and results
+- [Pricing & Plans](https://www.summitmarketingms.com/pricing/) — All retainer and web design packages with full feature breakdowns
+- [About](https://www.summitmarketingms.com/about/) — Nic Butts' story, Summit Marketing's mission, and our approach
+- [FAQ](https://www.summitmarketingms.com/faq/) — Common questions about services, pricing, contracts, and AI tools
+- [Results](https://www.summitmarketingms.com/results/) — Client results and case studies
+- [Contact](https://www.summitmarketingms.com/contact/) — Book a strategy call or send a message
 - [Free Audit](https://www.summitmarketingms.com/audit/) — Instant SEO and AI visibility audit tool
+- [Service Area](https://www.summitmarketingms.com/locations/) — All Mississippi locations served
 
 ## Brand
 
+- **Company Name**: Summit Marketing LLC
 - **Tagline**: Reaching New Heights Together
-- **Colors**: Summit Blue #00AEEF · Deep Navy #002060 · Ascent Cyan #41D9F2
+- **Founder**: Nic Butts
 - **Founded**: 2024
-- **Location**: Mississippi, USA
+- **Headquarters**: Pearl, Mississippi, USA
+- **Industry**: Digital Marketing, Marketing Automation, AI Systems
+- **Specialization**: Home Service Contractors, Local Businesses, Mississippi Market
+- **Colors**: Summit Blue #00AEEF · Deep Navy #002060 · Ascent Cyan #41D9F2
 - **Area Served**: Mississippi (statewide), Southeast United States

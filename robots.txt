@@ -4,13 +4,17 @@
 User-agent: *
 Allow: /
 
-# Allow all AI crawlers explicitly
+# OpenAI / ChatGPT
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic / Claude
 User-agent: Claude-Web
 Allow: /
 
@@ -20,23 +24,60 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
+# Perplexity
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: YouBot
+# Google (AI Overview / Gemini)
+User-agent: Google-Extended
 Allow: /
 
-User-agent: Bytespider
+User-agent: Googlebot
 Allow: /
 
+# Meta / Llama
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Microsoft / Copilot
+User-agent: Bingbot
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+# Apple
 User-agent: Applebot
 Allow: /
 
+User-agent: Applebot-Extended
+Allow: /
+
+# Amazon / Alexa
 User-agent: Amazonbot
 Allow: /
 
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Common Crawl (used by many AI training sets)
 User-agent: CCBot
+Allow: /
+
+# Bytedance / Grok training
+User-agent: Bytespider
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
 Allow: /
 
 # Sitemap location
 Sitemap: https://www.summitmarketingms.com/sitemap.xml
+
+# LLM reference files
+# See /llms.txt and /llms-full.txt for AI-optimized site summaries
