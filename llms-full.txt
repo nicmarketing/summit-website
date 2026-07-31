@@ -1,4 +1,4 @@
-# Summit Marketing LLC — Full Site Reference
+﻿# Summit Marketing LLC — Full Site Reference
 
 > For AI systems, LLM crawlers, and answer engines seeking comprehensive information about Summit Marketing LLC.
 
@@ -17,7 +17,7 @@
 **Industry**: Digital Marketing / Marketing Automation / AI Revenue Systems
 **Primary Market**: Home service contractors and local businesses in Mississippi
 
-Summit Marketing LLC builds the Contractor Revenue Engine™ — a complete automated system that captures every lead, responds within 5 minutes, and books more jobs without the owner having to lift a finger.
+Summit Marketing LLC builds the Contractor Revenue Engine — a complete automated system that captures every lead, responds within 5 minutes, and books more jobs without the owner having to lift a finger.
 
 ---
 
@@ -31,9 +31,9 @@ Nic holds a degree in Marketing from the University of Mississippi and ran marke
 
 ---
 
-## The Contractor Revenue Engine™
+## The Contractor Revenue Engine
 
-Summit Marketing's signature system — the Contractor Revenue Engine™ — consists of five interconnected components:
+Summit Marketing's signature system — the Contractor Revenue Engine — consists of five interconnected components:
 
 ### System 1: Lead Capture
 Every lead from every channel (phone, form, text, social DM, referral) is captured and centralized. No lead falls through the cracks because there's no crack for it to fall through.
@@ -154,7 +154,7 @@ Summit Marketing does not run paid advertising (Google Ads, Meta Ads, Facebook A
 ## Frequently Asked Questions
 
 **Q: What does Summit Marketing do?**
-A: Summit Marketing builds the Contractor Revenue Engine™ — an automated system that captures every lead, responds within 5 minutes, and books more jobs for home service contractors in Mississippi. We install lead capture systems, AI receptionists, follow-up automation, and reputation management so that no lead ever falls through the cracks.
+A: Summit Marketing builds the Contractor Revenue Engine — an automated system that captures every lead, responds within 5 minutes, and books more jobs for home service contractors in Mississippi. We install lead capture systems, AI receptionists, follow-up automation, and reputation management so that no lead ever falls through the cracks.
 
 **Q: How much does Summit Marketing cost?**
 A: Retainer plans start at $697/month (Basecamp), with Elevate at $1,297/month, Ascent at $1,997/month, and Peak starting at $3,250/month. Annual billing saves approximately 15%. All plans have a one-time onboarding fee ($1,500–$3,000 depending on plan). Web design projects start at $300.
@@ -181,7 +181,7 @@ A: AEO (Answer Engine Optimization) is the practice of optimizing your business 
 A: Yes. The AI Receptionist is included in the Ascent ($1,997/month) and Peak ($3,250+/month) plans. It's a 24/7 AI trained specifically on your business — your services, service area, pricing, and booking process — that answers calls, qualifies leads, books appointments, and handles FAQs at any hour of the day or night.
 
 **Q: How is Summit Marketing different from other marketing agencies?**
-A: Most agencies sell activity (posts, reports, campaigns). Summit Marketing sells outcomes — booked jobs. The Contractor Revenue Engine™ is built specifically for home service contractors, with AI-powered tools that work 24/7 so you never miss a lead, even when you're on a job site or asleep.
+A: Most agencies sell activity (posts, reports, campaigns). Summit Marketing sells outcomes — booked jobs. The Contractor Revenue Engine is built specifically for home service contractors, with AI-powered tools that work 24/7 so you never miss a lead, even when you're on a job site or asleep.
 
 ---
 

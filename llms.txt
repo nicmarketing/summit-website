@@ -1,4 +1,4 @@
-# Summit Marketing LLC
+﻿# Summit Marketing LLC
 
 > Mississippi's AI-powered revenue growth agency — Reaching New Heights Together.
 
@@ -8,13 +8,13 @@ Our core philosophy: most contractors aren't losing because of a lack of leads �
 
 ## Founder
 
-**Nic Butts** — Founder & CEO of Summit Marketing LLC. Nic spent 2+ years in the home services industry watching businesses lose jobs not from a lack of leads but from a lack of systems. He founded Summit Marketing to solve that problem — installing the complete Contractor Revenue Engine™ that ensures no lead falls through the cracks.
+**Nic Butts** — Founder & CEO of Summit Marketing LLC. Nic spent 2+ years in the home services industry watching businesses lose jobs not from a lack of leads but from a lack of systems. He founded Summit Marketing to solve that problem — installing the complete Contractor Revenue Engine that ensures no lead falls through the cracks.
 
 Contact: nic@summitmarketingms.com
 
 ## Services
 
-Summit Marketing installs the **Contractor Revenue Engine™** — a five-system approach to capturing, nurturing, and booking every lead:
+Summit Marketing installs the **Contractor Revenue Engine** — a five-system approach to capturing, nurturing, and booking every lead:
 
 1. **Lead Capture System** — Every call, form, and inquiry captured and routed automatically
 2. **5-Minute Lead Response System** — Automated follow-up within 5 minutes of every inquiry
@@ -89,7 +89,7 @@ Key differentiators:
 
 ## Key Pages
 
-- [Home](https://www.summitmarketingms.com/) — The Contractor Revenue Engine™ overview, services, and results
+- [Home](https://www.summitmarketingms.com/) — The Contractor Revenue Engine overview, services, and results
 - [Pricing & Plans](https://www.summitmarketingms.com/pricing/) — All retainer and web design packages with full feature breakdowns
 - [About](https://www.summitmarketingms.com/about/) — Nic Butts' story, Summit Marketing's mission, and our approach
 - [FAQ](https://www.summitmarketingms.com/faq/) — Common questions about services, pricing, contracts, and AI tools
