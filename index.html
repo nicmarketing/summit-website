@@ -35,6 +35,29 @@
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What services does Summit Marketing offer?","acceptedAnswer":{"@type":"Answer","text":"Summit Marketing offers SEO, content marketing, brand strategy, social media management, email marketing, marketing automation, conversion rate optimization, and custom web design. We serve businesses across Mississippi with four retainer tiers: Basecamp, Elevate, Ascent, and Peak."}},{"@type":"Question","name":"How much does Summit Marketing cost?","acceptedAnswer":{"@type":"Answer","text":"Summit Marketing's retainer plans start at $697/month (Basecamp), then Elevate at $1,297/month, Ascent at $1,997/month (most popular), and Peak starting at $3,250/month. All plans have a one-time onboarding fee. Web design projects start at $300 (Trailhead) and $2,000+ (Pinnacle custom). All plans are flat-rate month-to-month with no long-term contracts."}},{"@type":"Question","name":"Where is Summit Marketing located and who do they serve?","acceptedAnswer":{"@type":"Answer","text":"Summit Marketing is based in Mississippi and serves businesses statewide — including Jackson, Gulfport, Biloxi, Hattiesburg, Meridian, Tupelo, and Southaven — as well as clients across the Southeast United States."}},{"@type":"Question","name":"Does Summit Marketing offer web design services?","acceptedAnswer":{"@type":"Answer","text":"Yes. Summit Marketing builds conversion-focused websites starting at $300 (Trailhead) and $2,000+ (Pinnacle custom design). Every site includes SEO, Core Web Vitals optimization, and full marketing stack integration."}},{"@type":"Question","name":"How do I get started with Summit Marketing?","acceptedAnswer":{"@type":"Answer","text":"You can book a free strategy call at summitmarketingms.com/contact/ or get a free SEO and AI visibility audit instantly at summitmarketingms.com/audit/. A Summit Marketing strategist will review your current marketing and show you exactly what to improve."}}]}
   </script>
 
+<script>
+function _hesc(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+var _HGSVG='<svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>';
+function initHomepageReviews(){
+  var service=new google.maps.places.PlacesService(document.createElement('div'));
+  service.getDetails({placeId:'ChIJSV2JYAHcVWcR539mk86A43U',fields:['rating','user_ratings_total','reviews']},function(place,status){
+    if(status!==google.maps.places.PlacesServiceStatus.OK||!place||!place.reviews||!place.reviews.length)return;
+    var rating=place.rating||5,count=place.user_ratings_total||'';
+    var rEl=document.querySelector('.reviews-overall-rating'),sEl=document.querySelector('.reviews-overall-stars'),lEl=document.querySelector('.reviews-overall-label');
+    if(rEl)rEl.textContent=rating.toFixed(1);
+    if(sEl)sEl.textContent='★'.repeat(Math.round(rating));
+    if(lEl&&count)lEl.textContent=count+' Google Reviews';
+    var grid=document.getElementById('reviewsGrid');if(!grid)return;
+    var five=place.reviews.filter(function(r){return r.rating===5;});if(!five.length)return;
+    grid.innerHTML=five.map(function(r,i){
+      var text=r.text||'',long=text.length>240,id='hp-rv-'+i;
+      var avatar=r.profile_photo_url?'<img src="'+r.profile_photo_url+'" alt="" style="width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0;" />':'<div class="review-avatar">'+(r.author_name||'?').charAt(0).toUpperCase()+'</div>';
+      return'<div class="review-card"><div class="review-card-header">'+avatar+'<div class="review-meta"><div class="review-author">'+_hesc(r.author_name)+'</div><div class="review-date">'+_hesc(r.relative_time_description)+'</div></div><div class="review-stars">★★★★★</div></div>'+(long?'<div style="max-height:7.5em;overflow:hidden;transition:max-height .4s ease" id="'+id+'"><p class="review-text">&ldquo;'+_hesc(text)+'&rdquo;</p></div><button onclick="(function(b){var w=document.getElementById(\''+id+'\');var e=w.style.maxHeight!==\'1000px\';w.style.maxHeight=e?\'1000px\':\'7.5em\';b.textContent=e?\'Show less ▲\':\'Read more ▼\';})(this)" style="background:none;border:none;color:#00AEEF;font-size:.75rem;font-weight:700;cursor:pointer;padding:6px 0 10px;font-family:Inter,sans-serif;letter-spacing:.05em;text-transform:uppercase">Read more &#x25BC;</button>':'<p class="review-text">&ldquo;'+_hesc(text)+'&rdquo;</p>')+'<div class="review-source">'+_HGSVG+' Google Review</div></div>';
+    }).join('');
+  });
+}
+</script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2Vsm_C8kZe1IIU7Dc-_rsO6hscg87JyE&libraries=places&callback=initHomepageReviews"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -539,29 +562,29 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
     <div id="reviewsGrid">
       <div class="review-card reveal">
         <div class="review-card-header">
-          <div class="review-avatar">JM</div>
-          <div class="review-meta"><div class="review-author">James M.</div><div class="review-date">July 2026</div></div>
+          <div class="review-avatar">H</div>
+          <div class="review-meta"><div class="review-author">Holden H.</div><div class="review-date">2 months ago</div></div>
           <div class="review-stars">★★★★★</div>
         </div>
-        <p class="review-text">"Summit transformed how we handle incoming leads. We used to miss calls and lose jobs. Now every lead gets a text back in minutes — even when we're out on a job."</p>
+        <p class="review-text">"Nic is the GOAT! Built my website exactly how I wanted! Very fast and professional!! Would give ten stars if I could! Will be using Summit Marketing for all my website and marketing needs forever!!"</p>
         <div class="review-source"><svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
       </div>
       <div class="review-card reveal">
         <div class="review-card-header">
-          <div class="review-avatar">ST</div>
-          <div class="review-meta"><div class="review-author">Sarah T.</div><div class="review-date">June 2026</div></div>
+          <div class="review-avatar">P</div>
+          <div class="review-meta"><div class="review-author">Payton Q.</div><div class="review-date">1 month ago</div></div>
           <div class="review-stars">★★★★★</div>
         </div>
-        <p class="review-text">"The SEO results have been incredible. We went from page 3 to the top 3 results in our area within 60 days. The phone is ringing consistently now."</p>
+        <p class="review-text">"Summit Marketing has been great to work with. They're responsive, knowledgeable, and genuinely care about helping businesses grow. They make the marketing process easy to understand and are always willing to help when needed. Highly recommend."</p>
         <div class="review-source"><svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
       </div>
       <div class="review-card reveal">
         <div class="review-card-header">
-          <div class="review-avatar">RK</div>
-          <div class="review-meta"><div class="review-author">Robert K.</div><div class="review-date">May 2026</div></div>
+          <div class="review-avatar">R</div>
+          <div class="review-meta"><div class="review-author">Ryn H.</div><div class="review-date">1 month ago</div></div>
           <div class="review-stars">★★★★★</div>
         </div>
-        <p class="review-text">"Nic and the team built us a website that actually converts. We went from 2-3 leads a month from our site to 15+ consistently. Best investment we've made in marketing."</p>
+        <p class="review-text">"All I can say is, WOW! Best customer service I've ever received. Was available for anything I needed, and was very easy to work with. The level of professionalism is unmatched. Will be telling other people. Very satisfied!"</p>
         <div class="review-source"><svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google Review</div>
       </div>
     </div>
@@ -937,64 +960,6 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
 #smkt-sticky a:hover { opacity:.88; }
 @media (max-width:900px) { #smkt-sticky { display:flex; } }
 </style>
-
-<!-- ── GOOGLE REVIEWS DYNAMIC LOADER ── -->
-<script>
-var SUMMIT_PLACE_ID = 'ChIJSV2JYAHcVWcR539mk86A43U';
-var SUMMIT_MAPS_KEY = 'AIzaSyD2Vsm_C8kZe1IIU7Dc-_rsO6hscg87JyE';
-
-var _HGSVG = '<svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>';
-
-function initHomepageReviews() {
-  var service = new google.maps.places.PlacesService(document.createElement('div'));
-  service.getDetails(
-    { placeId: SUMMIT_PLACE_ID, fields: ['rating', 'user_ratings_total', 'reviews'] },
-    function(place, status) {
-      if (status !== google.maps.places.PlacesServiceStatus.OK || !place || !place.reviews || !place.reviews.length) return;
-      var rating = place.rating || 5;
-      var count  = place.user_ratings_total || '';
-      var ratingEl = document.querySelector('.reviews-overall-rating');
-      var starsEl  = document.querySelector('.reviews-overall-stars');
-      var labelEl  = document.querySelector('.reviews-overall-label');
-      if (ratingEl) ratingEl.textContent = rating.toFixed(1);
-      if (starsEl)  starsEl.textContent  = '★'.repeat(Math.round(rating));
-      if (labelEl && count) labelEl.textContent = count + ' Google Reviews';
-      var grid = document.getElementById('reviewsGrid');
-      if (!grid) return;
-      var fiveStars = place.reviews.filter(function(r) { return r.rating === 5; });
-      if (!fiveStars.length) return;
-      grid.innerHTML = fiveStars.map(function(r, i) {
-        var initial = (r.author_name || '?').charAt(0).toUpperCase();
-        var text    = r.text || '';
-        var long    = text.length > 240;
-        var id      = 'hp-rv-' + i;
-        var avatar  = r.profile_photo_url
-          ? '<img src="' + r.profile_photo_url + '" alt="" style="width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0;" />'
-          : '<div class="review-avatar">' + initial + '</div>';
-        return '<div class="review-card">' +
-          '<div class="review-card-header">' + avatar +
-          '<div class="review-meta"><div class="review-author">' + _hesc(r.author_name) + '</div>' +
-          '<div class="review-date">' + _hesc(r.relative_time_description) + '</div></div>' +
-          '<div class="review-stars">★★★★★</div></div>' +
-          (long
-            ? '<div style="max-height:7.5em;overflow:hidden;transition:max-height .4s ease" id="' + id + '"><p class="review-text">&ldquo;' + _hesc(text) + '&rdquo;</p></div>' +
-              '<button onclick="(function(b){var w=document.getElementById(\'' + id + '\');var e=w.style.maxHeight!==\'1000px\';w.style.maxHeight=e?\'1000px\':\'7.5em\';b.textContent=e?\'Show less ▲\':\'Read more ▼\';})(this)" style="background:none;border:none;color:#00AEEF;font-size:.75rem;font-weight:700;cursor:pointer;padding:6px 0 10px;font-family:Inter,sans-serif;letter-spacing:.05em;text-transform:uppercase">Read more &#x25BC;</button>'
-            : '<p class="review-text">&ldquo;' + _hesc(text) + '&rdquo;</p>') +
-          '<div class="review-source">' + _HGSVG + ' Google Review</div></div>';
-      }).join('');
-    }
-  );
-}
-
-function _hesc(s) {
-  return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-var _hs = document.createElement('script');
-_hs.src = 'https://maps.googleapis.com/maps/api/js?key=' + SUMMIT_MAPS_KEY + '&libraries=places&callback=initHomepageReviews';
-_hs.async = true; _hs.defer = true;
-document.head.appendChild(_hs);
-</script>
 
 <!-- Cookie Banner -->
 <div id="smkt-cookie" role="dialog" aria-label="Cookie consent">
