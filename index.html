@@ -29,7 +29,8 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7R81TMRFN4');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@600;700&display=swap" /></noscript>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.summitmarketingms.com/#organization","name":"Summit Marketing LLC","url":"https://www.summitmarketingms.com/","logo":{"@type":"ImageObject","@id":"https://www.summitmarketingms.com/#logo","url":"https://www.summitmarketingms.com/brand-assets/Summt%20Marketing%20LOGO.png","contentUrl":"https://www.summitmarketingms.com/brand-assets/Summt%20Marketing%20LOGO.png","caption":"Summit Marketing"},"image":{"@id":"https://www.summitmarketingms.com/#logo"},"email":"nic@summitmarketingms.com","telephone":"+16016079714","description":"Mississippi's AI-powered revenue systems agency. We build automated revenue systems — lead capture, 5-minute response, AI Receptionist, local SEO & AEO, and reputation management that help Mississippi businesses capture every lead and convert more customers.","slogan":"Reaching New Heights Together","foundingDate":"2026","founder":{"@type":"Person","@id":"https://www.summitmarketingms.com/#founder","name":"Nic Butts","jobTitle":"Founder & CEO","email":"nic@summitmarketingms.com","worksFor":{"@id":"https://www.summitmarketingms.com/#organization"}},"areaServed":[{"@type":"State","name":"Mississippi"},{"@type":"City","name":"Jackson","containedInPlace":{"@type":"State","name":"Mississippi"}},{"@type":"City","name":"Gulfport","containedInPlace":{"@type":"State","name":"Mississippi"}},{"@type":"City","name":"Biloxi","containedInPlace":{"@type":"State","name":"Mississippi"}},{"@type":"City","name":"Hattiesburg","containedInPlace":{"@type":"State","name":"Mississippi"}},{"@type":"City","name":"Tupelo","containedInPlace":{"@type":"State","name":"Mississippi"}},{"@type":"City","name":"Southaven","containedInPlace":{"@type":"State","name":"Mississippi"}}],"sameAs":["https://www.facebook.com/SummitMarketingMS","https://www.instagram.com/summitmarketingms"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Summit Marketing Revenue System Plans","itemListElement":[{"@type":"Offer","name":"Basecamp","price":"697","priceCurrency":"USD","description":"Lead Capture, 5-Minute Response, Missed Opportunity Recovery, Reputation System, GBP Optimization, Local SEO"},{"@type":"Offer","name":"Elevate","price":"1297","priceCurrency":"USD","description":"Everything in Basecamp plus SEO/AEO/GEO, Local Authority Building, Reputation Management"},{"@type":"Offer","name":"Ascent","price":"1997","priceCurrency":"USD","description":"Everything in Elevate plus 24/7 AI Receptionist, AI Sales Assistant, Converting Website, Landing Pages, Monthly Strategy Call"},{"@type":"Offer","name":"Peak","price":"3250","priceCurrency":"USD","description":"Everything in Ascent plus Estimate Recovery, Lost Lead Recovery, Referral Automation, Full Social Media, Custom AI Knowledge Base"}]}},{"@type":["LocalBusiness","ProfessionalService"],"@id":"https://www.summitmarketingms.com/#localbusiness","name":"Summit Marketing LLC","url":"https://www.summitmarketingms.com/","telephone":"+16016079714","email":"nic@summitmarketingms.com","image":"https://www.summitmarketingms.com/brand-assets/Summt%20Marketing%20LOGO.png","description":"Results-driven marketing agency in Pearl, Mississippi. We build AI-powered revenue systems — AI Receptionist, 5-Minute Lead Response, automated follow-up, local SEO & AEO, and reputation management for Mississippi businesses.","priceRange":"$697–$3,250+/month","areaServed":{"@type":"State","name":"Mississippi"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":6,"bestRating":"5","worstRating":"1"},"sameAs":["https://www.facebook.com/SummitMarketingMS","https://www.instagram.com/summitmarketingms"]},{"@type":"Person","@id":"https://www.summitmarketingms.com/#founder","name":"Nic Butts","jobTitle":"Founder & CEO","worksFor":{"@id":"https://www.summitmarketingms.com/#organization"},"email":"nic@summitmarketingms.com","image":"https://www.summitmarketingms.com/brand-assets/pic.jpg","description":"Nic Butts founded Summit Marketing LLC in 2026 after 2+ years in the home services industry, recognizing that businesses were losing revenue not from a lack of leads but a lack of systems. He built Summit's revenue system framework to solve that problem.","alumniOf":{"@type":"CollegeOrUniversity","name":"University of Mississippi"},"url":"https://www.summitmarketingms.com/about/"},{"@type":"WebSite","@id":"https://www.summitmarketingms.com/#website","url":"https://www.summitmarketingms.com/","name":"Summit Marketing LLC","description":"Results-driven digital marketing agency — Reaching New Heights Together.","publisher":{"@id":"https://www.summitmarketingms.com/#organization"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://www.summitmarketingms.com/#webpage","url":"https://www.summitmarketingms.com/","name":"Summit Marketing LLC — Reaching New Heights Together","description":"Summit Marketing builds AI-powered revenue systems for Mississippi service businesses — local SEO, AEO, AI Receptionist, and automated lead follow-up that books more jobs.","inLanguage":"en-US","isPartOf":{"@id":"https://www.summitmarketingms.com/#website"},"about":{"@id":"https://www.summitmarketingms.com/#organization"},"breadcrumb":{"@id":"https://www.summitmarketingms.com/#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://www.summitmarketingms.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":{"@id":"https://www.summitmarketingms.com/"}}]}]}
   </script>
@@ -58,8 +59,25 @@ function initHomepageReviews(){
     }).join('');
   });
 }
+(function(){
+  var _ml=false;
+  function _loadMaps(){
+    if(_ml)return;_ml=true;
+    var s=document.createElement('script');
+    s.src='https://maps.googleapis.com/maps/api/js?key=AIzaSyD2Vsm_C8kZe1IIU7Dc-_rsO6hscg87JyE&libraries=places&callback=initHomepageReviews';
+    document.head.appendChild(s);
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    var el=document.getElementById('reviewsGrid');
+    if(!el){return;}
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(e,o){if(e[0].isIntersecting){_loadMaps();o.disconnect();}},{rootMargin:'400px'}).observe(el);
+    } else {
+      _loadMaps();
+    }
+  });
+})();
 </script>
-<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2Vsm_C8kZe1IIU7Dc-_rsO6hscg87JyE&libraries=places&callback=initHomepageReviews"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -71,7 +89,7 @@ function initHomepageReviews(){
   --radius: 18px;
 }
 html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--white); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg); color: var(--white); font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
 /* ── NAV ── */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 9000; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; background: rgba(2,12,31,.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
@@ -945,7 +963,22 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
     document.addEventListener('click', function(e) { if (!e.target.closest('nav')) { btn.classList.remove('open'); links.classList.remove('open'); } });
   })();
 </script>
-<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69ab22b6d72daa7a88db42e8"></script>
+<script>
+(function(){
+  var _ll=false;
+  function _loadLCQ(){
+    if(_ll)return;_ll=true;
+    ['click','scroll','keydown','touchstart'].forEach(function(e){document.removeEventListener(e,_loadLCQ);});
+    var s=document.createElement('script');
+    s.setAttribute('data-resources-url','https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+    s.setAttribute('data-widget-id','69ab22b6d72daa7a88db42e8');
+    s.src='https://widgets.leadconnectorhq.com/loader.js';
+    document.body.appendChild(s);
+  }
+  ['click','scroll','keydown','touchstart'].forEach(function(e){document.addEventListener(e,_loadLCQ,{passive:true,once:true});});
+  setTimeout(_loadLCQ,4000);
+})();
+</script>
 
 <!-- ── SUMMIT GROWTH LAYER ── -->
 <style>
