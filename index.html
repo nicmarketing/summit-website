@@ -152,7 +152,7 @@
           "serviceType": "Marketing Automation",
           "category": "Digital Marketing",
           "url": "https://www.summitmarketingms.com/services/",
-          "offers": {"@type": "Offer", "priceRange": "$697–$3,250+/month", "priceCurrency": "USD"}
+          "offers": {"@type": "Offer", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 697, "maxPrice": 3250, "priceCurrency": "USD"}}
         }
       },
       {
@@ -169,7 +169,7 @@
           "serviceType": "Search Engine Optimization",
           "category": "Digital Marketing",
           "url": "https://www.summitmarketingms.com/services/",
-          "offers": {"@type": "Offer", "priceRange": "$697–$3,250+/month", "priceCurrency": "USD"}
+          "offers": {"@type": "Offer", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 697, "maxPrice": 3250, "priceCurrency": "USD"}}
         }
       },
       {
@@ -203,7 +203,7 @@
           "serviceType": "Social Media Marketing",
           "category": "Digital Marketing",
           "url": "https://www.summitmarketingms.com/services/",
-          "offers": {"@type": "Offer", "priceRange": "$697–$3,250+/month", "priceCurrency": "USD"}
+          "offers": {"@type": "Offer", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 697, "maxPrice": 3250, "priceCurrency": "USD"}}
         }
       }
     ]
@@ -213,12 +213,21 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://www.summitmarketingms.com/#speakable",
+    "@id": "https://www.summitmarketingms.com/#webpage",
     "url": "https://www.summitmarketingms.com/",
+    "name": "Summit Marketing LLC — Reaching New Heights Together",
+    "description": "Summit Marketing helps Mississippi businesses capture more leads, rank on Google & AI, build websites that convert, and grow through social media marketing.",
     "speakable": {
       "@type": "SpeakableSpecification",
-      "cssSelector": [".hero-title", ".hero-sub", ".section-title", ".section-sub", ".eyebrow"]
-    }
+      "cssSelector": [".hero-title", ".hero-sub", ".section-title", ".section-sub", ".eyebrow", ".stat-val", ".stat-label"]
+    },
+    "about": {"@id": "https://www.summitmarketingms.com/#organization"},
+    "mentions": [
+      {"@type": "Service", "name": "AI Lead Capture", "provider": {"@id": "https://www.summitmarketingms.com/#organization"}},
+      {"@type": "Service", "name": "Local SEO & AEO", "provider": {"@id": "https://www.summitmarketingms.com/#organization"}},
+      {"@type": "Service", "name": "Web Design", "provider": {"@id": "https://www.summitmarketingms.com/#organization"}},
+      {"@type": "Service", "name": "Social Media Marketing", "provider": {"@id": "https://www.summitmarketingms.com/#organization"}}
+    ]
   }
   </script>
 
