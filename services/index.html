@@ -53,7 +53,7 @@
 
     /* ── NAV ── */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 9000; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; background: rgba(2,12,31,.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-    .nav-logo img { height: 38px; display: block; filter: brightness(3) drop-shadow(0 0 6px rgba(255,255,255,.35)); }
+    .nav-logo img { width: auto; height: 38px; display: block; filter: brightness(3) drop-shadow(0 0 6px rgba(255,255,255,.35)); }
     .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
     .nav-links a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .85rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; transition: color .2s, background .2s; white-space: nowrap; }
     .nav-links a:hover { color: #fff; background: rgba(255,255,255,.06); }
@@ -261,7 +261,7 @@
 <body>
 
   <nav>
-    <a href="/" class="nav-logo"><img src="/brand-assets/summit-logo.webp" alt="Summit Marketing" /></a>
+    <a href="/" class="nav-logo"><img src="/brand-assets/summit-logo.webp" alt="Summit Marketing" width="190" height="127" /></a>
     <ul class="nav-links" id="nav-links">
       <li><a href="/services/" class="active">Services</a></li>
       <li><a href="/results/">Results</a></li>
@@ -490,7 +490,7 @@
 
   <footer>
     <div class="footer-inner">
-      <div class="footer-logo"><a href="/"><img src="/brand-assets/summit-logo.webp" alt="Summit Marketing" /></a></div>
+      <div class="footer-logo"><a href="/"><img src="/brand-assets/summit-logo.webp" alt="Summit Marketing" width="190" height="127" /></a></div>
       <ul class="footer-links">
         <li><a href="/services/">Services</a></li>
         <li><a href="/results/">Results</a></li>
