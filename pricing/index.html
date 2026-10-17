@@ -378,8 +378,23 @@
     .hero {
       text-align: center;
       padding: 140px 24px 64px;
+      position: relative;
+      overflow: hidden;
       background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,174,239,.12) 0%, transparent 70%);
     }
+    #particles { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .particle { position: absolute; border-radius: 50%; animation: particleFloat linear infinite; }
+    @keyframes particleFloat {
+      0%   { transform: translateY(0) translateX(0); opacity: 0; }
+      15%  { opacity: 1; }
+      85%  { opacity: .4; }
+      100% { transform: translateY(-140px) translateX(var(--dx, 20px)); opacity: 0; }
+    }
+    .hero-mountains { position: absolute; bottom: -1px; left: 0; right: 0; width: 100%; height: 200px; z-index: 0; pointer-events: none; }
+    .mtn-a { animation: mtnFloat 12s ease-in-out infinite alternate; }
+    .mtn-b { animation: mtnFloat 9s ease-in-out 1.5s infinite alternate-reverse; }
+    .mtn-c { animation: mtnFloat 7s ease-in-out .5s infinite alternate; }
+    @keyframes mtnFloat { from { transform: translateY(0); } to { transform: translateY(-7px); } }
     .hero-label {
       display: inline-block;
       background: rgba(0,174,239,.12); border: 1px solid rgba(0,174,239,.3);
@@ -929,14 +944,21 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-label">Transparent Pricing</div>
-  <h1>Plans Built to <span>Scale With You</span></h1>
-  <p>One flat monthly retainer. Usage-based fees only for what you actually use. No hidden markups, no surprises.</p>
-
-  <div class="billing-toggle">
-    <button class="active" id="btn-monthly" onclick="setBilling('monthly')">Monthly</button>
-    <button id="btn-annual" onclick="setBilling('annual')">Annual</button>
-    <span class="save-badge">Save 15%</span>
+  <div id="particles"></div>
+  <svg class="hero-mountains" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g class="mtn-a"><path d="M0 200 L0 155 L180 65 L360 130 L540 50 L720 120 L900 40 L1080 110 L1260 60 L1440 90 L1440 200 Z" fill="rgba(0,174,239,0.04)"/></g>
+    <g class="mtn-b"><path d="M0 200 L0 165 L120 105 L260 148 L400 88 L580 138 L760 68 L940 128 L1100 80 L1260 115 L1440 88 L1440 200 Z" fill="rgba(0,174,239,0.07)"/></g>
+    <g class="mtn-c"><path d="M0 200 L0 175 L140 128 L300 162 L460 108 L660 148 L860 98 L1040 142 L1200 108 L1380 132 L1440 120 L1440 200 Z" fill="rgba(0,174,239,0.11)"/></g>
+  </svg>
+  <div style="position:relative;z-index:1;">
+    <div class="hero-label">Transparent Pricing</div>
+    <h1>Plans Built to <span>Scale With You</span></h1>
+    <p>One flat monthly retainer. Usage-based fees only for what you actually use. No hidden markups, no surprises.</p>
+    <div class="billing-toggle">
+      <button class="active" id="btn-monthly" onclick="setBilling('monthly')">Monthly</button>
+      <button id="btn-annual" onclick="setBilling('annual')">Annual</button>
+      <span class="save-badge">Save 15%</span>
+    </div>
   </div>
 </section>
 
@@ -1059,18 +1081,41 @@
   <div class="section-header">
     <div class="section-label">Usage-Based Fees</div>
     <h2>Pay Only for <span>What You Use</span></h2>
-    <p>AI and communication features are billed on consumption. These rates are all-in — no separate platform charges.</p>
+    <p>AI and communication features are billed on consumption. These rates are all-in — no separate platform charges. Most clients stay well under $50/mo in usage.</p>
   </div>
 
   <div class="usage-section">
     <div class="usage-inner">
-
-      <div class="usage-tabs">
-        <button class="usage-tab active" onclick="showTab('ai')">AI Features</button>
-        <button class="usage-tab" onclick="showTab('sms')">SMS & Calls</button>
-        <button class="usage-tab" onclick="showTab('email')">Email</button>
-        <button class="usage-tab" onclick="showTab('workflows')">Workflows & Content</button>
+      <!-- SIMPLIFIED SINGLE TABLE -->
+      <div class="usage-table-wrap">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:24px;">
+          <div style="background:rgba(0,174,239,.06);border:1px solid rgba(0,174,239,.18);border-radius:14px;padding:20px 22px;">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#00AEEF;margin-bottom:10px;">AI Features</div>
+            <div style="font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.8;">Voice AI — $0.26/min<br>Chat AI — $0.06/msg<br>Reviews AI — $0.09/response<br>Booking AI — $0.12/booking</div>
+          </div>
+          <div style="background:rgba(0,174,239,.06);border:1px solid rgba(0,174,239,.18);border-radius:14px;padding:20px 22px;">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#00AEEF;margin-bottom:10px;">SMS & Calls</div>
+            <div style="font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.8;">SMS Out — $0.016/segment<br>SMS In — $0.012/segment<br>Outbound calls — $0.034/min<br>Inbound calls — $0.026/min</div>
+          </div>
+          <div style="background:rgba(0,174,239,.06);border:1px solid rgba(0,174,239,.18);border-radius:14px;padding:20px 22px;">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#00AEEF;margin-bottom:10px;">Email</div>
+            <div style="font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.8;">Email sends — $2.00/1,000<br>Email verification — $3.00/1,000<br><br>Phone number — $2.50/mo</div>
+          </div>
+          <div style="background:rgba(0,174,239,.06);border:1px solid rgba(0,174,239,.18);border-radius:14px;padding:20px 22px;">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#00AEEF;margin-bottom:10px;">Automation & Content</div>
+            <div style="font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.8;">Workflow AI — $0.045/execution<br>Content AI — $0.36/1,000 words<br>Image AI — $0.12/image<br>Workflow triggers — $0.01/1,000</div>
+          </div>
+        </div>
+        <p style="text-align:center;font-size:.82rem;color:rgba(255,255,255,.4);">All rates are all-in — no separate platform charges. Have questions about your expected usage? We'll walk through it on your strategy call.</p>
       </div>
+
+      <!-- STUB DIVS to keep JS from erroring if referenced -->
+      <div id="tab-ai" style="display:none;"></div>
+      <div id="tab-sms" style="display:none;"></div>
+      <div id="tab-email" style="display:none;"></div>
+      <div id="tab-workflows" style="display:none;"></div>
+
+      <div style="display:none">
 
       <!-- AI TAB -->
       <div class="usage-table-wrap tab-content" id="tab-ai">
@@ -1236,142 +1281,14 @@
   </div>
 </section>
 
-<!-- CALCULATOR -->
-<section id="calculator">
-  <div class="section-header">
-    <div class="section-label">Usage Estimator</div>
-    <h2>Estimate Your <span>Monthly Total</span></h2>
-    <p>Slide to your estimated monthly volumes and see a real-time cost breakdown before you commit.</p>
-  </div>
+<!-- MID-PAGE CTA -->
+<div style="background:linear-gradient(135deg,rgba(0,174,239,.08),rgba(65,217,242,.05));border-top:1px solid rgba(0,174,239,.15);border-bottom:1px solid rgba(0,174,239,.15);padding:56px 24px;text-align:center;">
+  <p style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#00AEEF;margin:0 0 12px;">Not sure which plan is right?</p>
+  <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;color:#fff;margin:0 0 12px;">Book a free strategy call</h2>
+  <p style="color:rgba(255,255,255,.55);font-size:.95rem;margin:0 0 28px;">We'll walk through your goals and recommend the right plan — no pressure, no contracts.</p>
+  <button onclick="openBookModal()" style="background:linear-gradient(135deg,#00AEEF,#41D9F2);color:#020c1f;font-size:.95rem;font-weight:800;letter-spacing:-.01em;padding:14px 32px;border:none;border-radius:10px;cursor:pointer;">Book My Free Strategy Call →</button>
+</div>
 
-  <div class="calc-section">
-    <div class="calc-inner">
-      <div class="calc-header">
-        <div>
-          <h3>Monthly Cost Estimator</h3>
-          <p>Adjust sliders to match your expected usage — all figures are estimates.</p>
-        </div>
-        <select class="calc-plan-select" id="plan-select" onchange="calcUpdate()">
-          <option value="697">Basecamp — $697/mo</option>
-          <option value="1297">Elevate — $1,297/mo</option>
-          <option value="1997" selected>Ascent — $1,997/mo</option>
-          <option value="3250">Peak — $3,250/mo</option>
-        </select>
-      </div>
-
-      <div class="calc-body">
-        <div class="calc-grid">
-
-          <div class="slider-group">
-            <div class="slider-label">
-              <span>Voice AI Minutes</span>
-              <span class="slider-val" id="val-voice">200 min</span>
-            </div>
-            <p class="slider-desc">Inbound/outbound AI voice calls</p>
-            <input type="range" min="0" max="2000" step="50" value="200" id="sl-voice" oninput="calcUpdate()" />
-          </div>
-
-          <div class="slider-group">
-            <div class="slider-label">
-              <span>Chat AI Messages</span>
-              <span class="slider-val" id="val-chat">300 msgs</span>
-            </div>
-            <p class="slider-desc">AI chatbot conversations</p>
-            <input type="range" min="0" max="5000" step="50" value="300" id="sl-chat" oninput="calcUpdate()" />
-          </div>
-
-          <div class="slider-group">
-            <div class="slider-label">
-              <span>SMS Sent (Outbound)</span>
-              <span class="slider-val" id="val-sms">500 msgs</span>
-            </div>
-            <p class="slider-desc">Marketing & automation texts</p>
-            <input type="range" min="0" max="10000" step="100" value="500" id="sl-sms" oninput="calcUpdate()" />
-          </div>
-
-          <div class="slider-group">
-            <div class="slider-label">
-              <span>Phone Call Minutes</span>
-              <span class="slider-val" id="val-calls">100 min</span>
-            </div>
-            <p class="slider-desc">Outbound calls via SM Phone</p>
-            <input type="range" min="0" max="2000" step="25" value="100" id="sl-calls" oninput="calcUpdate()" />
-          </div>
-
-          <div class="slider-group">
-            <div class="slider-label">
-              <span>Emails Sent</span>
-              <span class="slider-val" id="val-email">2,000 emails</span>
-            </div>
-            <p class="slider-desc">Newsletters, drip campaigns</p>
-            <input type="range" min="0" max="50000" step="500" value="2000" id="sl-email" oninput="calcUpdate()" />
-          </div>
-
-          <div class="slider-group">
-            <div class="slider-label">
-              <span>Workflow AI Actions</span>
-              <span class="slider-val" id="val-workflow">150 actions</span>
-            </div>
-            <p class="slider-desc">AI steps in automation flows</p>
-            <input type="range" min="0" max="3000" step="25" value="150" id="sl-workflow" oninput="calcUpdate()" />
-          </div>
-
-        </div>
-
-        <div class="calc-result">
-          <div class="result-grid">
-            <div class="result-item">
-              <div class="result-label">Base Plan</div>
-              <div class="result-value" id="res-plan">$1,997</div>
-            </div>
-            <div class="result-item">
-              <div class="result-label">Est. Usage Fees</div>
-              <div class="result-value" id="res-usage">$0</div>
-            </div>
-            <div class="result-item">
-              <div class="result-label">Estimated Monthly Total</div>
-              <div class="result-value total-val" id="res-total">$1,997</div>
-            </div>
-          </div>
-
-          <hr class="result-divider" />
-
-          <div class="result-breakdown">
-            <div class="breakdown-row">
-              <span class="b-label">Voice AI</span>
-              <span class="b-val" id="br-voice">$0.00</span>
-            </div>
-            <div class="breakdown-row">
-              <span class="b-label">Conversation AI (Chat)</span>
-              <span class="b-val" id="br-chat">$0.00</span>
-            </div>
-            <div class="breakdown-row">
-              <span class="b-label">SMS (Outbound)</span>
-              <span class="b-val" id="br-sms">$0.00</span>
-            </div>
-            <div class="breakdown-row">
-              <span class="b-label">Phone Calls</span>
-              <span class="b-val" id="br-calls">$0.00</span>
-            </div>
-            <div class="breakdown-row">
-              <span class="b-label">Email</span>
-              <span class="b-val" id="br-email">$0.00</span>
-            </div>
-            <div class="breakdown-row">
-              <span class="b-label">Workflow AI</span>
-              <span class="b-val" id="br-workflow">$0.00</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="calc-footer">
-        <p>Estimates only. Actual usage billed monthly based on platform consumption reports.</p>
-        <a href="#" id="calc-book-btn">Book a Strategy Call</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- WEB DESIGN & DEVELOPMENT -->
 <section id="web-design">
@@ -1808,6 +1725,7 @@
   function fmtBig(n) { return '$' + Math.round(n).toLocaleString(); }
 
   function calcUpdate() {
+    if (!document.getElementById('sl-voice')) return;
     const voice    = +document.getElementById('sl-voice').value;
     const chat     = +document.getElementById('sl-chat').value;
     const sms      = +document.getElementById('sl-sms').value;
@@ -2202,6 +2120,25 @@
     fetch('https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ',{method:'POST',body:new URLSearchParams(new FormData(form))}).catch(function(){});
     wrap.style.display='none';success.style.display='flex';
   });
+})();
+</script>
+<script>
+(function() {
+  var container = document.getElementById('particles');
+  if (!container) return;
+  var blues = ['rgba(0,174,239,', 'rgba(65,217,242,'];
+  for (var i = 0; i < 45; i++) {
+    var p = document.createElement('div');
+    p.className = 'particle';
+    var size = (Math.random() * 5 + 1.5).toFixed(1);
+    var col  = blues[Math.floor(Math.random() * blues.length)];
+    var op   = (Math.random() * 0.55 + 0.08).toFixed(2);
+    var dur  = (Math.random() * 9 + 5).toFixed(1);
+    var del  = (Math.random() * 12).toFixed(1);
+    var dx   = (Math.random() * 70 - 35).toFixed(0);
+    p.style.cssText = 'left:' + (Math.random()*100).toFixed(1) + '%;top:' + (Math.random()*100).toFixed(1) + '%;width:' + size + 'px;height:' + size + 'px;background:' + col + op + ');animation-duration:' + dur + 's;animation-delay:' + del + 's;--dx:' + dx + 'px;';
+    container.appendChild(p);
+  }
 })();
 </script>
 </body>

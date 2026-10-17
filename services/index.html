@@ -68,6 +68,20 @@
 
     /* ── HERO ── */
     .hero { position: relative; padding: 160px 24px 100px; text-align: center; overflow: hidden; }
+    #particles { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .particle { position: absolute; border-radius: 50%; animation: particleFloat linear infinite; }
+    @keyframes particleFloat {
+      0%   { transform: translateY(0) translateX(0); opacity: 0; }
+      15%  { opacity: 1; }
+      85%  { opacity: .4; }
+      100% { transform: translateY(-140px) translateX(var(--dx, 20px)); opacity: 0; }
+    }
+    .hero-mountains { position: absolute; bottom: -1px; left: 0; right: 0; width: 100%; height: 200px; z-index: 0; pointer-events: none; }
+    .mtn-a { animation: mtnFloat 12s ease-in-out infinite alternate; }
+    .mtn-b { animation: mtnFloat 9s ease-in-out 1.5s infinite alternate-reverse; }
+    .mtn-c { animation: mtnFloat 7s ease-in-out .5s infinite alternate; }
+    @keyframes mtnFloat { from { transform: translateY(0); } to { transform: translateY(-7px); } }
+    .hero-inner { position: relative; z-index: 1; }
     .orb { position: absolute; border-radius: 50%; pointer-events: none; }
     .orb-1 { width: 700px; height: 700px; top: -250px; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(0,174,239,.11) 0%, transparent 68%); }
     .orb-2 { width: 400px; height: 400px; bottom: -80px; right: -80px; background: radial-gradient(circle, rgba(65,217,242,.07) 0%, transparent 70%); }
@@ -281,6 +295,12 @@
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
+    <div id="particles"></div>
+    <svg class="hero-mountains" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g class="mtn-a"><path d="M0 200 L0 155 L180 65 L360 130 L540 50 L720 120 L900 40 L1080 110 L1260 60 L1440 90 L1440 200 Z" fill="rgba(0,174,239,0.04)"/></g>
+      <g class="mtn-b"><path d="M0 200 L0 165 L120 105 L260 148 L400 88 L580 138 L760 68 L940 128 L1100 80 L1260 115 L1440 88 L1440 200 Z" fill="rgba(0,174,239,0.07)"/></g>
+      <g class="mtn-c"><path d="M0 200 L0 175 L140 128 L300 162 L460 108 L660 148 L860 98 L1040 142 L1200 108 L1380 132 L1440 120 L1440 200 Z" fill="rgba(0,174,239,0.11)"/></g>
+    </svg>
     <div class="hero-inner">
       <div class="eyebrow reveal">What We Do</div>
       <h1 class="hero-title reveal">Marketing Built to<br><em>Move the Needle</em></h1>
@@ -430,46 +450,6 @@
           <div class="step-title">Scale with Confidence</div>
           <p class="step-desc">With a predictable pipeline and your systems running, add Social Media and advanced AI workflows to dominate your local market.</p>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FAQ -->
-  <div class="faq-wrap">
-    <div class="section-header reveal">
-      <div class="section-label">Common Questions</div>
-      <h2 class="section-title">Services <em>FAQ</em></h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-q">What services does Summit Marketing offer?
-          <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">Summit Marketing offers six revenue systems: Lead Response System, AI Receptionist, Local SEO & AEO, Reputation Management, Web Design & CRO, and Social Media & Content. These are bundled into four retainer plans starting at $697/month.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">What is AEO and how is it different from SEO?
-          <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">SEO focuses on ranking in Google's traditional search results. AEO (Answer Engine Optimization) focuses on getting your business cited by AI tools like ChatGPT, Perplexity, and Google AI Overviews. Summit Marketing optimizes for both so you capture leads from every search channel.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">How does the 5-minute lead response work?
-          <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">The moment a new lead comes in from your website, Google, or any form, our system sends a personalized SMS and email automatically within 5 minutes. The system then follows up persistently until the lead books or opts out — no manual effort required.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">How much does web design cost?
-          <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">Web design starts at $1,000 for a Trailhead site — fast, mobile-first, and conversion-ready. Pinnacle custom builds start at $2,000. Monthly website management is included in Ascent ($1,997/mo) and Peak plans.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Do you offer month-to-month plans?
-          <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">Yes. All Summit Marketing retainer plans are flat-rate and month-to-month with no long-term contracts. We earn your business every month by delivering results.</div></div>
       </div>
     </div>
   </div>
@@ -664,5 +644,24 @@
       if(form){ form.addEventListener('submit', function(e){ e.preventDefault(); fetch(form.action,{method:'POST',body:new URLSearchParams(new FormData(form)),headers:{'Content-Type':'application/x-www-form-urlencoded'}}).catch(function(){}); closeBook(); form.reset(); openCal(); }); }
     })();
   </script>
+<script>
+(function() {
+  var container = document.getElementById('particles');
+  if (!container) return;
+  var blues = ['rgba(0,174,239,', 'rgba(65,217,242,'];
+  for (var i = 0; i < 45; i++) {
+    var p = document.createElement('div');
+    p.className = 'particle';
+    var size = (Math.random() * 5 + 1.5).toFixed(1);
+    var col  = blues[Math.floor(Math.random() * blues.length)];
+    var op   = (Math.random() * 0.55 + 0.08).toFixed(2);
+    var dur  = (Math.random() * 9 + 5).toFixed(1);
+    var del  = (Math.random() * 12).toFixed(1);
+    var dx   = (Math.random() * 70 - 35).toFixed(0);
+    p.style.cssText = 'left:' + (Math.random()*100).toFixed(1) + '%;top:' + (Math.random()*100).toFixed(1) + '%;width:' + size + 'px;height:' + size + 'px;background:' + col + op + ');animation-duration:' + dur + 's;animation-delay:' + del + 's;--dx:' + dx + 'px;';
+    container.appendChild(p);
+  }
+})();
+</script>
 </body>
 </html>

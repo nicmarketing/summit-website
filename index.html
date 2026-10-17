@@ -303,7 +303,20 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 9000; height: 64px; d
 .hero-orb { position: absolute; border-radius: 50%; pointer-events: none; }
 .hero-orb-1 { width: 900px; height: 900px; top: -300px; left: -200px; background: radial-gradient(circle, rgba(0,174,239,.07) 0%, transparent 65%); }
 .hero-orb-2 { width: 600px; height: 600px; bottom: -200px; right: -100px; background: radial-gradient(circle, rgba(65,217,242,.06) 0%, transparent 65%); }
-.hero-inner { position: relative; max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 480px; gap: 60px; align-items: center; }
+#particles { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.particle { position: absolute; border-radius: 50%; animation: particleFloat linear infinite; }
+@keyframes particleFloat {
+  0%   { transform: translateY(0) translateX(0); opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { opacity: .4; }
+  100% { transform: translateY(-140px) translateX(var(--dx, 20px)); opacity: 0; }
+}
+.hero-mountains { position: absolute; bottom: -1px; left: 0; right: 0; width: 100%; height: 200px; z-index: 0; pointer-events: none; }
+.mtn-a { animation: mtnFloat 12s ease-in-out infinite alternate; }
+.mtn-b { animation: mtnFloat 9s ease-in-out 1.5s infinite alternate-reverse; }
+.mtn-c { animation: mtnFloat 7s ease-in-out .5s infinite alternate; }
+@keyframes mtnFloat { from { transform: translateY(0); } to { transform: translateY(-7px); } }
+.hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 480px; gap: 60px; align-items: center; }
 .hero-content { display: flex; flex-direction: column; gap: 0; }
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,174,239,.08); border: 1px solid rgba(0,174,239,.22); color: var(--blue); font-size: .68rem; font-weight: 700; letter-spacing: .14em; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; margin-bottom: 24px; width: fit-content; }
 .hero-title { font-size: clamp(3rem, 5.5vw, 4.8rem); font-weight: 800; line-height: 1.04; letter-spacing: -.055em; margin-bottom: 22px; }
@@ -617,6 +630,12 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
 <section class="hero">
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
+  <div id="particles"></div>
+  <svg class="hero-mountains" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g class="mtn-a"><path d="M0 200 L0 155 L180 65 L360 130 L540 50 L720 120 L900 40 L1080 110 L1260 60 L1440 90 L1440 200 Z" fill="rgba(0,174,239,0.04)"/></g>
+    <g class="mtn-b"><path d="M0 200 L0 165 L120 105 L260 148 L400 88 L580 138 L760 68 L940 128 L1100 80 L1260 115 L1440 88 L1440 200 Z" fill="rgba(0,174,239,0.07)"/></g>
+    <g class="mtn-c"><path d="M0 200 L0 175 L140 128 L300 162 L460 108 L660 148 L860 98 L1040 142 L1200 108 L1380 132 L1440 120 L1440 200 Z" fill="rgba(0,174,239,0.11)"/></g>
+  </svg>
   <div class="hero-inner">
     <div class="hero-content">
       <div class="eyebrow reveal">Mississippi's AI Marketing Agency</div>
@@ -699,13 +718,7 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
       <div class="pillar-icon">⚡</div>
       <div class="pillar-label">Automations</div>
       <h3 class="pillar-title">Never miss a lead again</h3>
-      <p class="pillar-desc">AI-powered follow-up runs 24/7 — responding to every inquiry in under 5 minutes, booking your calendar, and recovering every opportunity you'd otherwise lose.</p>
-      <ul class="pillar-list">
-        <li>Lead Response System (5-min SMS + email)</li>
-        <li>AI Receptionist — answers, qualifies, books</li>
-        <li>Missed Call Text-Back</li>
-        <li>Estimate & Lost Lead Recovery</li>
-      </ul>
+      <p class="pillar-desc">AI-powered follow-up runs 24/7 — responding to every inquiry in under 5 minutes, booking your calendar, and recovering every opportunity you'd otherwise lose. Lead response, AI Receptionist, missed call text-back, and estimate recovery all included.</p>
       <a href="/services/" class="pillar-link">See automations →</a>
     </div>
     <div class="pillar-card reveal">
@@ -713,13 +726,7 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
       <div class="pillar-icon">📍</div>
       <div class="pillar-label">SEO & AEO</div>
       <h3 class="pillar-title">Rank on Google. Get cited by AI.</h3>
-      <p class="pillar-desc">Two-track visibility: traditional search rankings and Answer Engine Optimization — so when someone asks ChatGPT or Perplexity who's the best in your area, your business shows up.</p>
-      <ul class="pillar-list">
-        <li>Google Business Profile management</li>
-        <li>Local search rankings across Mississippi</li>
-        <li>On-page & technical SEO</li>
-        <li>AEO for ChatGPT, Perplexity & Google AI</li>
-      </ul>
+      <p class="pillar-desc">Two-track visibility: traditional search rankings and Answer Engine Optimization — so when someone asks ChatGPT, Perplexity, or Google AI who's best in your area, your business shows up first.</p>
       <a href="/services/" class="pillar-link">See SEO & AEO →</a>
     </div>
     <div class="pillar-card reveal">
@@ -727,13 +734,7 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
       <div class="pillar-icon">💻</div>
       <div class="pillar-label">Web Design & CRO</div>
       <h3 class="pillar-title">A website that closes deals</h3>
-      <p class="pillar-desc">Conversion-focused websites designed to turn visitors into booked jobs — with SEO, analytics, and your full marketing stack built in from day one. Not just a pretty site — a revenue asset.</p>
-      <ul class="pillar-list">
-        <li>Trailhead sites from $1,200</li>
-        <li>Pinnacle custom builds from $2,000</li>
-        <li>SEO & Core Web Vitals built-in</li>
-        <li>Full CRM & marketing stack integration</li>
-      </ul>
+      <p class="pillar-desc">Conversion-focused websites that turn visitors into booked jobs — SEO-ready, Core Web Vitals optimized, and fully integrated with your CRM and marketing stack from day one. Starting at $1,000.</p>
       <a href="/services/" class="pillar-link">See web design →</a>
     </div>
     <div class="pillar-card reveal">
@@ -741,13 +742,7 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
       <div class="pillar-icon">📱</div>
       <div class="pillar-label">Social Media</div>
       <h3 class="pillar-title">Stay visible every single week</h3>
-      <p class="pillar-desc">Done-for-you content strategy, Reels editing, branded graphics, and community management — so your brand stays active and your audience stays engaged.</p>
-      <ul class="pillar-list">
-        <li>Facebook & Instagram management</li>
-        <li>Short-form video editing (Reels, TikTok)</li>
-        <li>Content strategy & monthly calendar</li>
-        <li>Monthly analytics & performance reports</li>
-      </ul>
+      <p class="pillar-desc">Done-for-you content strategy, Reels editing, branded graphics, and community management — so your brand stays active and your audience stays engaged, without lifting a finger.</p>
       <a href="/services/" class="pillar-link">See social media →</a>
     </div>
   </div>
@@ -827,6 +822,14 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
   </div>
 </div>
 
+<!-- MID-PAGE CTA -->
+<div style="background:linear-gradient(135deg,rgba(0,174,239,.08),rgba(65,217,242,.05));border-top:1px solid rgba(0,174,239,.15);border-bottom:1px solid rgba(0,174,239,.15);padding:56px 24px;text-align:center;">
+  <p style="font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#00AEEF;margin:0 0 12px;">Ready to get started?</p>
+  <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;color:#fff;margin:0 0 12px;">Book a free strategy call today</h2>
+  <p style="color:rgba(255,255,255,.55);font-size:.95rem;margin:0 0 28px;">No pressure. No contracts. Just a real conversation about your growth.</p>
+  <button onclick="openBookModal()" style="background:linear-gradient(135deg,#00AEEF,#41D9F2);color:#020c1f;font-size:.95rem;font-weight:800;letter-spacing:-.01em;padding:14px 32px;border:none;border-radius:10px;cursor:pointer;">Book My Free Strategy Call →</button>
+</div>
+
 <!-- PACKAGES -->
 <div class="section">
   <div class="section-header reveal">
@@ -836,20 +839,18 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
   </div>
   <div class="pkg-grid">
     <div class="svc-card reveal" data-pkg="basecamp">
-      <div class="pkg-featured-badge">Most Popular</div>
       <div class="pkg-tier">Tier 01</div>
       <div class="pkg-name">Basecamp</div>
       <div class="pkg-price"><strong>$697</strong><span>/mo</span></div>
       <div class="pkg-tagline">Foundation & lead response. Never miss another lead with our 5-minute response system and reputation management.</div>
-      <a class="svc-cta" href="#">See What's Included →</a>
+      <a class="svc-cta" href="/pricing/">See What's Included →</a>
     </div>
     <div class="svc-card reveal" data-pkg="elevate">
-      <div class="pkg-featured-badge">Most Popular</div>
       <div class="pkg-tier">Tier 02</div>
       <div class="pkg-name">Elevate</div>
       <div class="pkg-price"><strong>$1,297</strong><span>/mo</span></div>
       <div class="pkg-tagline">Everything in Basecamp plus full SEO & AEO — rank higher on Google and get cited by ChatGPT and Perplexity.</div>
-      <a class="svc-cta" href="#">See What's Included →</a>
+      <a class="svc-cta" href="/pricing/">See What's Included →</a>
     </div>
     <div class="svc-card featured reveal" data-pkg="ascent">
       <div class="pkg-featured-badge">Most Popular</div>
@@ -857,16 +858,18 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
       <div class="pkg-name">Ascent</div>
       <div class="pkg-price"><strong>$1,997</strong><span>/mo</span></div>
       <div class="pkg-tagline">Everything in Elevate plus 24/7 AI Receptionist, managed website, and monthly strategy calls. Your complete Business Operating System.</div>
-      <a class="svc-cta" href="#">See What's Included →</a>
+      <a class="svc-cta" href="/pricing/">See What's Included →</a>
     </div>
     <div class="svc-card reveal" data-pkg="peak">
-      <div class="pkg-featured-badge">Most Popular</div>
       <div class="pkg-tier">Tier 04</div>
       <div class="pkg-name">Peak</div>
       <div class="pkg-price"><strong>$3,250</strong><span>+/mo</span></div>
       <div class="pkg-tagline">Everything in Ascent plus full social media management, multi-location SEO, and a dedicated strategy partner. Maximum growth.</div>
-      <a class="svc-cta" href="#">See What's Included →</a>
+      <a class="svc-cta" href="/pricing/">See What's Included →</a>
     </div>
+  </div>
+  <div style="text-align:center;margin-top:36px;">
+    <a href="/pricing/" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#00AEEF,#41D9F2);color:#020c1f;font-size:.9rem;font-weight:700;letter-spacing:.04em;padding:14px 32px;border-radius:10px;text-decoration:none;">See Full Pricing & What's Included →</a>
   </div>
 </div>
 
@@ -1270,6 +1273,25 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
     fetch('https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ',{method:'POST',body:new URLSearchParams(new FormData(form))}).catch(function(){});
     wrap.style.display='none';success.style.display='flex';
   });
+})();
+</script>
+<script>
+(function() {
+  var container = document.getElementById('particles');
+  if (!container) return;
+  var blues = ['rgba(0,174,239,', 'rgba(65,217,242,'];
+  for (var i = 0; i < 45; i++) {
+    var p = document.createElement('div');
+    p.className = 'particle';
+    var size = (Math.random() * 5 + 1.5).toFixed(1);
+    var col  = blues[Math.floor(Math.random() * blues.length)];
+    var op   = (Math.random() * 0.55 + 0.08).toFixed(2);
+    var dur  = (Math.random() * 9 + 5).toFixed(1);
+    var del  = (Math.random() * 12).toFixed(1);
+    var dx   = (Math.random() * 70 - 35).toFixed(0);
+    p.style.cssText = 'left:' + (Math.random()*100).toFixed(1) + '%;top:' + (Math.random()*100).toFixed(1) + '%;width:' + size + 'px;height:' + size + 'px;background:' + col + op + ');animation-duration:' + dur + 's;animation-delay:' + del + 's;--dx:' + dx + 'px;';
+    container.appendChild(p);
+  }
 })();
 </script>
 </body>
