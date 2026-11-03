@@ -1123,7 +1123,7 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && calOverlay && calOverlay.classList.contains('active')) closeCal(true); });
     window.addEventListener('message', function (e) { if (!e.data) return; var msg = typeof e.data === 'string' ? e.data : JSON.stringify(e.data); if (msg.indexOf('booked') !== -1 || msg.indexOf('Booked') !== -1 || msg.indexOf('booking_confirmed') !== -1 || msg.indexOf('booking-confirmed') !== -1 || msg.indexOf('confirmed') !== -1) { closeCal(false); showTy(); } });
     if (tyCloseBtn) tyCloseBtn.addEventListener('click', function () { tyOverlay.classList.remove('active'); tyShown = false; });
-    if (tyOverlay) tyOverlay.addEventListener('click', function (e) { if (e.target === tyOverlay) { tyOverlay.classList.remove('active'); tyShown = false; } });
+    if (tyOverlay) tyOverlay.addEventListener('click', function (e) { if (!e.target.closest('.ty-modal')) { tyOverlay.classList.remove('active'); tyShown = false; } });
   })();
 
   /* ── BOOKING MODAL ── */
@@ -1137,7 +1137,7 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
     function closeBook() { overlay.classList.remove('active'); document.body.style.overflow = ''; }
     [navBtn, heroBtn].forEach(function (btn) { if (btn) btn.addEventListener('click', function (e) { e.preventDefault(); openBook(); }); });
     if (closeBtn) closeBtn.addEventListener('click', closeBook);
-    if (overlay) overlay.addEventListener('click', function (e) { if (e.target === overlay) closeBook(); });
+    if (overlay) overlay.addEventListener('click', function (e) { if (!e.target.closest('.book-modal')) closeBook(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('active')) closeBook(); });
   })();
 

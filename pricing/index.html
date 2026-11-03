@@ -1841,7 +1841,7 @@
 
     if (calCloseBtn) calCloseBtn.addEventListener('click', function () { closeCal(true); });
     if (calOverlay) calOverlay.addEventListener('click', function (e) {
-      if (e.target === calOverlay) closeCal(true);
+      if (!e.target.closest('.cal-modal')) closeCal(true);
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && calOverlay && calOverlay.classList.contains('active')) closeCal(true);
@@ -1867,7 +1867,7 @@
       tyShown = false;
     });
     if (tyOverlay) tyOverlay.addEventListener('click', function (e) {
-      if (e.target === tyOverlay) { tyOverlay.classList.remove('active'); tyShown = false; }
+      if (!e.target.closest('.ty-modal')) { tyOverlay.classList.remove('active'); tyShown = false; }
     });
 
     /* ── BOOKING MODAL ────────────────────────────────────────────── */
@@ -1895,7 +1895,7 @@
     if (bookCloseBtn) bookCloseBtn.addEventListener('click', closeBook);
     if (bookOverlay) {
       bookOverlay.addEventListener('click', function (e) {
-        if (e.target === bookOverlay) closeBook();
+        if (!e.target.closest('.book-modal')) closeBook();
       });
     }
     document.addEventListener('keydown', function (e) {

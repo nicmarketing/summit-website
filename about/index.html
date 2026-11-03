@@ -1122,7 +1122,7 @@
         overlay.style.display = 'none';
         document.body.style.overflow = '';
       };
-      overlay.addEventListener('click', function(e) { if(e.target===overlay) closeBookModal(); });
+      overlay.addEventListener('click', function(e) { if(!e.target.closest('.book-inner')) closeBookModal(); });
       document.addEventListener('keydown', function(e) { if(e.key==='Escape') closeBookModal(); });
 
     })();

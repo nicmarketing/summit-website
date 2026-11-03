@@ -178,9 +178,9 @@
     .footer-copy { font-size: .75rem; color: rgba(255,255,255,.15); }
 
     /* ── SERVICE DETAIL MODAL ── */
-    .svc-overlay { display: none; position: fixed; inset: 0; background: rgba(2,12,31,.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); z-index: 9400; align-items: center; justify-content: center; padding: 24px; overflow-y: auto; }
+    .svc-overlay { display: none; position: fixed; inset: 0; background: rgba(2,12,31,.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); z-index: 9400; align-items: flex-start; justify-content: center; padding: 24px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
     .svc-overlay.active { display: flex; }
-    .svc-modal { background: linear-gradient(160deg,#0b2255 0%,#071940 55%,#020c1f 100%); border: 1px solid rgba(0,174,239,.25); border-radius: 22px; padding: 48px 44px; max-width: 580px; width: 100%; position: relative; flex-shrink: 0; box-shadow: 0 0 80px rgba(0,174,239,.1),0 40px 80px rgba(0,0,0,.4); animation: svcIn .3s cubic-bezier(.22,.68,0,1.08); }
+    .svc-modal { background: linear-gradient(160deg,#0b2255 0%,#071940 55%,#020c1f 100%); border: 1px solid rgba(0,174,239,.25); border-radius: 22px; padding: 48px 44px; max-width: 580px; width: 100%; position: relative; flex-shrink: 0; box-shadow: 0 0 80px rgba(0,174,239,.1),0 40px 80px rgba(0,0,0,.4); animation: svcIn .3s cubic-bezier(.22,.68,0,1.08); margin: auto; }
     @keyframes svcIn { from { opacity:0; transform: translateY(20px) scale(.97); } to { opacity:1; transform: none; } }
     .svc-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.5); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; line-height: 1; transition: background .2s, color .2s; }
     .svc-close:hover { background: rgba(255,255,255,.14); color: #fff; }
@@ -614,7 +614,7 @@
       function openSvc(k){ var s=SVCS[k]; if(!s)return; current=s; document.getElementById('svc-modal-icon').textContent=s.icon; document.getElementById('svc-modal-name').textContent=s.name; document.getElementById('svc-modal-tagline').textContent=s.tagline; document.getElementById('svc-modal-desc').textContent=s.desc; document.getElementById('svc-features').innerHTML=s.features.map(function(f){return'<li>'+f+'</li>';}).join(''); document.getElementById('svc-plan').textContent=s.plan; overlay.classList.add('active'); document.body.style.overflow='hidden'; }
       function closeSvc(){ overlay.classList.remove('active'); document.body.style.overflow=''; }
       close.addEventListener('click', closeSvc);
-      overlay.addEventListener('click', function(e){ if(e.target===overlay) closeSvc(); });
+      overlay.addEventListener('click', function(e){ if(!e.target.closest('.svc-modal')) closeSvc(); });
       cta.addEventListener('click', function(){ var sv=current?current.svc_val:''; closeSvc(); setTimeout(function(){ var sel=document.getElementById('sbf-service'); if(sel&&sv) sel.value=sv; openBook(); }, 220); });
       document.querySelectorAll('[data-svc]').forEach(function(el){ el.addEventListener('click', function(e){ e.stopPropagation(); openSvc(el.dataset.svc); }); });
     })();
@@ -633,11 +633,11 @@
       function closeCal(showTy){ if(cal) cal.classList.remove('active'); if(calIf) calIf.src=''; if(showTy){ tyShown=false; document.body.style.overflow=''; if(ty) ty.classList.add('active'); } else document.body.style.overflow=''; }
       [nav,hero].forEach(function(b){ if(b) b.addEventListener('click', openBook); });
       if(bookClose) bookClose.addEventListener('click', closeBook);
-      if(book) book.addEventListener('click', function(e){ if(e.target===book) closeBook(); });
+      if(book) book.addEventListener('click', function(e){ if(!e.target.closest('.book-modal')) closeBook(); });
       if(calClose) calClose.addEventListener('click', function(){ closeCal(true); });
-      if(cal) cal.addEventListener('click', function(e){ if(e.target===cal) closeCal(true); });
+      if(cal) cal.addEventListener('click', function(e){ if(!e.target.closest('.cal-modal')) closeCal(true); });
       if(tyClose) tyClose.addEventListener('click', function(){ ty.classList.remove('active'); tyShown=false; });
-      if(ty) ty.addEventListener('click', function(e){ if(e.target===ty){ ty.classList.remove('active'); tyShown=false; } });
+      if(ty) ty.addEventListener('click', function(e){ if(!e.target.closest('.ty-modal')){ ty.classList.remove('active'); tyShown=false; } });
       document.addEventListener('keydown', function(e){ if(e.key!=='Escape')return; if(ty&&ty.classList.contains('active')){ ty.classList.remove('active'); tyShown=false; } else if(cal&&cal.classList.contains('active')) closeCal(true); else if(document.getElementById('svc-overlay').classList.contains('active')){ document.getElementById('svc-overlay').classList.remove('active'); document.body.style.overflow=''; } else if(book&&book.classList.contains('active')) closeBook(); });
       window.addEventListener('message', function(e){ if(!e.data)return; var m=typeof e.data==='string'?e.data:JSON.stringify(e.data); if(m.indexOf('booked')!==-1||m.indexOf('Booked')!==-1||m.indexOf('confirmed')!==-1){ closeCal(false); if(!tyShown){ tyShown=true; document.body.style.overflow=''; if(ty) ty.classList.add('active'); } } });
       var form=document.getElementById('sbfMain');

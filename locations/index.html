@@ -490,7 +490,7 @@ footer{background:var(--bg-card);border-top:1px solid var(--border);padding:48px
 </div>
 
 <script>
-(function(){var overlay=document.getElementById('bookOverlay');window.openBookModal=function(){overlay.style.display='flex';document.body.style.overflow='hidden';};window.closeBookModal=function(){overlay.style.display='none';document.body.style.overflow='';};overlay.addEventListener('click',function(e){if(e.target===overlay)closeBookModal();});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBookModal();});})();
+(function(){var overlay=document.getElementById('bookOverlay');window.openBookModal=function(){overlay.style.display='flex';document.body.style.overflow='hidden';};window.closeBookModal=function(){overlay.style.display='none';document.body.style.overflow='';};overlay.addEventListener('click',function(e){if(!e.target.closest('.book-inner'))closeBookModal();});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBookModal();});})();
 </script>
 
 <!-- GHL Chat Widget -->
