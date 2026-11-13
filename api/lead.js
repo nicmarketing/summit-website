@@ -6,13 +6,33 @@ const ALLOWED_ORIGINS = new Set([
   'https://go.summitmarketingms.com',
 ]);
 
+const GHL_HOST_SUFFIXES = [
+  '.leadconnectorhq.com',
+  '.msgsndr.com',
+  '.highlevel.com',
+  '.gohighlevel.com',
+];
+
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_SUBMISSIONS_PER_IP = 8;
 const recentSubmissions = new Map();
 
+function isAllowedOrigin(origin) {
+  if (!origin) return false;
+  if (ALLOWED_ORIGINS.has(origin)) return true;
+  try {
+    const url = new URL(origin);
+    const hostname = url.hostname.toLowerCase();
+    return url.protocol === 'https:'
+      && GHL_HOST_SUFFIXES.some(suffix => hostname.endsWith(suffix));
+  } catch {
+    return false;
+  }
+}
+
 function setCors(req, res) {
   const origin = req.headers.origin;
-  if (origin && ALLOWED_ORIGINS.has(origin)) {
+  if (isAllowedOrigin(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
     res.setHeader('Vary', 'Origin');
   }
@@ -68,7 +88,7 @@ async function verifyTurnstile(token, ip) {
       remoteip: ip,
     }),
   });
-  if (!response.ok) return { success: false };
+  if (!response.ok) return { success: false, errorCodes: [`siteverify-http-${response.status}`] };
   return response.json();
 }
 
@@ -86,24 +106,46 @@ export default async function handler(req, res) {
   }
 
   // Bots should never fill this field. Do not reveal which check rejected the request.
-  if (clean(body.website, 200) || looksLikeSpam(body)) {
+  if (clean(body.website, 200)) {
+    console.error('Lead rejected: honeypot field was filled');
+    return res.status(400).json({ ok: false, error: 'Unable to submit this request' });
+  }
+  if (looksLikeSpam(body)) {
+    console.error('Lead rejected: spam content pattern');
     return res.status(400).json({ ok: false, error: 'Unable to submit this request' });
   }
 
   const startedAt = Number(body.form_started_at);
   if (!Number.isFinite(startedAt) || Date.now() - startedAt < 1800 || Date.now() - startedAt > 24 * 60 * 60 * 1000) {
+    console.error('Lead rejected: invalid form_started_at');
     return res.status(400).json({ ok: false, error: 'Unable to submit this request' });
   }
 
   if (isRateLimited(ip)) {
+    console.error('Lead rejected: rate limit');
     return res.status(429).json({ ok: false, error: 'Too many attempts. Please try again later.' });
   }
 
   const token = clean(body['cf-turnstile-response'] || body.turnstile_token, 4096);
-  if (!token) return res.status(400).json({ ok: false, error: 'Unable to verify this request' });
+  if (!token) {
+    console.error('Lead rejected: missing Turnstile response');
+    return res.status(400).json({ ok: false, error: 'Unable to verify this request' });
+  }
 
   const verification = await verifyTurnstile(token, ip);
-  if (!verification.success || (verification.hostname && !verification.hostname.endsWith('summitmarketingms.com'))) {
+  if (!verification.success) {
+    console.error('Lead rejected: Turnstile verification failed', {
+      errorCodes: verification['error-codes'] || verification.errorCodes || [],
+      hostname: verification.hostname || null,
+      action: verification.action || null,
+    });
+    return res.status(403).json({ ok: false, error: 'Unable to verify this request' });
+  }
+  if (!verification.hostname || !verification.hostname.endsWith('summitmarketingms.com')) {
+    console.error('Lead rejected: Turnstile hostname mismatch', {
+      hostname: verification.hostname || null,
+      action: verification.action || null,
+    });
     return res.status(403).json({ ok: false, error: 'Unable to verify this request' });
   }
 

@@ -1250,28 +1250,45 @@ footer { border-top: 1px solid var(--border); padding: 48px 40px; }
   var SITE_KEY='0x4AAAAAAF_0Iv1pgPOM6D_7';
   var PROXY='https://www.summitmarketingms.com/api/lead';
   var FORMS={smfMain:{wrap:'smForm',suc:'smSuccess',btn:'smSubmitBtn'},smfMain2:{wrap:'smForm2',suc:'smSuccess2',btn:'smSubmitBtn2'},smfMain3:{wrap:'smForm3',suc:'smSuccess3',btn:'smSubmitBtn3'},smfLoc:{wrap:'smFormLoc',suc:'smSuccessLoc',btn:'smSubmitLoc'},sbfMain:{wrap:'sbForm',suc:'sbSuccess',btn:'sbSubmitBtn',cal:1}};
-  if(!document.querySelector('[data-smkt-ts]')){var s=document.createElement('script');s.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';s.async=true;s.setAttribute('data-smkt-ts','1');document.head.appendChild(s);}
+  if(!document.querySelector('[data-smkt-ts]')){var s=document.createElement('script');s.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';s.async=true;s.defer=true;s.setAttribute('data-smkt-ts','1');document.head.appendChild(s);}
   function withTs(fn){if(window.turnstile)return fn();var t=setInterval(function(){if(window.turnstile){clearInterval(t);fn();}},80);}
+  function hidden(form,name,value){var field=form.querySelector('[name="'+name+'"]');if(!field){field=document.createElement('input');field.type='hidden';field.name=name;form.appendChild(field);}field.value=value;}
   Object.keys(FORMS).forEach(function(id){
     var form=document.getElementById(id);if(!form)return;
     var c=FORMS[id],wrap=document.getElementById(c.wrap),suc=document.getElementById(c.suc),btn=document.getElementById(c.btn);
-    var hp=document.createElement('input');hp.type='hidden';hp.name='website';hp.value='';form.appendChild(hp);
-    var ta=document.createElement('input');ta.type='hidden';ta.name='form_started_at';ta.value=''+Date.now();form.appendChild(ta);
+    var originalButtonText=btn?btn.textContent:'';
+    function restore(){if(btn){btn.disabled=false;btn.textContent=originalButtonText;}}
+    hidden(form,'website','');
+    hidden(form,'form_started_at',''+Date.now());
     var box=document.createElement('div');box.id=id+'_ts';
+    box.style.display='none';
     if(btn&&btn.parentNode)btn.parentNode.insertBefore(box,btn);else form.appendChild(box);
     form.addEventListener('submit',function(e){
       e.preventDefault();
+      hidden(form,'website','');
+      hidden(form,'form_started_at',form.querySelector('[name="form_started_at"]').value||''+Date.now());
       if(btn){btn.disabled=true;btn.textContent='Sending…';}
       withTs(function(){
         var tsBox=document.getElementById(id+'_ts');tsBox.innerHTML='';
-        window.turnstile.render('#'+id+'_ts',{sitekey:SITE_KEY,size:'invisible',callback:function(token){
+        var widgetId=window.turnstile.render('#'+id+'_ts',{sitekey:SITE_KEY,size:'invisible',execution:'execute',appearance:'execute',callback:function(token){
           var p=new URLSearchParams(new FormData(form));p.set('cf-turnstile-response',token);
-          fetch(PROXY,{method:'POST',body:p}).catch(function(){});
-          if(c.cal){var bo=document.getElementById('book-overlay');if(bo)bo.classList.remove('active');document.body.style.overflow='';form.reset();if(typeof window.openCal==='function')window.openCal();}
-          else{if(wrap)wrap.style.display='none';if(suc)suc.style.display='flex';}
-        }});
+          fetch(PROXY,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:p}).then(function(response){
+            return response.json().catch(function(){return {};}).then(function(data){
+              if(!response.ok||data.ok!==true)throw new Error(data.error||'Unable to submit right now. Please try again.');
+              return data;
+            });
+          }).then(function(){
+            if(c.cal){var bo=document.getElementById('book-overlay');if(bo)bo.classList.remove('active');document.body.style.overflow='';form.reset();if(typeof window.openCal==='function')window.openCal();}
+            else{if(wrap)wrap.style.display='none';if(suc)suc.style.display='flex';}
+          }).catch(function(error){
+            restore();
+            window.alert(error.message||'Unable to submit right now. Please try again.');
+            if(window.turnstile)window.turnstile.reset(widgetId);
+          });
+        },'error-callback':function(){restore();window.alert('Unable to verify this request. Please try again.');},'expired-callback':function(){restore();window.alert('Verification expired. Please try again.');}});
+        window.turnstile.execute(widgetId);
       });
-    });
+    },true);
   });
 })();
 </script>
