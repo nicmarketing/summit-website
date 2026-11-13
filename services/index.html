@@ -514,7 +514,7 @@
         <h2 class="sm-title">Let's reach <span>new heights</span> together</h2>
         <p class="sm-sub">Tell us about your business and goals. We'll review your current marketing and show you exactly what's possible.</p>
         <div class="sm-divider"></div>
-        <form id="sbfMain" action="https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ">
+        <form id="sbfMain">
           <div class="sm-row">
             <div class="sm-group"><label class="sm-label" for="sbf-first">First Name *</label><input class="sm-input" type="text" id="sbf-first" name="first_name" placeholder="John" required /></div>
             <div class="sm-group"><label class="sm-label" for="sbf-last">Last Name *</label><input class="sm-input" type="text" id="sbf-last" name="last_name" placeholder="Smith" required /></div>
@@ -640,8 +640,6 @@
       if(ty) ty.addEventListener('click', function(e){ if(!e.target.closest('.ty-modal')){ ty.classList.remove('active'); tyShown=false; } });
       document.addEventListener('keydown', function(e){ if(e.key!=='Escape')return; if(ty&&ty.classList.contains('active')){ ty.classList.remove('active'); tyShown=false; } else if(cal&&cal.classList.contains('active')) closeCal(true); else if(document.getElementById('svc-overlay').classList.contains('active')){ document.getElementById('svc-overlay').classList.remove('active'); document.body.style.overflow=''; } else if(book&&book.classList.contains('active')) closeBook(); });
       window.addEventListener('message', function(e){ if(!e.data)return; var m=typeof e.data==='string'?e.data:JSON.stringify(e.data); if(m.indexOf('booked')!==-1||m.indexOf('Booked')!==-1||m.indexOf('confirmed')!==-1){ closeCal(false); if(!tyShown){ tyShown=true; document.body.style.overflow=''; if(ty) ty.classList.add('active'); } } });
-      var form=document.getElementById('sbfMain');
-      if(form){ form.addEventListener('submit', function(e){ e.preventDefault(); fetch(form.action,{method:'POST',body:new URLSearchParams(new FormData(form)),headers:{'Content-Type':'application/x-www-form-urlencoded'}}).catch(function(){}); closeBook(); form.reset(); openCal(); }); }
     })();
   </script>
 <script>
@@ -661,6 +659,36 @@
     p.style.cssText = 'left:' + (Math.random()*100).toFixed(1) + '%;top:' + (Math.random()*100).toFixed(1) + '%;width:' + size + 'px;height:' + size + 'px;background:' + col + op + ');animation-duration:' + dur + 's;animation-delay:' + del + 's;--dx:' + dx + 'px;';
     container.appendChild(p);
   }
+})();
+</script>
+<script>
+(function(){
+  var SITE_KEY='0x4AAAAAAF_0Iv1pgPOM6D_7';
+  var PROXY='https://www.summitmarketingms.com/api/lead';
+  var FORMS={smfMain:{wrap:'smForm',suc:'smSuccess',btn:'smSubmitBtn'},smfMain2:{wrap:'smForm2',suc:'smSuccess2',btn:'smSubmitBtn2'},smfMain3:{wrap:'smForm3',suc:'smSuccess3',btn:'smSubmitBtn3'},smfLoc:{wrap:'smFormLoc',suc:'smSuccessLoc',btn:'smSubmitLoc'},sbfMain:{wrap:'sbForm',suc:'sbSuccess',btn:'sbSubmitBtn',cal:1}};
+  if(!document.querySelector('[data-smkt-ts]')){var s=document.createElement('script');s.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';s.async=true;s.setAttribute('data-smkt-ts','1');document.head.appendChild(s);}
+  function withTs(fn){if(window.turnstile)return fn();var t=setInterval(function(){if(window.turnstile){clearInterval(t);fn();}},80);}
+  Object.keys(FORMS).forEach(function(id){
+    var form=document.getElementById(id);if(!form)return;
+    var c=FORMS[id],wrap=document.getElementById(c.wrap),suc=document.getElementById(c.suc),btn=document.getElementById(c.btn);
+    var hp=document.createElement('input');hp.type='hidden';hp.name='website';hp.value='';form.appendChild(hp);
+    var ta=document.createElement('input');ta.type='hidden';ta.name='form_started_at';ta.value=''+Date.now();form.appendChild(ta);
+    var box=document.createElement('div');box.id=id+'_ts';
+    if(btn&&btn.parentNode)btn.parentNode.insertBefore(box,btn);else form.appendChild(box);
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(btn){btn.disabled=true;btn.textContent='Sending…';}
+      withTs(function(){
+        var tsBox=document.getElementById(id+'_ts');tsBox.innerHTML='';
+        window.turnstile.render('#'+id+'_ts',{sitekey:SITE_KEY,size:'invisible',callback:function(token){
+          var p=new URLSearchParams(new FormData(form));p.set('cf-turnstile-response',token);
+          fetch(PROXY,{method:'POST',body:p}).catch(function(){});
+          if(c.cal){var bo=document.getElementById('book-overlay');if(bo)bo.classList.remove('active');document.body.style.overflow='';form.reset();if(typeof window.openCal==='function')window.openCal();}
+          else{if(wrap)wrap.style.display='none';if(suc)suc.style.display='flex';}
+        }});
+      });
+    });
+  });
 })();
 </script>
 </body>

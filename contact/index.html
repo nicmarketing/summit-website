@@ -1312,21 +1312,31 @@
 </script>
 <script>
 (function(){
-  var form=document.getElementById('smfMain'),wrap=document.getElementById('smForm'),success=document.getElementById('smSuccess'),btn=document.getElementById('smSubmitBtn');
-  if(!form)return;
-  form.addEventListener('submit',function(e){
-    e.preventDefault();btn.disabled=true;btn.textContent='Sending\u2026';
-    fetch('https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ',{method:'POST',body:new URLSearchParams(new FormData(form))}).catch(function(){});
-    wrap.style.display='none';success.style.display='flex';
-  });
-})();
-(function(){
-  var form=document.getElementById('smfMain2'),wrap=document.getElementById('smForm2'),success=document.getElementById('smSuccess2'),btn=document.getElementById('smSubmitBtn2');
-  if(!form)return;
-  form.addEventListener('submit',function(e){
-    e.preventDefault();btn.disabled=true;btn.textContent='Sending\u2026';
-    fetch('https://services.leadconnectorhq.com/hooks/ZQgxIJkBH8NFRqMczmMp/webhook-trigger/6jv8o52XCiPDo9WnWEgQ',{method:'POST',body:new URLSearchParams(new FormData(form))}).catch(function(){});
-    wrap.style.display='none';success.style.display='flex';
+  var SITE_KEY='0x4AAAAAAF_0Iv1pgPOM6D_7';
+  var PROXY='https://www.summitmarketingms.com/api/lead';
+  var FORMS={smfMain:{wrap:'smForm',suc:'smSuccess',btn:'smSubmitBtn'},smfMain2:{wrap:'smForm2',suc:'smSuccess2',btn:'smSubmitBtn2'},smfMain3:{wrap:'smForm3',suc:'smSuccess3',btn:'smSubmitBtn3'},smfLoc:{wrap:'smFormLoc',suc:'smSuccessLoc',btn:'smSubmitLoc'},sbfMain:{wrap:'sbForm',suc:'sbSuccess',btn:'sbSubmitBtn',cal:1}};
+  if(!document.querySelector('[data-smkt-ts]')){var s=document.createElement('script');s.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';s.async=true;s.setAttribute('data-smkt-ts','1');document.head.appendChild(s);}
+  function withTs(fn){if(window.turnstile)return fn();var t=setInterval(function(){if(window.turnstile){clearInterval(t);fn();}},80);}
+  Object.keys(FORMS).forEach(function(id){
+    var form=document.getElementById(id);if(!form)return;
+    var c=FORMS[id],wrap=document.getElementById(c.wrap),suc=document.getElementById(c.suc),btn=document.getElementById(c.btn);
+    var hp=document.createElement('input');hp.type='hidden';hp.name='website';hp.value='';form.appendChild(hp);
+    var ta=document.createElement('input');ta.type='hidden';ta.name='form_started_at';ta.value=''+Date.now();form.appendChild(ta);
+    var box=document.createElement('div');box.id=id+'_ts';
+    if(btn&&btn.parentNode)btn.parentNode.insertBefore(box,btn);else form.appendChild(box);
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(btn){btn.disabled=true;btn.textContent='Sending\u2026';}
+      withTs(function(){
+        var tsBox=document.getElementById(id+'_ts');tsBox.innerHTML='';
+        window.turnstile.render('#'+id+'_ts',{sitekey:SITE_KEY,size:'invisible',callback:function(token){
+          var p=new URLSearchParams(new FormData(form));p.set('cf-turnstile-response',token);
+          fetch(PROXY,{method:'POST',body:p}).catch(function(){});
+          if(c.cal){var bo=document.getElementById('book-overlay');if(bo)bo.classList.remove('active');document.body.style.overflow='';form.reset();if(typeof window.openCal==='function')window.openCal();}
+          else{if(wrap)wrap.style.display='none';if(suc)suc.style.display='flex';}
+        }});
+      });
+    });
   });
 })();
 </script>
