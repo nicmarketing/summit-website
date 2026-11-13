@@ -1,0 +1,113 @@
+/*
+  Summit Formfill — invisible Turnstile + Vercel lead proxy
+
+  Before pasting:
+  1. Replace TURNSTILE_SITE_KEY with the Cloudflare Turnstile site key.
+  2. Remove the old submit-handler script that posts directly to the GHL webhook.
+  3. Keep the existing form markup and form IDs: smfMain and smfMain2.
+*/
+(function () {
+  var TURNSTILE_SITE_KEY = '0x4AAAAAAF_0Iv1pgPOM6D_7';
+  var PROXY_URL = 'https://www.summitmarketingms.com/api/lead';
+  var forms = ['smfMain', 'smfMain2'];
+
+  function loadTurnstile(done) {
+    if (window.turnstile) return done();
+    var existing = document.querySelector('script[data-summit-turnstile]');
+    if (existing) {
+      existing.addEventListener('load', done, { once: true });
+      return;
+    }
+    var script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+    script.async = true;
+    script.defer = true;
+    script.dataset.summitTurnstile = 'true';
+    script.addEventListener('load', done, { once: true });
+    document.head.appendChild(script);
+  }
+
+  function addHidden(form, name, value) {
+    var field = form.querySelector('[name="' + name + '"]');
+    if (!field) {
+      field = document.createElement('input');
+      field.type = 'hidden';
+      field.name = name;
+      form.appendChild(field);
+    }
+    field.value = value;
+  }
+
+  function wireForm(formId) {
+    var form = document.getElementById(formId);
+    if (!form || form.dataset.summitProtected === 'true') return;
+    form.dataset.summitProtected = 'true';
+
+    var startedAt = Date.now();
+    var wrap = document.getElementById(formId === 'smfMain' ? 'smForm' : 'smForm2');
+    var success = document.getElementById(formId === 'smfMain' ? 'smSuccess' : 'smSuccess2');
+    var button = document.getElementById(formId === 'smfMain' ? 'smSubmitBtn' : 'smSubmitBtn2');
+    var challenge = document.createElement('div');
+    challenge.style.display = 'none';
+    form.appendChild(challenge);
+    addHidden(form, 'website', '');
+    addHidden(form, 'form_started_at', String(startedAt));
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      if (button) {
+        button.disabled = true;
+        button.textContent = 'Sending…';
+      }
+
+      function send(token) {
+        addHidden(form, 'cf-turnstile-response', token);
+        fetch(PROXY_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)),
+        })
+          .then(function (response) {
+            return response.json().catch(function () { return {}; }).then(function (data) {
+              if (!response.ok || !data.ok) throw new Error(data.error || 'Unable to submit');
+              return data;
+            });
+          })
+          .then(function () {
+            if (wrap) wrap.style.display = 'none';
+            if (success) success.style.display = 'flex';
+          })
+          .catch(function (error) {
+            if (button) {
+              button.disabled = false;
+              button.textContent = 'Book My Free Strategy Call →';
+            }
+            window.alert(error.message || 'Unable to submit right now. Please try again.');
+            if (window.turnstile && widgetId !== null) window.turnstile.reset(widgetId);
+          });
+      }
+
+      var widgetId = null;
+      loadTurnstile(function () {
+        widgetId = window.turnstile.render(challenge, {
+          sitekey: TURNSTILE_SITE_KEY,
+          size: 'invisible',
+          execution: 'execute',
+          appearance: 'execute',
+          callback: send,
+          'error-callback': function () {
+            if (button) {
+              button.disabled = false;
+              button.textContent = 'Book My Free Strategy Call →';
+            }
+            window.alert('Unable to verify this request. Please try again.');
+          },
+        });
+        window.turnstile.execute(widgetId);
+      });
+    }, true);
+  }
+
+  forms.forEach(wireForm);
+})();
