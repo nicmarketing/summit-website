@@ -141,6 +141,10 @@ export default async function handler(req, res) {
     });
     return res.status(403).json({ ok: false, error: 'Unable to verify this request' });
   }
+  console.info('Turnstile verification succeeded', {
+    hostname: verification.hostname || null,
+    action: verification.action || null,
+  });
   if (!verification.hostname || !verification.hostname.endsWith('summitmarketingms.com')) {
     console.error('Lead rejected: Turnstile hostname mismatch', {
       hostname: verification.hostname || null,
@@ -157,7 +161,14 @@ export default async function handler(req, res) {
   const companyName = clean(body.company_name, 160);
   const message = clean(body.message, 4000);
 
-  if (!firstName || !lastName || !/^\S+@\S+\.\S+$/.test(email) || !serviceInterest || body.sms_consent !== 'true') {
+  const missingRequired = [];
+  if (!firstName) missingRequired.push('first_name');
+  if (!lastName) missingRequired.push('last_name');
+  if (!/^\S+@\S+\.\S+$/.test(email)) missingRequired.push('email');
+  if (!serviceInterest) missingRequired.push('service_interest');
+  if (body.sms_consent !== 'true') missingRequired.push('sms_consent');
+  if (missingRequired.length) {
+    console.error('Lead rejected: required fields missing or invalid', { fields: missingRequired });
     return res.status(400).json({ ok: false, error: 'Please complete the required fields.' });
   }
 
