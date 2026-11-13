@@ -156,17 +156,16 @@ export default async function handler(req, res) {
   const firstName = clean(body.first_name, 80);
   const lastName = clean(body.last_name, 80);
   const email = clean(body.email, 254).toLowerCase();
-  const serviceInterest = clean(body.service_interest, 80);
+  const serviceInterest = clean(body.service_interest, 80) || 'Not Sure';
   const phone = clean(body.phone, 40);
   const companyName = clean(body.company_name, 160);
   const message = clean(body.message, 4000);
+  const smsConsent = body.sms_consent === 'true' ? 'true' : 'false';
 
   const missingRequired = [];
   if (!firstName) missingRequired.push('first_name');
   if (!lastName) missingRequired.push('last_name');
   if (!/^\S+@\S+\.\S+$/.test(email)) missingRequired.push('email');
-  if (!serviceInterest) missingRequired.push('service_interest');
-  if (body.sms_consent !== 'true') missingRequired.push('sms_consent');
   if (missingRequired.length) {
     console.error('Lead rejected: required fields missing or invalid', { fields: missingRequired });
     return res.status(400).json({ ok: false, error: 'Please complete the required fields.' });
@@ -180,7 +179,7 @@ export default async function handler(req, res) {
     company_name: companyName,
     service_interest: serviceInterest,
     message,
-    sms_consent: 'true',
+    sms_consent: smsConsent,
     source: 'Summit Marketing Website',
     lead_source: 'Website Contact Form',
   });
